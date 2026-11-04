@@ -1,0 +1,483 @@
+{
+  "pack": {
+    "id": "reading_daily_v1",
+    "description": "Read in Daily Life — original notices, emails, messages, schedules and web pages.",
+    "copyright_policy": "Original synthetic content. No operational ETS item copied."
+  },
+  "exercises": [
+    {
+      "id": "r_daily_001",
+      "section": "reading",
+      "task_type": "read_in_daily_life",
+      "difficulty": "B2",
+      "source_type": "ets_format_synthetic",
+      "source_reference": "PRD_TOEFL_2026.md seed r_daily_001 (explanations added)",
+      "tags": ["prd_seed"],
+      "stimulus": {
+        "format": "notice",
+        "title": "Library Study Rooms — Exam Week",
+        "body": "From Monday through Friday, group study rooms may be reserved for up to two hours per day. Reservations must be made online at least 30 minutes before use. Rooms left empty for more than 15 minutes may be reassigned. Individual students may use an unreserved room, but groups with a valid booking have priority. On Saturday and Sunday, rooms will be available on a first-come, first-served basis."
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "What is the main purpose of the notice?",
+          "options": [
+            "To announce special study-room rules during exam week",
+            "To explain why the library will close early",
+            "To recruit students to manage study rooms",
+            "To advertise newly constructed rooms"
+          ],
+          "answer_index": 0,
+          "skill": "purpose",
+          "explanation": "The title and every sentence describe how rooms may be used during exam week; nothing mentions closing, recruiting or new rooms."
+        },
+        {
+          "id": "q2",
+          "stem": "What can happen if a reserved room remains unused for more than 15 minutes?",
+          "options": [
+            "The reservation automatically extends",
+            "Another group may receive the room",
+            "The student loses library privileges",
+            "The room becomes unavailable for the day"
+          ],
+          "answer_index": 1,
+          "skill": "detail",
+          "explanation": "\"May be reassigned\" means the room can be given to someone else."
+        },
+        {
+          "id": "q3",
+          "stem": "What is different on the weekend?",
+          "options": [
+            "Students may reserve rooms for longer periods",
+            "Only groups may use the rooms",
+            "Advance reservations are not used",
+            "The library charges for room use"
+          ],
+          "answer_index": 2,
+          "skill": "inference",
+          "explanation": "\"First-come, first-served\" implies that no bookings are taken: whoever arrives first gets the room."
+        }
+      ]
+    },
+    {
+      "id": "r_daily_002",
+      "section": "reading",
+      "task_type": "read_in_daily_life",
+      "difficulty": "B2-C1",
+      "source_type": "ets_format_synthetic",
+      "stimulus": {
+        "format": "email",
+        "meta": [
+          { "label": "From", "value": "Housing Services" },
+          { "label": "To", "value": "All residents, Elmwood Hall" },
+          { "label": "Subject", "value": "Water shut-off on Thursday" }
+        ],
+        "body": "Dear residents,\n\nTo complete repairs to the main pipe, water to Elmwood Hall will be turned off on Thursday from 9 a.m. until approximately 2 p.m. Showers in the Fitness Center will remain open to residents with a valid ID during this time. If the work is finished early, we will not send a further message; simply check whether your taps are working. Please do not report the outage to the maintenance hotline unless water has not returned by 4 p.m.\n\nThank you for your patience,\nHousing Services"
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "What are residents advised to do if they need a shower on Thursday morning?",
+          "options": [
+            "Call the maintenance hotline",
+            "Use the facilities at the Fitness Center",
+            "Wait until Housing Services sends an update",
+            "Request a temporary room in another hall"
+          ],
+          "answer_index": 1,
+          "skill": "detail",
+          "explanation": "The email states that Fitness Center showers stay open to residents with an ID."
+        },
+        {
+          "id": "q2",
+          "stem": "What can be inferred about the end of the repairs?",
+          "options": [
+            "Residents will receive a second email when water returns",
+            "The exact finishing time is not certain",
+            "The work will continue until 4 p.m.",
+            "The repairs have already been delayed once"
+          ],
+          "answer_index": 1,
+          "skill": "inference",
+          "explanation": "\"Approximately 2 p.m.\" and \"if the work is finished early\" show the end time is uncertain. No second email will be sent."
+        }
+      ]
+    },
+    {
+      "id": "r_daily_003",
+      "section": "reading",
+      "task_type": "read_in_daily_life",
+      "difficulty": "C1",
+      "source_type": "ets_format_synthetic",
+      "stimulus": {
+        "format": "text_messages",
+        "title": "Group chat: Lab report",
+        "messages": [
+          { "sender": "Priya", "time": "4:12 PM", "text": "Just saw Dr. Okafor moved the lab report deadline to Monday." },
+          { "sender": "Tom", "time": "4:14 PM", "text": "Great, so we don't need to meet tomorrow?" },
+          { "sender": "Priya", "time": "4:15 PM", "text": "We still should. The new rubric wants a second data set, and the lab is closed all weekend." },
+          { "sender": "Mei", "time": "4:21 PM", "text": "I can't make it before noon. Could we do 1 o'clock instead of 10?" },
+          { "sender": "Tom", "time": "4:22 PM", "text": "Works for me. I'll book bench 3." }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "Why does Priya think the group should still meet tomorrow?",
+          "options": [
+            "The deadline has been moved earlier",
+            "Additional data must be collected while the lab is open",
+            "Dr. Okafor wants to see a draft of the report",
+            "Tom has not finished his part of the analysis"
+          ],
+          "answer_index": 1,
+          "skill": "detail",
+          "explanation": "She mentions the requirement for a second data set and that the lab is closed during the weekend, so tomorrow is the last chance."
+        },
+        {
+          "id": "q2",
+          "stem": "What will Tom most likely do next?",
+          "options": [
+            "Ask Dr. Okafor for an extension",
+            "Reserve a workspace in the lab for 1 o'clock",
+            "Cancel the meeting with Mei",
+            "Collect the data alone at 10 o'clock"
+          ],
+          "answer_index": 1,
+          "skill": "next_action",
+          "explanation": "Tom agrees to Mei's 1 o'clock suggestion and says he will book bench 3."
+        },
+        {
+          "id": "q3",
+          "stem": "In Tom's first message, what does he imply?",
+          "options": [
+            "He assumes the later deadline makes the meeting unnecessary",
+            "He is annoyed that the deadline has changed",
+            "He has already finished his section of the report",
+            "He did not know there was a lab report"
+          ],
+          "answer_index": 0,
+          "skill": "speaker_intent",
+          "explanation": "\"Great, so we don't need to meet tomorrow?\" shows he infers that more time means no meeting is needed — an assumption Priya corrects."
+        }
+      ]
+    },
+    {
+      "id": "r_daily_004",
+      "section": "reading",
+      "task_type": "read_in_daily_life",
+      "difficulty": "B2",
+      "source_type": "ets_format_synthetic",
+      "stimulus": {
+        "format": "schedule",
+        "title": "Campus Shuttle — Winter Break Service",
+        "table": {
+          "columns": ["Route", "Weekdays", "Weekends"],
+          "rows": [
+            ["North Loop", "Every 20 min, 7 a.m.–7 p.m.", "No service"],
+            ["Medical Campus Express", "Every 30 min, 6 a.m.–10 p.m.", "Every 60 min, 8 a.m.–8 p.m."],
+            ["Downtown Link", "Hourly, 9 a.m.–5 p.m.", "Hourly, 9 a.m.–5 p.m."]
+          ]
+        },
+        "footer": "All routes are suspended on December 25 and January 1. Real-time locations are shown in the CampusGo app."
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "A student wants to travel on the North Loop on a Saturday during winter break. What should the student expect?",
+          "options": [
+            "A bus every 20 minutes",
+            "A bus every hour",
+            "No bus on that route",
+            "Service only until 5 p.m."
+          ],
+          "answer_index": 2,
+          "skill": "detail",
+          "explanation": "The weekend column for the North Loop says \"No service\"."
+        },
+        {
+          "id": "q2",
+          "stem": "Which route operates the same timetable every day of the week except holidays?",
+          "options": ["North Loop", "Medical Campus Express", "Downtown Link", "None of the routes"],
+          "answer_index": 2,
+          "skill": "inference",
+          "explanation": "Only the Downtown Link has identical weekday and weekend entries (hourly, 9 a.m.–5 p.m.)."
+        }
+      ]
+    },
+    {
+      "id": "r_daily_005",
+      "section": "reading",
+      "task_type": "read_in_daily_life",
+      "difficulty": "C1",
+      "source_type": "ets_format_synthetic",
+      "stimulus": {
+        "format": "webpage",
+        "title": "Graduate Writing Center — Appointment Policy",
+        "body": "Consultations last 50 minutes and may be booked up to two weeks in advance. Each student may hold one future appointment at a time; a new booking becomes possible once the current one has taken place. Please upload your draft at least 24 hours beforehand so that your consultant can read it. If you upload later, the session will still go ahead, but it will focus on the sections you choose to read aloud. Two missed appointments without notice in a semester will suspend online booking; you may then use drop-in hours only."
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "According to the page, what happens if a draft is uploaded less than a day before the session?",
+          "options": [
+            "The appointment is cancelled automatically",
+            "The consultant reviews only the parts the student reads during the session",
+            "The student must wait two weeks for a new appointment",
+            "The session is shortened to 25 minutes"
+          ],
+          "answer_index": 1,
+          "skill": "detail",
+          "explanation": "Late uploads do not cancel the session; it focuses on the sections the student reads aloud."
+        },
+        {
+          "id": "q2",
+          "stem": "A student has an appointment next Tuesday and wants to book another for the following week. What is true?",
+          "options": [
+            "The student can book both now",
+            "The student must use drop-in hours instead",
+            "The student can book the second appointment only after Tuesday's session",
+            "The student must upload both drafts in advance"
+          ],
+          "answer_index": 2,
+          "skill": "inference",
+          "explanation": "Only one future appointment is allowed; a new booking becomes possible once the current one has taken place."
+        },
+        {
+          "id": "q3",
+          "stem": "The word \"suspend\" in the passage is closest in meaning to",
+          "options": ["delay", "temporarily stop", "permanently cancel", "investigate"],
+          "answer_index": 1,
+          "skill": "vocabulary",
+          "highlight": "suspend",
+          "explanation": "Online booking is stopped for a period, and drop-in hours remain available — a temporary stop, not a permanent cancellation."
+        }
+      ]
+    },
+    {
+      "id": "r_daily_006",
+      "section": "reading",
+      "task_type": "read_in_daily_life",
+      "difficulty": "B2-C1",
+      "source_type": "ets_format_synthetic",
+      "stimulus": {
+        "format": "advertisement",
+        "title": "Room available — Maple Street (shared house)",
+        "body": "Furnished room in a quiet four-person house, a 10-minute walk from campus. Rent is $640 per month, including internet and water; electricity is split equally among housemates. The lease runs from September to May, but subletting over the winter break is permitted with notice. No pets, as one housemate has allergies. We are looking for a graduate student or a final-year undergraduate. Viewings on weekday evenings only — message Daniel."
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "Which cost is NOT included in the monthly rent?",
+          "options": ["Internet", "Water", "Electricity", "Furniture"],
+          "answer_index": 2,
+          "skill": "detail",
+          "explanation": "Electricity is split among housemates separately; internet and water are included and the room is furnished."
+        },
+        {
+          "id": "q2",
+          "stem": "Who would most likely be considered for the room?",
+          "options": [
+            "A first-year student with a cat",
+            "A master's student who plans to go home in December",
+            "A professor looking for a family apartment",
+            "A student who can only visit on Saturday"
+          ],
+          "answer_index": 1,
+          "skill": "inference",
+          "explanation": "Graduate students are welcome and subletting over winter break is allowed. Pets are excluded, and viewings are on weekday evenings only."
+        }
+      ]
+    },
+    {
+      "id": "r_daily_007",
+      "section": "reading",
+      "task_type": "read_in_daily_life",
+      "difficulty": "C1-C2",
+      "source_type": "ets_format_synthetic",
+      "stimulus": {
+        "format": "memo",
+        "title": "Memo — Department of Chemistry",
+        "meta": [
+          { "label": "To", "value": "Teaching assistants" },
+          { "label": "Re", "value": "Grading of Lab 4" }
+        ],
+        "body": "Several students have asked why their Lab 4 scores differ across sections. Having reviewed a sample, we found that some sections deducted points for missing units while others did not. Going forward, please apply the rubric exactly as written: missing units cost one point per table, not per value. Rather than regrading every report, we will adjust affected scores automatically. Students who believe an error remains should contact their own TA, not the course coordinator, by Friday."
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "Why was the memo written?",
+          "options": [
+            "To announce that Lab 4 has been cancelled",
+            "To correct inconsistent grading across sections",
+            "To introduce a new rubric for future labs",
+            "To ask teaching assistants to regrade every report"
+          ],
+          "answer_index": 1,
+          "skill": "purpose",
+          "explanation": "Sections applied the unit deduction differently; the memo clarifies the rule. It explicitly rejects regrading every report."
+        },
+        {
+          "id": "q2",
+          "stem": "A report has three values without units, all in the same table. How many points should be deducted for missing units?",
+          "options": ["None", "One", "Two", "Three"],
+          "answer_index": 1,
+          "skill": "detail",
+          "explanation": "The rule is one point per table, not per value."
+        },
+        {
+          "id": "q3",
+          "stem": "What can be inferred about the course coordinator?",
+          "options": [
+            "The coordinator wrote the original rubric incorrectly",
+            "The coordinator does not want to handle individual score complaints",
+            "The coordinator will regrade all the reports personally",
+            "The coordinator teaches one of the lab sections"
+          ],
+          "answer_index": 1,
+          "skill": "inference",
+          "explanation": "Students are told to contact their own TA, \"not the course coordinator\", which implies the coordinator is not processing individual queries."
+        }
+      ]
+    },
+    {
+      "id": "r_daily_008",
+      "section": "reading",
+      "task_type": "read_in_daily_life",
+      "difficulty": "B2",
+      "source_type": "ets_format_synthetic",
+      "stimulus": {
+        "format": "menu",
+        "title": "Riverside Café — Weekday Lunch",
+        "table": {
+          "columns": ["Item", "Price", "Notes"],
+          "rows": [
+            ["Soup of the day + bread", "$5.50", "Vegetarian on Mon/Wed/Fri"],
+            ["Grilled chicken wrap", "$7.25", "Contains nuts"],
+            ["Lentil salad bowl", "$6.75", "Vegan; gluten-free"],
+            ["Meal deal: any main + drink", "$8.50", "11:30–1:30 only"]
+          ]
+        },
+        "footer": "Show a valid student ID for 10% off items not already discounted."
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "A student with a nut allergy who does not eat meat wants lunch on a Tuesday. Which item is the safest choice?",
+          "options": ["Soup of the day", "Grilled chicken wrap", "Lentil salad bowl", "Any item with the meal deal"],
+          "answer_index": 2,
+          "skill": "inference",
+          "explanation": "The wrap contains nuts and meat; the soup is vegetarian only on Mon/Wed/Fri. The lentil bowl is vegan."
+        },
+        {
+          "id": "q2",
+          "stem": "What is true about the student discount?",
+          "options": [
+            "It can be added to the meal deal",
+            "It applies only between 11:30 and 1:30",
+            "It cannot be combined with the meal deal",
+            "It is available only on weekends"
+          ],
+          "answer_index": 2,
+          "skill": "detail",
+          "explanation": "The discount applies to items \"not already discounted\"; the meal deal is itself a discount."
+        }
+      ]
+    },
+    {
+      "id": "r_daily_009",
+      "section": "reading",
+      "task_type": "read_in_daily_life",
+      "difficulty": "C1",
+      "source_type": "ets_format_synthetic",
+      "stimulus": {
+        "format": "form",
+        "title": "Course Withdrawal Request — Instructions",
+        "body": "Use this form to withdraw from a single course after the add/drop period. Withdrawals submitted by the end of week 8 appear as \"W\" on your transcript and do not affect your grade point average. After week 8, a withdrawal requires documented medical or family circumstances and the approval of the Dean's Office. International students must also obtain a signature from an immigration advisor, since dropping below full-time enrollment may affect visa status. Tuition is not refunded for withdrawals after the add/drop period."
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "What happens to a student who withdraws from a course in week 6?",
+          "options": [
+            "The student receives a partial tuition refund",
+            "The course is removed from the transcript entirely",
+            "A \"W\" appears, but the grade point average is unaffected",
+            "The student needs approval from the Dean's Office"
+          ],
+          "answer_index": 2,
+          "skill": "detail",
+          "explanation": "Before the end of week 8, withdrawals show as \"W\" without affecting the GPA. Dean's approval is only needed after week 8."
+        },
+        {
+          "id": "q2",
+          "stem": "Why must international students consult an immigration advisor?",
+          "options": [
+            "Because their tuition is calculated differently",
+            "Because a reduced course load could have consequences for their visa",
+            "Because the Dean's Office does not process their forms",
+            "Because they cannot withdraw after week 8"
+          ],
+          "answer_index": 1,
+          "skill": "detail",
+          "explanation": "The form explains that falling below full-time enrollment may affect visa status."
+        },
+        {
+          "id": "q3",
+          "stem": "The form suggests that the add/drop period",
+          "options": [
+            "ends after week 8",
+            "is the only time a full refund is possible",
+            "does not apply to international students",
+            "requires a medical certificate"
+          ],
+          "answer_index": 1,
+          "skill": "inference",
+          "explanation": "Tuition is not refunded for withdrawals after add/drop, which implies refunds are only possible during it."
+        }
+      ]
+    },
+    {
+      "id": "r_daily_010",
+      "section": "reading",
+      "task_type": "read_in_daily_life",
+      "difficulty": "C1-C2",
+      "source_type": "ets_format_synthetic",
+      "stimulus": {
+        "format": "social_post",
+        "title": "Campus Sustainability Office",
+        "body": "Update on the reusable-cup pilot: in its first month, disposable cup use in the two participating cafés fell by 41%. That's encouraging, but not quite the whole story — some of you told us you simply bought drinks elsewhere to avoid the deposit. So from next month, all six campus cafés will take part, and the deposit will drop from $2 to $1. Return points will also move closer to the lecture halls. Keep the feedback coming!"
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "Why does the office say the 41% figure is \"not quite the whole story\"?",
+          "options": [
+            "The figure was calculated incorrectly",
+            "Some customers avoided the scheme by going to other cafés",
+            "Disposable cups were still given away for free",
+            "Only two cafés reported their results"
+          ],
+          "answer_index": 1,
+          "skill": "rhetorical_function",
+          "explanation": "Part of the decrease came from students buying drinks elsewhere, so the figure overstates the real reduction."
+        },
+        {
+          "id": "q2",
+          "stem": "Which change is intended to address the problem described in the post?",
+          "options": [
+            "Publishing monthly results online",
+            "Including every campus café in the scheme",
+            "Charging customers for disposable cups",
+            "Selling reusable cups at a discount"
+          ],
+          "answer_index": 1,
+          "skill": "inference",
+          "explanation": "If all cafés participate, students can no longer avoid the deposit by switching café. (The lower deposit and closer return points help too, but those options are not listed.)"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "pack": {
+    "id": "listening_announcement_v1",
+    "description": "Listen to an Announcement — 40–85 word campus and academic announcements, two questions each.",
+    "copyright_policy": "Original synthetic content. No operational ETS item copied."
+  },
+  "exercises": [
+    {
+      "id": "l_announcement_001", "section": "listening", "task_type": "announcement", "difficulty": "B2", "source_type": "ets_format_synthetic",
+      "source_reference": "PRD_TOEFL_2026.md seed l_announcement_001", "tags": ["prd_seed"],
+      "context": "Listen to an announcement made to students.",
+      "audio": [{ "speaker": "Announcer", "voice": "female", "text": "Attention students registered for tomorrow's career workshop. Because the Student Center auditorium is being repaired, the workshop has been moved to Room 204 of the Business Building. The starting time remains ten o'clock. Please bring your student identification card for check-in, and arrive fifteen minutes early if you would like an individual résumé review." }],
+      "questions": [
+        { "id": "q1", "stem": "Why is the announcement being made?", "options": ["To cancel a workshop", "To announce a change of location", "To recruit résumé reviewers", "To change the starting time"], "answer_index": 1, "skill": "purpose", "explanation": "The workshop moved to Room 204; the time remains the same." },
+        { "id": "q2", "stem": "What should students do if they want a résumé review?", "options": ["Register again online", "Bring two identification cards", "Arrive early", "Go to the Student Center first"], "answer_index": 2, "skill": "detail", "explanation": "Arrive fifteen minutes early for an individual review." }
+      ]
+    },
+    {
+      "id": "l_announcement_002", "section": "listening", "task_type": "announcement", "difficulty": "B2-C1", "source_type": "ets_format_synthetic",
+      "context": "Listen to an announcement at the beginning of a class.",
+      "audio": [{ "speaker": "Professor", "voice": "male", "text": "Before we start, a quick note about the midterm. Several of you asked whether calculators are allowed. They are, but only the basic models listed on the course page, not graphing calculators. Also, the exam will now cover chapters one through six rather than seven, since we didn't finish chapter seven in time. Review sessions are on Monday evening." }],
+      "questions": [
+        { "id": "q1", "stem": "What change does the professor announce about the exam?", "options": ["It has been moved to Monday", "It will cover fewer chapters than planned", "Graphing calculators are now allowed", "Review sessions have been cancelled"], "answer_index": 1, "skill": "detail", "explanation": "Chapters one to six instead of seven, because chapter seven was not finished." },
+        { "id": "q2", "stem": "What can be inferred about the calculators?", "options": ["Students may not use any calculator", "Some students may need to check whether their calculator is permitted", "The professor will provide calculators", "Only graphing calculators are permitted"], "answer_index": 1, "skill": "inference", "explanation": "Only models listed on the course page are allowed, so students should check theirs." }
+      ]
+    },
+    {
+      "id": "l_announcement_003", "section": "listening", "task_type": "announcement", "difficulty": "C1", "source_type": "ets_format_synthetic",
+      "context": "Listen to an announcement on the university radio station.",
+      "audio": [{ "speaker": "Announcer", "voice": "female", "text": "Congratulations to the university debate team, which won the regional championship last weekend after defeating twelve other universities. The team will represent the region at the national finals in April. To help cover travel costs, team members will be selling coffee and pastries outside the main library every morning next week. All proceeds go directly to the trip." }],
+      "questions": [
+        { "id": "q1", "stem": "What is the main purpose of the announcement?", "options": ["To recruit new debate team members", "To report a team's success and ask for support", "To advertise a new café in the library", "To announce the results of the national finals"], "answer_index": 1, "skill": "purpose", "explanation": "It reports the regional win and promotes a fundraiser for the trip." },
+        { "id": "q2", "stem": "Why will the team be selling food?", "options": ["To celebrate their victory", "To raise money for travel to the finals", "To attract students to the library", "To pay for a new coach"], "answer_index": 1, "skill": "detail", "explanation": "Proceeds help cover travel costs to the national finals." }
+      ]
+    },
+    {
+      "id": "l_announcement_004", "section": "listening", "task_type": "announcement", "difficulty": "B2", "source_type": "ets_format_synthetic",
+      "context": "Listen to an announcement in a university library.",
+      "audio": [{ "speaker": "Announcer", "voice": "male", "text": "Good evening. The library will close in thirty minutes. Please begin gathering your belongings and bring any books you wish to borrow to the front desk within the next fifteen minutes, as the checkout system shuts down before closing. Group study rooms must be vacated now so that they can be cleaned. Thank you, and good night." }],
+      "questions": [
+        { "id": "q1", "stem": "Why should students go to the front desk soon?", "options": ["To return their keys", "Because checkout stops before the library closes", "To book a study room for tomorrow", "Because the desk is being cleaned"], "answer_index": 1, "skill": "detail", "explanation": "The checkout system shuts down before closing, so books must be brought within fifteen minutes." },
+        { "id": "q2", "stem": "What are students in group study rooms asked to do?", "options": ["Stay for fifteen more minutes", "Leave the rooms immediately", "Clean the rooms themselves", "Move to the front desk"], "answer_index": 1, "skill": "detail", "explanation": "Rooms \"must be vacated now\" for cleaning." }
+      ]
+    },
+    {
+      "id": "l_announcement_005", "section": "listening", "task_type": "announcement", "difficulty": "C1-C2", "source_type": "ets_format_synthetic",
+      "context": "Listen to an announcement made by a department administrator.",
+      "audio": [{ "speaker": "Administrator", "voice": "female", "text": "A reminder to all graduate students: travel grant applications for spring conferences are due on March first. This year, priority will go to students presenting their own research rather than attending only. Because the budget is smaller than last year's, awards are capped at five hundred dollars, so please also apply to the Graduate School's fund if your costs are higher." }],
+      "questions": [
+        { "id": "q1", "stem": "Which applicants are most likely to receive funding?", "options": ["Students attending their first conference", "Students who will present their own research", "Students with the highest travel costs", "Students who applied last year"], "answer_index": 1, "skill": "detail", "explanation": "Priority goes to students presenting their own research." },
+        { "id": "q2", "stem": "Why does the administrator mention the Graduate School's fund?", "options": ["Because the department fund may not cover all expenses", "Because the department fund has been closed", "Because its deadline is earlier", "Because only first-year students can apply to it"], "answer_index": 0, "skill": "inference", "explanation": "Awards are capped at five hundred dollars, so students with higher costs need another source." }
+      ]
+    },
+    {
+      "id": "l_announcement_006", "section": "listening", "task_type": "announcement", "difficulty": "B2-C1", "source_type": "ets_format_synthetic",
+      "context": "Listen to an announcement made in a residence hall.",
+      "audio": [{ "speaker": "Resident advisor", "voice": "male", "text": "Hi everyone. The fire alarm system will be tested on Thursday between ten and noon. The alarm may sound several times, but you do not need to leave the building unless you hear the alarm together with a message telling you to evacuate. Please make sure nothing is blocking the hallway exits before Thursday." }],
+      "questions": [
+        { "id": "q1", "stem": "When should residents leave the building on Thursday?", "options": ["Every time the alarm sounds", "Only if a spoken evacuation message accompanies the alarm", "At ten o'clock exactly", "After noon"], "answer_index": 1, "skill": "detail", "explanation": "Leave only if the alarm comes with a message telling you to evacuate." },
+        { "id": "q2", "stem": "What are residents asked to do before the test?", "options": ["Sign a safety form", "Clear the exits in the hallways", "Leave their doors open", "Attend a safety meeting"], "answer_index": 1, "skill": "next_action", "explanation": "Make sure nothing blocks the hallway exits." }
+      ]
+    },
+    {
+      "id": "l_announcement_007", "section": "listening", "task_type": "announcement", "difficulty": "C1", "source_type": "ets_format_synthetic",
+      "context": "Listen to an announcement at the start of a science lecture.",
+      "audio": [{ "speaker": "Professor", "voice": "female", "text": "Before we begin today, I want to recognize Daniel Kim, a student in this course, whose research on soil bacteria has just been accepted for publication. That is a rare achievement for an undergraduate. Daniel has agreed to give a short talk about the project in our last session, so start thinking about questions you might ask him." }],
+      "questions": [
+        { "id": "q1", "stem": "What is the purpose of the announcement?", "options": ["To introduce a guest lecturer from another university", "To praise a student's accomplishment", "To change the course schedule", "To recruit students for a research project"], "answer_index": 1, "skill": "purpose", "explanation": "She recognizes Daniel's research being accepted for publication." },
+        { "id": "q2", "stem": "What are students asked to do?", "options": ["Read Daniel's article tonight", "Prepare questions for a future talk", "Volunteer in Daniel's laboratory", "Submit their own research"], "answer_index": 1, "skill": "next_action", "explanation": "\"Start thinking about questions you might ask him\" for the last session." }
+      ]
+    },
+    {
+      "id": "l_announcement_008", "section": "listening", "task_type": "announcement", "difficulty": "B2", "source_type": "ets_format_synthetic",
+      "context": "Listen to an announcement on a campus bus.",
+      "audio": [{ "speaker": "Driver", "voice": "male", "text": "Attention passengers. Due to road construction on Main Street, this bus will not stop at the Science Center today. Passengers for the Science Center should get off at the next stop, the Arts Building, and walk about five minutes east. Regular service will resume tomorrow morning. We apologize for the inconvenience." }],
+      "questions": [
+        { "id": "q1", "stem": "Why will the bus not stop at the Science Center?", "options": ["The Science Center is closed", "There is construction on the road", "The bus is running late", "The driver is new"], "answer_index": 1, "skill": "detail", "explanation": "Road construction on Main Street." },
+        { "id": "q2", "stem": "What should passengers going to the Science Center do?", "options": ["Wait for the next bus", "Stay on until the end of the route", "Get off at the Arts Building and walk", "Take a taxi from Main Street"], "answer_index": 2, "skill": "next_action", "explanation": "Get off at the Arts Building and walk five minutes east." }
+      ]
+    },
+    {
+      "id": "l_announcement_009", "section": "listening", "task_type": "announcement", "difficulty": "C2", "source_type": "ets_format_synthetic",
+      "context": "Listen to an announcement made by a course instructor.",
+      "audio": [{ "speaker": "Instructor", "voice": "female", "text": "I've had a number of questions about the use of AI tools in the final paper. To be clear: you may use them to check grammar or to brainstorm, but any text they generate must not appear in your paper, and you must describe how you used them in a short appendix. Papers without that appendix will be returned ungraded." }],
+      "questions": [
+        { "id": "q1", "stem": "According to the instructor, which use of AI tools is allowed?", "options": ["Generating paragraphs for the paper", "Checking grammar", "Writing the appendix", "Summarizing the readings in the final text"], "answer_index": 1, "skill": "detail", "explanation": "Checking grammar and brainstorming are allowed; generated text must not appear." },
+        { "id": "q2", "stem": "What will happen to a paper submitted without the appendix?", "options": ["It will lose a few points", "It will be returned without a grade", "It will be checked by software", "It will be accepted if no AI was used"], "answer_index": 1, "skill": "detail", "explanation": "\"Papers without that appendix will be returned ungraded.\"" }
+      ]
+    }
+  ]
+}

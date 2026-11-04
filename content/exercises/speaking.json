@@ -1,0 +1,111 @@
+{
+  "pack": {
+    "id": "speaking_v1",
+    "description": "Listen and Repeat (7 sentences of increasing length) and Take an Interview (4 questions, 45 s each).",
+    "copyright_policy": "Original synthetic content. No operational ETS item copied."
+  },
+  "exercises": [
+    {
+      "id": "s_repeat_001", "section": "speaking", "task_type": "listen_and_repeat", "difficulty": "B2-C1", "source_type": "ets_format_synthetic",
+      "source_reference": "PRD_TOEFL_2026.md seed s_repeat_001 (item 7 shortened from ~35 to ~30 syllables)", "tags": ["prd_seed"],
+      "scenario": "You are training to help new students find services in the university library. Listen to your supervisor and repeat exactly what you hear.",
+      "speaker_voice": "female",
+      "items": [
+        { "index": 1, "text": "Welcome to the library.", "response_seconds": 8 },
+        { "index": 2, "text": "The information desk is downstairs.", "response_seconds": 8 },
+        { "index": 3, "text": "Students can borrow laptops near the main entrance.", "response_seconds": 9 },
+        { "index": 4, "text": "Please return reserved books to the desk before closing time.", "response_seconds": 10 },
+        { "index": 5, "text": "If you need a quiet place to work, several study rooms are available upstairs.", "response_seconds": 11 },
+        { "index": 6, "text": "Students who are preparing group presentations can reserve the media room through the library website.", "response_seconds": 12 },
+        { "index": 7, "text": "Before you leave, remember that borrowed equipment must be returned to the service desk, not the book-return boxes.", "response_seconds": 12 }
+      ]
+    },
+    {
+      "id": "s_repeat_002", "section": "speaking", "task_type": "listen_and_repeat", "difficulty": "C1", "source_type": "ets_format_synthetic",
+      "scenario": "You are volunteering at a university open day. Listen to the event coordinator and repeat exactly what you hear.",
+      "speaker_voice": "male",
+      "items": [
+        { "index": 1, "text": "Tours begin at ten.", "response_seconds": 8 },
+        { "index": 2, "text": "Visitors should collect a map at the entrance.", "response_seconds": 8 },
+        { "index": 3, "text": "The science building is on the left side of the main square.", "response_seconds": 9 },
+        { "index": 4, "text": "Parents who have questions about housing can speak to the staff in the lobby.", "response_seconds": 10 },
+        { "index": 5, "text": "If a group arrives late, please take them directly to the welcome talk in the main hall.", "response_seconds": 11 },
+        { "index": 6, "text": "Students who want to attend a lecture must register at the information table before eleven.", "response_seconds": 12 },
+        { "index": 7, "text": "Because the east entrance is closed today, visitors with mobility needs should use the elevator behind the library.", "response_seconds": 12 }
+      ]
+    },
+    {
+      "id": "s_repeat_003", "section": "speaking", "task_type": "listen_and_repeat", "difficulty": "C1-C2", "source_type": "ets_format_synthetic",
+      "scenario": "You are starting work as an assistant in a chemistry teaching laboratory. Listen to the lab manager and repeat exactly what you hear.",
+      "speaker_voice": "female",
+      "items": [
+        { "index": 1, "text": "Always wear your goggles.", "response_seconds": 8 },
+        { "index": 2, "text": "Gloves are kept in the cabinet by the door.", "response_seconds": 8 },
+        { "index": 3, "text": "Each student needs to sign the safety form before starting.", "response_seconds": 9 },
+        { "index": 4, "text": "Chemical waste should never be poured into the sinks along the wall.", "response_seconds": 10 },
+        { "index": 5, "text": "If anyone spills a liquid, tell them to step back and call you immediately.", "response_seconds": 11 },
+        { "index": 6, "text": "The instructions for each experiment have been posted online, but printed copies are available on request.", "response_seconds": 12 },
+        { "index": 7, "text": "At the end of each session, check that the gas taps are turned off and that all the equipment is back on the shelves.", "response_seconds": 12 }
+      ]
+    },
+    {
+      "id": "s_repeat_004", "section": "speaking", "task_type": "listen_and_repeat", "difficulty": "C2", "source_type": "ets_format_synthetic",
+      "scenario": "You are helping at the reception desk of a student health center. Listen to the nurse and repeat exactly what you hear.",
+      "speaker_voice": "male",
+      "items": [
+        { "index": 1, "text": "Please take a number.", "response_seconds": 8 },
+        { "index": 2, "text": "The doctor will see you in a few minutes.", "response_seconds": 8 },
+        { "index": 3, "text": "Remember to bring your insurance card to every appointment.", "response_seconds": 9 },
+        { "index": 4, "text": "Students who feel unwell after hours can call the advice line for help.", "response_seconds": 10 },
+        { "index": 5, "text": "Vaccination appointments can be booked online, although walk-in visits are also possible.", "response_seconds": 11 },
+        { "index": 6, "text": "If you have been prescribed new medication, the pharmacist will explain how and when it should be taken.", "response_seconds": 12 },
+        { "index": 7, "text": "Patients whose symptoms have not improved within three days should come back, even after a successful first visit.", "response_seconds": 12 }
+      ]
+    },
+    {
+      "id": "s_interview_001", "section": "speaking", "task_type": "take_an_interview", "difficulty": "B2-C1", "source_type": "ets_format_synthetic",
+      "source_reference": "PRD_TOEFL_2026.md seed s_interview_001", "tags": ["prd_seed"],
+      "scenario": "You are participating in a university research study about students' use of artificial intelligence tools.",
+      "interviewer_voice": "female", "response_seconds": 45,
+      "questions": [
+        { "index": 1, "prompt": "Think about the last time you used an AI tool for studying. What did you use it for, and was it useful?", "level": "personal_experience" },
+        { "index": 2, "prompt": "Some students prefer using AI tools alone, while others prefer discussing difficult material with classmates. Which approach works better for you and why?", "level": "preference" },
+        { "index": 3, "prompt": "Some instructors worry that frequent use of AI may reduce students' ability to think independently. Do you think this concern is justified? Why or why not?", "level": "general_opinion" },
+        { "index": 4, "prompt": "Should universities establish common rules for how AI tools may be used in coursework, or should individual professors decide? Explain your position.", "level": "policy_opinion" }
+      ]
+    },
+    {
+      "id": "s_interview_002", "section": "speaking", "task_type": "take_an_interview", "difficulty": "C1", "source_type": "ets_format_synthetic",
+      "scenario": "You are taking part in a study by the city transport department about how students travel to campus.",
+      "interviewer_voice": "male", "response_seconds": 45,
+      "questions": [
+        { "index": 1, "prompt": "How do you usually get to your classes, and how long does the journey take?", "level": "personal_experience" },
+        { "index": 2, "prompt": "If the bus service near your home became twice as frequent, would you change the way you travel? Why or why not?", "level": "preference" },
+        { "index": 3, "prompt": "Some people believe that cities should make it more expensive to drive into the center in order to reduce traffic. What is your opinion?", "level": "general_opinion" },
+        { "index": 4, "prompt": "Looking ahead twenty years, do you think most students will still need to travel to campus every day? Explain your view.", "level": "policy_opinion" }
+      ]
+    },
+    {
+      "id": "s_interview_003", "section": "speaking", "task_type": "take_an_interview", "difficulty": "C1-C2", "source_type": "ets_format_synthetic",
+      "scenario": "A researcher is interviewing students about how they balance part-time work and university studies.",
+      "interviewer_voice": "female", "response_seconds": 45,
+      "questions": [
+        { "index": 1, "prompt": "Have you ever had a job while studying? Describe what you did and how it affected your studies.", "level": "personal_experience" },
+        { "index": 2, "prompt": "Would you rather have a job related to your field of study that pays less, or an unrelated job that pays more? Why?", "level": "preference" },
+        { "index": 3, "prompt": "Some people argue that working while studying teaches valuable skills that classes cannot. Others say it distracts students from learning. What do you think?", "level": "general_opinion" },
+        { "index": 4, "prompt": "Should universities limit the number of hours their students are allowed to work during the semester? Explain your position.", "level": "policy_opinion" }
+      ]
+    },
+    {
+      "id": "s_interview_004", "section": "speaking", "task_type": "take_an_interview", "difficulty": "C2", "source_type": "ets_format_synthetic",
+      "scenario": "You are being interviewed for a campus podcast about learning and memory.",
+      "interviewer_voice": "male", "response_seconds": 45,
+      "questions": [
+        { "index": 1, "prompt": "Tell me about a skill you learned outside school. How did you go about learning it?", "level": "personal_experience" },
+        { "index": 2, "prompt": "When you prepare for an important exam, do you prefer to study a little every day or in a few long sessions? Why?", "level": "preference" },
+        { "index": 3, "prompt": "Many people believe that memorizing information is less important now that we can look everything up online. Do you agree?", "level": "general_opinion" },
+        { "index": 4, "prompt": "If you could change one thing about how universities assess students, what would it be, and what effect do you think it would have?", "level": "policy_opinion" }
+      ]
+    }
+  ]
+}
