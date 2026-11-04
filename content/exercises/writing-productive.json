@@ -1,0 +1,173 @@
+{
+  "pack": {
+    "id": "writing_productive_v1",
+    "description": "Write an Email (7 min) and Write for an Academic Discussion (10 min) with high-band model responses.",
+    "copyright_policy": "Original synthetic content. No operational ETS item copied."
+  },
+  "exercises": [
+    {
+      "id": "w_email_001", "section": "writing", "task_type": "write_an_email", "difficulty": "B2-C1", "source_type": "ets_format_synthetic",
+      "source_reference": "PRD_TOEFL_2026.md seed w_email_001", "tags": ["prd_seed"],
+      "time_limit_seconds": 420,
+      "scenario": "You registered for a university data-analysis workshop. The workshop has been moved to the same afternoon as an important class presentation, so you cannot attend. Write an email to the workshop coordinator.",
+      "recipient_name": "Workshop Coordinator",
+      "recipient_role": "Coordinator of the data-analysis workshops",
+      "subject": "Data-analysis workshop registration",
+      "requirements": [
+        "Explain why you cannot attend the scheduled workshop.",
+        "Ask whether another session will be offered.",
+        "Ask whether your registration can be transferred without paying again."
+      ],
+      "exemplar_label": "PRD sample response (described in the PRD as Band 5 style)",
+      "exemplar": "Dear Workshop Coordinator,\n\nI am writing about the data-analysis workshop for which I recently registered. Unfortunately, the session has been moved to the same afternoon as a class presentation that I am required to give, so I will no longer be able to attend.\n\nCould you please let me know whether another session of the workshop is scheduled in the coming weeks? If so, I would also be grateful if you could confirm whether my current registration can be transferred to that session without an additional fee.\n\nThank you for your help. I look forward to your response.\n\nBest regards,\nStudent"
+    },
+    {
+      "id": "w_email_002", "section": "writing", "task_type": "write_an_email", "difficulty": "C1", "source_type": "ets_format_synthetic",
+      "time_limit_seconds": 420,
+      "scenario": "You are a member of a student hiking club. Last weekend's trip was badly organized: the bus left forty minutes late and the route was much more difficult than advertised. Write an email to the club president.",
+      "recipient_name": "Jordan Lee",
+      "recipient_role": "President of the University Hiking Club",
+      "subject": "Feedback on last weekend's trip",
+      "requirements": [
+        "Describe what went wrong during the trip.",
+        "Explain how these problems affected some participants.",
+        "Suggest one or two concrete improvements for future trips."
+      ],
+      "exemplar_label": "Model response (target: task score 5)",
+      "exemplar": "Dear Jordan,\n\nI wanted to share some feedback on last Saturday's trip to Pine Ridge, since I know you are always keen to hear from members.\n\nTwo things went wrong. First, the bus left forty minutes late because nobody seemed to know who was holding the passenger list. Second, the route was considerably harder than the \"moderate, suitable for beginners\" description on the sign-up page: the final ascent involved steep, loose rock.\n\nAs a result, several first-year members who had joined specifically because the trip was labeled beginner-friendly struggled badly, and two of them had to turn back with a volunteer, which split the group for over an hour. I suspect some of them will hesitate to sign up again.\n\nFor future trips, it might help to appoint one coordinator responsible for departure, with a firm cut-off time. It would also be worth having a leader walk new routes in advance, or at least rating difficulty using a published scale rather than a general description.\n\nThanks for all the work you put into running the club. I would be happy to help test routes next semester.\n\nBest wishes,\nAlex"
+    },
+    {
+      "id": "w_email_003", "section": "writing", "task_type": "write_an_email", "difficulty": "C1", "source_type": "ets_format_synthetic",
+      "time_limit_seconds": 420,
+      "scenario": "Your professor, Dr. Patel, has offered students the chance to work as paid research assistants on her project over the summer. You are interested, but you will be away for the first two weeks of June. Write an email to Dr. Patel.",
+      "recipient_name": "Dr. Patel",
+      "recipient_role": "Your professor and project leader",
+      "subject": "Summer research assistant position",
+      "requirements": [
+        "Express your interest and explain why you would be a good fit.",
+        "Mention your scheduling limitation.",
+        "Ask whether a later start date would be possible."
+      ],
+      "exemplar_label": "Model response (target: task score 5)",
+      "exemplar": "Dear Dr. Patel,\n\nI was delighted to hear about the summer research assistant positions on your urban water project, and I would very much like to be considered.\n\nYour seminar this term sparked my interest in how cities manage stormwater, and my final paper on green roofs gave me some experience with the kind of data your team is collecting. I am also comfortable using R for basic statistical analysis, which I understand will be part of the role.\n\nI should mention one limitation: I have a family commitment abroad during the first two weeks of June and will not be available until June 15. I realize this may be inconvenient, so I would like to ask whether a slightly later start would be acceptable. If it helps, I would be glad to complete any background reading or training modules remotely before then, so that I can contribute fully from my first day.\n\nThank you for considering my application. I would be happy to discuss this in person during your office hours.\n\nKind regards,\nSam Moreau"
+    },
+    {
+      "id": "w_email_004", "section": "writing", "task_type": "write_an_email", "difficulty": "B2-C1", "source_type": "ets_format_synthetic",
+      "time_limit_seconds": 420,
+      "scenario": "You recently moved into a university apartment. The heating in your bedroom has not worked for a week, even though you reported the problem online five days ago and received no reply. Write an email to the housing maintenance office.",
+      "recipient_name": "Housing Maintenance Office",
+      "recipient_role": "University housing maintenance staff",
+      "subject": "Unresolved heating problem — Apartment 3B, Oak Residence",
+      "requirements": [
+        "Describe the problem and how long it has lasted.",
+        "Mention the earlier report and the lack of response.",
+        "Request a specific action and a time frame."
+      ],
+      "exemplar_label": "Model response (target: task score 5)",
+      "exemplar": "Dear Maintenance Team,\n\nI am writing to follow up on a heating problem in Apartment 3B of Oak Residence. The radiator in my bedroom has not produced any heat for a week now, and with night temperatures dropping below freezing, the room has become too cold to sleep in comfortably.\n\nI submitted a repair request through the online portal five days ago (reference number HR-2291), but I have not received a confirmation or any indication of when a technician might come. I appreciate that this is a busy time of year, but I am concerned that the request may not have been registered correctly.\n\nCould you please arrange for someone to inspect the radiator by the end of this week? I am usually home after 3 p.m., but I am happy to give permission for staff to enter while I am out. In the meantime, if a portable heater is available, it would make a real difference.\n\nThank you for your help.\n\nBest regards,\nLéa Martin"
+    },
+    {
+      "id": "w_email_005", "section": "writing", "task_type": "write_an_email", "difficulty": "C1-C2", "source_type": "ets_format_synthetic",
+      "time_limit_seconds": 420,
+      "scenario": "You are organizing a panel discussion on career paths for your student association. You would like to invite a former student, Ms. Rivera, who now works as a data journalist. You have never met her. Write an email to her.",
+      "recipient_name": "Ms. Rivera",
+      "recipient_role": "Data journalist and former student of your university",
+      "subject": "Invitation to speak at a student career panel",
+      "requirements": [
+        "Introduce yourself and the event.",
+        "Explain why you are inviting her specifically.",
+        "Give the practical details and ask her to confirm her availability."
+      ],
+      "exemplar_label": "Model response (target: task score 5)",
+      "exemplar": "Dear Ms. Rivera,\n\nMy name is Tomás Ferreira, and I am the events officer of the Social Sciences Student Association at Northfield University. I am writing to ask whether you would be willing to join a panel on unconventional career paths that we are organizing for our members.\n\nMany of our students enjoy working with data but assume that their only options are academia or finance. Your move from a sociology degree into data journalism is exactly the kind of path they rarely hear about, and your recent series on housing costs has been widely discussed on campus. We are convinced that your perspective would be both inspiring and practical.\n\nThe panel will take place on Thursday, April 10, from 6 to 7:30 p.m. in the Main Hall, and it can also be joined online if traveling is difficult. We would cover any travel expenses.\n\nCould you let me know by March 20 whether you might be available? I would be glad to send further details or arrange a short call.\n\nWith best regards,\nTomás Ferreira"
+    },
+    {
+      "id": "w_email_006", "section": "writing", "task_type": "write_an_email", "difficulty": "C1", "source_type": "ets_format_synthetic",
+      "time_limit_seconds": 420,
+      "scenario": "You worked on a group project with three classmates. One member, Chris, has not responded to messages for two weeks, and the final report is due in ten days. Write an email to your course instructor, Professor Nguyen.",
+      "recipient_name": "Professor Nguyen",
+      "recipient_role": "Your course instructor",
+      "subject": "Group project — concern about participation",
+      "requirements": [
+        "Explain the situation in a fair and professional way.",
+        "Describe what the group has already done to resolve it.",
+        "Ask for advice on how to proceed."
+      ],
+      "exemplar_label": "Model response (target: task score 5)",
+      "exemplar": "Dear Professor Nguyen,\n\nI am writing on behalf of Group 4 regarding our final project on renewable energy policy, which is due on May 2.\n\nOne of our members, Chris, has not responded to our messages for the past two weeks. We do not know whether he is dealing with personal difficulties, and we certainly do not want to assume the worst, but his section on cost comparisons is still missing.\n\nSo far, we have contacted him through the course forum, by email, and by phone, and we suggested several meeting times to fit his schedule. We have also started drafting a shorter version of his section so that the report will not be incomplete if he is unable to contribute.\n\nCould you advise us on how best to proceed? In particular, we would like to know whether we should continue to leave space for his work, and how individual contributions will be assessed if the workload ends up being shared unevenly.\n\nThank you for your understanding.\n\nKind regards,\nMina Park"
+    },
+    {
+      "id": "w_discussion_001", "section": "writing", "task_type": "academic_discussion", "difficulty": "C1", "source_type": "ets_format_synthetic",
+      "source_reference": "PRD_TOEFL_2026.md seed w_discussion_001", "tags": ["prd_seed"],
+      "time_limit_seconds": 600,
+      "course": "Economics",
+      "professor": { "name": "Professor Chen", "prompt": "Some cities are considering making public transportation free. Supporters argue that this would reduce traffic and improve access to jobs, while critics worry about the cost to taxpayers. Do you think large cities should provide free public transportation? Why or why not?" },
+      "students": [
+        { "name": "Lena", "text": "I support free public transport because lower-income workers would have better access to employment and education. It could also reduce car use." },
+        { "name": "Daniel", "text": "I disagree because completely eliminating fares could be extremely expensive. Cities might have to reduce service quality or increase taxes." }
+      ],
+      "exemplar_label": "PRD sample response (described in the PRD as Band 5 style)",
+      "exemplar": "Daniel is right that eliminating fares would create a substantial financing problem, but I still think free public transportation can be justified in large cities if it is introduced selectively. The main benefit is not simply cheaper travel; it is the reduction of barriers to employment and education. For example, workers living far from major business districts may reject jobs when daily transport costs absorb a significant share of their income. Moreover, if free transit persuades even a modest number of commuters to leave their cars at home, cities may benefit from lower congestion and pollution. Rather than eliminating every fare immediately, governments could begin with students, low-income residents, or off-peak travel. This would preserve most of the social benefits while limiting the fiscal cost."
+    },
+    {
+      "id": "w_discussion_002", "section": "writing", "task_type": "academic_discussion", "difficulty": "C1-C2", "source_type": "ets_format_synthetic",
+      "time_limit_seconds": 600,
+      "course": "Education",
+      "professor": { "name": "Dr. Hughes", "prompt": "Many universities now record lectures and post them online. Some educators believe this improves learning, because students can review difficult material. Others think it encourages students to skip class and reduces engagement. In your opinion, should universities record all lectures and make them available to students? Why?" },
+      "students": [
+        { "name": "Aisha", "text": "Recordings are essential for students who work or have family responsibilities. Not everyone can attend every class, and recordings make education fairer." },
+        { "name": "Marco", "text": "When I know a lecture is recorded, I tell myself I'll watch it later, and then I never do. I think recordings give students a false sense of security." }
+      ],
+      "exemplar_label": "Model response (target: task score 5)",
+      "exemplar": "Marco describes a real temptation, but I think the problem lies in how recordings are used rather than in their existence, so I would support recording all lectures. Aisha's point about fairness is important, yet the strongest argument, in my view, is pedagogical. In a live lecture, students who miss a key step in a derivation or a complex argument often lose the thread for the remaining forty minutes. Being able to replay a two-minute segment allows them to repair that gap precisely, instead of relying on incomplete notes. To address Marco's concern, universities could pair recordings with incentives to attend, such as short in-class discussions or quizzes that cannot be completed from the video alone. That way, recordings would function as a tool for review rather than a substitute for participation."
+    },
+    {
+      "id": "w_discussion_003", "section": "writing", "task_type": "academic_discussion", "difficulty": "C1", "source_type": "ets_format_synthetic",
+      "time_limit_seconds": 600,
+      "course": "Environmental Science",
+      "professor": { "name": "Professor Okoye", "prompt": "To reduce waste, some governments have banned single-use plastic items such as bags, straws, and cutlery. Critics argue that individual bans have little effect compared with changes in industry. Do you think banning single-use plastic items is an effective environmental policy? Explain your view." },
+      "students": [
+        { "name": "Hannah", "text": "Bans work because they change habits quickly. After my city banned plastic bags, almost everyone started bringing their own." },
+        { "name": "Raj", "text": "Plastic bags are a tiny fraction of total plastic waste. Governments should focus on packaging and fishing equipment, which cause much more damage." }
+      ],
+      "exemplar_label": "Model response (target: task score 5)",
+      "exemplar": "I agree with Raj that bans on bags and straws address only a small share of plastic pollution, but I would argue that they are still effective policy, provided they are seen as a first step rather than a complete solution. Their real value is not the tonnage of plastic they remove but the norms they create. As Hannah's example shows, a visible rule can change everyday behavior almost overnight, and once citizens have adapted, they are more likely to accept more demanding measures, such as deposit schemes or limits on packaging. That said, governments should be careful not to treat these bans as evidence that the problem is solved. The more meaningful step would be to make manufacturers financially responsible for the packaging they produce, which would target the larger sources of waste that Raj mentions."
+    },
+    {
+      "id": "w_discussion_004", "section": "writing", "task_type": "academic_discussion", "difficulty": "C2", "source_type": "ets_format_synthetic",
+      "time_limit_seconds": 600,
+      "course": "Sociology",
+      "professor": { "name": "Dr. Rossi", "prompt": "Some companies have started offering employees a four-day work week with the same salary, arguing that rested workers are more productive. Others say this model only works in certain industries. Do you think the four-day work week should become the standard for most jobs? Why or why not?" },
+      "students": [
+        { "name": "Sophie", "text": "Trials in several countries showed that productivity stayed the same while workers were less stressed. It seems like an obvious improvement." },
+        { "name": "Kenji", "text": "That might work in offices, but hospitals, schools, and shops need people every day. A four-day week would just mean hiring more staff." }
+      ],
+      "exemplar_label": "Model response (target: task score 5)",
+      "exemplar": "Sophie's evidence is encouraging, but I think Kenji identifies the crucial limitation, so I would not make the four-day week a universal standard, at least not yet. The trials she mentions mostly involved knowledge workers, whose output depends on concentration rather than on the number of hours a service is open. In those jobs, removing a day can eliminate unproductive meetings and reduce burnout without lowering results. In a hospital or a school, however, reducing each person's hours simply creates gaps that someone else must fill, which means higher costs or heavier workloads for the remaining staff. A more realistic goal would be to reduce total working hours in a way that fits each sector, for instance through shorter shifts or rotating schedules, rather than imposing one model designed for offices on the entire economy."
+    },
+    {
+      "id": "w_discussion_005", "section": "writing", "task_type": "academic_discussion", "difficulty": "C1", "source_type": "ets_format_synthetic",
+      "time_limit_seconds": 600,
+      "course": "Business",
+      "professor": { "name": "Professor Grant", "prompt": "When companies make hiring decisions, some rely heavily on university grades, while others focus on interviews and practical tasks. Which do you think is a better indicator of how well a person will perform in a job: academic grades or practical assessments? Explain your reasoning." },
+      "students": [
+        { "name": "Olivia", "text": "Grades show years of consistent effort. An interview only shows how someone performs on one day." },
+        { "name": "Samuel", "text": "Practical tasks are better because they show what someone can actually do in the job. Many skills that matter at work aren't graded at university." }
+      ],
+      "exemplar_label": "Model response (target: task score 5)",
+      "exemplar": "Both Olivia and Samuel make fair points, but I believe practical assessments are generally the better predictor, as long as they are designed carefully. Olivia is right that grades reflect sustained effort, yet they measure performance in a specific environment: individual exams with clear instructions and predictable content. Most jobs, by contrast, require people to cope with unclear problems, collaborate, and prioritize under time pressure, which university courses rarely assess directly. A well-designed task, such as asking a marketing candidate to analyze a real campaign or a programmer to fix existing code, reveals exactly these abilities. Of course, a single interview can be distorted by nerves or by the interviewer's bias, so companies should use structured tasks with clear criteria and, ideally, more than one evaluator. Grades could still serve as a secondary signal, especially for graduates with little work experience."
+    },
+    {
+      "id": "w_discussion_006", "section": "writing", "task_type": "academic_discussion", "difficulty": "C2", "source_type": "ets_format_synthetic",
+      "time_limit_seconds": 600,
+      "course": "Public Health",
+      "professor": { "name": "Dr. Mensah", "prompt": "Some governments tax sugary drinks to reduce consumption and improve public health. Supporters point to falling sales, while opponents say such taxes unfairly burden low-income families and restrict personal choice. Do you think taxes on sugary drinks are justified? Why or why not?" },
+      "students": [
+        { "name": "Clara", "text": "If a tax reduces diabetes and obesity, it saves money for the health system in the long run. That benefits everyone." },
+        { "name": "Yusuf", "text": "These taxes punish poorer people, who spend a bigger share of their income on food and drinks. Education would be fairer than taxation." }
+      ],
+      "exemplar_label": "Model response (target: task score 5)",
+      "exemplar": "Yusuf raises a legitimate concern about fairness, but I think sugary-drink taxes are justified, particularly if the revenue is returned to the communities that pay most of it. It is true that low-income households bear a larger share of the cost in the short term. However, they also suffer disproportionately from diet-related diseases, so they stand to gain the most if consumption falls. Education alone, while valuable, competes against enormous advertising budgets and tends to reach people who are already health-conscious. A tax, by contrast, changes the price signal for everyone at once. To address the fairness problem directly, governments could earmark the revenue for measures such as free drinking fountains in schools or subsidies for fresh produce in poorer neighborhoods. Designed this way, the policy would be less a punishment than a redistribution toward healthier options."
+    }
+  ]
+}

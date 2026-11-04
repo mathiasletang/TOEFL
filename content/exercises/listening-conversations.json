@@ -1,0 +1,208 @@
+{
+  "pack": {
+    "id": "listening_conversation_v1",
+    "description": "Listen to a Conversation — short two-speaker campus conversations, two questions each.",
+    "copyright_policy": "Original synthetic content. No operational ETS item copied."
+  },
+  "exercises": [
+    {
+      "id": "l_conversation_001", "section": "listening", "task_type": "conversation", "difficulty": "B2-C1", "source_type": "ets_format_synthetic",
+      "source_reference": "PRD_TOEFL_2026.md seed l_conversation_001", "tags": ["prd_seed"],
+      "context": "Listen to a conversation between a student and an equipment desk assistant.",
+      "audio": [
+        { "speaker": "Student", "voice": "male", "text": "Hi, I came to pick up the camera I reserved for my media project." },
+        { "speaker": "Assistant", "voice": "female", "text": "Let me check. Your reservation starts tomorrow morning." },
+        { "speaker": "Student", "voice": "male", "text": "Really? I thought I selected Thursday." },
+        { "speaker": "Assistant", "voice": "female", "text": "Today is Thursday, but the form shows Friday at nine." },
+        { "speaker": "Student", "voice": "male", "text": "That's a problem. We're filming an interview this afternoon." },
+        { "speaker": "Assistant", "voice": "female", "text": "The reserved cameras are all checked out, but I have a basic model that nobody booked. It doesn't have the external microphone input, though." },
+        { "speaker": "Student", "voice": "male", "text": "We can record the audio separately. I'll take it." }
+      ],
+      "questions": [
+        { "id": "q1", "stem": "Why does the student visit the equipment desk?", "options": ["To return a damaged camera", "To collect equipment for a project", "To change the topic of a media project", "To reserve a microphone for Friday"], "answer_index": 1, "skill": "purpose", "explanation": "He came \"to pick up the camera I reserved for my media project\"." },
+        { "id": "q2", "stem": "What will the student probably do?", "options": ["Cancel the interview", "Wait until Friday", "Use a simpler camera and record sound separately", "Buy a new microphone"], "answer_index": 2, "skill": "next_action", "explanation": "He accepts the basic model and says they can record the audio separately." }
+      ]
+    },
+    {
+      "id": "l_conversation_002", "section": "listening", "task_type": "conversation", "difficulty": "C1", "source_type": "ets_format_synthetic",
+      "context": "Listen to a conversation between a student and her academic advisor.",
+      "audio": [
+        { "speaker": "Advisor", "voice": "male", "text": "So, you wanted to talk about adding a second major?" },
+        { "speaker": "Student", "voice": "female", "text": "Yes, in statistics. I've taken three courses already and really enjoyed them." },
+        { "speaker": "Advisor", "voice": "male", "text": "That's a good start. The catch is that two of the required courses are only offered in the spring, and they clash with your biology lab." },
+        { "speaker": "Student", "voice": "female", "text": "Could I take the lab in the summer instead?" },
+        { "speaker": "Advisor", "voice": "male", "text": "Possibly. The summer section fills fast, though, so you'd want to register the day enrollment opens." },
+        { "speaker": "Student", "voice": "female", "text": "Okay, I'll set a reminder. And I'll fill out the major declaration form today." }
+      ],
+      "questions": [
+        { "id": "q1", "stem": "What problem does the advisor point out?", "options": ["The student has not taken enough statistics courses", "Two required courses conflict with the student's lab schedule", "Statistics is not offered as a second major", "The summer biology lab has been cancelled"], "answer_index": 1, "skill": "detail", "explanation": "Two spring-only courses \"clash with your biology lab\"." },
+        { "id": "q2", "stem": "What does the advisor imply about the summer lab?", "options": ["It is easier than the spring lab", "Getting a place may be difficult", "It does not count toward the degree", "It is only open to statistics majors"], "answer_index": 1, "skill": "inference", "explanation": "\"Fills fast… register the day enrollment opens\" implies limited places." }
+      ]
+    },
+    {
+      "id": "l_conversation_003", "section": "listening", "task_type": "conversation", "difficulty": "B2", "source_type": "ets_format_synthetic",
+      "context": "Listen to a conversation between two students in a dormitory.",
+      "audio": [
+        { "speaker": "Jake", "voice": "male", "text": "Hey, are you using the kitchen tonight? I was going to cook for my study group." },
+        { "speaker": "Lina", "voice": "female", "text": "I was planning to bake, but I can do it tomorrow. How many people are coming?" },
+        { "speaker": "Jake", "voice": "male", "text": "Five, maybe six. The problem is we only have four chairs." },
+        { "speaker": "Lina", "voice": "female", "text": "The lounge on the second floor has folding chairs. Just sign them out at the front desk." },
+        { "speaker": "Jake", "voice": "male", "text": "Perfect. I'll go down there now before the desk closes." }
+      ],
+      "questions": [
+        { "id": "q1", "stem": "Why does Lina change her plans?", "options": ["The oven is broken", "She wants to let Jake use the kitchen", "She has to study for an exam", "The front desk is closed"], "answer_index": 1, "skill": "inference", "explanation": "She offers to bake tomorrow so Jake can cook tonight." },
+        { "id": "q2", "stem": "What will Jake do next?", "options": ["Buy more chairs", "Cancel the study group", "Go to the front desk to borrow chairs", "Move the group to the lounge"], "answer_index": 2, "skill": "next_action", "explanation": "Chairs must be signed out at the front desk, and he says he will go now." }
+      ]
+    },
+    {
+      "id": "l_conversation_004", "section": "listening", "task_type": "conversation", "difficulty": "C1-C2", "source_type": "ets_format_synthetic",
+      "context": "Listen to a conversation between a student and a professor during office hours.",
+      "audio": [
+        { "speaker": "Student", "voice": "male", "text": "Professor Alvarez, I wanted to ask about the feedback on my essay. You wrote that my argument was 'descriptive rather than analytical.'" },
+        { "speaker": "Professor", "voice": "female", "text": "Right. You summarized the three theories very accurately, but you never told me which one you found most convincing, or why." },
+        { "speaker": "Student", "voice": "male", "text": "I thought we were supposed to stay neutral." },
+        { "speaker": "Professor", "voice": "female", "text": "Neutral in tone, yes. But analysis means weighing the evidence. Even saying that one theory explains the early data better while another fits the later period would be a position." },
+        { "speaker": "Student", "voice": "male", "text": "So I could revise the conclusion along those lines?" },
+        { "speaker": "Professor", "voice": "female", "text": "Revise the body too. The comparison has to run through the whole essay, not just appear at the end." }
+      ],
+      "questions": [
+        { "id": "q1", "stem": "What is the main weakness of the student's essay, according to the professor?", "options": ["It contains factual errors about the theories", "It fails to evaluate the theories it describes", "It is written in an informal tone", "It discusses too many theories"], "answer_index": 1, "skill": "main_idea", "explanation": "He summarized accurately but never said which theory was most convincing — no evaluation." },
+        { "id": "q2", "stem": "What does the professor imply about the student's plan to revise only the conclusion?", "options": ["It would be sufficient", "It would not fully solve the problem", "It would make the essay too long", "It is not allowed after grading"], "answer_index": 1, "skill": "inference", "explanation": "She says the comparison must run through the whole essay, not just appear at the end." }
+      ]
+    },
+    {
+      "id": "l_conversation_005", "section": "listening", "task_type": "conversation", "difficulty": "B2-C1", "source_type": "ets_format_synthetic",
+      "context": "Listen to a conversation between a student and a librarian.",
+      "audio": [
+        { "speaker": "Student", "voice": "female", "text": "Hi, the catalog says the book I need is available, but it isn't on the shelf." },
+        { "speaker": "Librarian", "voice": "male", "text": "Let me look. Ah, it was returned this morning, so it's probably still on a cart waiting to be shelved." },
+        { "speaker": "Student", "voice": "female", "text": "Is there any way to get it today? My paper is due tomorrow." },
+        { "speaker": "Librarian", "voice": "male", "text": "I'll check the carts in the back. If I can't find it, there's an electronic version, but only one person can read it at a time." },
+        { "speaker": "Student", "voice": "female", "text": "I'd prefer the print copy, but the e-book is fine if it's free right now." }
+      ],
+      "questions": [
+        { "id": "q1", "stem": "Why is the book not on the shelf?", "options": ["Another student has borrowed it", "It has been returned but not yet put back", "It was moved to the electronic collection", "The catalog contains an error"], "answer_index": 1, "skill": "detail", "explanation": "It was returned this morning and is likely on a cart waiting to be shelved." },
+        { "id": "q2", "stem": "What is the student's attitude toward the electronic version?", "options": ["She refuses to use it", "She would accept it as an alternative", "She thinks it is more useful than the print copy", "She is worried that it costs money"], "answer_index": 1, "skill": "attitude", "explanation": "She prefers print but says the e-book is fine if it is available." }
+      ]
+    },
+    {
+      "id": "l_conversation_006", "section": "listening", "task_type": "conversation", "difficulty": "C1", "source_type": "ets_format_synthetic",
+      "context": "Listen to a conversation between two students working on a group project.",
+      "audio": [
+        { "speaker": "Ana", "voice": "female", "text": "I've been going through the survey responses, and something's off. Almost a third of people answered 'strongly agree' to every single question." },
+        { "speaker": "Ben", "voice": "male", "text": "Even the reversed ones? Those were supposed to catch people who weren't reading carefully." },
+        { "speaker": "Ana", "voice": "female", "text": "Exactly. So either we exclude them, or our results are going to look much more positive than they really are." },
+        { "speaker": "Ben", "voice": "male", "text": "Excluding them makes our sample pretty small, though. Maybe we report the analysis both ways and explain the issue." },
+        { "speaker": "Ana", "voice": "female", "text": "That's more honest. I'll run both versions tonight." }
+      ],
+      "questions": [
+        { "id": "q1", "stem": "What problem have the students found?", "options": ["Too few people answered the survey", "Many respondents appear to have answered without reading", "The survey questions were badly translated", "The data file was lost"], "answer_index": 1, "skill": "main_idea", "explanation": "Respondents agreed even with reversed items designed to detect careless answering." },
+        { "id": "q2", "stem": "Why does Ben suggest reporting the analysis both ways?", "options": ["To make the project longer", "Because excluding responses would reduce the sample considerably", "Because the professor required it", "To hide the problem from readers"], "answer_index": 1, "skill": "detail", "explanation": "He notes that exclusion leaves a small sample, so presenting both analyses is a compromise." }
+      ]
+    },
+    {
+      "id": "l_conversation_007", "section": "listening", "task_type": "conversation", "difficulty": "B2", "source_type": "ets_format_synthetic",
+      "context": "Listen to a conversation at the campus health center.",
+      "audio": [
+        { "speaker": "Receptionist", "voice": "female", "text": "Good morning. Do you have an appointment?" },
+        { "speaker": "Student", "voice": "male", "text": "No, I just need a flu shot. Is that possible without booking?" },
+        { "speaker": "Receptionist", "voice": "female", "text": "Flu shots are walk-in only on Tuesdays and Thursdays. Today's Wednesday, I'm afraid." },
+        { "speaker": "Student", "voice": "male", "text": "Oh. I have classes all day tomorrow until four." },
+        { "speaker": "Receptionist", "voice": "female", "text": "We're open until six on Thursdays, so you could come right after class." }
+      ],
+      "questions": [
+        { "id": "q1", "stem": "Why can't the student get a flu shot today?", "options": ["The clinic has run out of vaccine", "Walk-in shots are not offered on Wednesdays", "He needs a doctor's note", "The clinic is closing early"], "answer_index": 1, "skill": "detail", "explanation": "Walk-ins are only on Tuesdays and Thursdays, and today is Wednesday." },
+        { "id": "q2", "stem": "What does the receptionist suggest?", "options": ["Booking an appointment for next week", "Coming on Thursday after four", "Skipping his classes tomorrow", "Going to a pharmacy instead"], "answer_index": 1, "skill": "next_action", "explanation": "The clinic is open until six on Thursdays, after his classes end at four." }
+      ]
+    },
+    {
+      "id": "l_conversation_008", "section": "listening", "task_type": "conversation", "difficulty": "C1-C2", "source_type": "ets_format_synthetic",
+      "context": "Listen to a conversation between a graduate student and a lab manager.",
+      "audio": [
+        { "speaker": "Lab manager", "voice": "male", "text": "I noticed you booked the microscope for twelve hours on Saturday." },
+        { "speaker": "Student", "voice": "female", "text": "Yes, my samples degrade quickly, so I need to image all of them on the same day." },
+        { "speaker": "Lab manager", "voice": "male", "text": "I understand, but the policy caps weekend bookings at six hours so that other people get a turn. Could you prepare half the samples on Saturday and half on Sunday?" },
+        { "speaker": "Student", "voice": "female", "text": "That would mean two separate batches, and then I can't compare them directly." },
+        { "speaker": "Lab manager", "voice": "male", "text": "Fair enough. Send me a short note explaining that, and I'll ask the committee for an exception." }
+      ],
+      "questions": [
+        { "id": "q1", "stem": "Why does the student object to splitting the work over two days?", "options": ["She is not available on Sunday", "Separate batches would make the comparison unreliable", "The microscope is broken on Sundays", "She has already prepared all the samples"], "answer_index": 1, "skill": "detail", "explanation": "Two batches would prevent direct comparison of the samples." },
+        { "id": "q2", "stem": "What is the lab manager's final position?", "options": ["He refuses the booking", "He is willing to seek approval for the longer booking", "He grants the booking without conditions", "He suggests using a different microscope"], "answer_index": 1, "skill": "attitude", "explanation": "\"I'll ask the committee for an exception\" — he will request approval but cannot grant it himself." }
+      ]
+    },
+    {
+      "id": "l_conversation_009", "section": "listening", "task_type": "conversation", "difficulty": "B2-C1", "source_type": "ets_format_synthetic",
+      "context": "Listen to a conversation between a student and a bookstore employee.",
+      "audio": [
+        { "speaker": "Student", "voice": "male", "text": "Hi, I bought this textbook last week, but my professor just told us we're using the new edition." },
+        { "speaker": "Employee", "voice": "female", "text": "We can exchange it as long as you have the receipt and the plastic wrap isn't opened." },
+        { "speaker": "Student", "voice": "male", "text": "Well, I did open it, but I haven't written in it." },
+        { "speaker": "Employee", "voice": "female", "text": "Then I can't do a full exchange, but we can buy it back as a used book and give you store credit toward the new edition." },
+        { "speaker": "Student", "voice": "male", "text": "I guess that's better than nothing." }
+      ],
+      "questions": [
+        { "id": "q1", "stem": "Why can't the student receive a full exchange?", "options": ["He lost his receipt", "He has written in the book", "The book's wrapping has been opened", "The new edition is sold out"], "answer_index": 2, "skill": "detail", "explanation": "A full exchange requires the wrap to be unopened; he opened it." },
+        { "id": "q2", "stem": "How does the student feel about the store's offer?", "options": ["Delighted", "Reluctantly accepting", "Angry and unwilling", "Confused about the terms"], "answer_index": 1, "skill": "attitude", "explanation": "\"I guess that's better than nothing\" expresses reluctant acceptance." }
+      ]
+    },
+    {
+      "id": "l_conversation_010", "section": "listening", "task_type": "conversation", "difficulty": "C1", "source_type": "ets_format_synthetic",
+      "context": "Listen to a conversation between two students after a lecture.",
+      "audio": [
+        { "speaker": "Maya", "voice": "female", "text": "Did you follow the part about opportunity cost? I got lost when he brought up the farmer example." },
+        { "speaker": "Leo", "voice": "male", "text": "Sort of. The idea is that the real cost of planting wheat isn't just seeds and labor. It's also the corn you could have grown on the same land instead." },
+        { "speaker": "Maya", "voice": "female", "text": "So the cost is what you give up, not what you pay?" },
+        { "speaker": "Leo", "voice": "male", "text": "Both, really. But economists focus on what you give up, because that's what changes your decision." },
+        { "speaker": "Maya", "voice": "female", "text": "That makes more sense. I should rewatch the recording before the quiz." }
+      ],
+      "questions": [
+        { "id": "q1", "stem": "What are the students mainly discussing?", "options": ["How to grow wheat efficiently", "A concept from their economics lecture", "The date of their next quiz", "Why a farmer chose corn"], "answer_index": 1, "skill": "main_idea", "explanation": "Leo explains opportunity cost, which Maya did not understand in the lecture." },
+        { "id": "q2", "stem": "Why does Leo mention corn?", "options": ["To illustrate a forgone alternative", "To show that corn is more profitable", "To describe the professor's farm", "To correct a mistake in the lecture"], "answer_index": 0, "skill": "rhetorical_function", "explanation": "Corn is the alternative given up by planting wheat — the opportunity cost." }
+      ]
+    },
+    {
+      "id": "l_conversation_011", "section": "listening", "task_type": "conversation", "difficulty": "B2", "source_type": "ets_format_synthetic",
+      "context": "Listen to a conversation between a student and a staff member at the recreation center.",
+      "audio": [
+        { "speaker": "Student", "voice": "female", "text": "I'd like to sign up for the beginner swimming class." },
+        { "speaker": "Staff member", "voice": "male", "text": "The Monday class is full, but there are still spaces on Wednesday evenings." },
+        { "speaker": "Student", "voice": "female", "text": "Wednesday works. Do I need to bring anything?" },
+        { "speaker": "Staff member", "voice": "male", "text": "Just a swimsuit and a lock for the lockers. We provide towels and goggles." }
+      ],
+      "questions": [
+        { "id": "q1", "stem": "Which class will the student probably join?", "options": ["The Monday class", "The Wednesday class", "An advanced class", "A class at another center"], "answer_index": 1, "skill": "next_action", "explanation": "Monday is full and she says Wednesday works." },
+        { "id": "q2", "stem": "What does the student need to bring?", "options": ["Towels", "Goggles", "A lock", "A membership card"], "answer_index": 2, "skill": "detail", "explanation": "A swimsuit and a lock; towels and goggles are provided." }
+      ]
+    },
+    {
+      "id": "l_conversation_012", "section": "listening", "task_type": "conversation", "difficulty": "C2", "source_type": "ets_format_synthetic",
+      "context": "Listen to a conversation between a student and a professor about a research assistant position.",
+      "audio": [
+        { "speaker": "Professor", "voice": "male", "text": "Thanks for applying. I'll be honest: you have less coding experience than the other candidates." },
+        { "speaker": "Student", "voice": "female", "text": "That's true. But I've transcribed and coded about forty hours of interviews for my thesis, which I understand is most of this project." },
+        { "speaker": "Professor", "voice": "male", "text": "It is, actually. The programming part is relatively small, and frankly it's easier to teach than careful qualitative coding." },
+        { "speaker": "Student", "voice": "female", "text": "I'd be happy to take an online course this summer to catch up." },
+        { "speaker": "Professor", "voice": "male", "text": "That would certainly help. Let me talk to my co-investigator, and I'll get back to you by Friday." }
+      ],
+      "questions": [
+        { "id": "q1", "stem": "How does the student respond to the professor's concern?", "options": ["She denies that she lacks coding experience", "She highlights relevant experience that matches the main task", "She withdraws her application", "She asks for a different position"], "answer_index": 1, "skill": "speaker_intent", "explanation": "She concedes the point but stresses her interview-coding experience, which is most of the project." },
+        { "id": "q2", "stem": "What can be inferred about the professor's view of the student?", "options": ["He has rejected her application", "He now sees her as a stronger candidate than he first suggested", "He thinks programming is the most important skill", "He has already hired another candidate"], "answer_index": 1, "skill": "inference", "explanation": "He agrees qualitative coding is harder to teach and welcomes her plan, suggesting improved prospects." }
+      ]
+    },
+    {
+      "id": "l_conversation_013", "section": "listening", "task_type": "conversation", "difficulty": "C1", "source_type": "ets_format_synthetic",
+      "context": "Listen to a conversation between two students planning a presentation.",
+      "audio": [
+        { "speaker": "Omar", "voice": "male", "text": "We have twelve minutes, and right now our slides would take at least twenty." },
+        { "speaker": "Sara", "voice": "female", "text": "The background section is the longest. Most of the class already knows that material." },
+        { "speaker": "Omar", "voice": "male", "text": "True, but the professor said she wants to see that we understand the context." },
+        { "speaker": "Sara", "voice": "female", "text": "Then let's keep one background slide and put the rest in a handout. That frees up time for our own results." },
+        { "speaker": "Omar", "voice": "male", "text": "Good compromise. I'll draft the handout tonight." }
+      ],
+      "questions": [
+        { "id": "q1", "stem": "What problem are the students trying to solve?", "options": ["Their presentation is too long", "They have no results yet", "The professor rejected their topic", "They disagree about who should speak"], "answer_index": 0, "skill": "main_idea", "explanation": "Their slides would take twenty minutes but they only have twelve." },
+        { "id": "q2", "stem": "Why does Omar initially hesitate to cut the background section?", "options": ["He wrote most of it", "The professor wants evidence that they understand the context", "The class has not studied the material", "The handout would be too expensive"], "answer_index": 1, "skill": "detail", "explanation": "He recalls that the professor wants to see their understanding of the context." }
+      ]
+    }
+  ]
+}

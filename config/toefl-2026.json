@@ -1,0 +1,146 @@
+{
+  "$comment": "Every value tagged 'official' comes from published ETS material (see docs/PRD_AUDIT.md). Every value under 'internal' is a training parameter of this app, NOT an ETS rule.",
+  "official": {
+    "format_effective_date": "2026-01-21",
+    "section_order": ["reading", "listening", "writing", "speaking"],
+    "band_scale": { "min": 1.0, "max": 6.0, "step": 0.5 },
+    "overall_rule": "Arithmetic mean of the four section bands, rounded to the nearest 0.5 (ties round up: 5.25 -> 5.5, 5.125 -> 5.0).",
+    "cefr_by_band": [
+      { "min": 6.0, "cefr": "C2" },
+      { "min": 5.0, "cefr": "C1" },
+      { "min": 4.0, "cefr": "B2" },
+      { "min": 3.0, "cefr": "B1" },
+      { "min": 2.0, "cefr": "A2" },
+      { "min": 1.0, "cefr": "A1" }
+    ],
+    "mst": {
+      "reading": {
+        "router": { "complete_the_words": 10, "read_in_daily_life": 5, "read_academic_passage": 5 },
+        "lower": { "complete_the_words": 10, "read_in_daily_life": 5 },
+        "upper": { "complete_the_words": 10, "read_academic_passage": 5 },
+        "router_minutes": 20,
+        "lower_minutes": 9,
+        "upper_minutes": 9,
+        "back_navigation_within_module": true
+      },
+      "listening": {
+        "router": { "listen_choose_response": 8, "conversation": 4, "announcement": 4, "academic_talk": 4 },
+        "lower": { "listen_choose_response": 7, "conversation": 4, "announcement": 4 },
+        "upper": { "listen_choose_response": 3, "conversation": 4, "academic_talk": 8 },
+        "router_minutes": 18,
+        "lower_minutes": 7,
+        "upper_minutes": 11,
+        "back_navigation_within_module": false
+      }
+    },
+    "writing": {
+      "build_a_sentence_items": 10,
+      "email_seconds": 420,
+      "discussion_seconds": 600,
+      "discussion_effective_minimum_words": 100,
+      "raw_points": 20
+    },
+    "speaking": {
+      "listen_and_repeat_items": 7,
+      "listen_and_repeat_response_seconds_range": [8, 12],
+      "interview_questions": 4,
+      "interview_response_seconds": 45,
+      "preparation_seconds": 0,
+      "raw_points": 55
+    },
+    "router_threshold": null,
+    "lower_path_score_ceiling": null
+  },
+  "internal": {
+    "default_target_band": 6.0,
+    "target_options": [5.0, 5.5, 6.0],
+    "routing": {
+      "model": "percent-correct",
+      "training_threshold": 0.8,
+      "training_theta_cut": 1.0,
+      "is_official": false,
+      "ui_warning": "Internal training threshold. ETS does not publish its routing cut-off."
+    },
+    "writing_build_a_sentence_minutes": 6,
+    "short_simulation": {
+      "reading": {
+        "router": { "complete_the_words": 10, "read_academic_passage": 5 },
+        "lower": { "read_in_daily_life": 5 },
+        "upper": { "read_academic_passage": 5 },
+        "router_minutes": 11,
+        "lower_minutes": 5,
+        "upper_minutes": 6
+      },
+      "listening": {
+        "router": { "listen_choose_response": 4, "conversation": 2, "academic_talk": 4 },
+        "lower": { "listen_choose_response": 3, "announcement": 2 },
+        "upper": { "conversation": 2, "academic_talk": 4 },
+        "router_minutes": 9,
+        "lower_minutes": 4,
+        "upper_minutes": 7
+      }
+    },
+    "drill_seconds": {
+      "complete_the_words": 150,
+      "read_in_daily_life_base": 30,
+      "read_in_daily_life_per_question": 35,
+      "read_academic_passage_base": 60,
+      "read_academic_passage_per_question": 45,
+      "listening_per_question": 35,
+      "listen_choose_response": 25,
+      "build_a_sentence": 35
+    },
+    "projection": {
+      "$comment": "Heuristic mapping from training evidence to an internal band. NOT an ETS conversion table.",
+      "rl_theta_cutpoints": [
+        { "theta": 2.0, "band": 6.0 },
+        { "theta": 1.5, "band": 5.5 },
+        { "theta": 1.0, "band": 5.0 },
+        { "theta": 0.5, "band": 4.5 },
+        { "theta": 0.0, "band": 4.0 },
+        { "theta": -0.5, "band": 3.5 },
+        { "theta": -1.0, "band": 3.0 },
+        { "theta": -1.5, "band": 2.5 },
+        { "theta": -2.0, "band": 2.0 },
+        { "theta": -2.5, "band": 1.5 }
+      ],
+      "ws_proportion_cutpoints": [
+        { "p": 0.95, "band": 6.0 },
+        { "p": 0.88, "band": 5.5 },
+        { "p": 0.8, "band": 5.0 },
+        { "p": 0.7, "band": 4.5 },
+        { "p": 0.6, "band": 4.0 },
+        { "p": 0.5, "band": 3.5 },
+        { "p": 0.4, "band": 3.0 },
+        { "p": 0.3, "band": 2.5 },
+        { "p": 0.2, "band": 2.0 },
+        { "p": 0.1, "band": 1.5 }
+      ],
+      "recent_window_items": 80,
+      "min_items_for_estimate": 10,
+      "ewma_alpha": 0.3
+    },
+    "listen_repeat_proxy": {
+      "$comment": "Internal thresholds from the PRD, to be calibrated on your own recordings.",
+      "score_5_max_wer": 0.03,
+      "score_4_max_wer": 0.12,
+      "score_3_min_content_recall": 0.6,
+      "score_2_min_content_recall": 0.3,
+      "score_1_min_recall": 0.05,
+      "weights": { "wer": 0.45, "content_recall": 0.2, "function_recall": 0.1, "order": 0.1, "intelligibility": 0.15 }
+    },
+    "recommendation_weights": { "error_frequency": 0.4, "recency": 0.25, "band_impact": 0.2, "speed_deficit": 0.15 },
+    "ready_gate": {
+      "$comment": "Scaled for a Band 6.0 (C2) target. All values are internal.",
+      "last_full_simulations": 3,
+      "minimum_projected_overall": 6.0,
+      "minimum_projected_section": 5.5,
+      "router_training_accuracy": { "reading": 0.9, "listening": 0.9 },
+      "email_median_rubric": 4.5,
+      "discussion_median_rubric": 4.5,
+      "repeat_median_rubric": 4.5,
+      "interview_median_rubric": 4.5,
+      "max_timing_violations_last_7_days": 0
+    }
+  }
+}

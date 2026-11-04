@@ -1,0 +1,444 @@
+{
+  "pack": {
+    "id": "reading_academic_v1",
+    "description": "Read an Academic Passage — original ~200-word passages with five questions each.",
+    "copyright_policy": "Original synthetic content. No operational ETS item copied."
+  },
+  "exercises": [
+    {
+      "id": "r_academic_001",
+      "section": "reading",
+      "task_type": "read_academic_passage",
+      "difficulty": "C1",
+      "source_type": "ets_format_synthetic",
+      "source_reference": "PRD_TOEFL_2026.md seed r_academic_001 (skills, explanations, highlight added)",
+      "tags": ["prd_seed"],
+      "title": "Network Effects in Digital Markets",
+      "discipline": "Economics",
+      "passage": "Some products become more useful as more people adopt them, a phenomenon economists call a network effect. A telephone network illustrates the basic idea: a single telephone has little value, whereas a network connecting millions of users is highly useful. Digital platforms can exhibit similar effects because additional users may attract more sellers, developers, or content creators.\n\nHowever, network effects do not guarantee permanent dominance. Users may switch when a rival offers substantially better technology, when several platforms can be used simultaneously, or when the cost of moving data and contacts is low. Consequently, firms often attempt to strengthen network effects by making their services compatible with complementary products while simultaneously increasing switching costs.\n\nPolicymakers pay close attention to such strategies because strong network effects can produce efficiency gains but may also make entry more difficult for competitors. The economic significance of network effects therefore depends not simply on the number of users but on the structure of interactions among users, complementary suppliers, and competing platforms.",
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "What is the main purpose of the passage?",
+          "options": [
+            "To explain how network effects operate and why their consequences vary",
+            "To argue that digital platforms should always be regulated",
+            "To compare telephone prices across different markets",
+            "To show that new technology inevitably replaces established firms"
+          ],
+          "answer_index": 0,
+          "skill": "main_idea",
+          "explanation": "The passage defines network effects, qualifies their power, and ends by saying their significance depends on structure — it explains rather than argues for regulation."
+        },
+        {
+          "id": "q2",
+          "stem": "The word \"dominance\" in the passage is closest in meaning to",
+          "options": ["compatibility", "control", "innovation", "cooperation"],
+          "answer_index": 1,
+          "skill": "vocabulary",
+          "highlight": "dominance",
+          "explanation": "Permanent dominance = lasting control of a market."
+        },
+        {
+          "id": "q3",
+          "stem": "According to the passage, which condition can make switching platforms easier?",
+          "options": [
+            "High costs of transferring contacts",
+            "A large number of complementary suppliers",
+            "Low costs of moving data",
+            "Strong compatibility with existing products"
+          ],
+          "answer_index": 2,
+          "skill": "detail",
+          "explanation": "Users may switch \"when the cost of moving data and contacts is low\". High transfer costs would do the opposite."
+        },
+        {
+          "id": "q4",
+          "stem": "Why does the author mention policymakers?",
+          "options": [
+            "To show that network effects have implications for competition",
+            "To suggest that governments create most digital platforms",
+            "To explain how telephone networks are financed",
+            "To argue that switching costs are always harmful"
+          ],
+          "answer_index": 0,
+          "skill": "rhetorical_function",
+          "explanation": "Policymakers watch these strategies because they can make entry harder for competitors."
+        },
+        {
+          "id": "q5",
+          "stem": "What can be inferred from the final sentence?",
+          "options": [
+            "User numbers alone are insufficient to evaluate a network effect",
+            "Large platforms always prevent market entry",
+            "Complementary suppliers reduce the usefulness of platforms",
+            "Network effects matter only in digital industries"
+          ],
+          "answer_index": 0,
+          "skill": "inference",
+          "explanation": "\"Not simply on the number of users but on the structure of interactions\" means the count of users is not enough."
+        }
+      ]
+    },
+    {
+      "id": "r_academic_002",
+      "section": "reading",
+      "task_type": "read_academic_passage",
+      "difficulty": "C1-C2",
+      "source_type": "ets_format_synthetic",
+      "title": "The Puzzle of Bird Navigation",
+      "discipline": "Biology",
+      "passage": "Each autumn, many songbirds fly thousands of kilometers to wintering grounds they have never seen, often traveling alone and at night. How such inexperienced migrants find their way has long puzzled biologists. Early experiments showed that caged birds orient themselves in the correct seasonal direction even when they cannot see the sky, suggesting that they possess an internal compass sensitive to Earth's magnetic field.\n\nThe mechanism behind this compass remains contested. One hypothesis locates it in iron-rich cells in the beak; another proposes that light triggers chemical reactions in the eye whose outcome depends on the orientation of the magnetic field. The second hypothesis gained support when researchers found that weak radio-frequency noise, which should disrupt such reactions but not iron-based sensors, disoriented birds in the laboratory.\n\nYet a compass alone does not explain navigation. Young birds that are displaced experimentally tend to continue in their original direction and miss their destination, whereas experienced adults often correct their course. This difference implies that adults have learned a kind of map, perhaps built from magnetic gradients, smells, or landmarks, that allows them to determine where they are, not merely which way they are facing.",
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "Why does the author mention that caged birds orient correctly without seeing the sky?",
+          "options": [
+            "To show that birds rely mainly on the stars",
+            "To support the idea that birds can sense magnetic direction",
+            "To argue that captivity changes migratory behavior",
+            "To explain why young birds travel alone"
+          ],
+          "answer_index": 1,
+          "skill": "rhetorical_function",
+          "explanation": "Orientation without the sky suggests an internal magnetic compass."
+        },
+        {
+          "id": "q2",
+          "stem": "The word \"contested\" in the passage is closest in meaning to",
+          "options": ["disputed", "unknown", "proven", "complicated"],
+          "answer_index": 0,
+          "skill": "vocabulary",
+          "highlight": "contested",
+          "explanation": "Two competing hypotheses are presented, so the mechanism is disputed."
+        },
+        {
+          "id": "q3",
+          "stem": "Why did the radio-frequency experiment support the eye-based hypothesis?",
+          "options": [
+            "The noise damaged iron-rich cells in the beak",
+            "The noise should affect light-dependent reactions but not iron-based sensors",
+            "Birds exposed to the noise could still navigate perfectly",
+            "The noise only disoriented birds that were kept in the dark"
+          ],
+          "answer_index": 1,
+          "skill": "detail",
+          "explanation": "The disturbance should interfere only with the chemical mechanism, so the disorientation points to that mechanism."
+        },
+        {
+          "id": "q4",
+          "stem": "What does the displacement experiment suggest about young birds?",
+          "options": [
+            "They have no magnetic compass",
+            "They lack a learned map that would let them correct their position",
+            "They navigate better than adults",
+            "They depend entirely on smell"
+          ],
+          "answer_index": 1,
+          "skill": "inference",
+          "explanation": "Young birds keep their original heading and miss the target; adults correct, implying a learned map that juveniles lack."
+        },
+        {
+          "id": "q5",
+          "stem": "How is the passage organized?",
+          "options": [
+            "A problem is stated, a proposed explanation is evaluated, and a remaining limitation is identified",
+            "Two species are compared and then contrasted with a third",
+            "A historical account is followed by a prediction about future research",
+            "A theory is described and then completely rejected"
+          ],
+          "answer_index": 0,
+          "skill": "organization",
+          "explanation": "Paragraph 1 states the puzzle, paragraph 2 weighs compass mechanisms, paragraph 3 shows that a compass alone is insufficient."
+        }
+      ]
+    },
+    {
+      "id": "r_academic_003",
+      "section": "reading",
+      "task_type": "read_academic_passage",
+      "difficulty": "C1",
+      "source_type": "ets_format_synthetic",
+      "title": "Roman Concrete",
+      "discipline": "History and engineering",
+      "passage": "Many Roman harbors, bridges, and domes have survived for roughly two thousand years, while modern concrete structures sometimes deteriorate within decades. This contrast has prompted engineers to examine the composition of Roman concrete in detail.\n\nRoman builders mixed lime with volcanic ash, which reacts chemically with lime and water to form exceptionally stable minerals. In marine structures, seawater seeping through the material appears to have encouraged the slow growth of interlocking crystals that reinforced it over time. More surprisingly, recent analyses suggest that small white lumps of lime, once dismissed as evidence of careless mixing, may have served a purpose. When cracks formed and water entered, these lumps could dissolve and recrystallize, effectively sealing the damage.\n\nIt would be a mistake, however, to conclude that Roman methods are simply superior. Roman concrete was considerably weaker under compression than modern formulas and was not reinforced with steel, so it could not be used for the tall, slender structures that modern cities require. Researchers are therefore not trying to reproduce ancient concrete exactly but to adapt particular features, such as self-healing behavior, to contemporary materials that must also satisfy modern demands for strength and speed of construction.",
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "According to the passage, what was the original interpretation of the white lime lumps?",
+          "options": [
+            "They were a deliberate reinforcement technique",
+            "They were a sign of poor mixing",
+            "They were formed by seawater",
+            "They made the concrete stronger under compression"
+          ],
+          "answer_index": 1,
+          "skill": "detail",
+          "explanation": "They were \"once dismissed as evidence of careless mixing\"."
+        },
+        {
+          "id": "q2",
+          "stem": "The phrase \"effectively sealing\" in the passage is closest in meaning to",
+          "options": ["almost revealing", "in practice closing", "efficiently measuring", "partly causing"],
+          "answer_index": 1,
+          "skill": "vocabulary",
+          "highlight": "effectively sealing",
+          "explanation": "\"Effectively\" here means \"in practice\"; the recrystallized lime closes the cracks."
+        },
+        {
+          "id": "q3",
+          "stem": "Why does the author say it would be \"a mistake\" to consider Roman methods simply superior?",
+          "options": [
+            "Roman concrete has not actually lasted very long",
+            "Roman concrete lacks properties that modern construction needs",
+            "Volcanic ash is no longer available",
+            "Seawater damages Roman concrete over time"
+          ],
+          "answer_index": 1,
+          "skill": "rhetorical_function",
+          "explanation": "It was weaker under compression and unreinforced, so it cannot serve tall, slender modern buildings."
+        },
+        {
+          "id": "q4",
+          "stem": "What can be inferred about seawater's effect on Roman marine structures?",
+          "options": [
+            "It gradually strengthened them",
+            "It dissolved the volcanic ash",
+            "It prevented cracks from forming",
+            "It made them weaker than land structures"
+          ],
+          "answer_index": 0,
+          "skill": "inference",
+          "explanation": "Seawater encouraged crystal growth that \"reinforced it over time\"."
+        },
+        {
+          "id": "q5",
+          "stem": "Which statement best describes the goal of current researchers?",
+          "options": [
+            "To recreate Roman concrete exactly",
+            "To prove that modern concrete is better in all respects",
+            "To borrow selected Roman features for modern materials",
+            "To replace steel reinforcement with lime"
+          ],
+          "answer_index": 2,
+          "skill": "main_idea",
+          "explanation": "They aim \"to adapt particular features, such as self-healing behavior, to contemporary materials\"."
+        }
+      ]
+    },
+    {
+      "id": "r_academic_004",
+      "section": "reading",
+      "task_type": "read_academic_passage",
+      "difficulty": "C2",
+      "source_type": "ets_format_synthetic",
+      "title": "The Replication Problem in Psychology",
+      "discipline": "Psychology",
+      "passage": "In the past two decades, large collaborative projects have attempted to repeat well-known psychological experiments, and a substantial proportion of the original findings failed to reappear. These results have been described as a crisis, but researchers disagree about what they reveal.\n\nOne explanation emphasizes questionable research practices. If investigators test many variables, stop collecting data once a result looks significant, or report only the analyses that worked, the published literature will contain an inflated number of false positives. A second explanation is less accusatory: many original studies were small, and small studies produce estimates that vary widely by chance. When journals favor striking results, the studies that happened to overestimate an effect are the ones most likely to be published, so later replications naturally find smaller effects.\n\nA third view holds that some failures reflect genuine differences between populations, settings, or procedures rather than errors in the original work. Although this argument is sometimes used defensively, it identifies a real limitation: an effect observed among one group of students at one university may depend on conditions nobody thought to record. Reforms such as registering hypotheses in advance and sharing data address the first two explanations, but the third demands more careful theories about when an effect should occur.",
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "What is the passage mainly about?",
+          "options": [
+            "Competing explanations for why many findings were not replicated",
+            "Evidence that most psychological research is fraudulent",
+            "The history of collaborative research projects",
+            "Methods for designing larger experiments"
+          ],
+          "answer_index": 0,
+          "skill": "main_idea",
+          "explanation": "The passage presents three explanations and how reforms relate to them."
+        },
+        {
+          "id": "q2",
+          "stem": "According to the second explanation, why do replications tend to find smaller effects?",
+          "options": [
+            "Replication teams use less sensitive methods",
+            "Published original studies disproportionately overestimated the effects",
+            "Participants have changed over time",
+            "Researchers deliberately manipulated their data"
+          ],
+          "answer_index": 1,
+          "skill": "detail",
+          "explanation": "Small, noisy studies that happened to overestimate effects were more likely to be published, so honest replications find smaller effects."
+        },
+        {
+          "id": "q3",
+          "stem": "The word \"accusatory\" in the passage is closest in meaning to",
+          "options": ["blaming", "technical", "optimistic", "detailed"],
+          "answer_index": 0,
+          "skill": "vocabulary",
+          "highlight": "accusatory",
+          "explanation": "The first explanation blames researchers' practices; the second is \"less accusatory\", i.e. assigns less blame."
+        },
+        {
+          "id": "q4",
+          "stem": "What is the author's attitude toward the third view?",
+          "options": [
+            "Completely dismissive, because it excuses poor research",
+            "Qualified acceptance: it can be misused but points to a genuine issue",
+            "Enthusiastic: it fully resolves the crisis",
+            "Neutral: the author does not evaluate it"
+          ],
+          "answer_index": 1,
+          "skill": "attitude",
+          "explanation": "\"Although this argument is sometimes used defensively, it identifies a real limitation\" — a concession followed by acceptance."
+        },
+        {
+          "id": "q5",
+          "stem": "What can be inferred about pre-registering hypotheses?",
+          "options": [
+            "It would solve all three problems described",
+            "It does not, by itself, address differences between populations or settings",
+            "It makes small studies unnecessary",
+            "It is opposed by most researchers"
+          ],
+          "answer_index": 1,
+          "skill": "inference",
+          "explanation": "Such reforms address the first two explanations, \"but the third demands more careful theories\"."
+        }
+      ]
+    },
+    {
+      "id": "r_academic_005",
+      "section": "reading",
+      "task_type": "read_academic_passage",
+      "difficulty": "C1",
+      "source_type": "ets_format_synthetic",
+      "title": "Photography and the Status of Painting",
+      "discipline": "Art history",
+      "passage": "When photography became widely available in the mid-nineteenth century, some critics predicted the decline of painting. If a machine could record appearances more accurately and cheaply than any artist, they reasoned, portrait and landscape painters would soon lose their customers.\n\nThe prediction was partly correct. Many miniature portrait painters, whose trade depended on providing likenesses, either abandoned their work or became photographers themselves. Yet painting as a whole did not disappear. Instead, a number of artists began to explore what photography could not easily do. Early photographs were monochrome, and long exposure times made it difficult to capture movement, so painters increasingly emphasized color, visible brushwork, and the fleeting effects of light. Some historians argue that these developments contributed to movements such as Impressionism.\n\nThe relationship was not simply competitive, however. Painters used photographs as studies, and photographers borrowed the compositions and subjects of academic painting to gain artistic respectability. The new medium thus did not merely replace an older one; it forced both to reconsider what each could uniquely offer.",
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "According to the passage, which group of artists was most directly harmed by photography?",
+          "options": ["Landscape painters", "Miniature portrait painters", "Impressionist painters", "Academic painters"],
+          "answer_index": 1,
+          "skill": "detail",
+          "explanation": "Miniature portraitists depended on providing likenesses, which photography supplied more cheaply."
+        },
+        {
+          "id": "q2",
+          "stem": "Why does the author mention long exposure times?",
+          "options": [
+            "To explain why early photographs were expensive",
+            "To identify a limitation that painters could exploit",
+            "To argue that photography was not a real art form",
+            "To describe how Impressionists made photographs"
+          ],
+          "answer_index": 1,
+          "skill": "rhetorical_function",
+          "explanation": "Photography struggled to capture movement, so painters emphasized what it could not do."
+        },
+        {
+          "id": "q3",
+          "stem": "The word \"fleeting\" in the passage is closest in meaning to",
+          "options": ["brief", "bright", "natural", "distant"],
+          "answer_index": 0,
+          "skill": "vocabulary",
+          "highlight": "fleeting",
+          "explanation": "Fleeting effects of light last only a short time."
+        },
+        {
+          "id": "q4",
+          "stem": "What does the final paragraph suggest about photographers in this period?",
+          "options": [
+            "They rejected the traditions of painting",
+            "They sought prestige by imitating established painting",
+            "They were mostly former Impressionists",
+            "They avoided portrait subjects"
+          ],
+          "answer_index": 1,
+          "skill": "inference",
+          "explanation": "They borrowed academic compositions \"to gain artistic respectability\"."
+        },
+        {
+          "id": "q5",
+          "stem": "Which statement best expresses the author's overall view?",
+          "options": [
+            "Photography destroyed painting as a profession",
+            "Photography had no real effect on painting",
+            "Photography led both media to redefine their distinctive strengths",
+            "Painting influenced photography but not the reverse"
+          ],
+          "answer_index": 2,
+          "skill": "main_idea",
+          "explanation": "The conclusion: the new medium \"forced both to reconsider what each could uniquely offer\"."
+        }
+      ]
+    },
+    {
+      "id": "r_academic_006",
+      "section": "reading",
+      "task_type": "read_academic_passage",
+      "difficulty": "C2",
+      "source_type": "ets_format_synthetic",
+      "title": "Why Cities Grow Where They Do",
+      "discipline": "Economic geography",
+      "passage": "Economic geographers distinguish between two kinds of advantage that explain where cities emerge. First-nature advantages are physical: a natural harbor, a navigable river, fertile land, or a mountain pass. Second-nature advantages arise from the concentration of people and firms itself. Once a place is large, it offers a deep pool of workers, many specialized suppliers, and opportunities for ideas to spread through face-to-face contact, all of which attract still more activity.\n\nThe interaction between these forces raises a historical question: do cities persist because their original physical advantages endure, or because concentration becomes self-sustaining? A revealing test comes from portage sites in North America, places where boats once had to be carried around waterfalls or rapids. These locations mattered for river transport in the nineteenth century, yet the advantage vanished when railroads replaced waterways. Many portage towns nevertheless remain larger today than comparable places nearby.\n\nThis persistence suggests that an initial advantage, even one that later becomes irrelevant, can lock in a city's position. The finding has implications for policy. If concentration is self-reinforcing, temporary investments might create lasting centers; however, the same logic implies that a declining city may struggle to recover once its scale begins to erode.",
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "Which of the following is an example of a second-nature advantage?",
+          "options": [
+            "A river that ships can navigate",
+            "A large supply of skilled workers in a city",
+            "A natural harbor protected from storms",
+            "Fertile soil in the surrounding region"
+          ],
+          "answer_index": 1,
+          "skill": "detail",
+          "explanation": "Second-nature advantages arise from concentration itself, such as a deep pool of workers."
+        },
+        {
+          "id": "q2",
+          "stem": "Why does the author discuss portage sites?",
+          "options": [
+            "To show how railroads were built",
+            "To provide a case in which a physical advantage disappeared while the city remained",
+            "To argue that rivers are the most important first-nature advantage",
+            "To explain why waterfalls attract tourists"
+          ],
+          "answer_index": 1,
+          "skill": "rhetorical_function",
+          "explanation": "Portage towns lost their transport advantage yet stayed larger — a test of persistence."
+        },
+        {
+          "id": "q3",
+          "stem": "The phrase \"lock in\" in the passage is closest in meaning to",
+          "options": ["make permanent", "make secret", "make illegal", "make visible"],
+          "answer_index": 0,
+          "skill": "vocabulary",
+          "highlight": "lock in",
+          "explanation": "An early advantage fixes the city's position durably."
+        },
+        {
+          "id": "q4",
+          "stem": "What can be inferred from the final paragraph?",
+          "options": [
+            "Temporary investment never affects city size",
+            "Self-reinforcing growth can work in both directions",
+            "Declining cities usually recover quickly",
+            "Physical advantages matter more than concentration"
+          ],
+          "answer_index": 1,
+          "skill": "inference",
+          "explanation": "The same logic that creates lasting centers implies that shrinking scale can lead to further decline."
+        },
+        {
+          "id": "q5",
+          "stem": "How does the second paragraph relate to the first?",
+          "options": [
+            "It introduces a question about the two forces and a way to test it",
+            "It rejects the distinction made in the first paragraph",
+            "It lists additional first-nature advantages",
+            "It summarizes the policy implications"
+          ],
+          "answer_index": 0,
+          "skill": "organization",
+          "explanation": "After defining the two advantages, the passage asks which explains persistence and offers the portage test."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "pack": {
+    "id": "reading_ctw_v1",
+    "description": "Complete the Words — original format-faithful paragraphs. Gaps are derived from the full text by the ETS truncation rule (shared/ctw.ts).",
+    "copyright_policy": "Original synthetic content. No operational ETS item copied."
+  },
+  "exercises": [
+    {
+      "id": "r_ctw_001",
+      "section": "reading",
+      "task_type": "complete_the_words",
+      "difficulty": "B2-C1",
+      "source_type": "ets_format_synthetic",
+      "source_reference": "PRD_TOEFL_2026.md seed r_ctw_001 (extended to 70+ words, gaps re-derived)",
+      "topic": "Urban ecology",
+      "tags": ["prd_seed"],
+      "passage": "Urban trees provide benefits that extend beyond their visual appeal. They reduce temperatures by shading buildings and streets, while their leaves absorb pollutants from the air. Researchers increasingly recognize that access to green spaces can also improve mental health and encourage physical activity. For this reason, many cities now treat urban forests as essential public infrastructure rather than decorative features. Planting programs, however, succeed only when cities also budget for long-term maintenance."
+    },
+    {
+      "id": "r_ctw_002",
+      "section": "reading",
+      "task_type": "complete_the_words",
+      "difficulty": "C1",
+      "source_type": "ets_format_synthetic",
+      "topic": "Neuroscience",
+      "passage": "Sleep is not merely a period of rest for the brain. During deep sleep, neurons that were active while learning fire again in similar patterns, which appears to strengthen the corresponding memories. Experiments show that people who sleep after studying recall more material than those who stay awake for the same interval. This effect is strongest for information that learners expect to need later. Consequently, researchers argue that cramming through the night may undermine the very goal it is meant to serve."
+    },
+    {
+      "id": "r_ctw_003",
+      "section": "reading",
+      "task_type": "complete_the_words",
+      "difficulty": "B2-C1",
+      "source_type": "ets_format_synthetic",
+      "topic": "Marine biology",
+      "passage": "Reef-building corals depend on a remarkable partnership with microscopic algae. The algae live inside the coral tissue and supply most of the energy the animal needs through photosynthesis. In return, the coral provides shelter and the nutrients that algae require. When water temperatures rise too far, however, this relationship breaks down and the coral expels its partners. The result, known as bleaching, leaves the colony pale and vulnerable to starvation and disease, although corals can recover if conditions improve quickly."
+    },
+    {
+      "id": "r_ctw_004",
+      "section": "reading",
+      "task_type": "complete_the_words",
+      "difficulty": "C1-C2",
+      "source_type": "ets_format_synthetic",
+      "topic": "History of technology",
+      "passage": "The spread of the printing press in fifteenth-century Europe transformed far more than the cost of books. Because identical copies could now circulate widely, readers in distant cities were able to compare the same text and debate its meaning. Scholars could also detect and correct errors more systematically than before. Some historians therefore argue that printing encouraged a culture of verification, although others caution that rumors and forgeries spread just as efficiently as reliable knowledge."
+    },
+    {
+      "id": "r_ctw_005",
+      "section": "reading",
+      "task_type": "complete_the_words",
+      "difficulty": "C2",
+      "source_type": "ets_format_synthetic",
+      "topic": "Behavioral economics",
+      "passage": "Default options exert a surprisingly powerful influence on the decisions people make. When employees are automatically enrolled in a pension plan, participation rates often exceed ninety percent, whereas voluntary enrollment typically attracts far fewer workers. Economists attribute this gap partly to inertia and partly to the implicit endorsement that a default seems to convey. Critics, however, warn that defaults chosen by employers may not reflect the interests of every individual, particularly those with unusual financial circumstances."
+    },
+    {
+      "id": "r_ctw_006",
+      "section": "reading",
+      "task_type": "complete_the_words",
+      "difficulty": "C1",
+      "source_type": "ets_format_synthetic",
+      "topic": "Earth science",
+      "passage": "Ice cores drilled from the Antarctic ice sheet preserve a detailed record of past climate. As snow accumulates and compresses into ice, it traps small bubbles of air from the atmosphere. By measuring the gases in these bubbles, scientists can reconstruct the composition of the air over hundreds of thousands of years. The data reveal a close relationship between carbon dioxide levels and global temperature, which helps researchers test the models used to project future warming."
+    },
+    {
+      "id": "r_ctw_007",
+      "section": "reading",
+      "task_type": "complete_the_words",
+      "difficulty": "C2",
+      "source_type": "ets_format_synthetic",
+      "topic": "Linguistics",
+      "passage": "When speakers of mutually unintelligible languages must cooperate regularly, they sometimes develop a simplified contact language known as a pidgin. Pidgins typically borrow most of their vocabulary from one dominant language while drastically reducing its grammar. They have no native speakers at first, yet the situation changes once children grow up using them at home. Such children tend to expand the system rapidly, adding consistent rules for tense and word order. The resulting language, called a creole, is as complex as any other."
+    },
+    {
+      "id": "r_ctw_008",
+      "section": "reading",
+      "task_type": "complete_the_words",
+      "difficulty": "B2",
+      "source_type": "ets_format_synthetic",
+      "topic": "Architecture",
+      "passage": "Long before air conditioning existed, builders in hot climates found ingenious ways to keep interiors cool. Thick walls of stone or earth absorb heat slowly during the day and release it at night. Narrow streets create shade, while courtyards allow warm air to rise and escape. In parts of Iran, tall towers called windcatchers direct breezes into houses and over pools of water, which cools the air further. Modern architects are now studying these techniques to reduce energy consumption."
+    },
+    {
+      "id": "r_ctw_009",
+      "section": "reading",
+      "task_type": "complete_the_words",
+      "difficulty": "C2",
+      "source_type": "ets_format_synthetic",
+      "topic": "Philosophy of science",
+      "passage": "Philosophers of science have long debated what distinguishes genuine scientific theories from other kinds of claims. One influential proposal holds that any theory counts as scientific only if it forbids particular observations, so that experience could in principle refute it. On this view, a theory that accommodates every conceivable outcome explains nothing at all. Critics later pointed out that scientists rarely abandon a theory after a single anomalous result, preferring instead to question auxiliary assumptions or the reliability of their instruments."
+    },
+    {
+      "id": "r_ctw_010",
+      "section": "reading",
+      "task_type": "complete_the_words",
+      "difficulty": "C1-C2",
+      "source_type": "ets_format_synthetic",
+      "topic": "Urban sociology",
+      "passage": "Neighborhood change rarely follows the simple story that public debates suggest. When investment flows into an area, property values rise and new businesses open, which can improve services for existing residents. At the same time, higher rents may gradually displace the very households that the improvements were supposed to benefit. Researchers therefore distinguish between physical renewal and social displacement, arguing that policies such as rent stabilization can preserve the former while limiting the latter."
+    }
+  ]
+}

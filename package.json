@@ -1,0 +1,46 @@
+{
+  "name": "toefl-2026-trainer",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Local-first TOEFL iBT 2026 training platform for two users (target: Band 6.0 / CEFR C2).",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "dev": "concurrently -k -n api,web -c blue,green \"npm:dev:api\" \"npm:dev:web\"",
+    "dev:api": "tsx watch server/index.ts",
+    "dev:web": "vite",
+    "build": "vite build",
+    "start": "npm run build && tsx server/index.ts",
+    "serve": "tsx server/index.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "validate:content": "tsx scripts/validate-content.ts",
+    "test": "vitest run",
+    "check": "npm run typecheck && npm run validate:content && npm run test"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.4.0",
+    "@fastify/static": "^10.1.9",
+    "better-sqlite3": "^13.0.3",
+    "dotenv": "^18.0.9",
+    "fastify": "^5.12.8",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.4",
+    "@types/better-sqlite3": "^9.6.0",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.2.1",
+    "concurrently": "^10.0.6",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "tailwindcss": "^4.3.4",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5",
+    "vitest": "^5.1.0"
+  }
+}
