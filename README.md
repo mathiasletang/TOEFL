@@ -10,7 +10,7 @@ It is not a general English course. It covers the 12 current task types, strict 
 
 ## 1. Quick start
 
-Requirements: **Node.js ≥ 22.12** (LTS 22 or 24) and a recent Chrome or Edge (for the microphone and speech features). Firefox works for everything except browser speech recognition.
+Requirements: **Node.js ≥ 22.13** (22, 24 or 26) and a recent Chrome or Edge (for the microphone and speech features). Firefox works for everything except browser speech recognition. No compiler or Visual Studio is needed: the database uses SQLite built into Node.
 
 ```bash
 git clone https://github.com/mathiasletang/TOEFL.git
@@ -34,7 +34,24 @@ Open **http://127.0.0.1:8787**, pick a profile and train.
 
 Data is stored in `data/toefl.db` (SQLite) and `data/audio/` (recordings and the TTS cache). Back up the `data/` folder to keep your history. It is git-ignored.
 
-On Windows, `npm install` downloads a prebuilt `better-sqlite3` binary for your Node version. If no prebuild matches, install the "Desktop development with C++" workload of Visual Studio Build Tools, or switch to Node 22/24 LTS.
+### Windows (PowerShell / VS Code terminal)
+
+If PowerShell says *"l'exécution de scripts est désactivée sur ce système"* when you type `npm`, run this once:
+
+```powershell
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+```
+
+Answer `O` (or `Y`), then close and reopen the terminal. Alternatively, type `npm.cmd` instead of `npm`.
+
+If an earlier `npm install` failed halfway, delete the `node_modules` folder before retrying:
+
+```powershell
+Remove-Item -Recurse -Force node_modules
+npm install
+```
+
+`EPERM` errors while deleting mean a program is holding the files open. Close VS Code, delete the folder from the File Explorer, reopen VS Code and retry.
 
 ---
 
