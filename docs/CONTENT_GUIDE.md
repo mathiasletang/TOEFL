@@ -118,3 +118,82 @@ Recordings are used only when every key of the exercise has a file. Otherwise th
 | Listening | 18 Choose-a-Response items, 6 conversations, 4 announcements, 3 talks |
 | Writing | 10 Build a Sentence items, 1 email, 1 discussion |
 | Speaking | 1 Listen-and-Repeat set, 1 interview |
+
+---
+
+# Vocabulary bank
+
+The vocabulary bank lives in `content/vocab/`, **one JSON file per category**. It is validated by `npm run validate:content`, loaded into SQLite at startup (tables `vocab_packs` and `vocab_entries`, migration `002_vocab.sql`), and has no user interface yet.
+
+All entries are original. Do not copy dictionary definitions or import external word lists. The **core** tier ("Essentials") is an *internal high-yield selection*, not an official list, and CEFR levels are author estimates. Every pack's `selection_note` must say so.
+
+## File format
+
+```json
+{
+  "pack": {
+    "id": "vocab_geo_v1",
+    "category": "geology",
+    "description": "…",
+    "selection_note": "Internal selection …; this is not an official list and CEFR levels are author estimates.",
+    "copyright_policy": "Original content …"
+  },
+  "entries": [ { … } ]
+}
+```
+
+## Entry fields
+
+| Field | Rule |
+|---|---|
+| `id` | `v_<pack>_<headword>`, lowercase with underscores, unique in the whole bank |
+| `headword` | The word or expression. The pair headword + `pos` must be unique in the whole bank. |
+| `kind` | `word` (one word, hyphenated compounds included), `collocation`, `phrasal_verb`, `idiom` or `formula` |
+| `pos` | `noun verb adjective adverb preposition conjunction determiner pronoun phrase`. Phrasal verbs are `verb`; other expressions are `phrase`. |
+| `cefr` | `B2`, `C1` or `C2` (author estimate) |
+| `tier` | `core`, `extended` or `mastery` — see the table below |
+| `category` | Must match the pack's category |
+| `function` | Required in `functional_language` only (see the list below) |
+| `definition` | Plain English, written for this app. It must not contain the headword. |
+| `translation_fr` | French translation, required |
+| `example_academic` | A sentence in academic register |
+| `example_spoken` | A sentence as it would be said in conversation |
+| `collocations` | Up to 4. A `word` needs at least 2. |
+| `word_family` | Derived forms with their part of speech: `[{ "form": "analysis", "pos": "noun" }]` |
+| `inflections` | Optional. Irregular forms the examples may use, when the validator does not know them. |
+| `synonyms` | Up to 4 near-synonyms; may be empty for technical terms |
+| `register` | `formal`, `neutral` or `informal` |
+| `ipa` | General American pronunciation between slashes |
+| `false_friend_fr` | Optional, required in `false_friends_fr`: `{ "trap": "librairie", "correct": "une librairie = a bookstore" }` |
+| `spelling_trap` | Optional, required in `spelling_traps`: a short note on the point to watch |
+
+Both examples must contain the headword, one of its inflections, or a form declared in `word_family`. For expressions, a few words may come between the parts ("mull **it** over"), and articles may change ("meet **the** deadline").
+
+## Tiers
+
+| Tier | Label | CEFR allowed | What goes in |
+|---|---|---|---|
+| `core` | Essentials | B2, C1 | Internal high-yield selection: cross-disciplinary academic words, campus and daily-life vocabulary, connectors and formulas for Email, Academic Discussion and Interview |
+| `extended` | Extended (C1) | C1, and B2 for common discipline words | Vocabulary by discipline and function |
+| `mastery` | Mastery (C2) | C2 | Nuance, precision and formal register |
+
+Internal targets (in `config/toefl-2026.json` → `internal.vocabulary`): 400 core, 350 extended, 250 mastery; about 30 % B2, 45 % C1, 25 % C2. The validator warns when the CEFR shares drift by more than 5 points.
+
+## Categories and functions
+
+Categories: `general_academic`, `biology`, `ecology`, `geology`, `astronomy`, `psychology`, `sociology`, `anthropology`, `economics`, `history`, `art_history`, `linguistics`, `environmental_science`, `technology`, `campus_daily_life`, `functional_language`, `academic_collocations`, `phrasal_verbs_idioms`, `false_friends_fr`, `spelling_traps`.
+
+Functions (`functional_language` only): `cause_consequence`, `concession`, `hedging`, `agreement_disagreement`, `speech_structuring`, `email_request`, `email_complaint`, `email_apology`, `email_follow_up`, `email_recommendation`.
+
+## What the validator checks
+
+- unique `id`, and unique headword + part of speech across all packs;
+- each example contains the headword or a declared form, and the two examples differ;
+- the definition does not contain the defined word or expression;
+- the French translation is filled in;
+- at least 2 collocations for `kind: "word"`;
+- tier and CEFR are coherent, and the entry's category matches its pack;
+- pack-specific fields are present (`function`, `false_friend_fr`, `spelling_trap`);
+- one pack per category, and no pack presents itself as an official list.
+
+`npm run validate:content` prints the counts by tier, CEFR and category. Add `-- --vocab-warnings` to list warnings, such as a collocation that does not contain its headword.

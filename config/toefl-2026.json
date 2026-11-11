@@ -141,6 +141,15 @@
       "repeat_median_rubric": 4.5,
       "interview_median_rubric": 4.5,
       "max_timing_violations_last_7_days": 0
+    },
+    "vocabulary": {
+      "$comment": "Internal conventions of the vocabulary bank (content/vocab). Nothing here is an ETS list; CEFR levels are author estimates.",
+      "tiers": {
+        "core": { "label": "Essentials", "cefr": ["B2", "C1"], "note": "Internal high-yield selection: cross-disciplinary academic words, campus and daily-life vocabulary, and the connectors and formulas needed for Email, Academic Discussion and Interview. Not an official list." },
+        "extended": { "label": "Extended (C1)", "cefr": ["B2", "C1"], "note": "C1-level vocabulary by discipline and function; common discipline words that are really B2 are kept here and labelled B2." },
+        "mastery": { "label": "Mastery (C2)", "cefr": ["C2"], "note": "C2-level vocabulary: nuance, precision and formal register." }
+      },
+      "targets": { "tier": { "core": 400, "extended": 350, "mastery": 250 }, "cefr_share": { "B2": 0.3, "C1": 0.45, "C2": 0.25 }, "share_tolerance": 0.05 }
     }
   }
 }

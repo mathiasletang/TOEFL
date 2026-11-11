@@ -7,6 +7,8 @@ import { z } from "zod";
 import { openDb, USERS, json, nowIso, type DB } from "./db";
 import { loadEnv, ROOT, type Env } from "./env";
 import { syncContent, readContent, getExercise, listExercises, type LoadedContent } from "./content";
+import { syncVocab, readVocab, type LoadedVocab } from "./vocab";
+import { countVocab } from "../shared/vocab";
 import { getAttempt, rescoreAttempt, reviewPayload } from "./attempts";
 import {
   computeProjection,
@@ -99,10 +101,11 @@ function exerciseTitle(e: ReturnType<typeof listExercises>[number]): string {
   }
 }
 
-export async function buildApp(opts: AppOptions = {}): Promise<{ app: FastifyInstance; db: DB; env: Env; content: LoadedContent }> {
+export async function buildApp(opts: AppOptions = {}): Promise<{ app: FastifyInstance; db: DB; env: Env; content: LoadedContent; vocab: LoadedVocab }> {
   const env = opts.env ?? loadEnv();
   const db = openDb(opts.dbFile ?? path.join(env.dataDir, "toefl.db"));
   const content = syncContent(db, readContent());
+  const vocab = syncVocab(db, readVocab());
   const app = Fastify({ logger: opts.logger ?? false, bodyLimit: 25 * 1024 * 1024 });
 
   app.addContentTypeParser(/^audio\/.*/, { parseAs: "buffer" }, (_req, body, done) => done(null, body));
@@ -114,7 +117,13 @@ export async function buildApp(opts: AppOptions = {}): Promise<{ app: FastifyIns
   });
 
   // ------------------------------------------------------------- system
-  app.get("/api/health", async () => ({ ok: true, exercises: content.exercises.length, errors: content.errors.length + content.fileErrors.length }));
+  app.get("/api/health", async () => ({
+    ok: true,
+    exercises: content.exercises.length,
+    errors: content.errors.length + content.fileErrors.length,
+    vocab_entries: vocab.entries.length,
+    vocab_errors: vocab.errors.length + vocab.fileErrors.length,
+  }));
 
   app.get("/api/config", async () => ({
     providers: {
@@ -132,6 +141,7 @@ export async function buildApp(opts: AppOptions = {}): Promise<{ app: FastifyIns
       file_errors: content.fileErrors,
       by_task: Object.fromEntries(TASK_TYPES.map((t) => [t, content.exercises.filter((e) => e.task_type === t).length])),
     },
+    vocabulary: { ...countVocab(vocab.entries), invalid: vocab.errors.length, file_errors: vocab.fileErrors },
   }));
 
   // ------------------------------------------------------------- users
@@ -478,7 +488,7 @@ export async function buildApp(opts: AppOptions = {}): Promise<{ app: FastifyIns
     });
   }
 
-  return { app, db, env, content };
+  return { app, db, env, content, vocab };
 }
 
 function sendFile(reply: FastifyReply, file: string, mime: string) {

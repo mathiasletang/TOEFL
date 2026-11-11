@@ -9,5 +9,6 @@
 | 5. Adaptive simulation | Official MST composition, exact subset assembly, internal configurable routing, module timers with server-side auto-submit, section/full/short simulations, sufficiency validator | Done |
 | 6. Analytics | Rasch projections with ranges, raw-point projections, overall rounding, error profile, priority-based recommendations, focus mode, trends, recent vs historical, READY gate | Done |
 | 7. Testing & polish | `npm run check` (typecheck, content validation, 46 Vitest tests), Playwright smoke run of 14 UI flows (see final report), responsive layout | Done |
+| 8. Vocabulary bank (data) | `content/vocab/` (20 packs, 1,000 original entries), Zod schema and validator in `shared/vocab.ts`, migration `002_vocab.sql`, loader `server/vocab.ts`, counts in `npm run validate:content` | Done — no UI yet |
 
 Not implemented (documented in PRD_AUDIT §7): phoneme-level pronunciation scoring, calibrated P(overall ≥ target).
