@@ -27,7 +27,7 @@ Open **http://127.0.0.1:8787**, pick a profile and train.
 | `npm start` | Production build + local server on port 8787 (UI and API) |
 | `npm run dev` | Development: API with auto-reload (8787) + Vite UI with hot reload on **http://localhost:5173** |
 | `npm run serve` | Serve the last build without rebuilding |
-| `npm run validate:content` | Validate every exercise and report how many simulation forms the bank supports |
+| `npm run validate:content` | Validate every exercise and vocabulary entry; report simulation forms and vocabulary counts |
 | `npm test` | Unit and integration tests (Vitest) |
 | `npm run typecheck` | Strict TypeScript check of server, shared engine and UI |
 | `npm run check` | typecheck + content validation + tests |
@@ -123,7 +123,9 @@ AI evaluation calls the Anthropic Messages API with structured JSON output. Ever
 
 Drop a JSON file into `content/exercises/`, run `npm run validate:content`, then restart. The format, the rules and examples for every task type are in **`docs/CONTENT_GUIDE.md`**.
 
-Invalid exercises are never imported. The server logs them and the validator fails. The current bank holds 146 original exercises and supports **2 complete official-format full tests** with no exercise reused inside or across forms (`npm run validate:content` prints the exact counts).
+The same applies to the **vocabulary bank** in `content/vocab/` (1,000 original entries in 20 packs, data only for now — no screen uses it yet). Its "Essentials" tier is an internal high-yield selection, not an official list.
+
+Invalid exercises and vocabulary entries are never imported. The server logs them and the validator fails. The current bank holds 146 original exercises and supports **2 complete official-format full tests** with no exercise reused inside or across forms (`npm run validate:content` prints the exact counts).
 
 ---
 
@@ -148,6 +150,7 @@ Confidence labels are `not enough data`, `low` and `medium`. The app never shows
 ```
 config/toefl-2026.json      official blueprint values + every internal parameter
 content/exercises/*.json    exercise bank (validated on load)
+content/vocab/*.json        vocabulary bank, one pack per category (validated on load)
 shared/                     isomorphic engine: schemas, CTW rule, scoring, alignment, IRT, router, bands, validator
 server/                     Fastify API, SQLite + migrations, sessions/timing, simulation, analytics, AI, speech
 web/src/                    React UI: tasks/ (12 interactions + review), pages/, lib/timer.ts (shared timer state machine)

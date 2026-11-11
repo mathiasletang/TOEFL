@@ -37,6 +37,10 @@ export interface AppConfig {
     };
     listen_repeat_proxy: RepeatProxyConfig;
     recommendation_weights: { error_frequency: number; recency: number; band_impact: number; speed_deficit: number };
+    vocabulary: {
+      tiers: Record<"core" | "extended" | "mastery", { label: string; cefr: string[]; note: string }>;
+      targets: { tier: Record<"core" | "extended" | "mastery", number>; cefr_share: Record<"B2" | "C1" | "C2", number>; share_tolerance: number };
+    };
     ready_gate: {
       last_full_simulations: number;
       minimum_projected_overall: number;
