@@ -27,7 +27,7 @@ export function UserSelect() {
           <h1 className="text-2xl font-semibold tracking-tight">Who is training?</h1>
         </div>
         <div className="grid grid-cols-2 gap-3">
-          {(data ?? [{ id: "User_1", display_name: "User_1", target_band: 6, attempts: 0, last_activity: null }, { id: "Mathias", display_name: "Mathias", target_band: 6, attempts: 0, last_activity: null }]).map((u) => (
+          {(data ?? [{ id: "Virgile", display_name: "Virgile", target_band: 5, attempts: 0, last_activity: null }, { id: "Mathias", display_name: "Mathias", target_band: 6, attempts: 0, last_activity: null }]).map((u) => (
             <button
               key={u.id}
               autoFocus={u.id === last}

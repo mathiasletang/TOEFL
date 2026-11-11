@@ -11,7 +11,7 @@ import { Progress } from "./pages/Progress";
 import { Settings } from "./pages/Settings";
 import { VocabBank, VocabEntryPage, VocabSession, VocabStats } from "./pages/Vocabulary";
 
-const USERS = ["User_1", "Mathias"];
+const USERS = ["Virgile", "Mathias"];
 
 function Shell({ user, children, wide }: { user: string; children: ReactNode; wide?: boolean }) {
   const { path, navigate } = useRouter();

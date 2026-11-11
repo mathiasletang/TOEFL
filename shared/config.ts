@@ -23,6 +23,7 @@ export interface AppConfig {
   };
   internal: {
     default_target_band: number;
+    profile_targets: Record<string, number>;
     target_options: number[];
     routing: { model: "percent-correct" | "irt-lite"; training_threshold: number; training_theta_cut: number; is_official: false; ui_warning: string };
     writing_build_a_sentence_minutes: number;
