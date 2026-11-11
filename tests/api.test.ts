@@ -111,7 +111,7 @@ describe("drills, users and persistence", () => {
     expect(r.attempt.raw_score).toBe(1);
     expect(r.exercise.explanation).toBeTruthy();
     const m = (await get("/api/users/Mathias/progress")).json();
-    const u = (await get("/api/users/User_1/progress")).json();
+    const u = (await get("/api/users/Virgile/progress")).json();
     expect(m.attempts.length).toBe(1);
     expect(u.attempts.length).toBe(0);
   });
@@ -122,11 +122,11 @@ describe("drills, users and persistence", () => {
   });
 
   it("auto-submits an expired strict drill from its autosave (refresh/interruption)", async () => {
-    const s = (await post("/api/sessions", { userId: "User_1", exerciseId: "r_ctw_002", mode: "strict" })).json();
+    const s = (await post("/api/sessions", { userId: "Virgile", exerciseId: "r_ctw_002", mode: "strict" })).json();
     const gaps = deriveCtw(ex<"complete_the_words">("r_ctw_002").passage).gaps.map((g) => g.missing);
     await app.inject({ method: "PUT", url: `/api/sessions/${s.session.id}/state`, payload: { state: { response: { gaps: gaps.slice(0, 4) }, elapsedMs: 50000 } } });
     db.prepare("UPDATE sessions SET deadline_at = ? WHERE id = ?").run(new Date(Date.now() - 60000).toISOString(), s.session.id);
-    const act = (await get("/api/users/User_1/active-session")).json();
+    const act = (await get("/api/users/Virgile/active-session")).json();
     expect(act.active.expired_attempt_id).toBeTruthy();
     const a = (await get(`/api/attempts/${act.active.expired_attempt_id}`)).json();
     expect(a.attempt.timed_out).toBe(true);
@@ -134,7 +134,7 @@ describe("drills, users and persistence", () => {
   });
 
   it("flags a late strict submission as a timing violation", async () => {
-    const s = (await post("/api/sessions", { userId: "User_1", exerciseId: "w_build_003", mode: "strict" })).json();
+    const s = (await post("/api/sessions", { userId: "Virgile", exerciseId: "w_build_003", mode: "strict" })).json();
     db.prepare("UPDATE sessions SET deadline_at = ? WHERE id = ?").run(new Date(Date.now() - 30000).toISOString(), s.session.id);
     const r = (await post(`/api/sessions/${s.session.id}/submit`, { response: { order: [] }, elapsedMs: 70000 })).json();
     expect(r.attempt.timing_violation).toBe(true);
@@ -152,12 +152,12 @@ describe("drills, users and persistence", () => {
   });
 
   it("updates the target band and recomputes the threshold", async () => {
-    const r = await app.inject({ method: "PATCH", url: "/api/users/User_1", payload: { target_band: 5.5, exam_date: "2027-01-15" } });
+    const r = await app.inject({ method: "PATCH", url: "/api/users/Virgile", payload: { target_band: 5.5, exam_date: "2027-01-15" } });
     expect(r.statusCode).toBe(200);
-    const d = (await get("/api/users/User_1/dashboard")).json();
+    const d = (await get("/api/users/Virgile/dashboard")).json();
     expect(d.projection.threshold.minimum_sum).toBe(21);
-    expect((await app.inject({ method: "PATCH", url: "/api/users/User_1", payload: { target_band: 4.25 } })).statusCode).toBe(400);
-    await app.inject({ method: "PATCH", url: "/api/users/User_1", payload: { target_band: 6 } });
+    expect((await app.inject({ method: "PATCH", url: "/api/users/Virgile", payload: { target_band: 4.25 } })).statusCode).toBe(400);
+    await app.inject({ method: "PATCH", url: "/api/users/Virgile", payload: { target_band: 6 } });
   });
 });
 
@@ -210,11 +210,11 @@ describe("AI evaluation", () => {
 describe("speaking recordings", () => {
   it("stores audio, accepts a browser transcript and scores Listen and Repeat", async () => {
     const lr = ex<"listen_and_repeat">("s_repeat_002");
-    const s = (await post("/api/sessions", { userId: "User_1", exerciseId: lr.id, mode: "strict" })).json();
+    const s = (await post("/api/sessions", { userId: "Virgile", exerciseId: lr.id, mode: "strict" })).json();
     expect(s.session.time_limit_ms).toBeNull();
     const items = [];
     for (const it of lr.items) {
-      const up = await app.inject({ method: "POST", url: `/api/recordings?userId=User_1&exerciseId=${lr.id}&itemKey=item${it.index}&sessionId=${s.session.id}&durationMs=4000`, payload: Buffer.from("fake-webm"), headers: { "content-type": "audio/webm" } });
+      const up = await app.inject({ method: "POST", url: `/api/recordings?userId=Virgile&exerciseId=${lr.id}&itemKey=item${it.index}&sessionId=${s.session.id}&durationMs=4000`, payload: Buffer.from("fake-webm"), headers: { "content-type": "audio/webm" } });
       const rec = up.json();
       expect(rec.id).toBeTruthy();
       expect(rec.transcript).toBeNull();
@@ -236,10 +236,10 @@ describe("speaking recordings", () => {
 
   it("evaluates interview answers that have transcripts", async () => {
     const iv = ex<"take_an_interview">("s_interview_002");
-    const s = (await post("/api/sessions", { userId: "User_1", exerciseId: iv.id, mode: "strict" })).json();
+    const s = (await post("/api/sessions", { userId: "Virgile", exerciseId: iv.id, mode: "strict" })).json();
     const items = [];
     for (const q of iv.questions) {
-      const rec = (await app.inject({ method: "POST", url: `/api/recordings?userId=User_1&exerciseId=${iv.id}&itemKey=q${q.index}&durationMs=40000`, payload: Buffer.from("x"), headers: { "content-type": "audio/webm" } })).json();
+      const rec = (await app.inject({ method: "POST", url: `/api/recordings?userId=Virgile&exerciseId=${iv.id}&itemKey=q${q.index}&durationMs=40000`, payload: Buffer.from("x"), headers: { "content-type": "audio/webm" } })).json();
       await post(`/api/recordings/${rec.id}/transcript`, { transcript: "I usually take the bus because it is cheap and reliable.", confidence: null });
       items.push({ index: q.index, recordingId: rec.id });
     }
@@ -282,9 +282,9 @@ describe("adaptive simulation", () => {
   });
 
   it("routes to the lower module on a weak Module 1 and refuses a second active simulation", async () => {
-    const { id, after } = await runRouter("User_1", false);
+    const { id, after } = await runRouter("Virgile", false);
     expect(after.simulation.status).toBe("active");
-    expect((await post("/api/simulations", { userId: "User_1", scope: "listening", length: "short" })).statusCode).toBe(400);
+    expect((await post("/api/simulations", { userId: "Virgile", scope: "listening", length: "short" })).statusCode).toBe(400);
     const started = (await post(`/api/simulations/${id}/start-step`)).json();
     expect(started.exercises.map((e: { task_type: string }) => e.task_type)).toContain("read_in_daily_life");
     await post(`/api/simulations/${id}/abandon`);
@@ -298,7 +298,7 @@ describe("adaptive simulation", () => {
   });
 
   it("auto-submits an expired module from its autosave", async () => {
-    const v = (await post("/api/simulations", { userId: "User_1", scope: "listening", length: "short" })).json();
+    const v = (await post("/api/simulations", { userId: "Virgile", scope: "listening", length: "short" })).json();
     const id = v.simulation.id;
     await post(`/api/simulations/${id}/start-step`);
     await app.inject({ method: "PUT", url: `/api/simulations/${id}/state`, payload: { state: { responses: {} } } });
@@ -325,5 +325,32 @@ describe("analytics", () => {
     const fe = getExercise(db, f.exercise_id) as Extract<Exercise, { task_type: "build_a_sentence" }>;
     expect(fe.pattern).toBe("embedded_questions");
     expect(p.ready_gate.ready).toBe(false);
+  });
+});
+
+describe("profile rename migration", () => {
+  it("moves User_1's history to Virgile with a 5.0 target on an existing database", async () => {
+    const { openDb } = await import("../server/db");
+    const Sqlite = (await import("node:sqlite")).DatabaseSync;
+    const file = path.join(os.tmpdir(), `toefl-rename-${Date.now()}.db`);
+    // Build a database as it was before the rename: only migrations 001–002 applied, with User_1 data.
+    const raw = new Sqlite(file);
+    raw.exec("CREATE TABLE schema_migrations (name TEXT PRIMARY KEY, applied_at TEXT NOT NULL)");
+    for (const m of ["001_init.sql", "002_vocab.sql"]) {
+      raw.exec(fs.readFileSync(path.join("server", "migrations", m), "utf8"));
+      raw.prepare("INSERT INTO schema_migrations VALUES (?, ?)").run(m, "2026-11-01T00:00:00Z");
+    }
+    raw.exec("INSERT INTO users (id, display_name, target_band, exam_date) VALUES ('User_1', 'User_1', 6.0, '2026-12-28'), ('Mathias', 'Mathias', 6.0, NULL)");
+    raw.exec("INSERT INTO progress_snapshots (user_id, created_at, reason, projection_json) VALUES ('User_1', '2026-11-02T00:00:00Z', 'attempt', '{}')");
+    raw.close();
+    const migrated = openDb(file);
+    const users = migrated.prepare("SELECT id, target_band, exam_date FROM users ORDER BY id").all();
+    expect(users).toEqual([
+      { id: "Mathias", target_band: 6, exam_date: null },
+      { id: "Virgile", target_band: 5, exam_date: "2026-12-28" },
+    ]);
+    expect((migrated.prepare("SELECT COUNT(*) c FROM progress_snapshots WHERE user_id = 'Virgile'").get() as { c: number }).c).toBe(1);
+    migrated.close();
+    fs.rmSync(file, { force: true });
   });
 });

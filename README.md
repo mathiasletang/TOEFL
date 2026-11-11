@@ -1,6 +1,6 @@
 # TOEFL iBT 2026 Trainer — target Band 6.0 (CEFR C2)
 
-A local-first training instrument for the TOEFL iBT format introduced on **21 January 2026**, built for two users: **User_1** and **Mathias**. The default goal is an overall **Band 6.0 (C2)**. Each profile can switch to 5.0 or 5.5 in Settings.
+A local-first training instrument for the TOEFL iBT format introduced on **21 January 2026**, built for two users: **Mathias** (target Band 6.0, C2) and **Virgile** (target Band 5.0, C1). Each profile can change its target in Settings (5.0, 5.5 or 6.0).
 
 It is not a general English course. It covers the 12 current task types, strict exam timing, a two-stage adaptive simulator, error-driven drill selection, and transparent internal score projections.
 
