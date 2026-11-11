@@ -58,6 +58,7 @@ interface DashboardData {
   last_simulation: { id: string; scope: string; length: string; completed_at: string; results: { overall: { band: number | null } | null; sections: Record<string, SectionEst> } | null } | null;
   last_full_simulation: { id: string; completed_at: string; results: { overall: { band: number | null } | null } | null } | null;
   active_simulation: { id: string; scope: string; length: string } | null;
+  vocabulary?: { due: number; new_left: number; new_per_day: number; reviewed_today: number; learned: number };
   active_drill: { session?: { exercise_id: string; mode: string } } | { expired_attempt_id: string } | null;
   trends: { projections: Array<{ day: string; overall: number | null; reading: number | null; listening: number | null; writing: number | null; speaking: number | null }> };
   totals: { attempts: number; ms: number };
@@ -152,6 +153,29 @@ export function Dashboard({ user }: { user: string }) {
           </div>
         </div>
       </div>
+      {data.vocabulary && (
+        <div className="card flex flex-wrap items-center justify-between gap-4 p-5">
+          <div>
+            <div className="label">Vocabulary</div>
+            <div className="mt-1 flex items-baseline gap-2">
+              <span className="text-3xl font-semibold tabular-nums">{data.vocabulary.due}</span>
+              <span className="text-sm text-zinc-600">card{data.vocabulary.due === 1 ? "" : "s"} due</span>
+              <span className="text-sm text-zinc-500">· {data.vocabulary.new_left} new word{data.vocabulary.new_left === 1 ? "" : "s"} left today</span>
+            </div>
+            <div className="text-xs text-zinc-500">
+              {data.vocabulary.reviewed_today} review{data.vocabulary.reviewed_today === 1 ? "" : "s"} today · {data.vocabulary.learned} word{data.vocabulary.learned === 1 ? "" : "s"} in rotation
+            </div>
+          </div>
+          <div className="flex gap-2">
+            <Link to={`/u/${user}/vocab/session`} className={`btn ${data.vocabulary.due + data.vocabulary.new_left > 0 ? "btn-primary" : ""}`}>
+              {data.vocabulary.due + data.vocabulary.new_left > 0 ? "Start today's session" : "Session done for today"}
+            </Link>
+            <Link to={`/u/${user}/vocab`} className="btn btn-ghost">
+              Browse the bank
+            </Link>
+          </div>
+        </div>
+      )}
 
       <div className="card overflow-hidden">
         <div className="grid divide-y divide-zinc-100 md:grid-cols-4 md:divide-x md:divide-y-0">

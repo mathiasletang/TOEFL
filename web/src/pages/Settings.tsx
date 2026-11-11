@@ -10,6 +10,7 @@ interface U {
   id: string;
   target_band: number;
   exam_date: string | null;
+  vocab_new_per_day: number;
 }
 
 export function Settings({ user }: { user: string }) {
@@ -19,15 +20,18 @@ export function Settings({ user }: { user: string }) {
   const [target, setTarget] = useState<number | null>(null);
   const [date, setDate] = useState<string>("");
   const [saved, setSaved] = useState<string | null>(null);
+  const [newPerDay, setNewPerDay] = useState<number | null>(null);
+  const meta = useApi<{ new_per_day_options: number[]; new_per_day_default: number }>("/api/vocab/meta");
   useEffect(() => {
     if (me) {
       setTarget(me.target_band);
       setDate(me.exam_date ?? "");
+      setNewPerDay(me.vocab_new_per_day);
     }
   }, [me]);
   if (!me || !cfg) return <Spinner />;
   const save = async () => {
-    await api.patch(`/api/users/${user}`, { target_band: target, exam_date: date || null });
+    await api.patch(`/api/users/${user}`, { target_band: target, exam_date: date || null, vocab_new_per_day: newPerDay ?? undefined });
     setSaved("Saved.");
     setTimeout(() => setSaved(null), 2000);
   };
@@ -59,6 +63,19 @@ export function Settings({ user }: { user: string }) {
           <label className="text-sm">
             <div className="mb-1 text-xs text-zinc-500">Exam date</div>
             <input type="date" className="input" value={date} onChange={(e) => setDate(e.target.value)} />
+          </label>
+          <label className="text-sm">
+            <div className="mb-1 text-xs text-zinc-500">New vocabulary words per day</div>
+            <select className="input" value={newPerDay ?? 20} onChange={(e) => setNewPerDay(Number(e.target.value))}>
+              {[...new Set([...(meta.data?.new_per_day_options ?? [20]), newPerDay ?? 20])]
+                .sort((a, b) => a - b)
+                .map((n) => (
+                  <option key={n} value={n}>
+                    {n === 0 ? "0 — reviews only" : n}
+                    {n === meta.data?.new_per_day_default ? " (default)" : ""}
+                  </option>
+                ))}
+            </select>
           </label>
           <button className="btn btn-primary" onClick={save}>
             Save

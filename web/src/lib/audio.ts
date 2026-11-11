@@ -124,3 +124,43 @@ export function playScript(exerciseId: string, script: AudioScript, opts: { onSe
     },
   };
 }
+
+export function browserSpeechAvailable(): boolean {
+  return typeof window !== "undefined" && "speechSynthesis" in window;
+}
+
+/** Speak one short text: a server audio file when a URL is given, the browser voice otherwise. */
+export function speakText(text: string, url?: string | null): Playback {
+  const signal = { cancelled: false };
+  let current: HTMLAudioElement | null = null;
+  const started = performance.now();
+  const viaBrowser = async () => {
+    if (!browserSpeechAvailable()) throw new Error("No speech-synthesis voice is available in this browser.");
+    speechSynthesis.cancel();
+    await speak(text, chooseVoice(await voices(), "neutral", 0), signal);
+  };
+  const done = (async () => {
+    if (url) {
+      try {
+        await new Promise<void>((resolve, reject) => {
+          const a = new Audio(url);
+          current = a;
+          a.onended = () => resolve();
+          a.onerror = () => reject(new Error("Audio failed to load"));
+          a.play().catch(reject);
+        });
+      } catch {
+        await viaBrowser();
+      }
+    } else await viaBrowser();
+    return { ms: performance.now() - started, cancelled: signal.cancelled };
+  })();
+  return {
+    done,
+    cancel: () => {
+      signal.cancelled = true;
+      current?.pause();
+      if (browserSpeechAvailable()) speechSynthesis.cancel();
+    },
+  };
+}

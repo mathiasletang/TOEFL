@@ -19,6 +19,7 @@ interface W {
   rate: number;
   last_seen: string;
   task_types: TaskType[];
+  sources?: string[];
 }
 
 export function Focus({ user }: { user: string }) {
@@ -74,7 +75,7 @@ export function Focus({ user }: { user: string }) {
                   <td className="tabular-nums text-zinc-600">
                     {w.errors}/{w.opportunities}
                   </td>
-                  <td className="text-xs text-zinc-500">{w.task_types.map((t) => TASK_LABEL[t]).join(", ")}</td>
+                  <td className="text-xs text-zinc-500">{[...w.task_types.map((t) => TASK_LABEL[t]), ...(w.sources ?? []).map((x) => (x === "vocabulary" ? "Vocabulary reviews" : x))].join(", ")}</td>
                   <td className="text-xs text-zinc-500">{ago(w.last_seen)}</td>
                 </tr>
               ))}

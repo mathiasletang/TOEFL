@@ -149,7 +149,24 @@
         "extended": { "label": "Extended (C1)", "cefr": ["B2", "C1"], "note": "C1-level vocabulary by discipline and function; common discipline words that are really B2 are kept here and labelled B2." },
         "mastery": { "label": "Mastery (C2)", "cefr": ["C2"], "note": "C2-level vocabulary: nuance, precision and formal register." }
       },
-      "targets": { "tier": { "core": 400, "extended": 350, "mastery": 250 }, "cefr_share": { "B2": 0.3, "C1": 0.45, "C2": 0.25 }, "share_tolerance": 0.05 }
+      "targets": { "tier": { "core": 400, "extended": 350, "mastery": 250 }, "cefr_share": { "B2": 0.3, "C1": 0.45, "C2": 0.25 }, "share_tolerance": 0.05 },
+      "srs": {
+        "$comment": "SM-2-style scheduler. Every value is an internal training parameter.",
+        "new_per_day_default": 20,
+        "new_per_day_options": [0, 5, 10, 15, 20, 30, 40],
+        "initial_ease": 2.5,
+        "minimum_ease": 1.3,
+        "first_interval_days": 1,
+        "second_interval_days": 6,
+        "relearn_minutes": 10,
+        "mature_interval_days": 21,
+        "fast_answer_ms": { "choice": 6000, "typed": 12000 },
+        "production_share_min": 0.6,
+        "leech_lapses": 4,
+        "retention_window_days": 30,
+        "challenge_words": 3,
+        "challenge_seconds": 45
+      }
     }
   }
 }
