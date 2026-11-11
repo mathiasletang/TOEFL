@@ -41,6 +41,22 @@ export interface AppConfig {
     vocabulary: {
       tiers: Record<"core" | "extended" | "mastery", { label: string; cefr: string[]; note: string }>;
       targets: { tier: Record<"core" | "extended" | "mastery", number>; cefr_share: Record<"B2" | "C1" | "C2", number>; share_tolerance: number };
+      srs: {
+        new_per_day_default: number;
+        new_per_day_options: number[];
+        initial_ease: number;
+        minimum_ease: number;
+        first_interval_days: number;
+        second_interval_days: number;
+        relearn_minutes: number;
+        mature_interval_days: number;
+        fast_answer_ms: { choice: number; typed: number };
+        production_share_min: number;
+        leech_lapses: number;
+        retention_window_days: number;
+        challenge_words: number;
+        challenge_seconds: number;
+      };
     };
     ready_gate: {
       last_full_simulations: number;

@@ -95,4 +95,8 @@ export const ERROR_TAG_LABELS: Record<string, string> = {
   register: "Register",
   development: "Development",
   timing_violation: "Timing",
+  vocab_meaning: "Vocabulary: word meaning",
+  vocab_collocation: "Vocabulary: collocation",
+  vocab_paraphrase: "Vocabulary: synonym in context",
+  vocab_false_friend: "Vocabulary: false friend",
 };

@@ -3,6 +3,7 @@
  * from this app's own exercises; none of it is an official TOEFL score.
  */
 import type { DB } from "./db";
+import { vocabErrorStats } from "./vocabDeck";
 import { json, nowIso } from "./db";
 import { CONFIG, thetaToBand, proportionToBand } from "../shared/config";
 import { estimateTheta } from "../shared/irt";
@@ -299,6 +300,8 @@ export interface Weakness {
   rate: number;
   last_seen: string;
   task_types: TaskType[];
+  /** Where the errors were observed besides the 12 tasks (currently: "vocabulary" reviews). */
+  sources: string[];
 }
 
 export function weaknesses(db: DB, userId: string, days = 30): Weakness[] {
@@ -313,7 +316,7 @@ export function weaknesses(db: DB, userId: string, days = 30): Weakness[] {
   const agg = new Map<string, Weakness>();
   for (const r of rows) {
     if (!r.error_tag) continue;
-    const w = agg.get(r.error_tag) ?? { tag: r.error_tag, label: ERROR_TAG_LABELS[r.error_tag] ?? r.error_tag, errors: 0, opportunities: 0, rate: 0, last_seen: r.created_at, task_types: [] };
+    const w = agg.get(r.error_tag) ?? { tag: r.error_tag, label: ERROR_TAG_LABELS[r.error_tag] ?? r.error_tag, errors: 0, opportunities: 0, rate: 0, last_seen: r.created_at, task_types: [], sources: [] };
     w.errors++;
     if (!w.task_types.includes(r.task_type as TaskType)) w.task_types.push(r.task_type as TaskType);
     if (r.created_at > w.last_seen) w.last_seen = r.created_at;
@@ -332,7 +335,7 @@ export function weaknesses(db: DB, userId: string, days = 30): Weakness[] {
     const cats = new Set((res.errors ?? []).map((x) => x.category).filter((c): c is string => !!c));
     if ((res.missing_requirements ?? []).length) cats.add("missed_requirement");
     for (const c of cats) {
-      const w = agg.get(c) ?? { tag: c, label: ERROR_TAG_LABELS[c] ?? c, errors: 0, opportunities: 0, rate: 0, last_seen: e.created_at, task_types: [] };
+      const w = agg.get(c) ?? { tag: c, label: ERROR_TAG_LABELS[c] ?? c, errors: 0, opportunities: 0, rate: 0, last_seen: e.created_at, task_types: [], sources: [] };
       w.errors++;
       if (!w.task_types.includes(e.task_type as TaskType)) w.task_types.push(e.task_type as TaskType);
       if (e.created_at > w.last_seen) w.last_seen = e.created_at;
@@ -346,6 +349,17 @@ export function weaknesses(db: DB, userId: string, days = 30): Weakness[] {
       if (["grammar", "word_choice", "mechanics", "register", "development", "missed_requirement", "word_form", "collocation", "other"].includes(w.tag))
         w.opportunities = w.task_types.reduce((a, t) => a + (aiCount.get(t) ?? 0), 0);
     }
+  }
+  // Vocabulary reviews: typed answers use the same classes as Complete the Words.
+  for (const [tag, v] of vocabErrorStats(db, userId, since)) {
+    const w = agg.get(tag) ?? { tag, label: ERROR_TAG_LABELS[tag] ?? tag, errors: 0, opportunities: 0, rate: 0, last_seen: v.last, task_types: [], sources: [] };
+    w.errors += v.n;
+    w.opportunities += v.opportunities;
+    w.sources.push("vocabulary");
+    if (v.last > w.last_seen) w.last_seen = v.last;
+    agg.set(tag, w);
+  }
+  for (const w of agg.values()) {
     w.opportunities = Math.max(w.opportunities, w.errors);
     w.rate = w.errors / w.opportunities;
   }

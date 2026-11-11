@@ -62,6 +62,7 @@ npm install
 | **Quick Drill** | Practice | Choose any of the 12 task types and start immediately. You get a correction screen after every item. |
 | **Focus Weaknesses** | Focus weaknesses | Picks exercises that target your most costly recurring error patterns, plus spaced retries of failed items. |
 | **TOEFL Simulation** | Simulation | Strict, timed sections or a full test. Reading and Listening use Module 1 → Module 2 routing. |
+| **Vocabulary** | Vocabulary | Spaced-repetition practice on the 1,000-entry bank: daily session, bank browser, statistics (see below). |
 
 **Strict vs Practice** (toggle on Practice / Focus):
 
@@ -83,6 +84,35 @@ npm install
 | | Write an Email | 7:00 hard timer, requirements list, spell-check off |
 | | Academic Discussion | 10:00 hard timer, live word count with the 100-word ETS reference |
 
+### Vocabulary
+
+The **Vocabulary** tab has three views.
+
+- **Bank:** browse and search the 1,000 entries, filtered by tier, CEFR level, category and status. The "Essentials" tab comes first. A word's page shows its full content, plays it (server TTS when configured, otherwise the browser voice) and lists the exercises of the bank in which the word appears. That list is built automatically by matching word forms in the exercise texts.
+- **Daily session:** due reviews first, then new words up to your daily limit (20 by default, set per profile in Settings). New words are introduced in order: the Essentials tier first for everyone, then B2 → C1 → C2 for a 5.0 or 5.5 target, or C1 → C2 → B2 for a 6.0 target.
+- **Stats:** words by state (new / learning / mature) and by tier, retention over 30 days, and the words that keep failing.
+
+Each card rotates through eight exercise formats:
+
+| # | Format | Type |
+|---|---|---|
+| 1 | Meaning → choose the definition (first exposure only, repeated until passed) | recognition |
+| 2 | Definition and French translation → type the word | production |
+| 3 | Sentence with a gap, first letter given → type the word (same gesture as Complete the Words) | production |
+| 4 | Collocation → choose the word that fits all the partners | recognition |
+| 5 | Word formation → type the correct form in a sentence | production |
+| 6 | Paraphrase → choose the synonym that keeps the meaning in context | recognition |
+| 7 | False friend → choose the correct French translation | recognition |
+| 8 | Dictation → the word is spoken, you write it | production |
+
+Once a card has passed format 1, at least 60 % of its reviews are production formats. Typed answers are classified with the same classes as Complete the Words (spelling, inflection, word formation, meaning), and these errors feed the error profile shown in Focus weaknesses and Progress.
+
+**Your own words.** A missed Complete the Words gap or a missed vocabulary question adds the word to your deck automatically (function words are ignored). On any correction screen, "Add words to vocabulary" lets you click a word to add it. A word that is not in the bank becomes a personal card with the sentence it came from. Added words are studied before the scheduled introductions.
+
+**Production challenge.** At the end of a session you get three of the day's words to use in a 45-second spoken answer or in two written sentences. The app checks that the words are present (in the text, or in the transcript from server speech-to-text or the browser's approximate recognition). With an AI key you also get feedback on how each word was used; without one, or when no transcript exists, you rate yourself.
+
+The schedule is an SM-2-style algorithm. Its parameters (intervals, ease, daily limit, production share, "mature" threshold) are internal training values in `config/toefl-2026.json` → `internal.vocabulary.srs`. Tiers and CEFR levels are author conventions; nothing in this module is an official list or measure.
+
 ### Dashboard and progress
 
 The dashboard shows:
@@ -90,6 +120,7 @@ The dashboard shows:
 - your target and the threshold arithmetic (Band 6.0 needs a section mean ≥ 5.75, i.e. a sum ≥ 23.0);
 - the projected overall and section bands with ranges and confidence;
 - days remaining, your most critical weakness and the recommended next drill;
+- the number of vocabulary cards due, with a direct link to today's session;
 - the trend chart and your last full simulation.
 
 The Progress page adds:
@@ -107,7 +138,7 @@ Nothing below is required. Without it, every objective task works fully, and pro
 
 | Feature | Variables | Without it |
 |---|---|---|
-| **AI evaluation** of Email, Academic Discussion and Interview | `ANTHROPIC_API_KEY`, `LLM_MODEL` (default `claude-opus-5-5`), `LLM_EFFORT`, `FEEDBACK_LANGUAGE=en\|fr` | A clear "not configured" notice. The model response is still shown. Interview items can be self-rated. |
+| **AI evaluation** of Email, Academic Discussion and Interview; feedback on the vocabulary production challenge | `ANTHROPIC_API_KEY`, `LLM_MODEL` (default `claude-opus-5-5`), `LLM_EFFORT`, `FEEDBACK_LANGUAGE=en\|fr` | A clear "not configured" notice. The model response is still shown. Interview items can be self-rated. |
 | **Speech-to-text** (Listen and Repeat scoring, Interview transcripts) | `STT_PROVIDER=openai`, `STT_BASE_URL`, `STT_API_KEY`, `STT_MODEL` | Chrome's built-in speech recognition is used, labelled "approximate". If it is unavailable, items can be self-rated against the ETS descriptors. |
 | **Text-to-speech** (listening stimuli, sentences, interview questions) | `TTS_PROVIDER=openai`, `TTS_BASE_URL`, `TTS_API_KEY`, `TTS_MODEL`, `TTS_VOICES` | The browser's speech synthesis is used, labelled as a fallback that does not reproduce ETS audio. |
 
@@ -123,7 +154,7 @@ AI evaluation calls the Anthropic Messages API with structured JSON output. Ever
 
 Drop a JSON file into `content/exercises/`, run `npm run validate:content`, then restart. The format, the rules and examples for every task type are in **`docs/CONTENT_GUIDE.md`**.
 
-The same applies to the **vocabulary bank** in `content/vocab/` (1,000 original entries in 20 packs, data only for now — no screen uses it yet). Its "Essentials" tier is an internal high-yield selection, not an official list.
+The same applies to the **vocabulary bank** in `content/vocab/` (1,000 original entries in 20 packs), which the Vocabulary tab uses. Its "Essentials" tier is an internal high-yield selection, not an official list. Entries removed from the files are deactivated; your review history is kept.
 
 Invalid exercises and vocabulary entries are never imported. The server logs them and the validator fails. The current bank holds 146 original exercises and supports **2 complete official-format full tests** with no exercise reused inside or across forms (`npm run validate:content` prints the exact counts).
 
@@ -139,6 +170,7 @@ Invalid exercises and vocabulary entries are never imported. The server logs the
 | Simulation routing | Module 1 proportion correct ≥ **80 %** (configurable on the launcher; `irt-lite` model available in config) | **Not ETS** — ETS does not publish its cut-off |
 | Listen and Repeat 0–5 | WER/CER/content- and function-word recall/order thresholds from the PRD | Internal proxy; pronunciation is not judged from text |
 | Email / Discussion / Interview 0–5 | LLM estimator prompted with the public ETS task rubrics | Estimate; ETS engines are proprietary |
+| Vocabulary schedule and states | SM-2-style intervals from your own answers; "mature" = interval ≥ 21 days; retention = share of correct reviews over 30 days, first exposures excluded | Internal heuristic |
 | Recommendations | `0.40·error frequency + 0.25·recency + 0.20·band impact + 0.15·speed deficit` | Heuristic, not a calibrated probability |
 
 Confidence labels are `not enough data`, `low` and `medium`. The app never shows "high", because nothing here is calibrated against real TOEFL results.
@@ -151,9 +183,11 @@ Confidence labels are `not enough data`, `low` and `medium`. The app never shows
 config/toefl-2026.json      official blueprint values + every internal parameter
 content/exercises/*.json    exercise bank (validated on load)
 content/vocab/*.json        vocabulary bank, one pack per category (validated on load)
-shared/                     isomorphic engine: schemas, CTW rule, scoring, alignment, IRT, router, bands, validator
-server/                     Fastify API, SQLite + migrations, sessions/timing, simulation, analytics, AI, speech
-web/src/                    React UI: tasks/ (12 interactions + review), pages/, lib/timer.ts (shared timer state machine)
+shared/                     isomorphic engine: schemas, CTW rule, scoring, alignment, IRT, router, bands, validator,
+                            vocabSrs.ts (vocabulary scheduler, format rotation, question builder)
+server/                     Fastify API, SQLite + migrations, sessions/timing, simulation, analytics, AI, speech,
+                            vocabDeck.ts + vocabRoutes.ts (vocabulary deck, session, stats, harvest, challenge)
+web/src/                    React UI: tasks/ (12 interactions + review), pages/ (incl. Vocabulary.tsx), lib/timer.ts (shared timer state machine)
 scripts/validate-content.ts content validator + simulation sufficiency report
 tests/                      Vitest unit and API integration tests
 docs/                       PRD (source), PRD audit, content guide, implementation plan
@@ -164,4 +198,5 @@ docs/                       PRD (source), PRD audit, content guide, implementati
 - **No sound in listening tasks:** without a TTS key the browser voice is used. Check the system volume and that the browser has English voices. The audio panel shows which source is in use.
 - **Microphone blocked:** allow it for `127.0.0.1` in the browser's site settings. Recording needs `localhost`/`127.0.0.1` or HTTPS.
 - **"Port in use":** set `PORT=…` in `.env`.
+- **Dictation is silent:** it uses the same audio path as listening tasks. Without a TTS key and without an English browser voice, dictation cards are skipped automatically.
 - **Reset a profile:** stop the server and delete `data/toefl.db` (this erases both profiles).

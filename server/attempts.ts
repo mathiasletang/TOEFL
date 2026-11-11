@@ -1,4 +1,5 @@
 import crypto from "node:crypto";
+import { harvestAttempt } from "./vocabDeck";
 import type { DB } from "./db";
 import { json } from "./db";
 import { getExercise } from "./content";
@@ -127,6 +128,8 @@ export function submitAttempt(db: DB, input: SubmitInput): AttemptRecord {
     const r = response as RepeatResponse | null;
     for (const it of r?.items ?? []) if (it.recordingId) db.prepare("UPDATE recordings SET attempt_id = ? WHERE id = ? AND user_id = ?").run(id, it.recordingId, input.userId);
   })();
+  // Missed words join the user's vocabulary deck (Complete the Words gaps, vocabulary questions).
+  harvestAttempt(db, input.userId, ex, result);
   return getAttempt(db, id)!;
 }
 

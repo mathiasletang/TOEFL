@@ -6,11 +6,13 @@ import { Spinner, ErrorBox, Notice } from "../components/ui";
 import { ReviewView, type ReviewData } from "../tasks/Review";
 import { TASK_LABEL, type TaskType } from "../../../shared/schema";
 import { useMode } from "./Practice";
+import { WordPicker } from "../components/WordPicker";
 
 export function ReviewPage({ user, attemptId }: { user: string; attemptId: string }) {
   const { data, error, loading, setData } = useApi<ReviewData>(`/api/attempts/${attemptId}`);
   const { search, navigate } = useRouter();
   const [mode] = useMode();
+  const [picking, setPicking] = useState(false);
   const [next, setNext] = useState<{ same: string | null; focus: { exercise_id: string | null; reason: string } | null }>({ same: null, focus: null });
   useEffect(() => {
     if (!data) return;
@@ -32,6 +34,9 @@ export function ReviewPage({ user, attemptId }: { user: string; attemptId: strin
           <div className="text-xs text-zinc-400">{data.exercise.id}</div>
         </div>
         <div className="flex flex-wrap gap-2">
+          <button className={`btn ${picking ? "border-accent text-accent" : ""}`} aria-pressed={picking} onClick={() => setPicking(!picking)} title="Click any word of the correction to add it to your vocabulary deck">
+            {picking ? "Adding words: on" : "Add words to vocabulary"}
+          </button>
           {data.attempt.simulation_id ? (
             <Link to={`/u/${user}/sim/${data.attempt.simulation_id}/results`} className="btn">
               Back to simulation results
@@ -56,7 +61,17 @@ export function ReviewPage({ user, attemptId }: { user: string; attemptId: strin
         </div>
       </div>
       {search.get("expired") && <Notice tone="warn">Your strict drill expired while the page was closed; it was submitted automatically with the last saved answers.</Notice>}
-      <ReviewView data={data} onReload={setData} />
+      {picking && (
+        <Notice>
+          Click any word below to add it to your vocabulary deck. Words that are not in the bank become personal cards with their sentence. Missed Complete the Words gaps and missed vocabulary questions are added automatically.{" "}
+          <Link to={`/u/${user}/vocab/session`} className="underline">
+            Go to today's session
+          </Link>
+        </Notice>
+      )}
+      <WordPicker user={user} exerciseId={data.exercise.id} enabled={picking}>
+        <ReviewView data={data} onReload={setData} />
+      </WordPicker>
     </div>
   );
 }

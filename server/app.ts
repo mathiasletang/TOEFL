@@ -9,6 +9,8 @@ import { loadEnv, ROOT, type Env } from "./env";
 import { syncContent, readContent, getExercise, listExercises, type LoadedContent } from "./content";
 import { syncVocab, readVocab, type LoadedVocab } from "./vocab";
 import { countVocab } from "../shared/vocab";
+import { registerVocabRoutes } from "./vocabRoutes";
+import { deckSummary, newPerDay } from "./vocabDeck";
 import { getAttempt, rescoreAttempt, reviewPayload } from "./attempts";
 import {
   computeProjection,
@@ -61,12 +63,13 @@ class HttpError extends Error {
 
 function user(db: DB, id: string) {
   if (!UserId.safeParse(id).success) throw new HttpError(404, "Unknown user");
-  return db.prepare("SELECT id, display_name, target_band, exam_date, created_at FROM users WHERE id = ?").get(id) as {
+  const row = db.prepare("SELECT id, display_name, target_band, exam_date, created_at FROM users WHERE id = ?").get(id) as {
     id: string;
     display_name: string;
     target_band: number;
     exam_date: string | null;
   };
+  return { ...row, vocab_new_per_day: newPerDay(db, id) };
 }
 
 function parse<T>(schema: z.ZodType<T>, data: unknown): T {
@@ -156,11 +159,12 @@ export async function buildApp(opts: AppOptions = {}): Promise<{ app: FastifyIns
   app.patch<{ Params: { id: string } }>("/api/users/:id", async (req) => {
     user(db, req.params.id);
     const body = parse(
-      z.object({ target_band: z.number().refine((v) => CONFIG.internal.target_options.includes(v), "unsupported target").optional(), exam_date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).nullable().optional() }),
+      z.object({ target_band: z.number().refine((v) => CONFIG.internal.target_options.includes(v), "unsupported target").optional(), exam_date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).nullable().optional(), vocab_new_per_day: z.number().int().min(0).max(100).optional() }),
       req.body,
     );
     if (body.target_band != null) db.prepare("UPDATE users SET target_band = ? WHERE id = ?").run(body.target_band, req.params.id);
     if (body.exam_date !== undefined) db.prepare("UPDATE users SET exam_date = ? WHERE id = ?").run(body.exam_date, req.params.id);
+    if (body.vocab_new_per_day != null) db.prepare("UPDATE users SET vocab_new_per_day = ? WHERE id = ?").run(body.vocab_new_per_day, req.params.id);
     snapshot(db, req.params.id, "settings");
     return user(db, req.params.id);
   });
@@ -193,6 +197,7 @@ export async function buildApp(opts: AppOptions = {}): Promise<{ app: FastifyIns
       active_drill: activeDrill(db, u.id),
       trends: trends(db, u.id),
       totals,
+      vocabulary: deckSummary(db, u.id),
     };
   });
 
@@ -476,6 +481,19 @@ export async function buildApp(opts: AppOptions = {}): Promise<{ app: FastifyIns
       .prepare("SELECT id, exercise_id, task_type, section, module_stage, raw_score, max_score, accuracy, pending, timed_out FROM attempts WHERE simulation_id = ? ORDER BY submitted_at")
       .all(sim.id);
     return { simulation: { id: sim.id, scope: sim.scope, length: sim.length, status: sim.status, started_at: sim.started_at, completed_at: sim.completed_at, router: sim.router, steps: sim.steps.map((s) => ({ section: s.section, stage: s.stage, label: s.label, route: s.route ?? null })) }, results, attempts };
+  });
+
+  // ------------------------------------------------------------- vocabulary
+  registerVocabRoutes(app, {
+    db,
+    env,
+    llmCaller: opts.llmCaller,
+    requireUser: (id) => user(db, id),
+    exerciseTitle: (id) => {
+      const ex = getExercise(db, id);
+      return ex ? exerciseTitle(ex) : null;
+    },
+    sendFile,
   });
 
   // ------------------------------------------------------------- static web
