@@ -24,6 +24,14 @@ export interface AppConfig {
   internal: {
     default_target_band: number;
     profile_targets: Record<string, number>;
+    profile_exam_dates: Record<string, string>;
+    plan: {
+      phases: Array<{ id: string; label: string; from_days: number | null; to_days: number; goal: string }>;
+      base: { shadowing_minutes: number; shadowing_task: string };
+      /** Rotation per profile (falls back to "default"): phase id → weekday (mon…sun) → blocks. */
+      rotations: Record<string, Record<string, Record<string, { main: PlanBlockConfig; optional: PlanBlockConfig | null }>>>;
+      checkpoints: Array<{ days_before: number; label: string; task: string }>;
+    };
     target_options: number[];
     routing: { model: "percent-correct" | "irt-lite"; training_threshold: number; training_theta_cut: number; is_official: false; ui_warning: string };
     writing_build_a_sentence_minutes: number;
@@ -82,4 +90,11 @@ export function thetaToBand(theta: number): number {
 export function proportionToBand(p: number): number {
   for (const c of CONFIG.internal.projection.ws_proportion_cutpoints) if (p >= c.p - 1e-9) return c.band;
   return 1.0;
+}
+
+export interface PlanBlockConfig {
+  /** A task type, "focus", or "simulation:<scope>[:short]". */
+  task: string;
+  items: number;
+  mode: "strict" | "practice";
 }

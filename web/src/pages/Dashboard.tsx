@@ -1,4 +1,5 @@
 import { useApi } from "../lib/useApi";
+import { DailyPlan } from "../components/DailyPlan";
 import { Link } from "../lib/router";
 import { band, pct, ago, SECTION_ORDER, SECTION_LABEL } from "../lib/format";
 import { Spinner, ErrorBox, ConfidenceTag, Bar, Notice } from "../components/ui";
@@ -110,6 +111,8 @@ export function Dashboard({ user }: { user: string }) {
           )}
         </Notice>
       )}
+
+      <DailyPlan user={user} />
 
       <div className="grid gap-4 md:grid-cols-4">
         <div className="card p-5">

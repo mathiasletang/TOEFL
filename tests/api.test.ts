@@ -346,7 +346,7 @@ describe("profile rename migration", () => {
     const migrated = openDb(file);
     const users = migrated.prepare("SELECT id, target_band, exam_date FROM users ORDER BY id").all();
     expect(users).toEqual([
-      { id: "Mathias", target_band: 6, exam_date: null },
+      { id: "Mathias", target_band: 6, exam_date: "2027-01-09" }, // set by migration 005
       { id: "Virgile", target_band: 5, exam_date: "2026-12-28" },
     ]);
     expect((migrated.prepare("SELECT COUNT(*) c FROM progress_snapshots WHERE user_id = 'Virgile'").get() as { c: number }).c).toBe(1);

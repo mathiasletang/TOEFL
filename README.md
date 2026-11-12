@@ -113,6 +113,17 @@ Once a card has passed format 1, at least 60 % of its reviews are production for
 
 The schedule is an SM-2-style algorithm. Its parameters (intervals, ease, daily limit, production share, "mature" threshold) are internal training values in `config/toefl-2026.json` → `internal.vocabulary.srs`. Tiers and CEFR levels are author conventions; nothing in this module is an official list or measure.
 
+### Today's plan
+
+The top of the Dashboard shows a plan built backwards from your exam date (set it in Settings; Mathias's is 2027-01-09).
+
+- **Phase**, counted in days before the exam: Diagnostic (J-55 and earlier), Foundations (J-54 to J-34), Intensification (J-33 to J-13), Exam mode (J-12 to J-1).
+- **Daily base:** due vocabulary reviews, 10 minutes of shadowing (Listen and Repeat in practice mode) and the main block of the day. Each block has a button that opens the right drill directly, in the right mode, or starts the planned simulation.
+- **Optional block** and the **next checkpoint** (a full test at J-55, J-34, J-13 and J-5).
+- A "done" box per block, saved in the database, and a count of consecutive days on which the whole daily base was done. An unfinished today does not break the count until the day is over.
+
+Each phase has a rotation per weekday: a main block and an optional block, each with a task, a number of exercises and a mode (strict or practice). Everything is in `config/toefl-2026.json` → `internal.plan`: phases, `rotations.default`, an optional rotation per profile (`rotations.Mathias`, `rotations.Virgile`), and checkpoints. A task is a task type, `focus` (Focus weaknesses) or `simulation:<scope>[:short]`. The schedule is an internal training plan, not an ETS recommendation.
+
 ### Dashboard and progress
 
 The dashboard shows:

@@ -10,6 +10,8 @@ import { syncContent, readContent, getExercise, listExercises, type LoadedConten
 import { syncVocab, readVocab, type LoadedVocab } from "./vocab";
 import { countVocab } from "../shared/vocab";
 import { registerVocabRoutes } from "./vocabRoutes";
+import { dailyPlan, setPlanCheck } from "./plan";
+import { PLAN_BLOCKS, isIsoDate, localDate } from "../shared/plan";
 import { deckSummary, newPerDay } from "./vocabDeck";
 import { getAttempt, rescoreAttempt, reviewPayload } from "./attempts";
 import {
@@ -199,6 +201,19 @@ export async function buildApp(opts: AppOptions = {}): Promise<{ app: FastifyIns
       totals,
       vocabulary: deckSummary(db, u.id),
     };
+  });
+
+  // ------------------------------------------------------------- daily plan
+  const PlanDate = z.string().refine(isIsoDate, "date must be YYYY-MM-DD");
+  app.get<{ Params: { id: string }; Querystring: { date?: string } }>("/api/users/:id/plan", async (req) => {
+    user(db, req.params.id);
+    return dailyPlan(db, req.params.id, req.query.date ? parse(PlanDate, req.query.date) : localDate());
+  });
+  app.put<{ Params: { id: string } }>("/api/users/:id/plan/checks", async (req) => {
+    user(db, req.params.id);
+    const body = parse(z.object({ date: PlanDate, block: z.enum(PLAN_BLOCKS), done: z.boolean() }), req.body);
+    setPlanCheck(db, req.params.id, body.date, body.block, body.done);
+    return dailyPlan(db, req.params.id, body.date);
   });
 
   app.get<{ Params: { id: string } }>("/api/users/:id/progress", async (req) => {
