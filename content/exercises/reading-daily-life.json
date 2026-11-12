@@ -12,7 +12,9 @@
       "difficulty": "B2",
       "source_type": "ets_format_synthetic",
       "source_reference": "PRD_TOEFL_2026.md seed r_daily_001 (explanations added)",
-      "tags": ["prd_seed"],
+      "tags": [
+        "prd_seed"
+      ],
       "stimulus": {
         "format": "notice",
         "title": "Library Study Rooms — Exam Week",
@@ -69,9 +71,18 @@
       "stimulus": {
         "format": "email",
         "meta": [
-          { "label": "From", "value": "Housing Services" },
-          { "label": "To", "value": "All residents, Elmwood Hall" },
-          { "label": "Subject", "value": "Water shut-off on Thursday" }
+          {
+            "label": "From",
+            "value": "Housing Services"
+          },
+          {
+            "label": "To",
+            "value": "All residents, Elmwood Hall"
+          },
+          {
+            "label": "Subject",
+            "value": "Water shut-off on Thursday"
+          }
         ],
         "body": "Dear residents,\n\nTo complete repairs to the main pipe, water to Elmwood Hall will be turned off on Thursday from 9 a.m. until approximately 2 p.m. Showers in the Fitness Center will remain open to residents with a valid ID during this time. If the work is finished early, we will not send a further message; simply check whether your taps are working. Please do not report the outage to the maintenance hotline unless water has not returned by 4 p.m.\n\nThank you for your patience,\nHousing Services"
       },
@@ -114,11 +125,31 @@
         "format": "text_messages",
         "title": "Group chat: Lab report",
         "messages": [
-          { "sender": "Priya", "time": "4:12 PM", "text": "Just saw Dr. Okafor moved the lab report deadline to Monday." },
-          { "sender": "Tom", "time": "4:14 PM", "text": "Great, so we don't need to meet tomorrow?" },
-          { "sender": "Priya", "time": "4:15 PM", "text": "We still should. The new rubric wants a second data set, and the lab is closed all weekend." },
-          { "sender": "Mei", "time": "4:21 PM", "text": "I can't make it before noon. Could we do 1 o'clock instead of 10?" },
-          { "sender": "Tom", "time": "4:22 PM", "text": "Works for me. I'll book bench 3." }
+          {
+            "sender": "Priya",
+            "time": "4:12 PM",
+            "text": "Just saw Dr. Okafor moved the lab report deadline to Monday."
+          },
+          {
+            "sender": "Tom",
+            "time": "4:14 PM",
+            "text": "Great, so we don't need to meet tomorrow?"
+          },
+          {
+            "sender": "Priya",
+            "time": "4:15 PM",
+            "text": "We still should. The new rubric wants a second data set, and the lab is closed all weekend."
+          },
+          {
+            "sender": "Mei",
+            "time": "4:21 PM",
+            "text": "I can't make it before noon. Could we do 1 o'clock instead of 10?"
+          },
+          {
+            "sender": "Tom",
+            "time": "4:22 PM",
+            "text": "Works for me. I'll book bench 3."
+          }
         ]
       },
       "questions": [
@@ -173,11 +204,27 @@
         "format": "schedule",
         "title": "Campus Shuttle — Winter Break Service",
         "table": {
-          "columns": ["Route", "Weekdays", "Weekends"],
+          "columns": [
+            "Route",
+            "Weekdays",
+            "Weekends"
+          ],
           "rows": [
-            ["North Loop", "Every 20 min, 7 a.m.–7 p.m.", "No service"],
-            ["Medical Campus Express", "Every 30 min, 6 a.m.–10 p.m.", "Every 60 min, 8 a.m.–8 p.m."],
-            ["Downtown Link", "Hourly, 9 a.m.–5 p.m.", "Hourly, 9 a.m.–5 p.m."]
+            [
+              "North Loop",
+              "Every 20 min, 7 a.m.–7 p.m.",
+              "No service"
+            ],
+            [
+              "Medical Campus Express",
+              "Every 30 min, 6 a.m.–10 p.m.",
+              "Every 60 min, 8 a.m.–8 p.m."
+            ],
+            [
+              "Downtown Link",
+              "Hourly, 9 a.m.–5 p.m.",
+              "Hourly, 9 a.m.–5 p.m."
+            ]
           ]
         },
         "footer": "All routes are suspended on December 25 and January 1. Real-time locations are shown in the CampusGo app."
@@ -199,7 +246,12 @@
         {
           "id": "q2",
           "stem": "Which route operates the same timetable every day of the week except holidays?",
-          "options": ["North Loop", "Medical Campus Express", "Downtown Link", "None of the routes"],
+          "options": [
+            "North Loop",
+            "Medical Campus Express",
+            "Downtown Link",
+            "None of the routes"
+          ],
           "answer_index": 2,
           "skill": "inference",
           "explanation": "Only the Downtown Link has identical weekday and weekend entries (hourly, 9 a.m.–5 p.m.)."
@@ -247,7 +299,12 @@
         {
           "id": "q3",
           "stem": "The word \"suspend\" in the passage is closest in meaning to",
-          "options": ["delay", "temporarily stop", "permanently cancel", "investigate"],
+          "options": [
+            "delay",
+            "temporarily stop",
+            "permanently cancel",
+            "investigate"
+          ],
           "answer_index": 1,
           "skill": "vocabulary",
           "highlight": "suspend",
@@ -270,7 +327,12 @@
         {
           "id": "q1",
           "stem": "Which cost is NOT included in the monthly rent?",
-          "options": ["Internet", "Water", "Electricity", "Furniture"],
+          "options": [
+            "Internet",
+            "Water",
+            "Electricity",
+            "Furniture"
+          ],
           "answer_index": 2,
           "skill": "detail",
           "explanation": "Electricity is split among housemates separately; internet and water are included and the room is furnished."
@@ -300,8 +362,14 @@
         "format": "memo",
         "title": "Memo — Department of Chemistry",
         "meta": [
-          { "label": "To", "value": "Teaching assistants" },
-          { "label": "Re", "value": "Grading of Lab 4" }
+          {
+            "label": "To",
+            "value": "Teaching assistants"
+          },
+          {
+            "label": "Re",
+            "value": "Grading of Lab 4"
+          }
         ],
         "body": "Several students have asked why their Lab 4 scores differ across sections. Having reviewed a sample, we found that some sections deducted points for missing units while others did not. Going forward, please apply the rubric exactly as written: missing units cost one point per table, not per value. Rather than regrading every report, we will adjust affected scores automatically. Students who believe an error remains should contact their own TA, not the course coordinator, by Friday."
       },
@@ -322,7 +390,12 @@
         {
           "id": "q2",
           "stem": "A report has three values without units, all in the same table. How many points should be deducted for missing units?",
-          "options": ["None", "One", "Two", "Three"],
+          "options": [
+            "None",
+            "One",
+            "Two",
+            "Three"
+          ],
           "answer_index": 1,
           "skill": "detail",
           "explanation": "The rule is one point per table, not per value."
@@ -352,12 +425,32 @@
         "format": "menu",
         "title": "Riverside Café — Weekday Lunch",
         "table": {
-          "columns": ["Item", "Price", "Notes"],
+          "columns": [
+            "Item",
+            "Price",
+            "Notes"
+          ],
           "rows": [
-            ["Soup of the day + bread", "$5.50", "Vegetarian on Mon/Wed/Fri"],
-            ["Grilled chicken wrap", "$7.25", "Contains nuts"],
-            ["Lentil salad bowl", "$6.75", "Vegan; gluten-free"],
-            ["Meal deal: any main + drink", "$8.50", "11:30–1:30 only"]
+            [
+              "Soup of the day + bread",
+              "$5.50",
+              "Vegetarian on Mon/Wed/Fri"
+            ],
+            [
+              "Grilled chicken wrap",
+              "$7.25",
+              "Contains nuts"
+            ],
+            [
+              "Lentil salad bowl",
+              "$6.75",
+              "Vegan; gluten-free"
+            ],
+            [
+              "Meal deal: any main + drink",
+              "$8.50",
+              "11:30–1:30 only"
+            ]
           ]
         },
         "footer": "Show a valid student ID for 10% off items not already discounted."
@@ -366,7 +459,12 @@
         {
           "id": "q1",
           "stem": "A student with a nut allergy who does not eat meat wants lunch on a Tuesday. Which item is the safest choice?",
-          "options": ["Soup of the day", "Grilled chicken wrap", "Lentil salad bowl", "Any item with the meal deal"],
+          "options": [
+            "Soup of the day",
+            "Grilled chicken wrap",
+            "Lentil salad bowl",
+            "Any item with the meal deal"
+          ],
           "answer_index": 2,
           "skill": "inference",
           "explanation": "The wrap contains nuts and meat; the soup is vegetarian only on Mon/Wed/Fri. The lentil bowl is vegan."
@@ -476,6 +574,1580 @@
           "answer_index": 1,
           "skill": "inference",
           "explanation": "If all cafés participate, students can no longer avoid the deposit by switching café. (The lower deposit and closer return points help too, but those options are not listed.)"
+        }
+      ]
+    },
+    {
+      "id": "r_daily_011",
+      "section": "reading",
+      "task_type": "read_in_daily_life",
+      "difficulty": "B2",
+      "source_type": "ets_format_synthetic",
+      "stimulus": {
+        "format": "notice",
+        "title": "Bicycle Storage Room — Temporary Closure",
+        "body": "The indoor bicycle room in Hadley Hall will be closed from Monday, March 4, to Friday, March 8, while the floor is repainted. Please remove your bicycle by Sunday evening. Any bicycle still inside on Monday morning will be moved to the outdoor racks behind the building, and the residence office cannot accept responsibility for damage or theft there. The room will reopen on Saturday, March 9. Your current access card will continue to work."
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "What will happen to a bicycle left in the room on Monday morning?",
+          "options": [
+            "It will be locked inside until Saturday",
+            "It will be taken to the residence office",
+            "It will be removed and its owner fined",
+            "It will be placed on the racks outside"
+          ],
+          "answer_index": 3,
+          "skill": "detail",
+          "explanation": "The notice says any bicycle still inside \"will be moved to the outdoor racks behind the building\"."
+        },
+        {
+          "id": "q2",
+          "stem": "What does the notice suggest about the outdoor racks?",
+          "options": [
+            "They are less secure than the indoor room",
+            "They will also be repainted that week",
+            "They can only be used with an access card",
+            "They are reserved for residents of another hall"
+          ],
+          "answer_index": 0,
+          "skill": "inference",
+          "explanation": "The office \"cannot accept responsibility for damage or theft there\", which implies bicycles are at greater risk outside."
+        }
+      ]
+    },
+    {
+      "id": "r_daily_012",
+      "section": "reading",
+      "task_type": "read_in_daily_life",
+      "difficulty": "B2",
+      "source_type": "ets_format_synthetic",
+      "stimulus": {
+        "format": "email",
+        "meta": [
+          {
+            "label": "From",
+            "value": "Dana Whitfield, Property Manager"
+          },
+          {
+            "label": "To",
+            "value": "Tenants, 14 Orchard Lane"
+          },
+          {
+            "label": "Subject",
+            "value": "Heating repair on Thursday"
+          }
+        ],
+        "body": "Dear tenants,\n\nA technician will visit on Thursday between 9 a.m. and noon to replace the faulty valve on the main heating unit. The heating and hot water will be switched off during the work, which should take about two hours.\n\nThe technician needs to enter each apartment for a few minutes to check the radiators. If you will not be at home, please leave your key with Mr. Osei in apartment 1 or let me know that I may use the building's spare key.\n\nI apologize for the short notice. The part arrived earlier than expected, and I did not want you to spend another cold weekend.\n\nDana"
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "Why did the property manager write this email?",
+          "options": [
+            "To apologize for a repair that was carried out badly",
+            "To ask tenants to report problems with their radiators",
+            "To tell tenants about a repair and arrange access to their apartments",
+            "To explain why the heating cannot be repaired this week"
+          ],
+          "answer_index": 2,
+          "skill": "purpose",
+          "explanation": "The email announces Thursday's repair and asks tenants who will be out to leave a key or allow use of the spare key."
+        },
+        {
+          "id": "q2",
+          "stem": "What should a tenant who will be out on Thursday morning do?",
+          "options": [
+            "Switch off their radiators before leaving for the morning",
+            "Phone the technician to arrange a visit later in the week",
+            "Leave the apartment door unlocked so the technician can enter",
+            "Give a key to a neighbor or allow the manager to use the spare key"
+          ],
+          "answer_index": 3,
+          "skill": "detail",
+          "explanation": "Tenants are asked to \"leave your key with Mr. Osei in apartment 1 or let me know that I may use the building's spare key\"."
+        },
+        {
+          "id": "q3",
+          "stem": "What can be inferred about the heating in the building?",
+          "options": [
+            "It was installed only recently",
+            "It breaks down every winter",
+            "It works in some apartments but not in apartment 1",
+            "It has not been working properly for some time"
+          ],
+          "answer_index": 3,
+          "skill": "inference",
+          "explanation": "The manager did not want tenants \"to spend another cold weekend\", so they have already had at least one."
+        }
+      ]
+    },
+    {
+      "id": "r_daily_013",
+      "section": "reading",
+      "task_type": "read_in_daily_life",
+      "difficulty": "B2",
+      "source_type": "ets_format_synthetic",
+      "stimulus": {
+        "format": "schedule",
+        "title": "Recreation Center — Evening Classes, Spring Term",
+        "footer": "Classes are free for students. Sign up online from 8 a.m. on the day of the class. If you miss two classes you signed up for, you cannot sign up again for two weeks.",
+        "table": {
+          "columns": [
+            "Class",
+            "Day and time",
+            "Level",
+            "Places"
+          ],
+          "rows": [
+            [
+              "Yoga Flow",
+              "Mon, 6:00–7:00 p.m.",
+              "All levels",
+              "25"
+            ],
+            [
+              "Indoor Climbing",
+              "Tue, 7:00–8:30 p.m.",
+              "Beginners only",
+              "10"
+            ],
+            [
+              "Swim Technique",
+              "Wed, 6:30–7:30 p.m.",
+              "Must swim 100 m without stopping",
+              "12"
+            ],
+            [
+              "Strength Circuit",
+              "Thu, 6:00–6:45 p.m.",
+              "All levels",
+              "20"
+            ]
+          ]
+        }
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "Which class sets a requirement that participants must already meet?",
+          "options": [
+            "Yoga Flow",
+            "Swim Technique",
+            "Indoor Climbing",
+            "Strength Circuit"
+          ],
+          "answer_index": 1,
+          "skill": "detail",
+          "explanation": "Only Swim Technique requires an existing ability: participants \"must swim 100 m without stopping\". Indoor Climbing is for beginners."
+        },
+        {
+          "id": "q2",
+          "stem": "A student signed up for Yoga Flow and Strength Circuit last week but attended neither. What is the consequence?",
+          "options": [
+            "The student must pay a fee for both classes",
+            "The student may only join beginners' classes",
+            "The student is blocked from signing up for two weeks",
+            "The student loses access to the recreation center"
+          ],
+          "answer_index": 2,
+          "skill": "inference",
+          "explanation": "The footer states that missing two classes you signed up for means \"you cannot sign up again for two weeks\"."
+        }
+      ]
+    },
+    {
+      "id": "r_daily_014",
+      "section": "reading",
+      "task_type": "read_in_daily_life",
+      "difficulty": "B2-C1",
+      "source_type": "ets_format_synthetic",
+      "stimulus": {
+        "format": "text_messages",
+        "title": "Group chat: Apartment 3B",
+        "messages": [
+          {
+            "sender": "Leila",
+            "time": "5:42 p.m.",
+            "text": "Inspection is Friday at 10. The landlord's checklist says oven, fridge and bathroom have to be spotless or we lose part of the deposit."
+          },
+          {
+            "sender": "Marco",
+            "time": "5:45 p.m.",
+            "text": "I can do the bathroom tonight. The oven is beyond me though, last time I made it worse."
+          },
+          {
+            "sender": "Leila",
+            "time": "5:47 p.m.",
+            "text": "Fine, I'll take the oven if someone else empties the fridge. Half of what's in there isn't even mine."
+          },
+          {
+            "sender": "Jun",
+            "time": "5:51 p.m.",
+            "text": "That would be my half. I'm back Thursday afternoon, I'll deal with it then. Can someone buy oven cleaner? We're out."
+          },
+          {
+            "sender": "Marco",
+            "time": "5:52 p.m.",
+            "text": "On it. I'm passing the store anyway."
+          }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "Who will clean the oven?",
+          "options": [
+            "Leila",
+            "Marco",
+            "Jun",
+            "The landlord"
+          ],
+          "answer_index": 0,
+          "skill": "detail",
+          "explanation": "Leila writes, \"I'll take the oven if someone else empties the fridge\", and Jun agrees to deal with the fridge."
+        },
+        {
+          "id": "q2",
+          "stem": "What does Jun mean by \"That would be my half\"?",
+          "options": [
+            "Jun has already cleaned half of the fridge",
+            "Jun wants to pay half of the deposit",
+            "The food Leila mentioned belongs to Jun",
+            "Jun thinks the fridge should be shared more fairly"
+          ],
+          "answer_index": 2,
+          "skill": "speaker_intent",
+          "explanation": "Leila says half the food in the fridge \"isn't even mine\"; Jun admits that it is Jun's."
+        },
+        {
+          "id": "q3",
+          "stem": "What will Marco most likely do next?",
+          "options": [
+            "Start cleaning the oven",
+            "Empty the fridge before Thursday",
+            "Buy oven cleaner on his way",
+            "Ask the landlord to change the inspection time"
+          ],
+          "answer_index": 2,
+          "skill": "next_action",
+          "explanation": "Jun asks someone to buy oven cleaner and Marco answers, \"On it. I'm passing the store anyway.\""
+        }
+      ]
+    },
+    {
+      "id": "r_daily_015",
+      "section": "reading",
+      "task_type": "read_in_daily_life",
+      "difficulty": "B2-C1",
+      "source_type": "ets_format_synthetic",
+      "stimulus": {
+        "format": "invoice",
+        "title": "NorthLine Mobile — Statement for April",
+        "meta": [
+          {
+            "label": "Account holder",
+            "value": "R. Castellanos"
+          },
+          {
+            "label": "Plan",
+            "value": "Student 20 GB"
+          }
+        ],
+        "footer": "The late payment charge is removed automatically if this statement is paid in full by the due date. To avoid extra data charges, you can change to the 30 GB plan ($33.00 per month) at any time in the app.",
+        "table": {
+          "columns": [
+            "Item",
+            "Amount"
+          ],
+          "rows": [
+            [
+              "Monthly plan",
+              "$28.00"
+            ],
+            [
+              "Extra data (3 GB over the limit)",
+              "$9.00"
+            ],
+            [
+              "Late payment charge (March)",
+              "$5.00"
+            ],
+            [
+              "Student discount",
+              "−$4.00"
+            ],
+            [
+              "Total due by May 10",
+              "$38.00"
+            ]
+          ]
+        }
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "How much will the customer finally pay for April if the total is paid on May 6?",
+          "options": [
+            "$38.00",
+            "$33.00",
+            "$28.00",
+            "$43.00"
+          ],
+          "answer_index": 1,
+          "skill": "detail",
+          "explanation": "Paying in full by May 10 removes the $5.00 late charge automatically, so $38.00 becomes $33.00."
+        },
+        {
+          "id": "q2",
+          "stem": "For a customer who uses 23 GB every month, what would be the effect of changing to the 30 GB plan?",
+          "options": [
+            "The monthly cost before the discount would rise by $5.00",
+            "The student discount would no longer apply",
+            "The monthly cost before the discount would fall by $4.00",
+            "The customer would still pay for 3 GB of extra data"
+          ],
+          "answer_index": 2,
+          "skill": "inference",
+          "explanation": "The current plan plus extra data costs $28.00 + $9.00 = $37.00; the 30 GB plan costs $33.00, which is $4.00 less."
+        }
+      ]
+    },
+    {
+      "id": "r_daily_016",
+      "section": "reading",
+      "task_type": "read_in_daily_life",
+      "difficulty": "B2-C1",
+      "source_type": "ets_format_synthetic",
+      "stimulus": {
+        "format": "webpage",
+        "title": "Student Health Center — Flu Vaccination",
+        "body": "Free flu vaccinations are available to all enrolled students from October 7. No appointment is needed on Tuesdays and Thursdays between 1 p.m. and 4 p.m.; on other days, please book online. Bring your student card.\n\nYou should postpone your vaccination if you currently have a fever. A mild cold is not a reason to wait. Students who have had a serious reaction to a previous vaccine must speak to a nurse first.\n\nProtection develops about two weeks after the injection, so we recommend coming before the end of October, when cases on campus usually begin to rise."
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "Which student can simply walk in and receive a vaccination without booking?",
+          "options": [
+            "A student who arrives at 2 p.m. on a Thursday",
+            "A student who arrives at 10 a.m. on a Tuesday",
+            "A student who arrives at 3 p.m. on a Friday",
+            "A student who has forgotten their student card"
+          ],
+          "answer_index": 0,
+          "skill": "detail",
+          "explanation": "Walk-in vaccination is offered \"on Tuesdays and Thursdays between 1 p.m. and 4 p.m.\"; other times need a booking."
+        },
+        {
+          "id": "q2",
+          "stem": "Why does the page recommend being vaccinated before the end of October?",
+          "options": [
+            "Because the supply of vaccine is limited",
+            "Because the center closes in November",
+            "So that protection is in place before infections become common",
+            "So that students avoid long lines later in the term"
+          ],
+          "answer_index": 2,
+          "skill": "inference",
+          "explanation": "Protection takes about two weeks to develop, and cases \"usually begin to rise\" at the end of October."
+        },
+        {
+          "id": "q3",
+          "stem": "The word \"postpone\" on the page is closest in meaning to",
+          "options": [
+            "cancel",
+            "repeat",
+            "delay",
+            "confirm"
+          ],
+          "answer_index": 2,
+          "skill": "vocabulary",
+          "explanation": "Students with a fever should have the vaccination later, not give it up entirely.",
+          "highlight": "postpone"
+        }
+      ]
+    },
+    {
+      "id": "r_daily_017",
+      "section": "reading",
+      "task_type": "read_in_daily_life",
+      "difficulty": "B2-C1",
+      "source_type": "ets_format_synthetic",
+      "stimulus": {
+        "format": "advertisement",
+        "title": "Peer Tutors Wanted — Learning Commons",
+        "body": "The Learning Commons is hiring peer tutors for statistics, organic chemistry and academic writing. Tutors work four to eight hours a week, mostly in the late afternoon, and are paid $17 an hour. You must have earned at least an A− in the course you wish to tutor and be recommended by a faculty member. Previous teaching experience is welcome but not expected: all new tutors complete ten hours of paid training before meeting students. Apply by September 12 through the student employment portal."
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "According to the advertisement, what must every applicant have?",
+          "options": [
+            "Experience of teaching or tutoring",
+            "A completed training certificate",
+            "A recommendation from a faculty member",
+            "Availability in the morning"
+          ],
+          "answer_index": 2,
+          "skill": "detail",
+          "explanation": "Applicants must \"be recommended by a faculty member\"; experience is \"welcome but not expected\", and training comes after hiring."
+        },
+        {
+          "id": "q2",
+          "stem": "What can be inferred about the ten hours of training?",
+          "options": [
+            "Tutors receive wages while they complete it",
+            "It must be finished before applying",
+            "It replaces the faculty recommendation",
+            "It is only for tutors of academic writing"
+          ],
+          "answer_index": 0,
+          "skill": "inference",
+          "explanation": "The advertisement describes it as \"ten hours of paid training\" completed by all new tutors."
+        }
+      ]
+    },
+    {
+      "id": "r_daily_018",
+      "section": "reading",
+      "task_type": "read_in_daily_life",
+      "difficulty": "C1",
+      "source_type": "ets_format_synthetic",
+      "stimulus": {
+        "format": "memo",
+        "title": "Memo — Teaching Assistants, Introductory Biology",
+        "meta": [
+          {
+            "label": "From",
+            "value": "Dr. Imani Okafor, Course Coordinator"
+          },
+          {
+            "label": "Re",
+            "value": "Grading of the second midterm"
+          }
+        ],
+        "body": "Thank you for returning the first midterm so promptly. Several students nevertheless pointed out that comments on the short-answer questions varied considerably from one section to another, and a comparison of sample papers confirmed it.\n\nFor the second midterm, we will therefore grade differently. Instead of each of you grading your own sections, every assistant will grade one question across all sections. This will take longer, so the deadline for returning papers is extended from five to eight working days. We will meet on the Monday after the exam to agree on the criteria before anyone begins."
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "What is the main purpose of the memo?",
+          "options": [
+            "To announce a new grading procedure and the reason for it",
+            "To criticize assistants who graded the first midterm late",
+            "To ask assistants to write more detailed comments",
+            "To inform assistants that the second midterm has been postponed"
+          ],
+          "answer_index": 0,
+          "skill": "purpose",
+          "explanation": "The memo explains that feedback varied between sections and that, \"therefore\", each assistant will now grade one question across all sections."
+        },
+        {
+          "id": "q2",
+          "stem": "What problem is the new procedure mainly intended to solve?",
+          "options": [
+            "Different assistants applying different standards to the same question",
+            "Assistants taking too long to return graded papers to students",
+            "Students finding the short-answer questions too hard to answer",
+            "Each assistant being responsible for too many sections at once"
+          ],
+          "answer_index": 0,
+          "skill": "inference",
+          "explanation": "Comments \"varied considerably from one section to another\"; having one person grade each question for everyone removes that variation."
+        },
+        {
+          "id": "q3",
+          "stem": "What will the assistants do on the Monday after the exam?",
+          "options": [
+            "Return the graded papers to students",
+            "Compare sample papers from the first midterm",
+            "Agree on how answers should be assessed",
+            "Divide the sections among themselves"
+          ],
+          "answer_index": 2,
+          "skill": "detail",
+          "explanation": "They \"will meet on the Monday after the exam to agree on the criteria before anyone begins\"."
+        }
+      ]
+    },
+    {
+      "id": "r_daily_019",
+      "section": "reading",
+      "task_type": "read_in_daily_life",
+      "difficulty": "C1",
+      "source_type": "ets_format_synthetic",
+      "stimulus": {
+        "format": "email",
+        "meta": [
+          {
+            "label": "From",
+            "value": "Prof. Henrik Solberg"
+          },
+          {
+            "label": "To",
+            "value": "Amara Diallo"
+          },
+          {
+            "label": "Subject",
+            "value": "Re: Extension for the policy brief"
+          }
+        ],
+        "body": "Dear Amara,\n\nThank you for explaining your situation, and I am sorry to hear about the difficulties with your internship schedule.\n\nI am reluctant to move the deadline for one student when the brief was announced six weeks ago. That said, I would rather read careful work than rushed work. If you send me your outline and your list of sources by Friday, so that I can see the project is under way, you may submit the final version on the following Wednesday instead of Monday. Please do not treat this as a precedent for the final paper.\n\nBest,\nH. Solberg"
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "What must Amara do in order to receive the extension?",
+          "options": [
+            "Submit the complete brief by Friday",
+            "Provide proof of her internship schedule",
+            "Show by Friday that she has already begun the work",
+            "Agree to a lower grade for late work"
+          ],
+          "answer_index": 2,
+          "skill": "inference",
+          "explanation": "The extension is conditional: she must send \"your outline and your list of sources by Friday, so that I can see the project is under way\"."
+        },
+        {
+          "id": "q2",
+          "stem": "Which statement best describes the professor's attitude toward the request?",
+          "options": [
+            "He is pleased to help and encourages similar requests",
+            "He refuses but offers advice instead",
+            "He is indifferent to when the brief is submitted",
+            "He grants it with some hesitation and sets limits"
+          ],
+          "answer_index": 3,
+          "skill": "attitude",
+          "explanation": "He is \"reluctant to move the deadline\" yet allows it on conditions, and adds that it is not \"a precedent for the final paper\"."
+        }
+      ]
+    },
+    {
+      "id": "r_daily_020",
+      "section": "reading",
+      "task_type": "read_in_daily_life",
+      "difficulty": "C1",
+      "source_type": "ets_format_synthetic",
+      "stimulus": {
+        "format": "form",
+        "title": "Travel Reimbursement Request — Instructions",
+        "body": "Complete this form within 30 days of returning from your trip. Requests received after that date require written approval from the department head and may be refused.\n\nAttach original receipts for every expense above $25. Meals are reimbursed at a fixed daily rate, so meal receipts are not required. Travel by private car is reimbursed per kilometer; fuel receipts are therefore not accepted. If a conference fee was paid directly by the department, do not list it here.\n\nReimbursement is normally paid within three weeks. Incomplete forms are returned to the applicant, and the three-week period begins again when the corrected form arrives."
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "For which of the following must a receipt be attached?",
+          "options": [
+            "A $30 restaurant dinner",
+            "A $60 train ticket",
+            "$40 of fuel for a private car",
+            "A conference fee paid by the department"
+          ],
+          "answer_index": 1,
+          "skill": "detail",
+          "explanation": "Receipts are needed \"for every expense above $25\", but meals use a fixed rate, fuel receipts \"are not accepted\", and department-paid fees are not listed at all."
+        },
+        {
+          "id": "q2",
+          "stem": "Why are fuel receipts not accepted for travel by private car?",
+          "options": [
+            "Because fuel is considered a personal expense",
+            "Because private cars may not be used for university travel",
+            "Because the payment is calculated from the distance driven",
+            "Because fuel costs are included in the daily meal rate"
+          ],
+          "answer_index": 2,
+          "skill": "inference",
+          "explanation": "Car travel \"is reimbursed per kilometer\", so the amount of fuel bought is irrelevant: \"fuel receipts are therefore not accepted\"."
+        },
+        {
+          "id": "q3",
+          "stem": "A student submits the form 20 days after a trip but forgets one receipt. What will happen?",
+          "options": [
+            "The request will need the approval of the department head",
+            "The request will be refused",
+            "The missing expense will be reimbursed at a fixed rate",
+            "The form will be sent back and the payment period will restart later"
+          ],
+          "answer_index": 3,
+          "skill": "inference",
+          "explanation": "\"Incomplete forms are returned to the applicant, and the three-week period begins again when the corrected form arrives.\""
+        }
+      ]
+    },
+    {
+      "id": "r_daily_021",
+      "section": "reading",
+      "task_type": "read_in_daily_life",
+      "difficulty": "C1",
+      "source_type": "ets_format_synthetic",
+      "stimulus": {
+        "format": "notice",
+        "title": "Chemistry Building — Fume Hood Inspection",
+        "body": "The annual inspection of fume hoods on the third floor will take place on Wednesday, November 13. Each hood will be out of service for approximately forty minutes while airflow is measured. Inspectors will work from room 301 toward room 318, so laboratories at the far end of the corridor should expect their inspection in the afternoon.\n\nNo experiment involving volatile solvents may be left running in a hood on that day. Hoods that fail the test will be labeled and must not be used until repaired; in previous years, repairs have taken up to two weeks. Researchers with time-sensitive work should arrange in advance to share a hood on another floor."
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "A researcher works in room 317. What should she expect on November 13?",
+          "options": [
+            "Her hood will be out of service for the whole day",
+            "Her hood will be tested before the one in room 301",
+            "Her laboratory will be closed during the inspection",
+            "Her hood will probably be tested later in the day"
+          ],
+          "answer_index": 3,
+          "skill": "inference",
+          "explanation": "Inspectors move \"from room 301 toward room 318\", so rooms \"at the far end of the corridor should expect their inspection in the afternoon\"."
+        },
+        {
+          "id": "q2",
+          "stem": "Why does the notice mention that repairs \"have taken up to two weeks\"?",
+          "options": [
+            "To apologize for the slow work of the repair service",
+            "To show that most hoods fail the inspection",
+            "To explain why some researchers should plan to use a hood elsewhere",
+            "To justify moving the inspection to an earlier date"
+          ],
+          "answer_index": 2,
+          "skill": "rhetorical_function",
+          "explanation": "A failed hood could be unusable for weeks, which is why those \"with time-sensitive work should arrange in advance to share a hood on another floor\"."
+        }
+      ]
+    },
+    {
+      "id": "r_daily_022",
+      "section": "reading",
+      "task_type": "read_in_daily_life",
+      "difficulty": "C1",
+      "source_type": "ets_format_synthetic",
+      "stimulus": {
+        "format": "text_messages",
+        "title": "Messages: Sociology presentation",
+        "messages": [
+          {
+            "sender": "Priya",
+            "time": "8:15 p.m.",
+            "text": "Slides are due at noon tomorrow. I've done the introduction and the survey results. Tomás, how's the theory section coming?"
+          },
+          {
+            "sender": "Tomás",
+            "time": "8:31 p.m.",
+            "text": "Getting there. I've read the three articles, I just haven't quite turned them into slides yet."
+          },
+          {
+            "sender": "Priya",
+            "time": "8:33 p.m.",
+            "text": "So... nothing on the slides."
+          },
+          {
+            "sender": "Tomás",
+            "time": "8:34 p.m.",
+            "text": "Not as such. But the notes are solid. Give me until 9 tomorrow morning?"
+          },
+          {
+            "sender": "Priya",
+            "time": "8:36 p.m.",
+            "text": "9 leaves me three hours to make everything look consistent. I suppose that's workable. But please, bullet points, not paragraphs this time."
+          },
+          {
+            "sender": "Tomás",
+            "time": "8:37 p.m.",
+            "text": "Understood. Short and sharp."
+          }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "What does Tomás mean when he writes \"Not as such\"?",
+          "options": [
+            "He disagrees that the slides are his responsibility",
+            "He has made slides but is not satisfied with them",
+            "He admits that he has not yet made any slides",
+            "He does not understand what Priya is asking"
+          ],
+          "answer_index": 2,
+          "skill": "speaker_intent",
+          "explanation": "Priya concludes \"nothing on the slides\"; \"Not as such\" is a softened way of saying she is right, and he points to his notes instead."
+        },
+        {
+          "id": "q2",
+          "stem": "How does Priya respond to Tomás's request for more time?",
+          "options": [
+            "She refuses because noon is too close",
+            "She offers to write the theory section herself",
+            "She agrees gladly and extends the deadline further",
+            "She accepts it without enthusiasm and adds a condition"
+          ],
+          "answer_index": 3,
+          "skill": "pragmatic_response",
+          "explanation": "\"I suppose that's workable\" is reluctant agreement, followed by the demand for \"bullet points, not paragraphs this time\"."
+        },
+        {
+          "id": "q3",
+          "stem": "What can be inferred about a previous piece of work by Tomás?",
+          "options": [
+            "He submitted it after the deadline",
+            "He relied on too few sources",
+            "His slides contained too much continuous text",
+            "His section did not match the survey results"
+          ],
+          "answer_index": 2,
+          "skill": "inference",
+          "explanation": "Priya asks for \"bullet points, not paragraphs this time\", implying that last time he wrote paragraphs."
+        }
+      ]
+    },
+    {
+      "id": "r_daily_023",
+      "section": "reading",
+      "task_type": "read_in_daily_life",
+      "difficulty": "C1",
+      "source_type": "ets_format_synthetic",
+      "stimulus": {
+        "format": "webpage",
+        "title": "University Library — Interlibrary Loans",
+        "body": "If the library does not hold an item you need, we can usually borrow it from a partner institution. Books typically arrive within five to ten working days; scanned articles and chapters are generally delivered by email within three.\n\nLoan periods are set by the lending library, not by us, and are often shorter than our own. Renewals are possible only if the lender agrees, so please request one at least four days before the due date. Items marked \"library use only\" must be read in the reading room and cannot be taken home under any circumstances.\n\nThe service is free for up to twenty requests per academic year. Beyond that, a charge of $6 per item applies."
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "Who decides how long a borrowed book may be kept?",
+          "options": [
+            "The student's home library",
+            "The student's department",
+            "The library that owns the book",
+            "The reading room staff"
+          ],
+          "answer_index": 2,
+          "skill": "detail",
+          "explanation": "\"Loan periods are set by the lending library, not by us.\""
+        },
+        {
+          "id": "q2",
+          "stem": "A doctoral student needs one chapter of a book as quickly as possible. What would the page lead her to do?",
+          "options": [
+            "Request the book and read it in the reading room",
+            "Request a scan of the chapter instead of the whole book",
+            "Ask for a renewal four days in advance",
+            "Pay the $6 charge for faster delivery"
+          ],
+          "answer_index": 1,
+          "skill": "inference",
+          "explanation": "Scanned chapters are \"delivered by email within three\" working days, whereas books take \"five to ten\"."
+        }
+      ]
+    },
+    {
+      "id": "r_daily_024",
+      "section": "reading",
+      "task_type": "read_in_daily_life",
+      "difficulty": "C1",
+      "source_type": "ets_format_synthetic",
+      "stimulus": {
+        "format": "social_post",
+        "title": "Student Union — Election Results",
+        "body": "Thank you to the 2,140 students who voted in this year's union elections. That is 19% of those eligible, up from 14% last spring, and the highest figure since online voting was introduced. We are pleased, though hardly satisfied: four out of five students still had no say in who represents them. Turnout was highest in the School of Engineering (31%), where candidates visited every first-year lecture, and lowest among graduate students (8%). Next year we will ask all candidates to do the same, and we will hold a separate information evening for graduate students."
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "Why does the post state that \"four out of five students still had no say\"?",
+          "options": [
+            "To stress that the improved turnout remains low",
+            "To blame students who did not vote",
+            "To suggest that the election result is not valid",
+            "To show that online voting has failed"
+          ],
+          "answer_index": 0,
+          "skill": "rhetorical_function",
+          "explanation": "The union is \"pleased, though hardly satisfied\"; restating 19% as four in five non-voters shows how much room remains."
+        },
+        {
+          "id": "q2",
+          "stem": "What does the union believe contributed to the high turnout in Engineering?",
+          "options": [
+            "The large number of first-year students",
+            "The introduction of online voting",
+            "A separate information evening",
+            "Candidates speaking to students in their lectures"
+          ],
+          "answer_index": 3,
+          "skill": "inference",
+          "explanation": "Engineering is described as the school \"where candidates visited every first-year lecture\", and the union will \"ask all candidates to do the same\"."
+        },
+        {
+          "id": "q3",
+          "stem": "In the last sentence, what does \"the same\" refer to?",
+          "options": [
+            "Voting in the union elections",
+            "Holding an information evening",
+            "Publishing the turnout figures",
+            "Visiting every first-year lecture"
+          ],
+          "answer_index": 3,
+          "skill": "reference",
+          "explanation": "\"The same\" points back to what the Engineering candidates did: they \"visited every first-year lecture\"."
+        }
+      ]
+    },
+    {
+      "id": "r_daily_025",
+      "section": "reading",
+      "task_type": "read_in_daily_life",
+      "difficulty": "C1",
+      "source_type": "ets_format_synthetic",
+      "stimulus": {
+        "format": "menu",
+        "title": "Greenhouse Dining Hall — Thursday Dinner",
+        "footer": "Dishes without a listed allergen are prepared in the same kitchen as the others and may contain traces. Students with a severe allergy should ask for the chef on duty, who can prepare a plate separately with 20 minutes' notice.",
+        "table": {
+          "columns": [
+            "Dish",
+            "Contains",
+            "Meal plan"
+          ],
+          "rows": [
+            [
+              "Lentil and spinach curry with rice",
+              "—",
+              "1 swipe"
+            ],
+            [
+              "Grilled salmon, lemon butter, potatoes",
+              "fish, milk",
+              "1 swipe + $3"
+            ],
+            [
+              "Mushroom risotto",
+              "milk",
+              "1 swipe"
+            ],
+            [
+              "Chicken noodle stir-fry",
+              "wheat, soy, egg",
+              "1 swipe"
+            ],
+            [
+              "Almond pear tart",
+              "nuts, wheat, milk, egg",
+              "included with any main dish"
+            ]
+          ]
+        }
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "A student with a severe nut allergy wants the lentil curry. What does the menu advise?",
+          "options": [
+            "Ordering it as usual, because no allergen is listed",
+            "Choosing the mushroom risotto instead",
+            "Avoiding the dining hall on Thursday",
+            "Asking the chef to prepare it apart from other dishes"
+          ],
+          "answer_index": 3,
+          "skill": "inference",
+          "explanation": "No allergen is listed, but such dishes \"may contain traces\", and students with a severe allergy \"should ask for the chef on duty, who can prepare a plate separately\"."
+        },
+        {
+          "id": "q2",
+          "stem": "Which dinner costs more than a single meal-plan swipe?",
+          "options": [
+            "Mushroom risotto with the almond pear tart",
+            "Chicken noodle stir-fry alone",
+            "Lentil and spinach curry alone",
+            "Grilled salmon with the almond pear tart"
+          ],
+          "answer_index": 3,
+          "skill": "detail",
+          "explanation": "Only the salmon costs \"1 swipe + $3\"; the tart is \"included with any main dish\"."
+        }
+      ]
+    },
+    {
+      "id": "r_daily_026",
+      "section": "reading",
+      "task_type": "read_in_daily_life",
+      "difficulty": "C1",
+      "source_type": "ets_format_synthetic",
+      "stimulus": {
+        "format": "schedule",
+        "title": "Graduate Research Day — Program",
+        "footer": "*Sessions A and B run at the same time. **Limited to 30 participants; sign up at the welcome desk before 11:00. Unclaimed places will be released at 2:30.",
+        "table": {
+          "columns": [
+            "Time",
+            "Session",
+            "Room"
+          ],
+          "rows": [
+            [
+              "9:00–9:30",
+              "Welcome and coffee",
+              "Atrium"
+            ],
+            [
+              "9:30–11:00",
+              "Short talks A (humanities) / Short talks B (sciences)*",
+              "104 / 210"
+            ],
+            [
+              "11:15–12:15",
+              "Poster session",
+              "Atrium"
+            ],
+            [
+              "12:15–1:30",
+              "Lunch (registered presenters only)",
+              "Faculty Club"
+            ],
+            [
+              "1:30–2:30",
+              "Keynote: \"Writing for readers outside your field\"",
+              "210"
+            ],
+            [
+              "2:45–4:00",
+              "Workshop: Preparing a grant budget**",
+              "104"
+            ]
+          ]
+        }
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "A student who is attending but not presenting wants to join the workshop and did not sign up in the morning. What is her best option?",
+          "options": [
+            "Sign up at the welcome desk during lunch at the Faculty Club",
+            "Go to room 104 after the keynote in case a place has become free",
+            "Attend short talks A in room 104 instead of the workshop",
+            "Ask a registered presenter to give her a place at the lunch"
+          ],
+          "answer_index": 1,
+          "skill": "inference",
+          "explanation": "Sign-up closes at 11:00, but \"unclaimed places will be released at 2:30\", just before the workshop begins at 2:45 in room 104."
+        },
+        {
+          "id": "q2",
+          "stem": "What is true of the two sessions of short talks?",
+          "options": [
+            "Both take place in room 210",
+            "They are open to registered presenters only",
+            "The science session begins later than the other",
+            "A participant cannot attend both in full"
+          ],
+          "answer_index": 3,
+          "skill": "detail",
+          "explanation": "The footnote says \"Sessions A and B run at the same time\", in rooms 104 and 210."
+        },
+        {
+          "id": "q3",
+          "stem": "Who is the keynote most clearly intended to help?",
+          "options": [
+            "Students preparing posters for the late-morning session",
+            "Researchers who must explain their work to non-specialists",
+            "Applicants who need to plan the budget of a grant proposal",
+            "Humanities students who are presenting in short talks A"
+          ],
+          "answer_index": 1,
+          "skill": "inference",
+          "explanation": "Its title is \"Writing for readers outside your field\"."
+        }
+      ]
+    },
+    {
+      "id": "r_daily_027",
+      "section": "reading",
+      "task_type": "read_in_daily_life",
+      "difficulty": "C1-C2",
+      "source_type": "ets_format_synthetic",
+      "stimulus": {
+        "format": "email",
+        "meta": [
+          {
+            "label": "From",
+            "value": "Office of Residential Life"
+          },
+          {
+            "label": "To",
+            "value": "Kofi Mensah"
+          },
+          {
+            "label": "Subject",
+            "value": "Your request to change rooms"
+          }
+        ],
+        "body": "Dear Mr. Mensah,\n\nWe have considered your request to move from Aldrich House to a single room. As you know, room changes during the term are approved only where a resident's health or safety is concerned, and noise from neighboring rooms, however frustrating, does not ordinarily meet that standard.\n\nWe would not want to leave matters there. The resident adviser for your floor has been asked to speak with the students concerned this week. Should the situation be unchanged after fourteen days, write to us again, mentioning this message, and your request will be reviewed without the usual form. Single rooms for next term may in any case be requested from November 1."
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "What is the main message of the email?",
+          "options": [
+            "The request has been approved and will take effect in fourteen days",
+            "The request cannot be considered until November 1",
+            "The request is refused for now, but steps are being taken and it may be reconsidered",
+            "The request was incomplete and must be submitted again on the usual form"
+          ],
+          "answer_index": 2,
+          "skill": "main_idea",
+          "explanation": "Noise \"does not ordinarily meet that standard\", yet the office will not \"leave matters there\": an adviser will intervene and the request \"will be reviewed\" if nothing changes."
+        },
+        {
+          "id": "q2",
+          "stem": "What does the phrase \"however frustrating\" suggest about the office's view?",
+          "options": [
+            "It doubts that the noise is as serious as the student has described",
+            "It accepts that the problem is real while maintaining that the rule does not cover it",
+            "It considers the student partly responsible for the noise in the building",
+            "It regards the rule on room changes as unfair to residents in his position"
+          ],
+          "answer_index": 1,
+          "skill": "inference",
+          "explanation": "The phrase concedes the student's frustration; the sentence still concludes that noise \"does not ordinarily meet that standard\"."
+        },
+        {
+          "id": "q3",
+          "stem": "According to the email, what will happen first?",
+          "options": [
+            "The student will be offered a single room",
+            "The office will inspect Aldrich House",
+            "The resident adviser will talk to the neighbors",
+            "The student will complete a new request form"
+          ],
+          "answer_index": 2,
+          "skill": "next_action",
+          "explanation": "\"The resident adviser for your floor has been asked to speak with the students concerned this week.\""
+        }
+      ]
+    },
+    {
+      "id": "r_daily_028",
+      "section": "reading",
+      "task_type": "read_in_daily_life",
+      "difficulty": "C1-C2",
+      "source_type": "ets_format_synthetic",
+      "stimulus": {
+        "format": "memo",
+        "title": "Memo — Department of History",
+        "meta": [
+          {
+            "label": "From",
+            "value": "Chair's Office"
+          },
+          {
+            "label": "Re",
+            "value": "Conference travel support, coming year"
+          }
+        ],
+        "body": "The dean's office has confirmed that our travel allocation for the coming year will be the same as this year's. Since airfares and registration fees have risen by roughly a fifth, the same sum will not stretch as far.\n\nRather than reduce every award, the committee proposes to fund fewer trips at the current level. Priority would go to doctoral students presenting a paper for the first time and to faculty without external grants. Colleagues who hold such grants are asked, where the terms permit, to charge travel to them first. Comments on this proposal are welcome until May 15; absent strong objections, it will take effect in September."
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "Why does the memo say that the allocation \"will not stretch as far\"?",
+          "options": [
+            "The budget is unchanged while the cost of each trip has increased",
+            "The dean's office has reduced the department's travel budget",
+            "More colleagues are expected to apply for travel support than before",
+            "External grants will no longer be allowed to cover travel costs"
+          ],
+          "answer_index": 0,
+          "skill": "inference",
+          "explanation": "The allocation \"will be the same\", but airfares and fees \"have risen by roughly a fifth\", so it pays for less."
+        },
+        {
+          "id": "q2",
+          "stem": "Under the proposal, who would be least likely to receive departmental travel funds?",
+          "options": [
+            "A professor with an external grant that allows travel costs",
+            "A doctoral student giving a first conference paper",
+            "A professor with no outside funding",
+            "A doctoral student whose paper has been accepted for the first time"
+          ],
+          "answer_index": 0,
+          "skill": "inference",
+          "explanation": "Priority goes to first-time doctoral presenters and \"faculty without external grants\"; grant holders are asked \"to charge travel to them first\"."
+        }
+      ]
+    },
+    {
+      "id": "r_daily_029",
+      "section": "reading",
+      "task_type": "read_in_daily_life",
+      "difficulty": "C1-C2",
+      "source_type": "ets_format_synthetic",
+      "stimulus": {
+        "format": "webpage",
+        "title": "Research Ethics Office — Frequently Asked Questions",
+        "body": "Do I need approval to interview people for a class project?\nNot usually. Work carried out only to learn research methods, whose results will not be shared beyond the classroom, does not count as research under university policy. Your instructor is responsible for seeing that it is conducted properly.\n\nWhat if I later want to publish the results?\nThen the position changes. Approval cannot be granted retrospectively, so data collected without it may not be used in a thesis, article or public presentation. If there is any chance that your project will lead to publication, apply before you begin. An application that proves unnecessary costs you a few hours; missing approval can cost you the data."
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "According to the page, why does a typical class project not require approval?",
+          "options": [
+            "The instructor has already obtained approval for the class",
+            "Interviews are exempt from university policy",
+            "Its purpose is training and its findings stay within the course",
+            "Students are not allowed to conduct real research"
+          ],
+          "answer_index": 2,
+          "skill": "detail",
+          "explanation": "Such work is done \"only to learn research methods\" and its results \"will not be shared beyond the classroom\", so it \"does not count as research\"."
+        },
+        {
+          "id": "q2",
+          "stem": "A student completed class interviews without approval and now wants to use them in her thesis. What does the page imply?",
+          "options": [
+            "She can apply for approval now and then use the interviews",
+            "She may use them if her instructor confirms they were conducted properly",
+            "She may use them in the thesis but not in an article",
+            "She will have to collect new data after obtaining approval"
+          ],
+          "answer_index": 3,
+          "skill": "inference",
+          "explanation": "\"Approval cannot be granted retrospectively, so data collected without it may not be used in a thesis.\""
+        },
+        {
+          "id": "q3",
+          "stem": "What is the function of the final sentence of the page?",
+          "options": [
+            "To warn students that applications are frequently rejected",
+            "To explain how long the approval process takes",
+            "To persuade students that applying early is the safer choice",
+            "To discourage students from publishing class projects"
+          ],
+          "answer_index": 2,
+          "skill": "rhetorical_function",
+          "explanation": "It contrasts a small cost (\"a few hours\") with a large one (\"can cost you the data\") to support the advice \"apply before you begin\"."
+        }
+      ]
+    },
+    {
+      "id": "r_daily_030",
+      "section": "reading",
+      "task_type": "read_in_daily_life",
+      "difficulty": "C1-C2",
+      "source_type": "ets_format_synthetic",
+      "stimulus": {
+        "format": "notice",
+        "title": "Meridian Scholarship — Conditions of Renewal",
+        "body": "The scholarship is renewed each year provided that the holder completes at least 30 credits and maintains a grade average of 3.3 or above. A holder whose average falls between 3.0 and 3.3 is placed on probation for one term, during which payments continue; if the average for that term alone reaches 3.3, the scholarship is restored in full, and if not, it ends. An average below 3.0 ends the scholarship without probation. Holders who interrupt their studies for medical reasons may suspend the scholarship for up to two terms, during which no payments are made and no credits are required."
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "A holder finishes the year with 32 credits and an average of 3.1. What happens next?",
+          "options": [
+            "She keeps receiving payments for one term while her results are reviewed",
+            "Her scholarship ends at once because her average is below 3.3",
+            "Her scholarship is renewed without conditions because she has 32 credits",
+            "Her payments are suspended until her average rises to 3.3 again"
+          ],
+          "answer_index": 0,
+          "skill": "inference",
+          "explanation": "An average \"between 3.0 and 3.3\" means probation \"for one term, during which payments continue\"."
+        },
+        {
+          "id": "q2",
+          "stem": "What must a holder on probation achieve for the scholarship to be restored?",
+          "options": [
+            "An overall average of at least 3.3 for the whole year",
+            "At least 30 credits during the probation term",
+            "An average of at least 3.3 in the probation term itself",
+            "An average above 3.0 in the probation term"
+          ],
+          "answer_index": 2,
+          "skill": "detail",
+          "explanation": "The scholarship is restored \"if the average for that term alone reaches 3.3\"."
+        }
+      ]
+    },
+    {
+      "id": "r_daily_031",
+      "section": "reading",
+      "task_type": "read_in_daily_life",
+      "difficulty": "C1-C2",
+      "source_type": "ets_format_synthetic",
+      "stimulus": {
+        "format": "advertisement",
+        "title": "Summer Sublet — One Bedroom near the Science Campus",
+        "body": "Available June 1 to August 20. Furnished one-bedroom apartment on the third floor (no elevator), eight minutes on foot from the science campus. Rent is $780 a month, which covers water and internet; electricity is billed separately and has averaged $35 a month, though it runs higher when the air conditioner is in use. The lease forbids pets and smoking, and the landlord must approve any subtenant, which normally takes a week. I would prefer one person for the whole period but will consider two consecutive tenants if no gaps are left. A deposit of one month's rent is returned within ten days of departure."
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "What can be inferred about the likely electricity cost for a summer subtenant?",
+          "options": [
+            "It may well exceed the stated average",
+            "It is included in the monthly rent",
+            "It will be exactly $35 each month",
+            "It will be paid by the landlord"
+          ],
+          "answer_index": 0,
+          "skill": "inference",
+          "explanation": "Electricity \"has averaged $35 a month, though it runs higher when the air conditioner is in use\", and the sublet covers the summer."
+        },
+        {
+          "id": "q2",
+          "stem": "Under what condition would the advertiser accept two different subtenants?",
+          "options": [
+            "If each of them pays a separate deposit",
+            "If their stays together cover the entire period",
+            "If they share the apartment at the same time",
+            "If the landlord waives the approval"
+          ],
+          "answer_index": 1,
+          "skill": "detail",
+          "explanation": "The advertiser \"will consider two consecutive tenants if no gaps are left\"."
+        },
+        {
+          "id": "q3",
+          "stem": "Why might someone who wants to move in on June 1 need to contact the advertiser well before that date?",
+          "options": [
+            "The deposit must be paid ten days in advance",
+            "The apartment has to be furnished first",
+            "The landlord's approval of a subtenant takes time",
+            "Another tenant has priority until May"
+          ],
+          "answer_index": 2,
+          "skill": "inference",
+          "explanation": "\"The landlord must approve any subtenant, which normally takes a week.\""
+        }
+      ]
+    },
+    {
+      "id": "r_daily_032",
+      "section": "reading",
+      "task_type": "read_in_daily_life",
+      "difficulty": "C1-C2",
+      "source_type": "ets_format_synthetic",
+      "stimulus": {
+        "format": "invoice",
+        "title": "Student Account — Fall Term Statement",
+        "meta": [
+          {
+            "label": "Student",
+            "value": "T. Nakamura"
+          },
+          {
+            "label": "Statement date",
+            "value": "August 18"
+          }
+        ],
+        "footer": "*The health insurance charge is cancelled if proof of comparable coverage is uploaded by September 1. A balance unpaid after September 5 incurs interest of 1% per month and blocks registration for the following term.",
+        "table": {
+          "columns": [
+            "Item",
+            "Charge",
+            "Credit"
+          ],
+          "rows": [
+            [
+              "Tuition (15 credits)",
+              "$6,300.00",
+              ""
+            ],
+            [
+              "Laboratory fee",
+              "$180.00",
+              ""
+            ],
+            [
+              "Health insurance*",
+              "$940.00",
+              ""
+            ],
+            [
+              "Merit award",
+              "",
+              "$2,000.00"
+            ],
+            [
+              "Payment received July 30",
+              "",
+              "$3,000.00"
+            ],
+            [
+              "Balance due September 5",
+              "$2,420.00",
+              ""
+            ]
+          ]
+        }
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "The student uploads proof of comparable insurance on August 28. What will the balance due become?",
+          "options": [
+            "$2,420.00",
+            "$3,360.00",
+            "$1,480.00",
+            "$940.00"
+          ],
+          "answer_index": 2,
+          "skill": "inference",
+          "explanation": "The upload is before September 1, so the $940.00 charge is cancelled: $2,420.00 − $940.00 = $1,480.00."
+        },
+        {
+          "id": "q2",
+          "stem": "Besides interest, what is the consequence of leaving the balance unpaid after September 5?",
+          "options": [
+            "The merit award is withdrawn from the student account",
+            "The student cannot enroll in courses for the next term",
+            "The health insurance is cancelled for the rest of the term",
+            "The laboratory fee is charged a second time as a penalty"
+          ],
+          "answer_index": 1,
+          "skill": "detail",
+          "explanation": "An unpaid balance \"incurs interest of 1% per month and blocks registration for the following term\"."
+        }
+      ]
+    },
+    {
+      "id": "r_daily_033",
+      "section": "reading",
+      "task_type": "read_in_daily_life",
+      "difficulty": "C2",
+      "source_type": "ets_format_synthetic",
+      "stimulus": {
+        "format": "email",
+        "meta": [
+          {
+            "label": "From",
+            "value": "Editors, Undergraduate Review of Ideas"
+          },
+          {
+            "label": "To",
+            "value": "Selin Aydin"
+          },
+          {
+            "label": "Subject",
+            "value": "Your submission"
+          }
+        ],
+        "body": "Dear Ms. Aydin,\n\nThank you for sending us \"Borrowed Voices\". Both readers admired the ambition of the essay, and one called the opening pages the most arresting we received this cycle.\n\nThey were less persuaded by what follows. The argument of the second half leans heavily on a single interview, and the conclusion claims rather more than that evidence can carry. We cannot publish the piece as it stands.\n\nWe do not say this to everyone: should you wish to revise along these lines, we would read the essay again for the spring issue, though without any commitment on our part. The deadline is January 20.\n\nWith best wishes,\nThe Editors"
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "What decision do the editors communicate?",
+          "options": [
+            "They reject the current version but invite a revised one",
+            "They accept the essay provided the conclusion is shortened",
+            "They reject the essay and discourage resubmission",
+            "They postpone their decision until January 20"
+          ],
+          "answer_index": 0,
+          "skill": "main_idea",
+          "explanation": "\"We cannot publish the piece as it stands\", but if she revises \"we would read the essay again for the spring issue\"."
+        },
+        {
+          "id": "q2",
+          "stem": "What is the editors' principal criticism of the essay?",
+          "options": [
+            "Its conclusions go beyond what its limited evidence supports",
+            "Its opening pages are weaker than the rest",
+            "It is too ambitious for an undergraduate journal",
+            "It relies on interviews instead of published sources"
+          ],
+          "answer_index": 0,
+          "skill": "inference",
+          "explanation": "The second half \"leans heavily on a single interview\", and the conclusion \"claims rather more than that evidence can carry\"."
+        },
+        {
+          "id": "q3",
+          "stem": "Why do the editors write \"We do not say this to everyone\"?",
+          "options": [
+            "To warn her that the journal is highly selective",
+            "To apologize for the severity of their comments",
+            "To signal that the invitation to resubmit reflects real interest",
+            "To indicate that the readers disagreed with each other"
+          ],
+          "answer_index": 2,
+          "skill": "speaker_intent",
+          "explanation": "The remark introduces the offer to read a revision and marks it as an exception, not a routine courtesy."
+        }
+      ]
+    },
+    {
+      "id": "r_daily_034",
+      "section": "reading",
+      "task_type": "read_in_daily_life",
+      "difficulty": "C2",
+      "source_type": "ets_format_synthetic",
+      "stimulus": {
+        "format": "social_post",
+        "title": "Office of the Registrar",
+        "body": "We have read the many comments on the new examination timetable, and we owe you a plainer explanation than the one we gave. Evening examinations were not introduced for anyone's convenience, least of all ours. The number of students entitled to extra time has doubled in four years, and the rooms suitable for them are few. Spreading examinations across more hours was the only way to avoid placing some students in corridors and offices, as happened last June. We recognize that a 7 p.m. paper is unwelcome. If your timetable now gives you three examinations within twenty-four hours, write to us and one will be moved."
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "What is the main purpose of the post?",
+          "options": [
+            "To announce that evening examinations will be withdrawn",
+            "To apologize for errors in the published timetable",
+            "To ask students to stop commenting on the timetable",
+            "To justify an unpopular change and offer relief in the hardest cases"
+          ],
+          "answer_index": 3,
+          "skill": "purpose",
+          "explanation": "The registrar gives \"a plainer explanation\" for evening examinations and offers to move one paper for students with three in twenty-four hours."
+        },
+        {
+          "id": "q2",
+          "stem": "What does the post imply happened last June?",
+          "options": [
+            "Evening examinations were tried for the first time",
+            "Several examinations had to be cancelled",
+            "Students complained about having three examinations in one day",
+            "Some students with extra time sat examinations in unsuitable places"
+          ],
+          "answer_index": 3,
+          "skill": "inference",
+          "explanation": "More hours were \"the only way to avoid placing some students in corridors and offices, as happened last June\", in a passage about students entitled to extra time and the few rooms suitable for them."
+        }
+      ]
+    },
+    {
+      "id": "r_daily_035",
+      "section": "reading",
+      "task_type": "read_in_daily_life",
+      "difficulty": "C2",
+      "source_type": "ets_format_synthetic",
+      "stimulus": {
+        "format": "text_messages",
+        "title": "Messages: Teaching assistants, Statistics 201",
+        "messages": [
+          {
+            "sender": "Noor",
+            "time": "4:02 p.m.",
+            "text": "Just finished the stack for section 4. Guess how many used the formula from the practice sheet on question 3."
+          },
+          {
+            "sender": "Felix",
+            "time": "4:05 p.m.",
+            "text": "Given that question 3 was deliberately written so that formula wouldn't work... all of them?"
+          },
+          {
+            "sender": "Noor",
+            "time": "4:06 p.m.",
+            "text": "Twenty-two out of twenty-six. With total confidence. One even wrote \"as shown in class.\""
+          },
+          {
+            "sender": "Felix",
+            "time": "4:08 p.m.",
+            "text": "Well, we did tell them the practice sheet was \"representative.\" I'm starting to think that word did more harm than the exam."
+          },
+          {
+            "sender": "Noor",
+            "time": "4:09 p.m.",
+            "text": "I'm bringing it up Thursday. Either we stop handing out practice sheets or we write ones that don't all look alike."
+          },
+          {
+            "sender": "Felix",
+            "time": "4:10 p.m.",
+            "text": "I'd back the second. Taking them away just punishes the four who were paying attention."
+          }
+        ]
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "What do the two assistants believe explains the students' mistake?",
+          "options": [
+            "The students had not attended the classes where the topic was taught",
+            "Question 3 contained an error that made the formula seem to apply",
+            "The practice material led students to expect one type of problem",
+            "The formula had been explained incorrectly during the lectures"
+          ],
+          "answer_index": 2,
+          "skill": "inference",
+          "explanation": "Felix blames having called the practice sheet \"representative\", and Noor wants sheets \"that don't all look alike\"."
+        },
+        {
+          "id": "q2",
+          "stem": "What is Felix's attitude when he says the word \"did more harm than the exam\"?",
+          "options": [
+            "Anger at the students for not thinking",
+            "Wry acknowledgment that the teaching team shares the blame",
+            "Satisfaction that the question worked as designed",
+            "Indifference to the results"
+          ],
+          "answer_index": 1,
+          "skill": "attitude",
+          "explanation": "He says \"we did tell them\" and jokes that their own word caused the damage, which is self-critical irony."
+        },
+        {
+          "id": "q3",
+          "stem": "Which course of action does Felix support?",
+          "options": [
+            "Ending the distribution of practice sheets",
+            "Regrading question 3 for the whole section",
+            "Giving credit to the four students who answered correctly",
+            "Rewriting the practice sheets so that the problems vary"
+          ],
+          "answer_index": 3,
+          "skill": "next_action",
+          "explanation": "Noor offers two options; Felix replies, \"I'd back the second\", that is, writing sheets \"that don't all look alike\"."
+        }
+      ]
+    },
+    {
+      "id": "r_daily_036",
+      "section": "reading",
+      "task_type": "read_in_daily_life",
+      "difficulty": "C2",
+      "source_type": "ets_format_synthetic",
+      "stimulus": {
+        "format": "memo",
+        "title": "Memo — Use of Text-Generating Tools in Written Coursework",
+        "meta": [
+          {
+            "label": "From",
+            "value": "Faculty of Arts, Teaching Committee"
+          },
+          {
+            "label": "To",
+            "value": "All instructors"
+          }
+        ],
+        "body": "From September, each course outline must state which of three positions applies: such tools are prohibited, permitted with acknowledgment, or permitted freely. Where an outline is silent, the second position is deemed to apply.\n\nThe committee considered and rejected a single faculty-wide rule. What counts as legitimate assistance in a translation seminar differs from what counts in a course on argumentative writing, and instructors are better placed than we are to judge. We ask only that the position be justified to students in terms of what the assignment is meant to develop. A prohibition that cannot be explained in those terms is unlikely to be respected, and still less likely to be enforceable."
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "An instructor's course outline says nothing about text-generating tools. What follows?",
+          "options": [
+            "Students may not use them at all",
+            "Students may use them without restriction",
+            "The instructor must ask the committee for a decision",
+            "Students may use them if they declare that they have done so"
+          ],
+          "answer_index": 3,
+          "skill": "inference",
+          "explanation": "\"Where an outline is silent, the second position is deemed to apply\", and the second position is \"permitted with acknowledgment\"."
+        },
+        {
+          "id": "q2",
+          "stem": "Why did the committee decide against a single rule for the whole faculty?",
+          "options": [
+            "Appropriate use depends on what each course is trying to teach",
+            "Instructors had refused to accept a rule set by the committee",
+            "Students had asked for different rules in different departments",
+            "A rule for the whole faculty would have taken too long to agree on"
+          ],
+          "answer_index": 0,
+          "skill": "inference",
+          "explanation": "Legitimate assistance \"differs\" between a translation seminar and a writing course, and \"instructors are better placed than we are to judge\"."
         }
       ]
     }
