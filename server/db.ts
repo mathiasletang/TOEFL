@@ -109,8 +109,9 @@ export function migrate(db: DB): void {
 }
 
 function seedReference(db: DB): void {
-  const insUser = db.prepare("INSERT OR IGNORE INTO users (id, display_name, target_band) VALUES (?, ?, ?)");
-  for (const u of USERS) insUser.run(u.id, u.display_name, CONFIG.internal.profile_targets[u.id] ?? CONFIG.internal.default_target_band);
+  const insUser = db.prepare("INSERT OR IGNORE INTO users (id, display_name, target_band, exam_date) VALUES (?, ?, ?, ?)");
+  for (const u of USERS)
+    insUser.run(u.id, u.display_name, CONFIG.internal.profile_targets[u.id] ?? CONFIG.internal.default_target_band, CONFIG.internal.profile_exam_dates[u.id] ?? null);
   const insErr = db.prepare("INSERT OR REPLACE INTO error_categories (id, label) VALUES (?, ?)");
   for (const [id, label] of Object.entries(ERROR_TAG_LABELS)) insErr.run(id, label);
 }

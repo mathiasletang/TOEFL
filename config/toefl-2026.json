@@ -54,6 +54,394 @@
   "internal": {
     "default_target_band": 6.0,
     "profile_targets": { "Virgile": 5.0, "Mathias": 6.0 },
+    "profile_exam_dates": { "Mathias": "2027-01-09" },
+    "plan": {
+      "$comment": "Daily plan shown on the Dashboard. Internal training schedule, not an ETS recommendation. Days are counted before the exam date (J-n). Tasks: a task type, 'focus' (Focus weaknesses) or 'simulation:<scope>[:short]'.",
+      "phases": [
+        {
+          "id": "diagnostic",
+          "label": "Diagnostic",
+          "from_days": null,
+          "to_days": 55,
+          "goal": "Measure every task once and build the error profile."
+        },
+        {
+          "id": "foundations",
+          "label": "Foundations",
+          "from_days": 54,
+          "to_days": 34,
+          "goal": "Untimed accuracy work on the weakest patterns."
+        },
+        {
+          "id": "intensification",
+          "label": "Intensification",
+          "from_days": 33,
+          "to_days": 13,
+          "goal": "Strict timing and section simulations."
+        },
+        {
+          "id": "exam_mode",
+          "label": "Exam mode",
+          "from_days": 12,
+          "to_days": 1,
+          "goal": "Full strict simulations, short reviews, no new material."
+        }
+      ],
+      "base": {
+        "shadowing_minutes": 10,
+        "shadowing_task": "listen_and_repeat"
+      },
+      "rotations": {
+        "default": {
+          "diagnostic": {
+            "mon": {
+              "main": {
+                "task": "complete_the_words",
+                "items": 3,
+                "mode": "practice"
+              },
+              "optional": {
+                "task": "read_in_daily_life",
+                "items": 2,
+                "mode": "practice"
+              }
+            },
+            "tue": {
+              "main": {
+                "task": "academic_talk",
+                "items": 2,
+                "mode": "practice"
+              },
+              "optional": {
+                "task": "listen_choose_response",
+                "items": 6,
+                "mode": "practice"
+              }
+            },
+            "wed": {
+              "main": {
+                "task": "write_an_email",
+                "items": 1,
+                "mode": "practice"
+              },
+              "optional": {
+                "task": "build_a_sentence",
+                "items": 5,
+                "mode": "practice"
+              }
+            },
+            "thu": {
+              "main": {
+                "task": "take_an_interview",
+                "items": 1,
+                "mode": "practice"
+              },
+              "optional": {
+                "task": "listen_and_repeat",
+                "items": 1,
+                "mode": "practice"
+              }
+            },
+            "fri": {
+              "main": {
+                "task": "read_academic_passage",
+                "items": 2,
+                "mode": "practice"
+              },
+              "optional": {
+                "task": "conversation",
+                "items": 2,
+                "mode": "practice"
+              }
+            },
+            "sat": {
+              "main": {
+                "task": "academic_discussion",
+                "items": 1,
+                "mode": "practice"
+              },
+              "optional": {
+                "task": "announcement",
+                "items": 2,
+                "mode": "practice"
+              }
+            },
+            "sun": {
+              "main": {
+                "task": "focus",
+                "items": 3,
+                "mode": "practice"
+              },
+              "optional": null
+            }
+          },
+          "foundations": {
+            "mon": {
+              "main": {
+                "task": "complete_the_words",
+                "items": 4,
+                "mode": "practice"
+              },
+              "optional": {
+                "task": "focus",
+                "items": 2,
+                "mode": "practice"
+              }
+            },
+            "tue": {
+              "main": {
+                "task": "conversation",
+                "items": 3,
+                "mode": "practice"
+              },
+              "optional": {
+                "task": "listen_choose_response",
+                "items": 8,
+                "mode": "practice"
+              }
+            },
+            "wed": {
+              "main": {
+                "task": "build_a_sentence",
+                "items": 10,
+                "mode": "practice"
+              },
+              "optional": {
+                "task": "write_an_email",
+                "items": 1,
+                "mode": "practice"
+              }
+            },
+            "thu": {
+              "main": {
+                "task": "listen_and_repeat",
+                "items": 2,
+                "mode": "practice"
+              },
+              "optional": {
+                "task": "take_an_interview",
+                "items": 1,
+                "mode": "practice"
+              }
+            },
+            "fri": {
+              "main": {
+                "task": "read_academic_passage",
+                "items": 2,
+                "mode": "practice"
+              },
+              "optional": {
+                "task": "read_in_daily_life",
+                "items": 3,
+                "mode": "practice"
+              }
+            },
+            "sat": {
+              "main": {
+                "task": "academic_discussion",
+                "items": 1,
+                "mode": "practice"
+              },
+              "optional": {
+                "task": "academic_talk",
+                "items": 2,
+                "mode": "practice"
+              }
+            },
+            "sun": {
+              "main": {
+                "task": "focus",
+                "items": 4,
+                "mode": "practice"
+              },
+              "optional": null
+            }
+          },
+          "intensification": {
+            "mon": {
+              "main": {
+                "task": "read_academic_passage",
+                "items": 3,
+                "mode": "strict"
+              },
+              "optional": {
+                "task": "complete_the_words",
+                "items": 3,
+                "mode": "strict"
+              }
+            },
+            "tue": {
+              "main": {
+                "task": "academic_talk",
+                "items": 3,
+                "mode": "strict"
+              },
+              "optional": {
+                "task": "announcement",
+                "items": 2,
+                "mode": "strict"
+              }
+            },
+            "wed": {
+              "main": {
+                "task": "academic_discussion",
+                "items": 1,
+                "mode": "strict"
+              },
+              "optional": {
+                "task": "build_a_sentence",
+                "items": 10,
+                "mode": "strict"
+              }
+            },
+            "thu": {
+              "main": {
+                "task": "take_an_interview",
+                "items": 2,
+                "mode": "strict"
+              },
+              "optional": {
+                "task": "listen_and_repeat",
+                "items": 1,
+                "mode": "strict"
+              }
+            },
+            "fri": {
+              "main": {
+                "task": "focus",
+                "items": 4,
+                "mode": "practice"
+              },
+              "optional": {
+                "task": "read_in_daily_life",
+                "items": 3,
+                "mode": "strict"
+              }
+            },
+            "sat": {
+              "main": {
+                "task": "simulation:reading",
+                "items": 1,
+                "mode": "strict"
+              },
+              "optional": {
+                "task": "simulation:listening",
+                "items": 1,
+                "mode": "strict"
+              }
+            },
+            "sun": {
+              "main": {
+                "task": "write_an_email",
+                "items": 2,
+                "mode": "strict"
+              },
+              "optional": {
+                "task": "focus",
+                "items": 2,
+                "mode": "practice"
+              }
+            }
+          },
+          "exam_mode": {
+            "mon": {
+              "main": {
+                "task": "simulation:reading",
+                "items": 1,
+                "mode": "strict"
+              },
+              "optional": {
+                "task": "focus",
+                "items": 2,
+                "mode": "practice"
+              }
+            },
+            "tue": {
+              "main": {
+                "task": "simulation:listening",
+                "items": 1,
+                "mode": "strict"
+              },
+              "optional": {
+                "task": "complete_the_words",
+                "items": 2,
+                "mode": "strict"
+              }
+            },
+            "wed": {
+              "main": {
+                "task": "simulation:writing",
+                "items": 1,
+                "mode": "strict"
+              },
+              "optional": {
+                "task": "build_a_sentence",
+                "items": 10,
+                "mode": "strict"
+              }
+            },
+            "thu": {
+              "main": {
+                "task": "simulation:speaking",
+                "items": 1,
+                "mode": "strict"
+              },
+              "optional": {
+                "task": "listen_choose_response",
+                "items": 6,
+                "mode": "strict"
+              }
+            },
+            "fri": {
+              "main": {
+                "task": "focus",
+                "items": 3,
+                "mode": "practice"
+              },
+              "optional": null
+            },
+            "sat": {
+              "main": {
+                "task": "simulation:full",
+                "items": 1,
+                "mode": "strict"
+              },
+              "optional": null
+            },
+            "sun": {
+              "main": {
+                "task": "focus",
+                "items": 2,
+                "mode": "practice"
+              },
+              "optional": null
+            }
+          }
+        }
+      },
+      "checkpoints": [
+        {
+          "days_before": 55,
+          "label": "Diagnostic full test (short form)",
+          "task": "simulation:full:short"
+        },
+        {
+          "days_before": 34,
+          "label": "End of foundations: full test",
+          "task": "simulation:full"
+        },
+        {
+          "days_before": 13,
+          "label": "Start of exam mode: full test",
+          "task": "simulation:full"
+        },
+        {
+          "days_before": 5,
+          "label": "Final full test",
+          "task": "simulation:full"
+        }
+      ]
+    },
     "target_options": [5.0, 5.5, 6.0],
     "routing": {
       "model": "percent-correct",
