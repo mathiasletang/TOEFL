@@ -156,7 +156,7 @@ Drop a JSON file into `content/exercises/`, run `npm run validate:content`, then
 
 The same applies to the **vocabulary bank** in `content/vocab/` (1,000 original entries in 20 packs), which the Vocabulary tab uses. Its "Essentials" tier is an internal high-yield selection, not an official list. Entries removed from the files are deactivated; your review history is kept.
 
-Invalid exercises and vocabulary entries are never imported. The server logs them and the validator fails. The current bank holds 146 original exercises and supports **2 complete official-format full tests** with no exercise reused inside or across forms (`npm run validate:content` prints the exact counts).
+Invalid exercises and vocabulary entries are never imported. The server logs them and the validator fails. The current bank holds 220 original exercises (Reading: 40 Complete the Words, 36 Daily Life sets, 24 academic passages). No exercise is reused inside or across forms. Reading alone can supply 9 official-format forms, but complete full tests are still limited to **2** by the Listening bank (`npm run validate:content` prints the exact counts).
 
 ---
 

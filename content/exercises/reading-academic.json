@@ -12,7 +12,9 @@
       "difficulty": "C1",
       "source_type": "ets_format_synthetic",
       "source_reference": "PRD_TOEFL_2026.md seed r_academic_001 (skills, explanations, highlight added)",
-      "tags": ["prd_seed"],
+      "tags": [
+        "prd_seed"
+      ],
       "title": "Network Effects in Digital Markets",
       "discipline": "Economics",
       "passage": "Some products become more useful as more people adopt them, a phenomenon economists call a network effect. A telephone network illustrates the basic idea: a single telephone has little value, whereas a network connecting millions of users is highly useful. Digital platforms can exhibit similar effects because additional users may attract more sellers, developers, or content creators.\n\nHowever, network effects do not guarantee permanent dominance. Users may switch when a rival offers substantially better technology, when several platforms can be used simultaneously, or when the cost of moving data and contacts is low. Consequently, firms often attempt to strengthen network effects by making their services compatible with complementary products while simultaneously increasing switching costs.\n\nPolicymakers pay close attention to such strategies because strong network effects can produce efficiency gains but may also make entry more difficult for competitors. The economic significance of network effects therefore depends not simply on the number of users but on the structure of interactions among users, complementary suppliers, and competing platforms.",
@@ -33,7 +35,12 @@
         {
           "id": "q2",
           "stem": "The word \"dominance\" in the passage is closest in meaning to",
-          "options": ["compatibility", "control", "innovation", "cooperation"],
+          "options": [
+            "compatibility",
+            "control",
+            "innovation",
+            "cooperation"
+          ],
           "answer_index": 1,
           "skill": "vocabulary",
           "highlight": "dominance",
@@ -106,7 +113,12 @@
         {
           "id": "q2",
           "stem": "The word \"contested\" in the passage is closest in meaning to",
-          "options": ["disputed", "unknown", "proven", "complicated"],
+          "options": [
+            "disputed",
+            "unknown",
+            "proven",
+            "complicated"
+          ],
           "answer_index": 0,
           "skill": "vocabulary",
           "highlight": "contested",
@@ -179,7 +191,12 @@
         {
           "id": "q2",
           "stem": "The phrase \"effectively sealing\" in the passage is closest in meaning to",
-          "options": ["almost revealing", "in practice closing", "efficiently measuring", "partly causing"],
+          "options": [
+            "almost revealing",
+            "in practice closing",
+            "efficiently measuring",
+            "partly causing"
+          ],
           "answer_index": 1,
           "skill": "vocabulary",
           "highlight": "effectively sealing",
@@ -265,7 +282,12 @@
         {
           "id": "q3",
           "stem": "The word \"accusatory\" in the passage is closest in meaning to",
-          "options": ["blaming", "technical", "optimistic", "detailed"],
+          "options": [
+            "blaming",
+            "technical",
+            "optimistic",
+            "detailed"
+          ],
           "answer_index": 0,
           "skill": "vocabulary",
           "highlight": "accusatory",
@@ -312,7 +334,12 @@
         {
           "id": "q1",
           "stem": "According to the passage, which group of artists was most directly harmed by photography?",
-          "options": ["Landscape painters", "Miniature portrait painters", "Impressionist painters", "Academic painters"],
+          "options": [
+            "Landscape painters",
+            "Miniature portrait painters",
+            "Impressionist painters",
+            "Academic painters"
+          ],
           "answer_index": 1,
           "skill": "detail",
           "explanation": "Miniature portraitists depended on providing likenesses, which photography supplied more cheaply."
@@ -333,7 +360,12 @@
         {
           "id": "q3",
           "stem": "The word \"fleeting\" in the passage is closest in meaning to",
-          "options": ["brief", "bright", "natural", "distant"],
+          "options": [
+            "brief",
+            "bright",
+            "natural",
+            "distant"
+          ],
           "answer_index": 0,
           "skill": "vocabulary",
           "highlight": "fleeting",
@@ -406,7 +438,12 @@
         {
           "id": "q3",
           "stem": "The phrase \"lock in\" in the passage is closest in meaning to",
-          "options": ["make permanent", "make secret", "make illegal", "make visible"],
+          "options": [
+            "make permanent",
+            "make secret",
+            "make illegal",
+            "make visible"
+          ],
           "answer_index": 0,
           "skill": "vocabulary",
           "highlight": "lock in",
@@ -437,6 +474,1407 @@
           "answer_index": 0,
           "skill": "organization",
           "explanation": "After defining the two advantages, the passage asks which explains persistence and offers the portage test."
+        }
+      ]
+    },
+    {
+      "id": "r_academic_007",
+      "section": "reading",
+      "task_type": "read_academic_passage",
+      "difficulty": "B2-C1",
+      "source_type": "ets_format_synthetic",
+      "title": "How Plants Defend Themselves",
+      "discipline": "Biology",
+      "passage": "Plants cannot run from the animals that eat them, but they are far from defenseless. Some protections are permanent features, such as thorns, tough leaves, or bitter chemicals stored in their tissues. Others are produced only when needed. When a caterpillar begins to chew a leaf, many plants respond within hours by making substances that are difficult to digest, so the insect grows more slowly and may move elsewhere.\n\nProducing these chemicals requires energy that could otherwise be used for growth and seeds. This cost explains why many defenses are switched on only after an attack begins instead of being maintained constantly.\n\nA damaged plant may also release scented compounds into the air. These signals serve two purposes. They attract wasps and other predators that feed on the caterpillars, and they are detected by neighboring plants, which start preparing their own defenses before any insect arrives. Scientists once doubted this second effect, since it seemed to benefit competitors. One explanation is that the signal evolved mainly to warn distant branches of the same plant, and that neighbors simply take advantage of it.",
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "What is the passage mainly about?",
+          "options": [
+            "The reasons why insects prefer to feed on some plants rather than others",
+            "The ways in which plants compete with their neighbors for light and water",
+            "The different ways in which plants protect themselves from being eaten",
+            "The chemical differences between the leaves and the seeds of plants"
+          ],
+          "answer_index": 2,
+          "skill": "main_idea",
+          "explanation": "The passage describes permanent defenses, defenses produced on demand, and airborne signals."
+        },
+        {
+          "id": "q2",
+          "stem": "According to the passage, why do many plants produce defensive chemicals only after an attack begins?",
+          "options": [
+            "The chemicals are harmful to the plant itself",
+            "Making them uses energy needed for growth and reproduction",
+            "Insects quickly become used to the chemicals",
+            "The chemicals are effective for only a few hours"
+          ],
+          "answer_index": 1,
+          "skill": "detail",
+          "explanation": "Producing them \"requires energy that could otherwise be used for growth and seeds\", and \"this cost explains why\" they are switched on only when needed."
+        },
+        {
+          "id": "q3",
+          "stem": "The word \"release\" in the passage is closest in meaning to",
+          "options": [
+            "take in",
+            "give off",
+            "break down",
+            "hold back"
+          ],
+          "answer_index": 1,
+          "skill": "vocabulary",
+          "explanation": "The plant sends scented compounds out into the air.",
+          "highlight": "release"
+        },
+        {
+          "id": "q4",
+          "stem": "The phrase \"this second effect\" in the third paragraph refers to",
+          "options": [
+            "wasps being attracted to the caterpillars",
+            "caterpillars growing more slowly",
+            "plants storing bitter chemicals in their tissues",
+            "neighboring plants detecting the signals and preparing defenses"
+          ],
+          "answer_index": 3,
+          "skill": "reference",
+          "explanation": "The two purposes are attracting predators and being \"detected by neighboring plants\"; scientists doubted the second."
+        },
+        {
+          "id": "q5",
+          "stem": "Why did scientists find it hard to believe that plants warn their neighbors?",
+          "options": [
+            "The scented compounds were too faint for instruments to measure",
+            "Wasps and other predators were thought to ignore signals from plants",
+            "Neighboring plants were believed to have no defenses of their own",
+            "Helping rival plants would not seem to benefit the plant sending the signal"
+          ],
+          "answer_index": 3,
+          "skill": "inference",
+          "explanation": "They doubted the effect \"since it seemed to benefit competitors\"."
+        }
+      ]
+    },
+    {
+      "id": "r_academic_008",
+      "section": "reading",
+      "task_type": "read_academic_passage",
+      "difficulty": "B2",
+      "source_type": "ets_format_synthetic",
+      "title": "Living Beside Volcanoes",
+      "discipline": "Geology",
+      "passage": "Volcanoes are among the most dangerous features of the landscape, yet hundreds of millions of people choose to live near them. The main reason lies in the ground itself. The ash and rock thrown out during eruptions contain minerals such as potassium and phosphorus that plants need. As this material breaks down, it forms deep, loose soil that holds water well. On the slopes of volcanoes in Indonesia, Italy and Central America, farmers can harvest two or three crops a year.\n\nThis fertility does not appear at once. Fresh lava is hard and almost lifeless, and it may take centuries of weathering before crops can grow on it. Fine ash, by contrast, can enrich fields within a few years, provided that the layer is thin. A thick layer buries plants and can ruin farmland for a generation.\n\nThe same eruptions that renew the soil therefore also threaten those who depend on it. Most volcanoes, however, erupt violently only once in several lifetimes, while the benefits of rich soil are felt every season. For many farming communities, an uncertain danger in the distant future weighs less than a reliable harvest today.",
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "What is the main purpose of the passage?",
+          "options": [
+            "To explain why people settle near volcanoes despite the danger",
+            "To describe how volcanic eruptions can be predicted",
+            "To compare farming methods in three regions",
+            "To warn farmers against living on volcanic slopes"
+          ],
+          "answer_index": 0,
+          "skill": "purpose",
+          "explanation": "The passage asks why \"hundreds of millions of people choose to live near them\" and answers with soil fertility weighed against rare eruptions."
+        },
+        {
+          "id": "q2",
+          "stem": "According to the passage, what makes volcanic soil good for farming?",
+          "options": [
+            "It is warmer than other soils",
+            "It contains few stones",
+            "It needs no weathering before use",
+            "It is rich in minerals and holds water well"
+          ],
+          "answer_index": 3,
+          "skill": "detail",
+          "explanation": "Volcanic material contains \"minerals such as potassium and phosphorus\" and forms soil \"that holds water well\"."
+        },
+        {
+          "id": "q3",
+          "stem": "How does the second paragraph relate to the first?",
+          "options": [
+            "It gives further examples of regions where volcanic soil is farmed",
+            "It explains why eruptions throw out both fine ash and solid rock",
+            "It argues that volcanic soil is less fertile than farmers believe",
+            "It qualifies the claim about fertility by explaining when and how it develops"
+          ],
+          "answer_index": 3,
+          "skill": "organization",
+          "explanation": "After praising volcanic soil, the passage adds that \"this fertility does not appear at once\" and differs for lava, thin ash and thick ash."
+        },
+        {
+          "id": "q4",
+          "stem": "What can be inferred about a field covered by a thick layer of ash?",
+          "options": [
+            "It will become fertile within a few years",
+            "It will turn into hard lava",
+            "It will no longer hold water",
+            "It will be unproductive for many years"
+          ],
+          "answer_index": 3,
+          "skill": "inference",
+          "explanation": "Ash helps \"provided that the layer is thin\"; a thick layer \"can ruin farmland for a generation\"."
+        },
+        {
+          "id": "q5",
+          "stem": "The word \"reliable\" in the passage is closest in meaning to",
+          "options": [
+            "dependable",
+            "large",
+            "early",
+            "profitable"
+          ],
+          "answer_index": 0,
+          "skill": "vocabulary",
+          "explanation": "A harvest that comes every season can be counted on, unlike an uncertain danger.",
+          "highlight": "reliable"
+        }
+      ]
+    },
+    {
+      "id": "r_academic_009",
+      "section": "reading",
+      "task_type": "read_academic_passage",
+      "difficulty": "B2-C1",
+      "source_type": "ets_format_synthetic",
+      "title": "Why the Moon Shows Only One Face",
+      "discipline": "Astronomy",
+      "passage": "Observers on Earth always see the same side of the Moon. This is not because the Moon does not rotate. It turns on its axis exactly once during each orbit around Earth, so the same hemisphere is constantly directed toward us. The match between the two motions is no coincidence.\n\nBillions of years ago, the Moon spun much faster. Earth's gravity pulled more strongly on the near side of the Moon than on the far side, stretching it slightly into an oval shape. As the Moon rotated, this bulge was repeatedly carried away from the line between the two bodies, and Earth's gravity pulled it back. The effect worked like a brake, gradually slowing the rotation until the bulge remained permanently aligned with Earth. Astronomers call this condition tidal locking.\n\nThe process is common. Most large moons in the solar system are locked to their planets in the same way. It also operates in the opposite direction: the Moon's pull is slowing Earth's rotation, lengthening the day by about two thousandths of a second per century. Given enough time, Earth would keep one face turned toward the Moon as well, although the Sun will have changed dramatically long before that could happen.",
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "According to the passage, why do we always see the same side of the Moon?",
+          "options": [
+            "It does not rotate on its axis as it travels around Earth",
+            "Its rotation takes the same time as its orbit around Earth",
+            "Its far side never receives any light from the Sun",
+            "Earth's rotation takes the same time as the Moon's orbit"
+          ],
+          "answer_index": 1,
+          "skill": "detail",
+          "explanation": "The Moon \"turns on its axis exactly once during each orbit around Earth\"."
+        },
+        {
+          "id": "q2",
+          "stem": "Why does the author compare the effect of Earth's gravity to \"a brake\"?",
+          "options": [
+            "To show that the Moon's orbit is becoming smaller",
+            "To suggest that the Moon will eventually stop orbiting",
+            "To emphasize how suddenly the Moon's rotation changed",
+            "To help explain how the Moon's rotation was gradually slowed"
+          ],
+          "answer_index": 3,
+          "skill": "rhetorical_function",
+          "explanation": "The comparison clarifies the mechanism: gravity pulling the bulge back was \"gradually slowing the rotation\"."
+        },
+        {
+          "id": "q3",
+          "stem": "The word \"coincidence\" in the passage is closest in meaning to",
+          "options": [
+            "accident",
+            "mystery",
+            "exception",
+            "illusion"
+          ],
+          "answer_index": 0,
+          "skill": "vocabulary",
+          "explanation": "The match is not a matter of chance; the next paragraph explains its cause.",
+          "highlight": "coincidence"
+        },
+        {
+          "id": "q4",
+          "stem": "What can be inferred about Earth's day in the distant past?",
+          "options": [
+            "It was shorter than it is today",
+            "It was the same length as today",
+            "It was longer than it is today",
+            "It matched the Moon's orbit"
+          ],
+          "answer_index": 0,
+          "skill": "inference",
+          "explanation": "The Moon \"is slowing Earth's rotation, lengthening the day\", so earlier days were shorter."
+        },
+        {
+          "id": "q5",
+          "stem": "What is the function of the third paragraph?",
+          "options": [
+            "It extends the explanation to other moons and to Earth itself",
+            "It presents evidence against tidal locking",
+            "It describes how the Moon was formed",
+            "It summarizes the two motions described in the first paragraph"
+          ],
+          "answer_index": 0,
+          "skill": "organization",
+          "explanation": "It states that \"the process is common\" among moons and \"also operates in the opposite direction\" on Earth."
+        }
+      ]
+    },
+    {
+      "id": "r_academic_010",
+      "section": "reading",
+      "task_type": "read_academic_passage",
+      "difficulty": "B2-C1",
+      "source_type": "ets_format_synthetic",
+      "title": "The Box That Changed Trade",
+      "discipline": "Technology",
+      "passage": "Until the 1950s, loading a cargo ship was slow and expensive work. Goods arrived at the port in sacks, barrels and wooden crates of every size, and teams of workers carried them on board piece by piece. A ship could spend as much time tied up in port as it did at sea, and theft and damage were common.\n\nThe shipping container offered a simple alternative: a steel box of standard dimensions that could be packed at a factory, sealed, and moved by truck, train and ship without being opened. Cranes could lift it in minutes. The idea itself was not new, however, and early attempts failed because each company used boxes of a different size. Only when shipping lines and governments agreed on common dimensions in the 1960s did it become worthwhile for ports to invest in the necessary cranes.\n\nThe consequences reached far beyond the docks. As the cost of moving goods fell dramatically, manufacturers found it economical to make products wherever labor and materials were cheapest and ship them across oceans. Old ports in city centers, which lacked space for containers, declined, while new ones grew on open land. Thousands of dock workers lost jobs that had existed for generations.",
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "What is the main idea of the passage?",
+          "options": [
+            "Containers were invented in the 1950s by a group of large shipping companies",
+            "Modern ports are safer and less exposed to theft than the ports of the past",
+            "A standardized container transformed shipping and, with it, patterns of trade and work",
+            "Governments were slow to support new technologies in the shipping industry"
+          ],
+          "answer_index": 2,
+          "skill": "main_idea",
+          "explanation": "The passage moves from the old loading method to the standard container and its wide consequences."
+        },
+        {
+          "id": "q2",
+          "stem": "According to the passage, why did early container systems fail?",
+          "options": [
+            "Cranes were not strong enough to lift them",
+            "Dock workers refused to handle them",
+            "The boxes were often opened and robbed",
+            "Companies did not use boxes of the same size"
+          ],
+          "answer_index": 3,
+          "skill": "detail",
+          "explanation": "Early attempts failed \"because each company used boxes of a different size\"."
+        },
+        {
+          "id": "q3",
+          "stem": "What can be inferred about ports before the agreement on common dimensions?",
+          "options": [
+            "They were owned and operated directly by the shipping companies",
+            "They refused to handle containers in order to protect dock workers",
+            "They had little reason to buy equipment that would suit only some boxes",
+            "They had already moved from city centers to open land nearby"
+          ],
+          "answer_index": 2,
+          "skill": "inference",
+          "explanation": "Only after the agreement \"did it become worthwhile for ports to invest in the necessary cranes\"."
+        },
+        {
+          "id": "q4",
+          "stem": "The word \"ones\" in the third paragraph refers to",
+          "options": [
+            "containers",
+            "city centers",
+            "manufacturers",
+            "ports"
+          ],
+          "answer_index": 3,
+          "skill": "reference",
+          "explanation": "Old ports declined, \"while new ones grew on open land\"."
+        },
+        {
+          "id": "q5",
+          "stem": "Why does the author mention dock workers in the last sentence?",
+          "options": [
+            "To explain why containers were introduced slowly",
+            "To argue that containers should not have been adopted",
+            "To show that the change brought losses as well as gains",
+            "To illustrate how dangerous loading ships had been"
+          ],
+          "answer_index": 2,
+          "skill": "rhetorical_function",
+          "explanation": "After listing benefits, the passage notes that \"thousands of dock workers lost jobs\"."
+        }
+      ]
+    },
+    {
+      "id": "r_academic_011",
+      "section": "reading",
+      "task_type": "read_academic_passage",
+      "difficulty": "C1",
+      "source_type": "ets_format_synthetic",
+      "title": "Islands as Natural Experiments",
+      "discipline": "Ecology",
+      "passage": "Why do some islands support hundreds of species while others hold only a handful? In the 1960s, ecologists proposed that the number is set by a balance between two processes. New species arrive from elsewhere, and species already present die out. When the two rates are equal, the total remains roughly constant even though the identity of the species keeps changing.\n\nTwo features of an island shift this balance. Distance from the mainland reduces arrivals, because fewer seeds, insects and birds complete a long sea crossing. Size affects extinction: a small island supports small populations, and small populations are easily eliminated by a storm, a disease or a few poor breeding seasons. Large islands near a continent should therefore be the richest, and small remote ones the poorest.\n\nThe theory was tested in a memorable way. Researchers removed all insects from several tiny mangrove islands and then recorded their return. Within about a year, each island had regained approximately its original number of species, yet the list of species differed from the one before.\n\nThe idea soon attracted attention beyond oceans. A patch of forest surrounded by farmland resembles an island, and the theory has been used, not without controversy, to estimate how many species a nature reserve of a given size can keep.",
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "Which statement best expresses the central idea of the theory described in the passage?",
+          "options": [
+            "Islands always hold fewer species than the mainland",
+            "The number of species on an island reflects a balance between arrival and extinction",
+            "Species on small islands evolve more quickly than those elsewhere",
+            "The species found on an island never change once the balance is reached"
+          ],
+          "answer_index": 1,
+          "skill": "main_idea",
+          "explanation": "The number \"is set by a balance between two processes\": species arrive and species die out."
+        },
+        {
+          "id": "q2",
+          "stem": "According to the passage, how does the size of an island influence the number of species it holds?",
+          "options": [
+            "Smaller islands have smaller populations, which disappear more easily",
+            "Smaller islands receive fewer species arriving from the mainland",
+            "Larger islands are usually located closer to the mainland",
+            "Larger islands are less often struck by storms and disease"
+          ],
+          "answer_index": 0,
+          "skill": "detail",
+          "explanation": "\"Size affects extinction: a small island supports small populations, and small populations are easily eliminated.\""
+        },
+        {
+          "id": "q3",
+          "stem": "What did the mangrove experiment suggest?",
+          "options": [
+            "Insects cannot return to an island once they have all been removed",
+            "The number of species is more predictable than which particular species are present",
+            "Small islands take far longer to recover than large islands do",
+            "The original species always return to an island in the same order"
+          ],
+          "answer_index": 1,
+          "skill": "inference",
+          "explanation": "Each island regained \"approximately its original number of species, yet the list of species differed\"."
+        },
+        {
+          "id": "q4",
+          "stem": "The word \"remote\" in the passage is closest in meaning to",
+          "options": [
+            "barren",
+            "recent",
+            "distant",
+            "narrow"
+          ],
+          "answer_index": 2,
+          "skill": "vocabulary",
+          "explanation": "Remote islands are contrasted with those \"near a continent\".",
+          "highlight": "remote"
+        },
+        {
+          "id": "q5",
+          "stem": "What does the phrase \"not without controversy\" indicate about the use of the theory for nature reserves?",
+          "options": [
+            "Some scientists dispute whether it can properly be applied there",
+            "It has been rejected by most scientists",
+            "It has proved more accurate on land than at sea",
+            "Its application to reserves has been universally welcomed"
+          ],
+          "answer_index": 0,
+          "skill": "attitude",
+          "explanation": "The phrase signals that the extension to reserves has been debated, without saying it has been abandoned."
+        }
+      ]
+    },
+    {
+      "id": "r_academic_012",
+      "section": "reading",
+      "task_type": "read_academic_passage",
+      "difficulty": "C1",
+      "source_type": "ets_format_synthetic",
+      "title": "The Spacing Effect",
+      "discipline": "Psychology",
+      "passage": "Students preparing for an examination often read their notes several times in a single long session. The material soon feels familiar, and this familiarity is easily mistaken for learning. More than a century of research suggests a better strategy. When the same total study time is divided into shorter sessions separated by days, people remember considerably more weeks later. Psychologists call this the spacing effect.\n\nOne explanation concerns the effort of retrieval. After a delay, part of the material has been forgotten, and recalling it requires work. That work appears to strengthen the memory more than rereading something still fresh. A second explanation points to context: sessions on different days are linked to different surroundings and moods, which provides more routes back to the information.\n\nIf spacing is so effective, why is it so seldom used? Part of the answer is that cramming does succeed in the short term, so a student who studies intensively the night before may perform well the next morning. The loss becomes visible only later, when nobody is measuring it. Spaced study, moreover, feels less productive, because each session begins with the uncomfortable discovery of how much has slipped away. Learners thus tend to prefer the method that feels better over the one that works better.",
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "According to the passage, what is the spacing effect?",
+          "options": [
+            "Better memory for material studied in familiar surroundings",
+            "Better long-term memory when study time is spread over separate sessions",
+            "The tendency to forget material soon after an examination",
+            "The feeling that material read many times is well known"
+          ],
+          "answer_index": 1,
+          "skill": "detail",
+          "explanation": "Dividing \"the same total study time\" into sessions \"separated by days\" means people \"remember considerably more weeks later\"."
+        },
+        {
+          "id": "q2",
+          "stem": "Why does forgetting between sessions help learning, according to the first explanation?",
+          "options": [
+            "It removes incorrect information from memory",
+            "It allows the learner to rest between sessions",
+            "It shows the learner which material is unimportant",
+            "It makes recall demanding, and demanding recall strengthens memory"
+          ],
+          "answer_index": 3,
+          "skill": "inference",
+          "explanation": "Recalling partly forgotten material \"requires work\", and \"that work appears to strengthen the memory\"."
+        },
+        {
+          "id": "q3",
+          "stem": "Why does the author ask the question that opens the third paragraph?",
+          "options": [
+            "To express doubt about the evidence for the spacing effect",
+            "To introduce an explanation of why an effective method is neglected",
+            "To suggest that students are unaware of the research",
+            "To criticize teachers who do not recommend spacing"
+          ],
+          "answer_index": 1,
+          "skill": "rhetorical_function",
+          "explanation": "The question \"why is it so seldom used?\" is immediately followed by the reasons."
+        },
+        {
+          "id": "q4",
+          "stem": "The word \"cramming\" in the passage is closest in meaning to",
+          "options": [
+            "studying with other people",
+            "studying without taking notes",
+            "studying intensively just before a test",
+            "studying the same subject for years"
+          ],
+          "answer_index": 2,
+          "skill": "vocabulary",
+          "explanation": "The next clause describes \"a student who studies intensively the night before\".",
+          "highlight": "cramming"
+        },
+        {
+          "id": "q5",
+          "stem": "What does the passage imply about how learners judge their own study methods?",
+          "options": [
+            "They compare their results over several months",
+            "They rely on how a method feels, which can be misleading",
+            "They usually choose the more demanding method",
+            "They follow the advice of psychologists"
+          ],
+          "answer_index": 1,
+          "skill": "inference",
+          "explanation": "Familiarity is \"mistaken for learning\", and learners \"prefer the method that feels better over the one that works better\"."
+        }
+      ]
+    },
+    {
+      "id": "r_academic_013",
+      "section": "reading",
+      "task_type": "read_academic_passage",
+      "difficulty": "C1",
+      "source_type": "ets_format_synthetic",
+      "title": "Relative Deprivation",
+      "discipline": "Sociology",
+      "passage": "It seems obvious that people who have less should be less satisfied than people who have more. Surveys repeatedly show something more complicated. Satisfaction depends less on what individuals possess than on how their situation compares with that of the people they regard as similar to themselves. Sociologists call the resulting sense of disadvantage relative deprivation.\n\nThe idea emerged from a study of American soldiers during the Second World War. Researchers were surprised to find that men in units where promotion was rapid complained more about their chances of advancement than men in units where it was rare. The explanation lay in the comparison each soldier made. Where many colleagues had been promoted, those who had not felt left behind; where almost nobody advanced, staying at the same rank seemed normal.\n\nThe concept helps to explain a pattern that puzzles observers of social unrest. Protest movements often gather strength not when conditions are at their worst but after a period of improvement, particularly if that improvement suddenly stops. Rising living standards raise expectations as well, and a gap opens between what people have and what they have come to regard as their due. Critics caution, however, that such feelings are widespread, whereas organized protest is not, so discontent alone cannot account for it.",
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "What is the main idea of the passage?",
+          "options": [
+            "People's satisfaction is shaped by comparison with others and with their own expectations",
+            "People who own less are generally more satisfied than people who own more",
+            "Promotion in the army was unfairly distributed",
+            "Protest movements are caused by extreme poverty"
+          ],
+          "answer_index": 0,
+          "skill": "main_idea",
+          "explanation": "Satisfaction depends on \"how their situation compares\" with similar people, and later on expectations raised by improvement."
+        },
+        {
+          "id": "q2",
+          "stem": "What did researchers find about soldiers in units where promotion was rapid?",
+          "options": [
+            "They were more dissatisfied with their prospects than soldiers in other units",
+            "They were promoted more fairly than soldiers in other units",
+            "They rarely compared themselves with colleagues",
+            "They complained less than soldiers in units where promotion was rare"
+          ],
+          "answer_index": 0,
+          "skill": "detail",
+          "explanation": "Men in units with rapid promotion \"complained more about their chances of advancement\"."
+        },
+        {
+          "id": "q3",
+          "stem": "In the last sentence, the word \"it\" refers to",
+          "options": [
+            "widespread discontent",
+            "a period of improvement",
+            "organized protest",
+            "the concept of deprivation"
+          ],
+          "answer_index": 2,
+          "skill": "reference",
+          "explanation": "Feelings are widespread \"whereas organized protest is not, so discontent alone cannot account for it\": what must be accounted for is organized protest."
+        },
+        {
+          "id": "q4",
+          "stem": "According to the passage, why might unrest follow a period of improvement that suddenly ends?",
+          "options": [
+            "Conditions have become worse than ever before",
+            "People's expectations have risen beyond what they now receive",
+            "People compare themselves with soldiers",
+            "Governments become weaker during periods of growth"
+          ],
+          "answer_index": 1,
+          "skill": "inference",
+          "explanation": "Improvement \"raise[s] expectations\", and \"a gap opens between what people have and what they have come to regard as their due\"."
+        },
+        {
+          "id": "q5",
+          "stem": "What is the function of the final sentence of the passage?",
+          "options": [
+            "To offer further evidence for the concept",
+            "To explain how protests are organized",
+            "To reject the concept as mistaken",
+            "To point out a limit to what the concept can explain"
+          ],
+          "answer_index": 3,
+          "skill": "rhetorical_function",
+          "explanation": "Critics note that discontent is common but protest is not, so the concept \"alone cannot account for it\"."
+        }
+      ]
+    },
+    {
+      "id": "r_academic_014",
+      "section": "reading",
+      "task_type": "read_academic_passage",
+      "difficulty": "C1",
+      "source_type": "ets_format_synthetic",
+      "title": "Cooking and the Human Body",
+      "discipline": "Anthropology",
+      "passage": "Humans are the only animals that cook, and some anthropologists believe the habit did more than improve the taste of food. Heat softens plant fibers and changes the structure of proteins and starches, so that the body extracts considerably more energy from a cooked meal than from the same food eaten raw. Chewing and digestion also take far less time and effort.\n\nAccording to what is known as the cooking hypothesis, this extra energy shaped our anatomy. Compared with other apes, humans have small teeth, weak jaws and a short intestine, features poorly suited to a diet of raw leaves and meat. The energy saved on digestion, supporters argue, became available to an organ that consumes a great deal of it: the brain. They place the origin of cooking nearly two million years ago, when fossils first show smaller teeth and larger skulls.\n\nThe difficulty is one of timing. The oldest widely accepted traces of controlled fire, such as burned bones and hearths, are much younger than that. Supporters reply that the remains of small fires seldom survive and that absence of evidence is not proof of absence. Skeptics answer that other changes, including the use of stone tools to cut and pound food, could have reduced the work of chewing without any need for flames.",
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "According to the passage, what is one effect of cooking food?",
+          "options": [
+            "It contains more protein than raw food",
+            "The body obtains more energy from it",
+            "It must be chewed for longer",
+            "It can be stored for a longer time"
+          ],
+          "answer_index": 1,
+          "skill": "detail",
+          "explanation": "The body \"extracts considerably more energy from a cooked meal than from the same food eaten raw\"."
+        },
+        {
+          "id": "q2",
+          "stem": "Why are small teeth and a short intestine relevant to the cooking hypothesis?",
+          "options": [
+            "They suggest that human ancestors ate food that was easy to chew and digest",
+            "They show that early humans ate mostly raw meat",
+            "They prove that humans evolved from a different ape",
+            "They indicate that early humans needed less energy than other apes"
+          ],
+          "answer_index": 0,
+          "skill": "inference",
+          "explanation": "These features are \"poorly suited to a diet of raw leaves and meat\", which fits a softened, cooked diet."
+        },
+        {
+          "id": "q3",
+          "stem": "The word \"traces\" in the passage is closest in meaning to",
+          "options": [
+            "signs",
+            "stories",
+            "tools",
+            "sources"
+          ],
+          "answer_index": 0,
+          "skill": "vocabulary",
+          "explanation": "Burned bones and hearths are physical evidence left behind by fire.",
+          "highlight": "traces"
+        },
+        {
+          "id": "q4",
+          "stem": "How is the passage organized?",
+          "options": [
+            "Two competing theories are described and one is shown to be correct",
+            "A discovery is described in the order in which it was made",
+            "A hypothesis is presented and then a problem with it is discussed",
+            "A widely held belief is shown to be a myth"
+          ],
+          "answer_index": 2,
+          "skill": "organization",
+          "explanation": "The first two paragraphs set out the hypothesis; the third begins \"The difficulty is one of timing\" and gives both sides."
+        },
+        {
+          "id": "q5",
+          "stem": "What do skeptics suggest about stone tools?",
+          "options": [
+            "They offer another explanation for the reduction in teeth and jaws",
+            "They were the tools used to light the earliest cooking fires",
+            "They appeared long after the first controlled use of fire",
+            "They made cooking faster and therefore more efficient"
+          ],
+          "answer_index": 0,
+          "skill": "inference",
+          "explanation": "Cutting and pounding food \"could have reduced the work of chewing without any need for flames\"."
+        }
+      ]
+    },
+    {
+      "id": "r_academic_015",
+      "section": "reading",
+      "task_type": "read_academic_passage",
+      "difficulty": "C1",
+      "source_type": "ets_format_synthetic",
+      "title": "How New Languages Are Born",
+      "discipline": "Linguistics",
+      "passage": "When groups with no common language must communicate, for trade or on plantations, they often develop a pidgin. A pidgin is a simplified system with a small vocabulary, drawn mostly from one language, and very little grammar. Speakers string words together as best they can, and no one learns it as a mother tongue.\n\nSomething remarkable may happen in the next generation. Children who grow up hearing a pidgin as their main language do not simply reproduce it. They expand it into a creole, a complete language with consistent rules for marking tense, forming questions and linking clauses. The creole typically possesses grammatical devices that were absent from the pidgin and that do not always resemble those of the parents' original languages.\n\nLinguists disagree about where this structure comes from. Some see it as evidence that children are born with a blueprint for grammar, which they apply when the language around them is deficient. Others argue that the similarities among creoles have been exaggerated and that their features can usually be traced to the languages in contact. A much-studied case from Nicaragua has sharpened the debate. Deaf children brought together in new schools in the 1980s created a sign language of their own, and younger children who joined later made it more systematic than the older pupils had.",
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "According to the passage, what distinguishes a creole from a pidgin?",
+          "options": [
+            "A creole has a smaller vocabulary than a pidgin",
+            "A creole has a full grammar and is acquired as a first language",
+            "A creole is used only for trade",
+            "A creole is based on several languages instead of one"
+          ],
+          "answer_index": 1,
+          "skill": "detail",
+          "explanation": "A creole is \"a complete language with consistent rules\", developed by children for whom it is the main language; nobody learns a pidgin \"as a mother tongue\"."
+        },
+        {
+          "id": "q2",
+          "stem": "What can be inferred about the adults who create a pidgin?",
+          "options": [
+            "They teach the pidgin to their children as a complete language",
+            "They gradually forget the languages they spoke before",
+            "They give the pidgin consistent rules for tense and questions",
+            "They continue to speak their original languages as their mother tongues"
+          ],
+          "answer_index": 3,
+          "skill": "inference",
+          "explanation": "\"No one learns it as a mother tongue\", so its adult users already have other native languages."
+        },
+        {
+          "id": "q3",
+          "stem": "The word \"deficient\" in the passage is closest in meaning to",
+          "options": [
+            "foreign",
+            "complicated",
+            "incomplete",
+            "changing"
+          ],
+          "answer_index": 2,
+          "skill": "vocabulary",
+          "explanation": "The surrounding language, a pidgin, lacks the grammar a full language has.",
+          "highlight": "deficient"
+        },
+        {
+          "id": "q4",
+          "stem": "Why does the author mention the sign language created in Nicaragua?",
+          "options": [
+            "To show that sign languages are simpler in structure than spoken languages",
+            "To prove that pidgins also develop within deaf communities around the world",
+            "To present a case that bears on the dispute about the source of grammatical structure",
+            "To describe how the first schools for deaf children in the region were founded"
+          ],
+          "answer_index": 2,
+          "skill": "rhetorical_function",
+          "explanation": "The case \"has sharpened the debate\" about where the structure comes from."
+        },
+        {
+          "id": "q5",
+          "stem": "Which view is most directly supported by the fact that younger children made the sign language more systematic?",
+          "options": [
+            "That creole features come from the languages in contact",
+            "That children themselves contribute grammatical structure",
+            "That the similarities among creoles have been exaggerated",
+            "That adults design the rules of new languages"
+          ],
+          "answer_index": 1,
+          "skill": "inference",
+          "explanation": "The children \"created a sign language of their own\", and it was the younger ones who made it \"more systematic\", which fits the view that children supply a \"blueprint for grammar\"."
+        }
+      ]
+    },
+    {
+      "id": "r_academic_016",
+      "section": "reading",
+      "task_type": "read_academic_passage",
+      "difficulty": "C1",
+      "source_type": "ets_format_synthetic",
+      "title": "Urban Heat Islands",
+      "discipline": "Environmental science",
+      "passage": "On a calm summer night, the center of a large city may be several degrees warmer than the countryside around it. This difference, known as the urban heat island, arises mainly from the materials of which cities are built. Asphalt and concrete absorb sunlight during the day and release the stored heat slowly after dark. Rural land behaves differently: plants draw water from the soil and release it through their leaves, and this evaporation consumes heat that would otherwise warm the air.\n\nThe shape of a city adds to the effect. Tall buildings on narrow streets trap warmth that would escape from open ground, and they block the winds that might carry it away. Engines, air conditioners and industry contribute waste heat of their own. Because the stored heat is released at night, the contrast with rural areas is usually greatest after sunset, not at midday.\n\nThe consequences are more than a matter of comfort. During heat waves, warm nights deny the body its chance to recover, and deaths rise, especially among the elderly. Demand for cooling increases electricity use, which adds further heat. Planners have responded with reflective roofs, street trees and parks. Trees are generally the most effective measure, though they need water and space, both of which are scarce exactly where cooling is most needed.",
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "According to the passage, why does rural land stay cooler than city surfaces?",
+          "options": [
+            "Rural soil reflects more sunlight than asphalt",
+            "Evaporation of water from plants uses up heat",
+            "Winds are stronger in the countryside",
+            "Rural areas receive less sunlight"
+          ],
+          "answer_index": 1,
+          "skill": "detail",
+          "explanation": "Plants release water through their leaves, \"and this evaporation consumes heat that would otherwise warm the air\"."
+        },
+        {
+          "id": "q2",
+          "stem": "When would the temperature difference between a city and its surroundings probably be largest?",
+          "options": [
+            "A few hours after sunset on a windless day",
+            "At midday on a hot day with a strong wind",
+            "Just after sunrise on a cold winter morning",
+            "During an afternoon rainstorm in summer"
+          ],
+          "answer_index": 0,
+          "skill": "inference",
+          "explanation": "The contrast \"is usually greatest after sunset\", and the opening refers to \"a calm summer night\"; wind would carry heat away."
+        },
+        {
+          "id": "q3",
+          "stem": "How is the information in the passage organized?",
+          "options": [
+            "A problem is described and several proposed solutions are rejected",
+            "Causes of a phenomenon are explained, followed by its effects and responses to it",
+            "Two cities are compared in detail to show why one is warmer",
+            "A scientific theory is presented and then shown to be mistaken"
+          ],
+          "answer_index": 1,
+          "skill": "organization",
+          "explanation": "Paragraphs one and two give causes; paragraph three gives \"the consequences\" and what planners have done."
+        },
+        {
+          "id": "q4",
+          "stem": "The word \"scarce\" in the passage is closest in meaning to",
+          "options": [
+            "expensive",
+            "unnecessary",
+            "well protected",
+            "in short supply"
+          ],
+          "answer_index": 3,
+          "skill": "vocabulary",
+          "explanation": "Water and space are hard to find in dense city centers.",
+          "highlight": "scarce"
+        },
+        {
+          "id": "q5",
+          "stem": "What does the passage suggest about air conditioning during a heat wave?",
+          "options": [
+            "It helps individuals while making the city as a whole warmer",
+            "It is the most effective response available to planners",
+            "It reduces deaths more than trees do",
+            "It has no effect on outdoor temperatures"
+          ],
+          "answer_index": 0,
+          "skill": "inference",
+          "explanation": "Air conditioners \"contribute waste heat\", and cooling demand \"increases electricity use, which adds further heat\"."
+        }
+      ]
+    },
+    {
+      "id": "r_academic_017",
+      "section": "reading",
+      "task_type": "read_academic_passage",
+      "difficulty": "C1-C2",
+      "source_type": "ets_format_synthetic",
+      "title": "The Market for Lemons",
+      "discipline": "Economics",
+      "passage": "In many markets, sellers know far more about the quality of what they offer than buyers do. Economists call this situation asymmetric information, and a famous analysis of used cars shows how damaging it can be. A buyer who cannot distinguish a reliable car from a defective one, nicknamed a \"lemon\", will reasonably offer only an average price.\n\nThat offer, however, is too low for owners of good cars, who withdraw from the market, while it is generous for owners of lemons, who are delighted to sell. As good cars disappear, the average quality of those remaining falls, buyers lower their offers further, and still more good cars are withdrawn. In the extreme case, the market unravels until only the worst products are traded, even though buyers would gladly pay a fair price for a good car and its owner would gladly accept it.\n\nThe analysis helps explain institutions that might otherwise seem puzzling. Warranties, dealer reputations and independent inspections all serve to transmit information that buyers cannot obtain on their own. A seller who offers a long warranty signals confidence, since such a promise would be ruinous to make on a lemon. Where no such devices exist, trades that would benefit both sides simply fail to happen.",
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "What is the main point of the passage?",
+          "options": [
+            "Used cars are generally less reliable than buyers expect them to be",
+            "Sellers of used cars usually hide defects in order to deceive buyers",
+            "When buyers cannot judge quality, a market can collapse unless information is supplied",
+            "Warranties and inspections make used cars more expensive for buyers"
+          ],
+          "answer_index": 2,
+          "skill": "main_idea",
+          "explanation": "The passage shows how a market \"unravels\" under asymmetric information and how warranties, reputations and inspections \"transmit information that buyers cannot obtain on their own\"."
+        },
+        {
+          "id": "q2",
+          "stem": "According to the passage, why do owners of good cars leave the market?",
+          "options": [
+            "The price buyers are willing to offer is less than their cars are worth",
+            "Buyers have come to prefer new cars to used ones of any quality",
+            "Independent inspections reveal hidden defects in their cars",
+            "They are not permitted to offer warranties on the cars they sell"
+          ],
+          "answer_index": 0,
+          "skill": "detail",
+          "explanation": "The average-price offer \"is too low for owners of good cars, who withdraw from the market\"."
+        },
+        {
+          "id": "q3",
+          "stem": "The word \"unravels\" in the passage is closest in meaning to",
+          "options": [
+            "expands",
+            "falls apart",
+            "settles down",
+            "reorganizes"
+          ],
+          "answer_index": 1,
+          "skill": "vocabulary",
+          "explanation": "The market progressively shrinks \"until only the worst products are traded\".",
+          "highlight": "unravels"
+        },
+        {
+          "id": "q4",
+          "stem": "Why would a long warranty be \"ruinous\" for the seller of a lemon?",
+          "options": [
+            "Buyers would refuse a car sold with a warranty",
+            "The seller would have to pay for the many repairs a defective car will need",
+            "Warranties on defective cars are forbidden",
+            "The warranty would push the price above what buyers can pay"
+          ],
+          "answer_index": 1,
+          "skill": "inference",
+          "explanation": "A lemon is \"a defective one\"; promising to cover its failures would cost the seller heavily, which is why only a confident seller makes such a promise."
+        },
+        {
+          "id": "q5",
+          "stem": "Why does the author point out that buyers \"would gladly pay a fair price for a good car\"?",
+          "options": [
+            "To stress that the market fails even though a mutually beneficial trade is possible",
+            "To show that buyers of used cars are often willing to pay too much",
+            "To argue that the prices of used cars are generally set too high",
+            "To explain why defective cars continue to be sold in large numbers"
+          ],
+          "answer_index": 0,
+          "skill": "rhetorical_function",
+          "explanation": "The clause begins \"even though\": the good cars disappear although both sides would welcome the trade, which the last sentence calls \"trades that would benefit both sides\"."
+        }
+      ]
+    },
+    {
+      "id": "r_academic_018",
+      "section": "reading",
+      "task_type": "read_academic_passage",
+      "difficulty": "C1-C2",
+      "source_type": "ets_format_synthetic",
+      "title": "After the Black Death",
+      "discipline": "History",
+      "passage": "The plague that swept across Europe in the mid-fourteenth century killed somewhere between a third and a half of the population within a few years. Contemporary writers described the catastrophe in religious terms, but historians have increasingly examined its economic aftermath, which in some regions proved surprisingly favorable to those who survived.\n\nWith so many workers dead, labor became scarce while land remained plentiful. Peasants and laborers could demand higher wages or move to estates that offered better terms. Landowners responded by appealing to rulers, and in England a law of 1351 attempted to fix wages at their pre-plague level and forbid workers to leave their employers. Records of court cases show that the law was widely enforced, yet wages continued to rise, which suggests that employers themselves often broke it in order to attract labor.\n\nThe long-term consequences remain debated. In western Europe, the bargaining power of laborers contributed to the decline of serfdom, the system that bound peasants to a lord's land. In parts of eastern Europe, by contrast, landowners succeeded in imposing stricter controls over the following centuries. The same demographic shock thus led to opposite outcomes, a contrast that has led historians to look closely at differences in political institutions, the strength of towns, and the ability of peasants to resist collectively.",
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "According to the passage, what was one immediate economic effect of the plague on surviving laborers?",
+          "options": [
+            "They lost the land they had farmed",
+            "They could obtain higher pay and better conditions",
+            "They had to work longer hours for the same pay",
+            "They moved to the towns in large numbers"
+          ],
+          "answer_index": 1,
+          "skill": "detail",
+          "explanation": "\"Peasants and laborers could demand higher wages or move to estates that offered better terms.\""
+        },
+        {
+          "id": "q2",
+          "stem": "What does the passage suggest about the law of 1351?",
+          "options": [
+            "It was never applied by the courts",
+            "It was undermined by employers who were competing for workers",
+            "It succeeded in keeping wages at their earlier level",
+            "It applied only to workers in towns"
+          ],
+          "answer_index": 1,
+          "skill": "inference",
+          "explanation": "The law \"was widely enforced, yet wages continued to rise\", suggesting that \"employers themselves often broke it in order to attract labor\"."
+        },
+        {
+          "id": "q3",
+          "stem": "The word \"aftermath\" in the passage is closest in meaning to",
+          "options": [
+            "causes",
+            "beginning",
+            "consequences",
+            "records"
+          ],
+          "answer_index": 2,
+          "skill": "vocabulary",
+          "explanation": "Historians examine what followed the catastrophe, which \"proved surprisingly favorable\" to survivors.",
+          "highlight": "aftermath"
+        },
+        {
+          "id": "q4",
+          "stem": "How does the third paragraph develop the discussion?",
+          "options": [
+            "It describes the medical causes of the plague and how it spread",
+            "It argues that the plague had no lasting effect on European society",
+            "It gives further evidence that the law of 1351 failed to hold down wages",
+            "It contrasts different regional outcomes and points to factors that might explain them"
+          ],
+          "answer_index": 3,
+          "skill": "organization",
+          "explanation": "It sets western Europe \"by contrast\" with eastern Europe and lists \"political institutions, the strength of towns, and the ability of peasants to resist\"."
+        },
+        {
+          "id": "q5",
+          "stem": "What is the author's view of the idea that the plague by itself determined later social developments?",
+          "options": [
+            "It is fully supported by the records of English court cases",
+            "It is irrelevant to the history of serfdom in western Europe",
+            "It is doubtful, because the same event produced opposite results",
+            "It has been accepted by nearly all historians of the period"
+          ],
+          "answer_index": 2,
+          "skill": "attitude",
+          "explanation": "\"The same demographic shock thus led to opposite outcomes\", which is why historians look at other factors."
+        }
+      ]
+    },
+    {
+      "id": "r_academic_019",
+      "section": "reading",
+      "task_type": "read_academic_passage",
+      "difficulty": "C1-C2",
+      "source_type": "ets_format_synthetic",
+      "title": "The Rise of Linear Perspective",
+      "discipline": "Art history",
+      "passage": "Medieval European painters were fully capable of suggesting depth, yet they rarely tried to represent a scene as it would appear from a single fixed point. Figures were often sized according to their importance rather than their distance from the viewer, and buildings could be shown from several angles at once. These choices reflected the purpose of the images, which was to convey religious meaning, not to imitate visual experience.\n\nIn Florence in the early fifteenth century, a set of geometric rules changed this. The architect Brunelleschi is credited with demonstrating that parallel lines receding from the viewer should be drawn so that they converge at a single vanishing point, and the writer Alberti soon published a method that painters could follow. Within a generation, a convincing illusion of three-dimensional space became the expected standard in Italian painting.\n\nIt would be misleading, however, to describe the change simply as progress from error to accuracy. Strict perspective assumes a viewer with one motionless eye, which is not how people actually see. Moreover, painters who had mastered the system frequently departed from it, stretching a room or shifting the vanishing point to direct attention toward the main figure. Perspective was thus less a discovery of how the world looks than a powerful convention, one that served particular artistic and intellectual ambitions.",
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "Why does the author mention that medieval figures were sized \"according to their importance\"?",
+          "options": [
+            "To show that medieval painters lacked technical skill",
+            "To explain how the vanishing point was discovered",
+            "To illustrate a mistake that Alberti corrected",
+            "To show that medieval painting pursued goals other than visual realism"
+          ],
+          "answer_index": 3,
+          "skill": "rhetorical_function",
+          "explanation": "Such choices \"reflected the purpose of the images, which was to convey religious meaning, not to imitate visual experience\"; the painters were \"fully capable of suggesting depth\"."
+        },
+        {
+          "id": "q2",
+          "stem": "According to the passage, what did Alberti contribute?",
+          "options": [
+            "A written procedure that painters could apply",
+            "The first demonstration of the vanishing point",
+            "A building designed with geometric rules",
+            "The first painting to show three-dimensional space"
+          ],
+          "answer_index": 0,
+          "skill": "detail",
+          "explanation": "Brunelleschi is credited with the demonstration; Alberti \"published a method that painters could follow\"."
+        },
+        {
+          "id": "q3",
+          "stem": "What can be inferred about painters who stretched a room or shifted the vanishing point?",
+          "options": [
+            "They had not fully understood the geometric method",
+            "They were returning to medieval religious styles",
+            "They worked before Brunelleschi's demonstration",
+            "They adapted the rules deliberately to serve the composition"
+          ],
+          "answer_index": 3,
+          "skill": "inference",
+          "explanation": "They \"had mastered the system\" and departed from it \"to direct attention toward the main figure\"."
+        },
+        {
+          "id": "q4",
+          "stem": "The word \"convention\" in the passage is closest in meaning to",
+          "options": [
+            "natural law",
+            "formal meeting",
+            "careless habit",
+            "accepted practice"
+          ],
+          "answer_index": 3,
+          "skill": "vocabulary",
+          "explanation": "Perspective is presented as a shared way of representing space, \"less a discovery of how the world looks\".",
+          "highlight": "convention"
+        },
+        {
+          "id": "q5",
+          "stem": "Which statement best expresses the author's view of linear perspective?",
+          "options": [
+            "It allowed painters for the first time to show the world exactly as it appears",
+            "It was abandoned soon after Alberti published his method",
+            "It was less important than the medieval approach to painting",
+            "It was an influential system of representation, not simply a more accurate way of seeing"
+          ],
+          "answer_index": 3,
+          "skill": "main_idea",
+          "explanation": "The author rejects describing it \"as progress from error to accuracy\" and calls it \"a powerful convention\"."
+        }
+      ]
+    },
+    {
+      "id": "r_academic_020",
+      "section": "reading",
+      "task_type": "read_academic_passage",
+      "difficulty": "C1-C2",
+      "source_type": "ets_format_synthetic",
+      "title": "Measuring the Distance to the Stars",
+      "discipline": "Astronomy",
+      "passage": "Of all the quantities astronomers need, distance is among the hardest to obtain. A faint star may be a modest one nearby or a brilliant one very far away, and its appearance alone cannot tell us which. The most direct method relies on parallax. As Earth travels around the Sun, a nearby star seems to shift slightly against the background of much more distant ones, just as a finger held at arm's length appears to jump when viewed first with one eye and then with the other. Measuring that shift, and knowing the size of Earth's orbit, gives the distance by simple geometry.\n\nThe shifts are tiny, however, and beyond a few thousand light-years they become too small to measure reliably. For greater distances astronomers rely on so-called standard candles, objects whose true brightness is known. Certain pulsating stars are especially valuable, because the period of their pulsation is closely linked to their true brightness. By comparing how bright such a star really is with how bright it appears, astronomers can calculate how far away it must be.\n\nEach method is calibrated using the one before it: pulsating stars close enough for parallax establish the relationship that is then applied to stars in distant galaxies. Astronomers call this chain the distance ladder. Its strength is also its weakness, since an error at any step is carried upward to every measurement that depends on it.",
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "According to the passage, why can't the distance of a star be judged from its appearance alone?",
+          "options": [
+            "A faint star could be either a dim star nearby or a bright star far away",
+            "Stars change their brightness from one season of the year to another",
+            "Most stars are partly hidden behind other, more distant stars",
+            "Earth's motion around the Sun makes every star appear to move"
+          ],
+          "answer_index": 0,
+          "skill": "detail",
+          "explanation": "\"A faint star may be a modest one nearby or a brilliant one very far away, and its appearance alone cannot tell us which.\""
+        },
+        {
+          "id": "q2",
+          "stem": "Why does the author mention a finger held at arm's length?",
+          "options": [
+            "To show how small the parallax of distant stars is",
+            "To illustrate the apparent shift on which parallax depends",
+            "To explain how the size of Earth's orbit is measured",
+            "To suggest that parallax measurements are unreliable"
+          ],
+          "answer_index": 1,
+          "skill": "rhetorical_function",
+          "explanation": "The finger \"appears to jump\" when seen from two positions, \"just as\" a nearby star seems to shift as Earth moves."
+        },
+        {
+          "id": "q3",
+          "stem": "The word \"calibrated\" in the passage is closest in meaning to",
+          "options": [
+            "adjusted against a known standard",
+            "replaced by something better",
+            "published for other scientists",
+            "made simpler to use"
+          ],
+          "answer_index": 0,
+          "skill": "vocabulary",
+          "explanation": "Stars whose distance is known by parallax \"establish the relationship\" used for the next method.",
+          "highlight": "calibrated"
+        },
+        {
+          "id": "q4",
+          "stem": "How is the passage organized?",
+          "options": [
+            "Two rival methods are compared, and one of them is finally rejected",
+            "Methods are presented in order of their range, and then the link between them is explained",
+            "Discoveries are described in the order in which astronomers made them",
+            "A problem is presented and then shown to have no reliable solution"
+          ],
+          "answer_index": 1,
+          "skill": "organization",
+          "explanation": "Parallax works nearby, standard candles \"for greater distances\", and the third paragraph explains that \"each method is calibrated using the one before it\"."
+        },
+        {
+          "id": "q5",
+          "stem": "What would most likely follow if the parallax distances to nearby pulsating stars turned out to be slightly too small?",
+          "options": [
+            "Only measurements within a few thousand light-years would be affected",
+            "Standard candles would no longer be needed",
+            "Estimated distances to faraway galaxies would also have to be revised",
+            "The pulsation periods of those stars would change"
+          ],
+          "answer_index": 2,
+          "skill": "inference",
+          "explanation": "Nearby pulsating stars \"establish the relationship that is then applied to stars in distant galaxies\", and \"an error at any step is carried upward\"."
+        }
+      ]
+    },
+    {
+      "id": "r_academic_021",
+      "section": "reading",
+      "task_type": "read_academic_passage",
+      "difficulty": "C2",
+      "source_type": "ets_format_synthetic",
+      "title": "Why Do We Age?",
+      "discipline": "Biology",
+      "passage": "Natural selection favors traits that help organisms survive and reproduce, so the persistence of aging presents a puzzle. A body that gradually loses strength, fertility and resistance to disease seems an obvious disadvantage. Why has evolution not eliminated it?\n\nThe leading explanations start from a simple observation. In the wild, most animals die young from predators, accidents, starvation or infection, long before any decline due to age becomes apparent. Selection therefore acts weakly on traits whose effects appear late in life, because few individuals live long enough to express them. A harmful mutation that strikes only in old age can accumulate in a population almost unopposed.\n\nA second argument goes further. Some genes may be actively favored precisely because they boost reproduction early, even if they cause damage later. A mechanism that speeds growth or raises fertility in youth will spread, so long as its costs arrive after most of its carriers have already reproduced. On this view, aging is not merely something selection failed to prevent; it is partly the price of advantages it promoted.\n\nBoth explanations predict that species facing fewer external dangers should evolve slower aging, and comparisons broadly agree: birds and bats, which can escape predators by flying, typically outlive ground-dwelling mammals of similar size. The prediction would be undermined if animals living in safe environments aged as quickly as those exposed to constant danger.",
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "What is the passage mainly concerned with?",
+          "options": [
+            "The physical changes that occur in aging bodies",
+            "The ways in which animals avoid predators",
+            "The reasons why some genes increase fertility",
+            "Evolutionary explanations of why aging persists"
+          ],
+          "answer_index": 3,
+          "skill": "main_idea",
+          "explanation": "The passage asks why evolution has \"not eliminated\" aging and presents \"the leading explanations\"."
+        },
+        {
+          "id": "q2",
+          "stem": "According to the first explanation, why can mutations that cause harm late in life build up in a population?",
+          "options": [
+            "The same mutations also raise fertility in young animals",
+            "Their effects are hidden by other mutations in the population",
+            "They help the animals that carry them to escape from predators",
+            "Few animals survive long enough for selection to act against them"
+          ],
+          "answer_index": 3,
+          "skill": "detail",
+          "explanation": "Selection acts weakly on late effects \"because few individuals live long enough to express them\". Increased early fertility belongs to the second argument."
+        },
+        {
+          "id": "q3",
+          "stem": "In what way does the second argument \"go further\" than the first?",
+          "options": [
+            "It applies to all animals, not only to those that live in the wild and die young",
+            "It holds that selection may actively favor genes that cause later damage, not merely fail to remove them",
+            "It explains aging without relying on natural selection or on genetic mutation",
+            "It shows that harmful mutations take effect earlier in life than was once believed"
+          ],
+          "answer_index": 1,
+          "skill": "inference",
+          "explanation": "Aging \"is not merely something selection failed to prevent; it is partly the price of advantages it promoted\"."
+        },
+        {
+          "id": "q4",
+          "stem": "The word \"undermined\" in the passage is closest in meaning to",
+          "options": [
+            "confirmed",
+            "explained",
+            "repeated",
+            "weakened"
+          ],
+          "answer_index": 3,
+          "skill": "vocabulary",
+          "explanation": "The prediction would lose support if safe animals aged as fast as endangered ones.",
+          "highlight": "undermined"
+        },
+        {
+          "id": "q5",
+          "stem": "Why does the author mention birds and bats?",
+          "options": [
+            "To show that flying animals carry fewer harmful mutations",
+            "As evidence consistent with a prediction shared by both explanations",
+            "As an exception that neither explanation can account for",
+            "To illustrate how predators shorten lifespans in the wild"
+          ],
+          "answer_index": 1,
+          "skill": "rhetorical_function",
+          "explanation": "\"Both explanations predict\" slower aging where dangers are fewer, \"and comparisons broadly agree\": flying species \"typically outlive\" similar ground-dwelling mammals."
+        }
+      ]
+    },
+    {
+      "id": "r_academic_022",
+      "section": "reading",
+      "task_type": "read_academic_passage",
+      "difficulty": "C2",
+      "source_type": "ets_format_synthetic",
+      "title": "Wolves, Elk and the Limits of a Good Story",
+      "discipline": "Ecology",
+      "passage": "When wolves were reintroduced to Yellowstone National Park in 1995, after an absence of seventy years, the effects seemed to ripple through the entire ecosystem. Elk, which had multiplied without their main predator, were hunted again, and willows and aspens along the rivers, long stripped by browsing elk, began to recover. Ecologists described this as a trophic cascade: a change at the top of a food chain that travels downward through several levels.\n\nThe account was attractive, and versions of it spread widely, sometimes crediting wolves with restoring birds, beavers and even the course of rivers. Subsequent research has complicated it. Elk numbers also fell because of human hunting, severe winters and a growing population of bears. Some studies that reported dramatic recovery measured only the tallest young trees in each stand, which exaggerated the average change. And where decades of browsing had eliminated beavers, streams had cut deeper channels, lowering the water table so that willows struggle even when elk are absent.\n\nNone of this shows that wolves are unimportant. It suggests rather that ecosystems altered over a long period do not necessarily return to their earlier state when a missing species does. Removing a predator may set off a cascade; restoring it does not guarantee that the cascade runs in reverse.",
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "What is the author's attitude toward the popular account of wolves in Yellowstone?",
+          "options": [
+            "It is entirely false and has been abandoned by ecologists",
+            "It is accurate and complete in every important respect",
+            "It is of little interest to ecologists working in the park",
+            "It contains some truth but has been simplified and overstated"
+          ],
+          "answer_index": 3,
+          "skill": "attitude",
+          "explanation": "Research \"has complicated it\", yet \"none of this shows that wolves are unimportant\"."
+        },
+        {
+          "id": "q2",
+          "stem": "Which of the following is NOT mentioned as a reason for the decline in elk numbers?",
+          "options": [
+            "Hunting of elk by people",
+            "A shortage of willows and aspens",
+            "A series of severe winters",
+            "A growing number of bears"
+          ],
+          "answer_index": 1,
+          "skill": "detail",
+          "explanation": "The passage lists \"human hunting, severe winters and a growing population of bears\"; willows and aspens are presented as what elk ate, not as a cause of their decline."
+        },
+        {
+          "id": "q3",
+          "stem": "Why did measuring only the tallest young trees exaggerate the recovery?",
+          "options": [
+            "Tall trees are the ones elk prefer to eat",
+            "The trees were measured before the wolves returned",
+            "The tallest trees were not representative of the stand as a whole",
+            "Tall trees grow only where beavers are present"
+          ],
+          "answer_index": 2,
+          "skill": "inference",
+          "explanation": "Measuring only the tallest trees \"exaggerated the average change\", so the rest of the stand had grown less."
+        },
+        {
+          "id": "q4",
+          "stem": "Why does the author mention streams that had cut deeper channels?",
+          "options": [
+            "To show how earlier changes can prevent recovery even after their cause is removed",
+            "To explain how the return of wolves changed the course of rivers",
+            "To show that beavers damage willows by building dams on streams",
+            "To show that elk prefer to feed near rivers rather than in forests"
+          ],
+          "answer_index": 0,
+          "skill": "rhetorical_function",
+          "explanation": "Lower water tables mean \"willows struggle even when elk are absent\"."
+        },
+        {
+          "id": "q5",
+          "stem": "Which statement best summarizes the conclusion of the passage?",
+          "options": [
+            "Wolves have little real effect on the ecosystems in which they live",
+            "Trophic cascades can occur only when a predator disappears from an area",
+            "Elk are the main cause of the changes observed in the park's rivers",
+            "Bringing back a predator does not by itself undo the effects of its long absence"
+          ],
+          "answer_index": 3,
+          "skill": "main_idea",
+          "explanation": "Ecosystems \"do not necessarily return to their earlier state when a missing species does\"; restoring a predator \"does not guarantee that the cascade runs in reverse\"."
+        }
+      ]
+    },
+    {
+      "id": "r_academic_023",
+      "section": "reading",
+      "task_type": "read_academic_passage",
+      "difficulty": "C2",
+      "source_type": "ets_format_synthetic",
+      "title": "Gradual Change and Sudden Catastrophe",
+      "discipline": "Geology",
+      "passage": "In the early nineteenth century, many naturalists explained the features of the earth through sudden catastrophes: floods or upheavals of a violence unknown in the present. Against this view, the geologist Charles Lyell argued that the processes visible today, such as erosion by rivers, the deposition of sediment and the slow rise of land, were sufficient, given immense periods of time, to account for everything geologists observed. His principle, later called uniformitarianism, became a foundation of the science, partly because it made the past open to study: if ancient processes resembled modern ones, they could be investigated by observing the present.\n\nLyell's position contained two claims that his followers did not always distinguish. One concerned method: explanations should rely on causes whose operation can be observed. The other concerned rates: geological change had always been slow and steady. The first proved enormously productive. The second has fared less well.\n\nTwentieth-century research documented events that Lyell would have regarded as implausible. Enormous floods released by collapsing ice dams carved landscapes in the northwestern United States within days, and the impact of an asteroid sixty-six million years ago coincided with the disappearance of most dinosaurs. Modern geologists therefore accept that rare, violent events have shaped the planet. Yet they study such events with exactly the methods Lyell advocated, inferring their effects from physical processes understood today.",
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "According to the passage, why did uniformitarianism become so influential?",
+          "options": [
+            "It explained the disappearance of the dinosaurs sixty-six million years ago",
+            "It was supported by evidence of enormous floods in the northwestern United States",
+            "It proved that geological change has always been slow and steady",
+            "It allowed scientists to investigate the past by studying processes that can be seen today"
+          ],
+          "answer_index": 3,
+          "skill": "detail",
+          "explanation": "It became a foundation \"partly because it made the past open to study\": ancient processes \"could be investigated by observing the present\"."
+        },
+        {
+          "id": "q2",
+          "stem": "What is the function of the second paragraph?",
+          "options": [
+            "It separates Lyell's position into two claims that are then judged differently",
+            "It summarizes the catastrophist view that Lyell argued against",
+            "It provides new evidence that geological change is slow and steady",
+            "It explains why Lyell's followers eventually rejected his method"
+          ],
+          "answer_index": 0,
+          "skill": "organization",
+          "explanation": "It distinguishes a claim about \"method\" from one about \"rates\", and states that the first \"proved enormously productive\" while the second \"has fared less well\"."
+        },
+        {
+          "id": "q3",
+          "stem": "Which of the following would be consistent with the part of Lyell's position that the author regards as productive?",
+          "options": [
+            "Assuming that all past changes happened at the same rate as present ones",
+            "Explaining an ancient flood through the way water and ice are known to behave",
+            "Attributing a landscape to forces that no longer operate anywhere",
+            "Rejecting the evidence for an asteroid impact"
+          ],
+          "answer_index": 1,
+          "skill": "inference",
+          "explanation": "The productive claim is about method, relying \"on causes whose operation can be observed\", as modern geologists do by \"inferring their effects from physical processes understood today\". The claim about rates is the one that \"fared less well\"."
+        },
+        {
+          "id": "q4",
+          "stem": "The phrase \"fared less well\" in the passage is closest in meaning to",
+          "options": [
+            "spread more slowly",
+            "been less successful",
+            "been taught less often",
+            "been harder to test"
+          ],
+          "answer_index": 1,
+          "skill": "vocabulary",
+          "explanation": "The claim about slow, steady rates was contradicted by later evidence of violent events.",
+          "highlight": "fared"
+        },
+        {
+          "id": "q5",
+          "stem": "Why does the author state that modern geologists study violent events \"with exactly the methods Lyell advocated\"?",
+          "options": [
+            "To criticize modern geologists for continuing to rely on outdated methods",
+            "To argue that violent events have mattered less than Lyell himself believed",
+            "To show that one part of Lyell's legacy remains valid although another has been abandoned",
+            "To suggest that Lyell had in fact foreseen the asteroid impact and its effects"
+          ],
+          "answer_index": 2,
+          "skill": "rhetorical_function",
+          "explanation": "Geologists now accept violent events, rejecting the claim about rates, \"yet\" they keep his method."
+        }
+      ]
+    },
+    {
+      "id": "r_academic_024",
+      "section": "reading",
+      "task_type": "read_academic_passage",
+      "difficulty": "C2",
+      "source_type": "ets_format_synthetic",
+      "title": "The Productivity Paradox",
+      "discipline": "Technology",
+      "passage": "During the 1970s and 1980s, businesses in the United States invested heavily in computers, yet the growth of productivity, the output produced per hour of work, slowed rather than accelerated. One economist famously remarked that computers could be seen everywhere except in the productivity statistics. The observation, known as the productivity paradox, prompted several competing explanations.\n\nOne holds that the benefits were real but poorly measured. Official statistics capture quantities of goods more easily than improvements in quality, convenience or variety, which are precisely what information technology often provides. A second explanation emphasizes delay. Historians of technology point out that electric motors spread through American factories in the 1890s, yet large productivity gains appeared only in the 1920s. Factories first used electricity to replace the single steam engine that drove all their machines; only later did managers redesign entire buildings around small motors placed at each workstation. On this account, the full value of a new technology depends on complementary changes in organization, skills and work practices, which take decades to develop.\n\nProductivity did accelerate in the late 1990s, which seemed to support the second explanation. The pattern has since reappeared with newer digital technologies, however, and economists remain divided over whether the gains are merely delayed or were overestimated in the first place.",
+      "questions": [
+        {
+          "id": "q1",
+          "stem": "What does the passage refer to as the productivity paradox?",
+          "options": [
+            "Computers reducing the number of hours people worked",
+            "Productivity rising faster than investment in computers",
+            "Statistics showing that computers lowered the quality of goods",
+            "Productivity growth slowing while investment in computers increased"
+          ],
+          "answer_index": 3,
+          "skill": "detail",
+          "explanation": "Businesses \"invested heavily in computers, yet the growth of productivity... slowed rather than accelerated\"."
+        },
+        {
+          "id": "q2",
+          "stem": "Why does the author discuss electric motors in factories?",
+          "options": [
+            "To show that electricity was a more important invention than the computer",
+            "To argue that productivity statistics from the 1890s were unreliable",
+            "To give a case in which a technology paid off only after work was reorganized",
+            "To explain why factories eventually abandoned their steam engines"
+          ],
+          "answer_index": 2,
+          "skill": "rhetorical_function",
+          "explanation": "Gains appeared decades later, once managers \"redesign[ed] entire buildings around small motors\"; this illustrates the \"delay\" explanation."
+        },
+        {
+          "id": "q3",
+          "stem": "According to the first explanation, which of the following might official statistics fail to capture?",
+          "options": [
+            "The number of computers businesses buy",
+            "The time customers save by banking online",
+            "The quantity of goods a factory produces",
+            "The number of hours employees work"
+          ],
+          "answer_index": 1,
+          "skill": "inference",
+          "explanation": "Statistics \"capture quantities of goods more easily than improvements in quality, convenience or variety\", and saved time is a gain in convenience."
+        },
+        {
+          "id": "q4",
+          "stem": "The word \"complementary\" in the passage is closest in meaning to",
+          "options": [
+            "accompanying",
+            "unnecessary",
+            "opposing",
+            "inexpensive"
+          ],
+          "answer_index": 0,
+          "skill": "vocabulary",
+          "explanation": "The technology's value \"depends on\" other changes made alongside it in organization, skills and work practices.",
+          "highlight": "complementary"
+        },
+        {
+          "id": "q5",
+          "stem": "What does the final paragraph suggest about the acceleration of productivity in the late 1990s?",
+          "options": [
+            "It proved that the earlier gains from computers had been overestimated",
+            "It did not settle the debate, since a similar puzzle arose with later technologies",
+            "It showed that the first explanation, about measurement, was correct",
+            "It resulted from improvements in the way productivity is measured"
+          ],
+          "answer_index": 1,
+          "skill": "inference",
+          "explanation": "It \"seemed to support\" the delay explanation, but \"the pattern has since reappeared\" and \"economists remain divided\"."
         }
       ]
     }

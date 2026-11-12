@@ -13,7 +13,9 @@
       "source_type": "ets_format_synthetic",
       "source_reference": "PRD_TOEFL_2026.md seed r_ctw_001 (extended to 70+ words, gaps re-derived)",
       "topic": "Urban ecology",
-      "tags": ["prd_seed"],
+      "tags": [
+        "prd_seed"
+      ],
       "passage": "Urban trees provide benefits that extend beyond their visual appeal. They reduce temperatures by shading buildings and streets, while their leaves absorb pollutants from the air. Researchers increasingly recognize that access to green spaces can also improve mental health and encourage physical activity. For this reason, many cities now treat urban forests as essential public infrastructure rather than decorative features. Planting programs, however, succeed only when cities also budget for long-term maintenance."
     },
     {
@@ -96,6 +98,276 @@
       "source_type": "ets_format_synthetic",
       "topic": "Urban sociology",
       "passage": "Neighborhood change rarely follows the simple story that public debates suggest. When investment flows into an area, property values rise and new businesses open, which can improve services for existing residents. At the same time, higher rents may gradually displace the very households that the improvements were supposed to benefit. Researchers therefore distinguish between physical renewal and social displacement, arguing that policies such as rent stabilization can preserve the former while limiting the latter."
+    },
+    {
+      "id": "r_ctw_011",
+      "section": "reading",
+      "task_type": "complete_the_words",
+      "difficulty": "B2",
+      "source_type": "ets_format_synthetic",
+      "topic": "Geology",
+      "passage": "Most limestone caves begin with nothing more dramatic than rainwater. As rain falls through the air and soaks into the soil, it absorbs carbon dioxide and becomes slightly acidic. This weak acid slowly dissolves the rock along existing cracks, widening them over thousands of years into passages and chambers. When the water table later drops, the passages drain and fill with air. Dripping water then deposits minerals on the ceiling and floor, building the formations that visitors admire today."
+    },
+    {
+      "id": "r_ctw_012",
+      "section": "reading",
+      "task_type": "complete_the_words",
+      "difficulty": "B2",
+      "source_type": "ets_format_synthetic",
+      "topic": "Astronomy",
+      "passage": "Many people assume that summer arrives when Earth moves closer to the Sun. In fact, the planet is nearest to the Sun during the northern winter, so distance cannot explain the seasons. The real cause is the tilt of the axis on which Earth spins. For part of the year the northern half leans toward the Sun, receiving more direct light and longer days. Six months later the situation is reversed, and the southern half enjoys its summer instead."
+    },
+    {
+      "id": "r_ctw_013",
+      "section": "reading",
+      "task_type": "complete_the_words",
+      "difficulty": "B2",
+      "source_type": "ets_format_synthetic",
+      "topic": "Psychology",
+      "passage": "Good intentions are rarely enough to change what people do every day. Researchers who study habits have found that behavior becomes automatic when the same action follows the same signal again and again. Someone who always stretches after brushing their teeth, for example, soon stops needing to remember it. The signal does the remembering instead. For this reason, psychologists advise attaching a new habit to an existing routine rather than relying on motivation, which tends to fade within weeks."
+    },
+    {
+      "id": "r_ctw_014",
+      "section": "reading",
+      "task_type": "complete_the_words",
+      "difficulty": "B2-C1",
+      "source_type": "ets_format_synthetic",
+      "topic": "Ecology",
+      "passage": "Few animals reshape their surroundings as thoroughly as the beaver. When these rodents build dams across small streams, the water behind each barrier spreads out and forms ponds where none existed before. The flooded ground soon attracts frogs, fish, insects and the birds that feed on them. Slower water also allows sediment to settle, which improves quality downstream. Because so many other species depend on the habitat it creates, ecologists describe the beaver as an ecosystem engineer."
+    },
+    {
+      "id": "r_ctw_015",
+      "section": "reading",
+      "task_type": "complete_the_words",
+      "difficulty": "B2-C1",
+      "source_type": "ets_format_synthetic",
+      "topic": "History",
+      "passage": "Before the fifteenth century, every book in Europe had to be copied by hand. The printing press changed this situation with remarkable speed, since one workshop could now produce hundreds of identical copies within weeks. Prices fell sharply, and texts that only monasteries had owned reached merchants, lawyers and students. Historians point out that the consequences went beyond convenience. Once readers in distant cities could consult the same edition, scholars were able to compare evidence and correct each other more reliably."
+    },
+    {
+      "id": "r_ctw_016",
+      "section": "reading",
+      "task_type": "complete_the_words",
+      "difficulty": "B2-C1",
+      "source_type": "ets_format_synthetic",
+      "topic": "Energy technology",
+      "passage": "Solar panels and wind turbines share an obvious weakness. They generate power only when weather conditions allow, while households and factories need electricity at every hour. Large batteries offer one solution, storing surplus energy at midday and releasing it after sunset. Their cost has fallen considerably over the past decade, yet they still supply power for only a few hours. Engineers are therefore testing alternatives, including pumping water uphill and compressing air underground, that could cover longer periods of calm, cloudy weather."
+    },
+    {
+      "id": "r_ctw_017",
+      "section": "reading",
+      "task_type": "complete_the_words",
+      "difficulty": "B2-C1",
+      "source_type": "ets_format_synthetic",
+      "topic": "Anthropology",
+      "passage": "In many societies, a gift is never simply a free present. Anthropologists have long observed that accepting something creates an obligation to give something back, often after a suitable delay. Returning the favor immediately may even seem rude, because it suggests a wish to end the relationship. What appears to be generosity therefore also functions as a social bond. Each exchange leaves one person slightly in debt to another, and this ongoing imbalance keeps families and neighbors connected over many years."
+    },
+    {
+      "id": "r_ctw_018",
+      "section": "reading",
+      "task_type": "complete_the_words",
+      "difficulty": "C1",
+      "source_type": "ets_format_synthetic",
+      "topic": "Biology",
+      "passage": "The human intestine is home to trillions of bacteria. Far from being harmful invaders, most of these microbes perform tasks that our own cells cannot manage. They break down plant fibers, produce certain vitamins and prevent dangerous species from becoming established. Recent studies also suggest that they influence the immune system, although the mechanisms involved remain poorly understood. Since antibiotics destroy helpful and harmful bacteria alike, physicians have grown more cautious about prescribing them for minor infections."
+    },
+    {
+      "id": "r_ctw_019",
+      "section": "reading",
+      "task_type": "complete_the_words",
+      "difficulty": "C1",
+      "source_type": "ets_format_synthetic",
+      "topic": "Geology",
+      "passage": "Mountain ranges may look permanent, but they record a slow collision. Where two continental plates converge, neither sinks easily into the mantle below because both consist of relatively light rock. The crust instead crumples and thickens, pushing layers that once lay beneath the sea several kilometers upward. Marine fossils found near the highest summits provide striking evidence of this process. Erosion begins attacking the peaks as soon as they rise, so the height of a range reflects a balance between uplift and destruction."
+    },
+    {
+      "id": "r_ctw_020",
+      "section": "reading",
+      "task_type": "complete_the_words",
+      "difficulty": "C1",
+      "source_type": "ets_format_synthetic",
+      "topic": "Astronomy",
+      "passage": "Planets orbiting other stars are far too faint to photograph directly in most cases. Astronomers detect them instead through tiny regular changes in the light coming from the parent star. When the planet passes between the star and our telescopes, it blocks a small fraction of that light for several hours. Measuring the depth of each dip reveals the size of the planet, while the interval between dips indicates the length of its year. Thousands of distant worlds have been identified in this indirect way."
+    },
+    {
+      "id": "r_ctw_021",
+      "section": "reading",
+      "task_type": "complete_the_words",
+      "difficulty": "C1",
+      "source_type": "ets_format_synthetic",
+      "topic": "Psychology",
+      "passage": "Memories are often imagined as recordings stored safely in the mind. Laboratory studies indicate, however, that recalling an event makes its memory temporarily unstable before the brain stores it again. During this brief window, new information can become attached to the original trace without the person noticing. Details suggested by a later conversation may thus feel as authentic as those actually witnessed. The finding helps explain why confident eyewitnesses are sometimes mistaken, and it has prompted courts to treat such testimony with greater care."
+    },
+    {
+      "id": "r_ctw_022",
+      "section": "reading",
+      "task_type": "complete_the_words",
+      "difficulty": "C1",
+      "source_type": "ets_format_synthetic",
+      "topic": "Sociology",
+      "passage": "Sociologists use the term social capital for the value contained in relationships. People who belong to clubs, religious groups or neighborhood associations gain access to information, favors and trust that isolated individuals lack. These advantages are not distributed evenly, since networks tend to connect people of similar background. A job seeker whose acquaintances all work in one industry will hear about fewer openings than someone with varied contacts. Weak ties to distant acquaintances can therefore prove more useful than close friendships."
+    },
+    {
+      "id": "r_ctw_023",
+      "section": "reading",
+      "task_type": "complete_the_words",
+      "difficulty": "C1",
+      "source_type": "ets_format_synthetic",
+      "topic": "Economics",
+      "passage": "Trade can benefit a country even when it produces nothing more efficiently than its partners. The reasoning depends on what each nation gives up when it chooses one activity over another. If workers in one wealthy economy are extremely productive in software but only slightly better at farming, their time is more valuable when devoted to software. Importing food then frees resources for the sector with the larger advantage. Both partners end up with more goods than they could have produced in isolation."
+    },
+    {
+      "id": "r_ctw_024",
+      "section": "reading",
+      "task_type": "complete_the_words",
+      "difficulty": "C1",
+      "source_type": "ets_format_synthetic",
+      "topic": "History",
+      "passage": "Trade routes across Central Asia carried far more than silk. Along the same roads traveled religions, technologies, crops and artistic styles, which merchants and pilgrims introduced into communities thousands of kilometers from their origin. Paper making, for instance, spread westward from China over several centuries. Contact had costs as well, because diseases moved with the caravans and occasionally devastated cities that had no previous exposure. Historians therefore describe these networks as channels of exchange in the broadest sense, not merely as commercial highways."
+    },
+    {
+      "id": "r_ctw_025",
+      "section": "reading",
+      "task_type": "complete_the_words",
+      "difficulty": "C1",
+      "source_type": "ets_format_synthetic",
+      "topic": "Art history",
+      "passage": "Fresco painters worked under unusual pressure. Because pigments had to be applied while the plaster was still wet, an artist could cover only one limited area before the surface dried and refused more color. Each section therefore represents the work of one day, and specialists can still trace the joins between them. Mistakes were difficult to correct without removing the plaster entirely. This constraint encouraged careful preparation, including full-scale drawings that assistants transferred to the wall before any painting began."
+    },
+    {
+      "id": "r_ctw_026",
+      "section": "reading",
+      "task_type": "complete_the_words",
+      "difficulty": "C1",
+      "source_type": "ets_format_synthetic",
+      "topic": "Linguistics",
+      "passage": "Roughly half of the languages spoken today may disappear within a century. The usual cause is not that speakers die but that parents stop passing their language to children, often because another tongue promises better access to education and employment. Once the youngest fluent speakers are adults, decline becomes extremely hard to reverse. Linguists respond by recording vocabulary, grammar and stories while elders remain available. Such documentation cannot keep a language alive, yet it preserves knowledge that communities may later use for revival."
+    },
+    {
+      "id": "r_ctw_027",
+      "section": "reading",
+      "task_type": "complete_the_words",
+      "difficulty": "C1",
+      "source_type": "ets_format_synthetic",
+      "topic": "Environmental science",
+      "passage": "Wetlands were long regarded as wasted land. Governments and farmers consequently drained marshes on an enormous scale, hoping to gain fields for crops and space for housing. Scientists now recognize that these waterlogged areas perform services no engineer can cheaply replace. They absorb floodwater, filter pollutants and store carbon in their deep, oxygen-poor soils. Restoration projects have multiplied as a result, although rebuilding a functioning marsh takes decades and seldom recovers the full diversity of the original."
+    },
+    {
+      "id": "r_ctw_028",
+      "section": "reading",
+      "task_type": "complete_the_words",
+      "difficulty": "C1",
+      "source_type": "ets_format_synthetic",
+      "topic": "Technology",
+      "passage": "Recommendation systems decide much of what people see online. These programs analyze past choices made by millions of users and then predict which film, song or article each person will select next. The approach works well commercially, but critics note an unintended effect. Since the software favors items similar to those already chosen, individuals may encounter an increasingly narrow range of material. Some platforms now deliberately insert unexpected suggestions, accepting slightly lower engagement in exchange for greater variety."
+    },
+    {
+      "id": "r_ctw_029",
+      "section": "reading",
+      "task_type": "complete_the_words",
+      "difficulty": "C1-C2",
+      "source_type": "ets_format_synthetic",
+      "topic": "Biology",
+      "passage": "Identical twins share the same genes, yet they do not remain identical. Over the years, chemical marks accumulate on their chromosomes and determine which genes are active in particular tissues without altering the underlying sequence. Diet, stress and exposure to toxins all appear to influence where such marks are placed. Some of these modifications persist through cell division, so an experience early in life may shape health decades afterward. Whether they can also be transmitted to offspring remains among the most contested questions in the field."
+    },
+    {
+      "id": "r_ctw_030",
+      "section": "reading",
+      "task_type": "complete_the_words",
+      "difficulty": "C1-C2",
+      "source_type": "ets_format_synthetic",
+      "topic": "Ecology",
+      "passage": "Each generation of scientists tends to treat the nature it first encountered as normal. A biologist who begins work today may consider current fish populations healthy simply because nothing richer has been observed during that career. Earlier abundance, known only from old records, is easily dismissed as exaggeration. The baseline consequently shifts downward with every generation, and gradual losses escape notice. Conservation targets set against such diminished expectations risk preserving an ecosystem that is already severely depleted."
+    },
+    {
+      "id": "r_ctw_031",
+      "section": "reading",
+      "task_type": "complete_the_words",
+      "difficulty": "C1-C2",
+      "source_type": "ets_format_synthetic",
+      "topic": "Astronomy",
+      "passage": "Stars at the edges of spiral galaxies move faster than visible matter can explain. According to the laws of gravity, objects far from the bright central region should orbit slowly, just as distant planets circle the Sun at a leisurely pace. Measurements nevertheless show speeds that stay roughly constant with distance. Most astronomers infer that each galaxy sits inside a vast halo of unseen material. A minority propose instead that gravity itself behaves differently on such scales, and neither position has yet been confirmed."
+    },
+    {
+      "id": "r_ctw_032",
+      "section": "reading",
+      "task_type": "complete_the_words",
+      "difficulty": "C1-C2",
+      "source_type": "ets_format_synthetic",
+      "topic": "Sociology",
+      "passage": "Organizations measure performance in order to improve it. Problems arise once those numbers become targets, because people learn how to raise the figure without achieving the goal it was meant to represent. Hospitals judged on waiting times have been known to reclassify patients, and schools ranked by examination results may narrow what they teach. The indicator thus loses the very meaning that made it attractive. Sociologists conclude that no single measure can be trusted for long after rewards have been attached to it."
+    },
+    {
+      "id": "r_ctw_033",
+      "section": "reading",
+      "task_type": "complete_the_words",
+      "difficulty": "C1-C2",
+      "source_type": "ets_format_synthetic",
+      "topic": "Economics",
+      "passage": "Insurance protects people against losses they cannot control. It may also change behavior in ways that make those losses more likely, since someone who no longer bears the full cost of an accident has less reason to avoid one. Economists call this tendency moral hazard. Insurers respond by requiring customers to pay part of every claim and by rewarding those with clean records. Similar reasoning applies to banks, which may accept excessive risks if they expect governments to rescue them."
+    },
+    {
+      "id": "r_ctw_034",
+      "section": "reading",
+      "task_type": "complete_the_words",
+      "difficulty": "C1-C2",
+      "source_type": "ets_format_synthetic",
+      "topic": "Art history",
+      "passage": "Deciding who painted an unsigned picture was once a matter of trained instinct. Experts would study brushwork, anatomy and small habitual details, then announce their verdict with an authority that few dared challenge. Technical analysis has since complicated this practice. Examination of pigments and of the wood beneath a panel can establish when a work was made, though seldom by whom. Laboratory evidence therefore tends to exclude candidates rather than name one, and attribution still rests partly on judgment."
+    },
+    {
+      "id": "r_ctw_035",
+      "section": "reading",
+      "task_type": "complete_the_words",
+      "difficulty": "C2",
+      "source_type": "ets_format_synthetic",
+      "topic": "Psychology",
+      "passage": "People generally believe they know why they acted as they did. Experimental evidence suggests otherwise, for participants readily supply reasons even when researchers have secretly manipulated the true cause of their choices. Such explanations seem to be constructed afterward from plausible assumptions rather than retrieved from direct observation of mental processes. The speaker experiences no difference between the two. This does not render self-knowledge worthless, but it implies that sincerity offers a weaker guarantee of accuracy than intuition would have us suppose."
+    },
+    {
+      "id": "r_ctw_036",
+      "section": "reading",
+      "task_type": "complete_the_words",
+      "difficulty": "C2",
+      "source_type": "ets_format_synthetic",
+      "topic": "Anthropology",
+      "passage": "Early ethnographers wrote as though they had simply recorded what they saw. Later critics argued that every such account reflects decisions about whom to consult, which events deserve attention and how unfamiliar practices should be translated into the categories of the reader. The apparent neutrality of the text conceals this selection. Contemporary researchers accordingly describe their own position in the field and often invite community members to comment on drafts. Skeptics reply that such gestures acknowledge the difficulty without removing it."
+    },
+    {
+      "id": "r_ctw_037",
+      "section": "reading",
+      "task_type": "complete_the_words",
+      "difficulty": "C2",
+      "source_type": "ets_format_synthetic",
+      "topic": "History",
+      "passage": "Knowing how events turned out distorts our judgment of those who lived through them. Decisions that later proved disastrous often appeared reasonable given what could be known when they were taken, while warnings that seem prophetic in retrospect were then indistinguishable from countless others that came to nothing. Historians try to recover that original uncertainty. Doing so requires resisting the temptation to arrange the evidence into a path leading inevitably to the outcome, a pattern visible only to those who already know the ending."
+    },
+    {
+      "id": "r_ctw_038",
+      "section": "reading",
+      "task_type": "complete_the_words",
+      "difficulty": "C2",
+      "source_type": "ets_format_synthetic",
+      "topic": "Linguistics",
+      "passage": "The claim that language shapes thought has had a turbulent career. Strong versions, which held that speakers cannot conceive what their grammar fails to encode, collapsed under experimental scrutiny decades ago. Subtler effects have nonetheless survived testing. Speakers whose languages require them to mark direction with compass terms, for instance, track their orientation more accurately than others do. Such findings indicate that habitual patterns of expression can sharpen particular skills, a far more modest conclusion than the one originally advanced."
+    },
+    {
+      "id": "r_ctw_039",
+      "section": "reading",
+      "task_type": "complete_the_words",
+      "difficulty": "C2",
+      "source_type": "ets_format_synthetic",
+      "topic": "Environmental science",
+      "passage": "Greater efficiency does not always reduce consumption. When an engine burns less fuel per kilometer, driving becomes cheaper, and people tend to travel farther or buy larger vehicles than before. Part of the expected saving consequently disappears, and in extreme cases total demand actually rises. Analysts refer to this response as the rebound effect. Its existence hardly constitutes an argument against improved technology, but it suggests that efficiency standards achieve their full potential only when combined with measures that keep the price of energy from falling."
+    },
+    {
+      "id": "r_ctw_040",
+      "section": "reading",
+      "task_type": "complete_the_words",
+      "difficulty": "C2",
+      "source_type": "ets_format_synthetic",
+      "topic": "Technology",
+      "passage": "Automation was expected to make human operators less important. Experience in aviation and industry points instead toward an awkward outcome, since reliable machines leave people with little to do until something goes wrong. Skills that are seldom exercised deteriorate, and attention wanders during long uneventful periods. The operator must then intervene at exactly the moment when the situation is least familiar and most demanding. Designers increasingly accept that removing routine work may undermine the very expertise on which emergency performance depends."
     }
   ]
 }
