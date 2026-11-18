@@ -131,6 +131,21 @@ Once a card has passed format 1, at least 60 % of its reviews are production for
 
 Besides the usual fields, each of these entries has an answer as it could be said in Take an Interview, a sentence as it could be written in an Academic Discussion post, and a usage note: register, and the typical mistake of a French speaker when there is one.
 
+**Second productive batch.** 200 Extended and Mastery entries are tagged `c2_productive_2`, with the same fields, 25 per sub-theme (an even split, since no triage was recorded yet):
+
+| Sub-theme | Entries |
+|---|---|
+| Reporting and citing verbs | 25 |
+| Precise evaluative adjectives | 25 |
+| Advanced cause, effect and consequence | 25 |
+| Trends and quantities | 25 |
+| C1–C2 conversational phrasal verbs | 25 |
+| Campus and academic-conversation idioms (Listen and Choose a Response) | 25 |
+| Raising the register in emails | 25 |
+| Connectors to structure 45 seconds of speech | 25 |
+
+These are an internal selection, not an official or frequency-based list. `npm run vocab:stock` also proposes the size of the next batch (400 entries if fewer than 400 useful entries are left, 300 up to 600, 200 above; rules in `internal.vocabulary.productive.next_batch`) and lists, per category, the words marked known or to learn in the triage and the failing cards, so the next batch can lean towards the categories with the most gaps.
+
 **Your own words.** A missed Complete the Words gap or a missed vocabulary question adds the word to your deck automatically (function words are ignored). On any correction screen, "Add words to vocabulary" lets you click a word to add it. A word that is not in the bank becomes a personal card with the sentence it came from. Added words are studied before the scheduled introductions.
 
 **Production challenge.** At the end of a session you get three of the day's words to use in a 45-second spoken answer or in two written sentences. The app checks that the words are present (in the text, or in the transcript from server speech-to-text or the browser's approximate recognition). With an AI key you also get feedback on how each word was used; without one, or when no transcript exists, you rate yourself.
