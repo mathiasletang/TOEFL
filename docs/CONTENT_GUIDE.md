@@ -166,6 +166,15 @@ All entries are original. Do not copy dictionary definitions or import external 
 | `ipa` | General American pronunciation between slashes |
 | `false_friend_fr` | Optional, required in `false_friends_fr`: `{ "trap": "librairie", "correct": "une librairie = a bookstore" }` |
 | `spelling_trap` | Optional, required in `spelling_traps`: a short note on the point to watch |
+| `tags` | Optional labels, e.g. `["c2_productive_1", "hedging_stance"]` |
+| `example_interview` | Required in the productive batch: an answer as it could be said in Take an Interview, using the entry |
+| `example_discussion` | Required in the productive batch: a sentence as it could be written in an Academic Discussion post, using the entry |
+| `usage_note` | Required in the productive batch: register, and the typical mistake of a French speaker when there is one |
+
+**Productive batch.** Entries tagged with the batch name in `internal.vocabulary.productive` (`c2_productive_1`) are Mastery / C2. Each needs exactly one sub-theme tag: `argument_verbs`, `hedging_stance`, `concession_contrast`, `emphasis`, `precise_collocations` or `spoken_markers`. Each also needs the three fields above.
+
+- All four examples must differ: the interview and discussion examples must not repeat the academic or spoken one. A test checks the word overlap.
+- Write expressions in full in the examples ("it is fair to say that", not "it's fair to say that"). The matcher does not expand contractions.
 
 Both examples must contain the headword, one of its inflections, or a form declared in `word_family`. For expressions, a few words may come between the parts ("mull **it** over"), and articles may change ("meet **the** deadline").
 
@@ -190,6 +199,8 @@ Functions (`functional_language` only): `cause_consequence`, `concession`, `hedg
 ## What the validator checks
 
 - unique `id`, and unique headword + part of speech across all packs;
+- no headword that is an inflected form of another headword with the same part of speech ("rebuts" next to "rebut");
+- productive-batch entries have one sub-theme tag, the interview and discussion examples (both using the entry) and a usage note;
 - each example contains the headword or a declared form, and the two examples differ;
 - the definition does not contain the defined word or expression;
 - the French translation is filled in;

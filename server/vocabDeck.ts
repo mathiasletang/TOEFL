@@ -165,7 +165,7 @@ export interface CardRow {
   verified_at: string | null;
 }
 
-export type CardOrigin = "scheduled" | "manual" | "triage" | "harvest_ctw" | "harvest_question";
+export type CardOrigin = "scheduled" | "manual" | "triage" | "harvest_ctw" | "harvest_question" | "harvest_text";
 
 export function getCard(db: DB, id: string): CardRow | null {
   return (db.prepare("SELECT * FROM vocab_cards WHERE id = ?").get(id) as CardRow | undefined) ?? null;
@@ -242,7 +242,32 @@ export function harvestAttempt(db: DB, userId: string, ex: Exercise, result: Sco
       if (result.items.find((it) => it.key === q.id)?.correct === false) add(q.highlight, "harvest_question", texts);
     }
   }
+  // Missed questions on an academic passage or a listening set: the discipline terms of that text
+  // enter the deck (for a 6.0 target this is the only way they do). Words already in the deck are left alone.
+  const textual = ex.task_type === "read_academic_passage" || ex.section === "listening";
+  if (textual && result.items.some((it) => it.correct === false)) {
+    const texts = ex.task_type === "read_academic_passage" ? [ex.passage] : "audio" in ex ? ex.audio.map((a) => a.text) : [];
+    for (const e of disciplineTermsIn(db, bank, userId, texts.join(" "))) {
+      const added = addWord(db, userId, { entryId: e.id, sentence: sentenceWith(texts, e.headword), exerciseId: ex.id, origin: "harvest_text" });
+      if (added) out.push(added);
+    }
+  }
   return out;
+}
+
+/** Discipline-category entries found in a text and not yet in the deck, non-transparent and higher levels first. */
+function disciplineTermsIn(db: DB, bank: Bank, userId: string, text: string): VocabEntry[] {
+  const disc = new Set(V.discipline_categories);
+  const tokens = new Set(tokenize(text));
+  const have = new Set((db.prepare("SELECT entry_id FROM vocab_cards WHERE user_id = ? AND entry_id IS NOT NULL").all(userId) as Array<{ entry_id: string }>).map((r) => r.entry_id));
+  const found = bank.entries.filter((e) => {
+    if (!disc.has(e.category) || have.has(e.id)) return false;
+    const forms = bank.entryForms.get(e.id);
+    return forms ? [...forms].some((f) => tokens.has(f)) : containsPhrase(text, e.headword, gapFor(e.kind), e.inflections);
+  });
+  const level = { C2: 0, C1: 1, B2: 2 } as const;
+  found.sort((a, b) => Number(bank.transparent.has(a.id)) - Number(bank.transparent.has(b.id)) || level[a.cefr] - level[b.cefr] || a.id.localeCompare(b.id));
+  return found.slice(0, V.harvest.discipline_terms_per_text);
 }
 
 // ---------------------------------------------------------------- queue
@@ -407,10 +432,10 @@ export function nextCard(db: DB, userId: string, opts: { audio: boolean }, now =
   };
 }
 
-/** Production format used to check a word marked as known (stable for a given card). */
+/** Production format used to check a word marked as known: recall or gap fill (stable for a given card). */
 function verifyFormat(card: CardRow, available: Format[]): Format {
-  const prod = PRODUCTION_FORMATS.filter((f) => available.includes(f));
-  return prod.length ? prod[hash(card.id) % prod.length]! : (available.find((f) => f !== "study") ?? "recall_typed");
+  const allowed = V.triage.verify_formats.filter((f) => available.includes(f as Format)) as Format[];
+  return allowed.length ? allowed[hash(card.id) % allowed.length]! : "recall_typed";
 }
 
 export function submitReview(db: DB, userId: string, r: { cardId: string; format: string; seed: number; choice?: number | null; text?: string | null; elapsedMs?: number }, now = new Date()) {
@@ -423,7 +448,7 @@ export function submitReview(db: DB, userId: string, r: { cardId: string; format
   const e = studyable(bank, card);
   if (!(FORMATS as readonly string[]).includes(r.format) || !availableFormats(e, { audio: true }).includes(r.format as Format)) throw new VocabError(400, "Format not available for this card");
   const format = r.format as Format;
-  if (verifying && !isProduction(format)) throw new VocabError(400, "Known words are checked in a production format");
+  if (verifying && !V.triage.verify_formats.includes(format)) throw new VocabError(400, `Known words are checked by ${V.triage.verify_formats.join(" or ")}`);
   const q = buildQuestion(e, format, String(card.review_count), bank.entries);
   const checked = checkAnswer(q, { choice: r.choice, text: r.text });
   const elapsed = Math.max(0, Math.round(r.elapsedMs ?? 0));
@@ -665,11 +690,15 @@ export function createChallenge(db: DB, userId: string, c: { cardIds: string[]; 
 export function triageQueue(db: DB, userId: string, limit = V.triage.batch_size) {
   const bank = bankFor(db);
   const remaining = remainingIntroductions(db, bank, userId);
+  const order = introductionOrder(bank, userTargetBand(db, userId));
   const counts = db
     .prepare("SELECT COALESCE(SUM(triage = 'known'), 0) known, COALESCE(SUM(triage = 'learn' AND origin = 'triage'), 0) learn, COALESCE(SUM(triage = 'known' AND verify_due_at IS NOT NULL), 0) to_verify FROM vocab_cards WHERE user_id = ?")
     .get(userId) as { known: number; learn: number; to_verify: number };
   return {
     remaining: remaining.length,
+    total: order.length,
+    // Words of the introduction order already sorted (or already in the deck): triage resumes after them.
+    done: order.length - remaining.length,
     ...counts,
     verify_every: V.triage.verify_every,
     entries: remaining.slice(0, limit).map((e) => ({

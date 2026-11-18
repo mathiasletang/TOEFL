@@ -75,10 +75,10 @@ afterAll(async () => {
 describe("vocabulary bank routes", () => {
   it("lists the bank with filters, search and per-user status", async () => {
     const all = (await get(`/api/users/${A}/vocab/entries`)).json();
-    expect(all.total).toBe(1250);
+    expect(all.total).toBe(1329);
     const cognates = (await get(`/api/users/${A}/vocab/entries?transparent=1`)).json();
     const others = (await get(`/api/users/${A}/vocab/entries?transparent=0`)).json();
-    expect(cognates.total + others.total).toBe(1250);
+    expect(cognates.total + others.total).toBe(1329);
     expect(cognates.entries.every((e: { transparent: boolean; transparent_fr: number }) => e.transparent && e.transparent_fr >= CONFIG.internal.vocabulary.transparency.threshold)).toBe(true);
     expect(others.entries.some((e: { transparent: boolean }) => e.transparent)).toBe(false);
     const core = (await get(`/api/users/${A}/vocab/entries?tier=core`)).json();
@@ -113,19 +113,22 @@ describe("vocabulary bank routes", () => {
 
   it("exposes module metadata labelled as internal", async () => {
     const m = (await get("/api/vocab/meta")).json();
-    expect(m.new_per_day_default).toBe(20);
+    expect(m.new_per_day_default).toBe(25);
+    expect(Math.max(...m.new_per_day_options)).toBe(40);
     expect(m.note).toMatch(/internal/i);
     expect(m.tiers.core.note).toMatch(/not an official list/i);
   });
 });
 
 describe("daily session", () => {
-  it("defaults to 20 new words a day and is adjustable per profile", async () => {
-    expect((await get(`/api/users/${A}/vocab/summary`)).json()).toMatchObject({ due: 0, new_left: 20, new_per_day: 20 });
+  it("defaults to 25 new words a day and is adjustable per profile", async () => {
+    expect((await get(`/api/users/${A}/vocab/summary`)).json()).toMatchObject({ due: 0, new_left: 25, new_per_day: 25 });
     const r = await app.inject({ method: "PATCH", url: `/api/users/${A}`, payload: { vocab_new_per_day: 3 } });
     expect(r.json().vocab_new_per_day).toBe(3);
     expect((await get(`/api/users/${A}/vocab/summary`)).json().new_left).toBe(3);
-    expect((await get(`/api/users/${B}/vocab/summary`)).json().new_left).toBe(20);
+    expect((await get(`/api/users/${B}/vocab/summary`)).json().new_left).toBe(25);
+    expect((await app.inject({ method: "PATCH", url: `/api/users/${B}`, payload: { vocab_new_per_day: 40 } })).json().vocab_new_per_day).toBe(40);
+    await app.inject({ method: "PATCH", url: `/api/users/${B}`, payload: { vocab_new_per_day: 25 } });
     expect((await app.inject({ method: "PATCH", url: `/api/users/${A}`, payload: { vocab_new_per_day: -1 } })).statusCode).toBe(400);
     expect((await get(`/api/users/${A}/dashboard`)).json().vocabulary).toMatchObject({ due: 0, new_left: 3 });
   });
@@ -248,8 +251,8 @@ describe("daily session", () => {
     const s = (await get(`/api/users/${A}/vocab/stats`)).json();
     expect(s.by_tier.core.total).toBe(400);
     expect(s.by_tier.core.learning + s.by_tier.core.mature).toBe(3);
-    expect(s.by_status.total).toBe(1250);
-    expect(s.by_status.new).toBe(1247);
+    expect(s.by_status.total).toBe(1329);
+    expect(s.by_status.new).toBe(1326);
     expect(s.by_status.known).toBe(0);
     expect(s.window_days).toBe(30);
     expect(s.retention.reviews).toBeGreaterThan(10);
@@ -397,7 +400,7 @@ describe("triage", () => {
     const order = introductionOrder(bankFor(plainDb), 6);
     expect(t.entries).toHaveLength(T.batch_size);
     expect(t.entries.map((e: { id: string }) => e.id)).toEqual(order.slice(0, T.batch_size).map((e) => e.id));
-    expect(t).toMatchObject({ remaining: order.length, known: 0, learn: 0, verify_every: T.verify_every });
+    expect(t).toMatchObject({ remaining: order.length, total: order.length, done: 0, known: 0, learn: 0, verify_every: T.verify_every });
     known = t.entries.slice(0, 2 * T.verify_every).map((e: { id: string }) => e.id);
   });
 
@@ -408,7 +411,9 @@ describe("triage", () => {
     expect(flags[T.verify_every - 1]).toBe(true);
     expect(flags[2 * T.verify_every - 1]).toBe(true);
     const t = (await get(`/api/users/${B}/vocab/triage`, plain)).json();
-    expect(t).toMatchObject({ known: known.length, to_verify: 2 });
+    expect(t).toMatchObject({ known: known.length, to_verify: 2, done: known.length });
+    // Triage resumes after the last sorted word.
+    expect(t.entries[0].id).toBe(introductionOrder(bankFor(plainDb), 6)[known.length]!.id);
     expect(t.entries.some((e: { id: string }) => known.includes(e.id))).toBe(false);
   });
 
@@ -442,6 +447,8 @@ describe("triage", () => {
     const first = await nextB();
     expect(first.card!.phase).toBe("verify");
     expect(isProduction(first.question!.format)).toBe(true);
+    expect(CONFIG.internal.vocabulary.triage.verify_formats).toContain(first.question!.format);
+    expect(["recall_typed", "cloze_typed"]).toContain(first.question!.format);
     // A recognition format is refused for a check.
     expect((await post(`/api/users/${B}/vocab/reviews`, { cardId: first.card!.id, format: "meaning_choice", seed: 0, choice: 0 }, plain)).statusCode).toBe(400);
     const pass = await answerB(first, true);
@@ -458,5 +465,23 @@ describe("triage", () => {
     const id = known[0]!;
     const r = (await post(`/api/users/${B}/vocab/cards`, { entryId: id }, plain)).json();
     expect(r.card).toMatchObject({ triage: "learn", status: "new" });
+  });
+});
+
+describe("discipline terms through harvest", () => {
+  it("adds discipline terms of a listening script or academic passage when questions are missed", async () => {
+    const disc = new Set(CONFIG.internal.vocabulary.discipline_categories);
+    const discCards = () =>
+      (db.prepare("SELECT v.category, c.origin FROM vocab_cards c JOIN vocab_entries v ON v.id = c.entry_id WHERE c.user_id = ? AND c.origin = 'harvest_text'").all(B) as Array<{ category: string; origin: string }>);
+    const before = discCards().length;
+    // l_talk_002 mentions "predator" and "conservation" (ecology / environmental science entries).
+    const talk = listExercises(db, { taskType: "academic_talk" }).find((e) => e.id === "l_talk_002")!;
+    if (!("questions" in talk)) throw new Error("unexpected");
+    const s = (await post("/api/sessions", { userId: B, exerciseId: talk.id, mode: "practice" })).json();
+    await post(`/api/sessions/${s.session.id}/submit`, { response: { answers: talk.questions.map(() => null) }, elapsedMs: 1000 });
+    const after = discCards();
+    expect(after.length).toBeGreaterThan(before);
+    expect(after.length - before).toBeLessThanOrEqual(CONFIG.internal.vocabulary.harvest.discipline_terms_per_text);
+    expect(after.every((c) => disc.has(c.category))).toBe(true);
   });
 });

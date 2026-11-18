@@ -1283,7 +1283,11 @@
       "word_family": [],
       "synonyms": ["highlight", "point out", "spotlight"],
       "register": "neutral",
-      "ipa": "/drɔː əˈtɛnʃən tu/"
+      "ipa": "/drɔː əˈtɛnʃən tu/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "In my presentation, I wanted to draw attention to how hard it is to find student housing.",
+      "example_discussion": "Lena draws attention to a real gap: rural students are absent from the data.",
+      "usage_note": "Neutral. \"Draw attention to\", not \"attract the attention on\", a common French calque. Irregular: drew, drawn."
     },
     {
       "id": "v_colloc_hold_sway",
@@ -1302,7 +1306,11 @@
       "inflections": ["held"],
       "synonyms": ["dominate", "prevail", "predominate"],
       "register": "formal",
-      "ipa": "/hoʊld sweɪ/"
+      "ipa": "/hoʊld sweɪ/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "In my family, my grandmother's opinion still holds sway over every big decision.",
+      "example_discussion": "This view held sway for decades, but recent research has challenged it.",
+      "usage_note": "Formal. \"Hold sway over/among\". Irregular: held."
     },
     {
       "id": "v_colloc_come_under_scrutiny",
@@ -1320,7 +1328,11 @@
       "word_family": [],
       "synonyms": ["be examined", "be investigated"],
       "register": "formal",
-      "ipa": "/kʌm ˈʌndər ˈskruːtəni/"
+      "ipa": "/kʌm ˈʌndər ˈskruːtəni/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "My spending came under scrutiny when my parents saw my first bank statement.",
+      "example_discussion": "Admissions policies have come under scrutiny after several complaints.",
+      "usage_note": "Formal. Also \"come under fire\" (be criticized). Not \"be put under scrutiny\" in this collocation."
     },
     {
       "id": "v_colloc_bear_the_brunt_of",
@@ -1336,9 +1348,14 @@
       "example_spoken": "First-year students always bear the brunt of the housing shortage.",
       "collocations": [],
       "word_family": [],
+      "inflections": ["bore", "borne"],
       "synonyms": ["suffer most from", "take the worst of"],
       "register": "formal",
-      "ipa": "/bɛr ðə brʌnt ʌv/"
+      "ipa": "/bɛr ðə brʌnt ʌv/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "As the youngest, I usually bore the brunt of my brothers' jokes.",
+      "example_discussion": "Kim is right that small shops would bear the brunt of the new parking fees.",
+      "usage_note": "Neutral. Means suffer the worst part. Irregular: bore, borne."
     },
     {
       "id": "v_colloc_make_a_case_for",
@@ -1356,7 +1373,11 @@
       "word_family": [],
       "synonyms": ["argue for", "advocate"],
       "register": "neutral",
-      "ipa": "/meɪk ə keɪs fɔːr/"
+      "ipa": "/meɪk ə keɪs fɔːr/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "I made a case for a later start time, and my manager agreed.",
+      "example_discussion": "Daniel makes a strong case for public funding, but he ignores the costs.",
+      "usage_note": "Neutral. \"Make a (strong/compelling) case for\". Not \"do a case for\"."
     },
     {
       "id": "v_colloc_lay_claim_to",
@@ -1374,7 +1395,11 @@
       "word_family": [],
       "synonyms": ["claim", "assert ownership of"],
       "register": "formal",
-      "ipa": "/leɪ kleɪm tu/"
+      "ipa": "/leɪ kleɪm tu/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "My little sister lays claim to the front seat every single time.",
+      "example_discussion": "No single country can lay claim to inventing this idea, so Daniel's framing is misleading.",
+      "usage_note": "Formal. \"Lay claim to + noun or -ing\". Irregular: laid."
     },
     {
       "id": "v_colloc_pay_lip_service_to",
@@ -1392,7 +1417,11 @@
       "word_family": [],
       "synonyms": ["give token support to", "pretend to support"],
       "register": "formal",
-      "ipa": "/peɪ lɪp ˈsɜːrvəs tu/"
+      "ipa": "/peɪ lɪp ˈsɜːrvəs tu/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "Some companies pay lip service to work-life balance, but mine really respects it.",
+      "example_discussion": "Many schools pay lip service to student wellbeing; Mia's proposal would actually fund it.",
+      "usage_note": "Neutral, critical. Means support in words only."
     },
     {
       "id": "v_colloc_stand_to_reason",
@@ -1410,7 +1439,11 @@
       "word_family": [],
       "synonyms": ["be obvious", "be logical"],
       "register": "neutral",
-      "ipa": "/stænd tə ˈriːzən/"
+      "ipa": "/stænd tə ˈriːzən/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "It stands to reason that I'd want to live close to campus.",
+      "example_discussion": "It stands to reason that students who work twenty hours a week will study less, as Jonah says.",
+      "usage_note": "Neutral. Almost always \"it stands to reason that…\". Irregular: stood."
     },
     {
       "id": "v_colloc_run_the_risk_of",
@@ -1428,7 +1461,11 @@
       "word_family": [],
       "synonyms": ["risk", "chance"],
       "register": "neutral",
-      "ipa": "/rʌn ðə rɪsk ʌv/"
+      "ipa": "/rʌn ðə rɪsk ʌv/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "If I don't book now, I run the risk of missing the concert.",
+      "example_discussion": "Schools that rely on a single test run the risk of misjudging students.",
+      "usage_note": "Neutral. \"Run the risk of + -ing\". Not \"take the risk to\", which means deliberately accept a risk."
     },
     {
       "id": "v_colloc_bear_witness_to",
@@ -1446,7 +1483,11 @@
       "word_family": [],
       "synonyms": ["attest to", "testify to", "show"],
       "register": "formal",
-      "ipa": "/bɛr ˈwɪtnəs tu/"
+      "ipa": "/bɛr ˈwɪtnəs tu/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "The photos on my wall bear witness to some great trips.",
+      "example_discussion": "The empty classrooms Lena describes bear witness to how poorly the reform was planned.",
+      "usage_note": "Formal. Means show or prove. Close to \"attest to\"."
     },
     {
       "id": "v_colloc_draw_criticism",
@@ -1465,7 +1506,11 @@
       "inflections": ["drew", "drawn"],
       "synonyms": ["attract criticism", "provoke criticism"],
       "register": "neutral",
-      "ipa": "/drɔː ˈkrɪtəˌsɪzəm/"
+      "ipa": "/drɔː ˈkrɪtəˌsɪzəm/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "My first design drew a lot of criticism, which actually helped me improve it.",
+      "example_discussion": "The decision drew sharp criticism from parents and teachers.",
+      "usage_note": "Neutral. Also \"draw fire\". Not \"make criticism\", a French calque."
     },
     {
       "id": "v_colloc_raise_concerns",
@@ -1483,7 +1528,11 @@
       "word_family": [],
       "synonyms": ["cause concern", "voice concerns"],
       "register": "neutral",
-      "ipa": "/reɪz kənˈsɜːrnz/"
+      "ipa": "/reɪz kənˈsɜːrnz/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "I raised concerns about the deadline, and the team agreed to move it.",
+      "example_discussion": "Kim raises concerns about privacy that the professor's question does not address.",
+      "usage_note": "Neutral. Two meanings: cause worry, or formally mention worries. Not \"rise concerns\" (rise is intransitive)."
     },
     {
       "id": "v_colloc_pose_a_challenge",
@@ -1501,7 +1550,11 @@
       "word_family": [],
       "synonyms": ["present a difficulty", "create a problem"],
       "register": "formal",
-      "ipa": "/poʊz ə ˈtʃælɪndʒ/"
+      "ipa": "/poʊz ə ˈtʃælɪndʒ/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "Living on my own posed a challenge at first, especially cooking.",
+      "example_discussion": "Rising rents pose a challenge for universities that want to attract students from poorer families.",
+      "usage_note": "Formal. Also \"pose a threat/risk/problem\". Not \"put a challenge\"."
     },
     {
       "id": "v_colloc_meet_with_resistance",
@@ -1520,7 +1573,11 @@
       "inflections": ["met"],
       "synonyms": ["encounter opposition", "face resistance"],
       "register": "formal",
-      "ipa": "/miːt wɪð rɪˈzɪstəns/"
+      "ipa": "/miːt wɪð rɪˈzɪstəns/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "When I suggested a four-day week at my old job, it met with resistance from the managers.",
+      "example_discussion": "Any reform of exams will meet with resistance unless teachers help design it.",
+      "usage_note": "Formal. Irregular: met. Also \"meet with approval/success\"."
     },
     {
       "id": "v_colloc_gain_traction",
@@ -1538,7 +1595,11 @@
       "word_family": [],
       "synonyms": ["catch on", "take hold", "gain ground"],
       "register": "neutral",
-      "ipa": "/ɡeɪn ˈtrækʃən/"
+      "ipa": "/ɡeɪn ˈtrækʃən/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "My idea for a study group gained traction once a few friends joined.",
+      "example_discussion": "Daniel's idea of shared bikes has gained traction in other cities, which suggests it could work here.",
+      "usage_note": "Neutral. Means become accepted or popular. Not \"take traction\"."
     },
     {
       "id": "v_colloc_lose_sight_of",
@@ -1557,7 +1618,11 @@
       "inflections": ["lost"],
       "synonyms": ["forget", "overlook"],
       "register": "neutral",
-      "ipa": "/luːz saɪt ʌv/"
+      "ipa": "/luːz saɪt ʌv/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "During exams, I try not to lose sight of why I chose this field.",
+      "example_discussion": "By focusing only on cost, Jonah may lose sight of what students actually need.",
+      "usage_note": "Neutral. Irregular: lost. \"Lose sight of + noun\"."
     },
     {
       "id": "v_colloc_take_precedence_over",
@@ -1575,7 +1640,11 @@
       "word_family": [],
       "synonyms": ["come before", "override", "outrank"],
       "register": "formal",
-      "ipa": "/teɪk ˈprɛsɪdəns ˈoʊvər/"
+      "ipa": "/teɪk ˈprɛsɪdəns ˈoʊvər/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "For me, family always takes precedence over work.",
+      "example_discussion": "Safety must take precedence over cost in any transport project.",
+      "usage_note": "Formal. Pronounced /ˈprɛsɪdəns/. Not \"take the precedence on\"."
     },
     {
       "id": "v_colloc_come_to_terms_with",
@@ -1593,7 +1662,11 @@
       "word_family": [],
       "synonyms": ["accept", "reconcile oneself to"],
       "register": "neutral",
-      "ipa": "/kʌm tə tɜːrmz wɪð/"
+      "ipa": "/kʌm tə tɜːrmz wɪð/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "It took me a while to come to terms with failing my driving test.",
+      "example_discussion": "Older workers need time to come to terms with new technology, so training should be gradual.",
+      "usage_note": "Neutral. Means accept something painful. Not \"come to an agreement\" in this sense."
     },
     {
       "id": "v_colloc_stand_up_to_scrutiny",
@@ -1611,7 +1684,11 @@
       "word_family": [],
       "synonyms": ["hold up", "bear examination"],
       "register": "formal",
-      "ipa": "/stænd ʌp tə ˈskruːtəni/"
+      "ipa": "/stænd ʌp tə ˈskruːtəni/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "In my last job, I learned to check my reports twice so they would stand up to scrutiny.",
+      "example_discussion": "Mia's claim that grades rose does not stand up to scrutiny, since the test itself changed.",
+      "usage_note": "Formal. Also \"stand up to criticism\". Irregular: stood."
     },
     {
       "id": "v_colloc_draw_on",
@@ -1630,7 +1707,11 @@
       "inflections": ["drew", "drawn"],
       "synonyms": ["use", "rely on", "make use of"],
       "register": "neutral",
-      "ipa": "/drɔː ɑːn/"
+      "ipa": "/drɔː ɑːn/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "In interviews, I draw on my experience as a camp counselor.",
+      "example_discussion": "My argument draws on Kim's example but reaches a different conclusion.",
+      "usage_note": "Neutral. \"Draw on + experience/sources/knowledge\". Not \"draw from\" in every case, though that also exists."
     },
     {
       "id": "v_colloc_by_a_wide_margin",
@@ -1648,7 +1729,11 @@
       "word_family": [],
       "synonyms": ["easily", "comfortably", "by far"],
       "register": "neutral",
-      "ipa": "/baɪ ə waɪd ˈmɑːrdʒən/"
+      "ipa": "/baɪ ə waɪd ˈmɑːrdʒən/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "My hometown team lost by a wide margin, unfortunately.",
+      "example_discussion": "The second option is cheaper by a wide margin.",
+      "usage_note": "Neutral. Also \"by a narrow margin\". Not \"with a wide margin\"."
     },
     {
       "id": "v_colloc_to_a_lesser_extent",
@@ -1666,7 +1751,11 @@
       "word_family": [],
       "synonyms": ["less so", "to a smaller degree"],
       "register": "formal",
-      "ipa": "/tu ə ˈlɛsər ɪkˈstɛnt/"
+      "ipa": "/tu ə ˈlɛsər ɪkˈstɛnt/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "I speak Spanish and, to a lesser extent, Portuguese.",
+      "example_discussion": "The policy would help families with young children and, to a lesser extent, retired people.",
+      "usage_note": "Neutral. Used after mentioning the main case. Not \"in a lesser extent\"."
     },
     {
       "id": "v_colloc_case_in_point",
@@ -1684,7 +1773,11 @@
       "word_family": [],
       "synonyms": ["example", "illustration", "instance"],
       "register": "neutral",
-      "ipa": "/keɪs ɪn pɔɪnt/"
+      "ipa": "/keɪs ɪn pɔɪnt/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "I learn best by doing; my summer job in a lab is a case in point.",
+      "example_discussion": "Many towns depend on one industry, and the mining region is a case in point.",
+      "usage_note": "Neutral. Usually \"X is a case in point\". Introduces a typical example of what was just said."
     },
     {
       "id": "v_colloc_point_of_contention",
@@ -1702,7 +1795,11 @@
       "word_family": [],
       "synonyms": ["matter of dispute", "bone of contention"],
       "register": "formal",
-      "ipa": "/pɔɪnt ʌv kənˈtɛnʃən/"
+      "ipa": "/pɔɪnt ʌv kənˈtɛnʃən/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "At my last job, the holiday schedule was a point of contention, and I helped find a compromise.",
+      "example_discussion": "The cost of the program remains the main point of contention.",
+      "usage_note": "Formal. Also \"bone of contention\" (informal)."
     },
     {
       "id": "v_colloc_sticking_point",
@@ -1720,7 +1817,11 @@
       "word_family": [],
       "synonyms": ["obstacle", "stumbling block"],
       "register": "neutral",
-      "ipa": "/ˈstɪkɪŋ pɔɪnt/"
+      "ipa": "/ˈstɪkɪŋ pɔɪnt/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "When I chose my university, the cost of housing was the main sticking point.",
+      "example_discussion": "The main sticking point in Daniel's plan is who would pay for the extra buses.",
+      "usage_note": "Neutral. Means an obstacle to agreement."
     },
     {
       "id": "v_colloc_grey_area",
@@ -1738,7 +1839,11 @@
       "word_family": [],
       "synonyms": ["ambiguous area", "uncertain territory"],
       "register": "neutral",
-      "ipa": "/ɡreɪ ˈɛriə/"
+      "ipa": "/ɡreɪ ˈɛriə/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "When I worked in a shop, returns without a receipt were a grey area, so I always asked my manager.",
+      "example_discussion": "Whether teachers may use students' work in research is a grey area that the policy should clarify.",
+      "usage_note": "Neutral. Spelled \"gray area\" in American English. Both spellings are accepted."
     },
     {
       "id": "v_colloc_vicious_circle",
@@ -1756,7 +1861,11 @@
       "word_family": [],
       "synonyms": ["downward spiral", "self-perpetuating cycle"],
       "register": "neutral",
-      "ipa": "/ˈvɪʃəs ˈsɜːrkəl/"
+      "ipa": "/ˈvɪʃəs ˈsɜːrkəl/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "In my first year I got into a vicious circle: I was behind, so I skipped class, so I fell further behind.",
+      "example_discussion": "Cutting bus routes because few people ride them can create a vicious circle, as Jonah's example shows.",
+      "usage_note": "Neutral. \"Vicious cycle\" is also used, especially in American English."
     },
     {
       "id": "v_colloc_double_standard",
@@ -1774,7 +1883,11 @@
       "word_family": [],
       "synonyms": ["inconsistency", "unfair rule"],
       "register": "neutral",
-      "ipa": "/ˈdʌbəl ˈstændərd/"
+      "ipa": "/ˈdʌbəl ˈstændərd/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "It felt like a double standard that my brother could stay out later than me.",
+      "example_discussion": "Judging male and female candidates differently is a clear double standard.",
+      "usage_note": "Neutral. Usually singular: \"a double standard\". Not \"a double weight\"."
     },
     {
       "id": "v_colloc_received_view",
@@ -1792,7 +1905,11 @@
       "word_family": [],
       "synonyms": ["conventional wisdom", "orthodoxy", "accepted view"],
       "register": "formal",
-      "ipa": "/rɪˈsiːvd vjuː/"
+      "ipa": "/rɪˈsiːvd vjuː/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "The received view in my family was that medicine was the best career.",
+      "example_discussion": "Kim challenges the received view that private schools always perform better.",
+      "usage_note": "Formal, academic. Also \"received wisdom\". Means the generally accepted opinion."
     },
     {
       "id": "v_colloc_overriding_concern",
@@ -1810,7 +1927,11 @@
       "word_family": [],
       "synonyms": ["main priority", "paramount concern"],
       "register": "formal",
-      "ipa": "/ˌoʊvərˈraɪdɪŋ kənˈsɜːrn/"
+      "ipa": "/ˌoʊvərˈraɪdɪŋ kənˈsɜːrn/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "My overriding concern when choosing a flat was safety.",
+      "example_discussion": "For most parents, cost is not the overriding concern; safety is.",
+      "usage_note": "Formal. \"Overriding\" = more important than everything else."
     },
     {
       "id": "v_colloc_sweeping_reforms",
@@ -1828,7 +1949,11 @@
       "word_family": [],
       "synonyms": ["radical changes", "far-reaching reforms"],
       "register": "formal",
-      "ipa": "/ˈswiːpɪŋ rɪˈfɔːrmz/"
+      "ipa": "/ˈswiːpɪŋ rɪˈfɔːrmz/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "My school went through sweeping reforms just after I left.",
+      "example_discussion": "Sweeping reforms rarely succeed without the support of teachers.",
+      "usage_note": "Formal. \"Sweeping\" = wide-ranging. Also \"sweeping changes\"."
     },
     {
       "id": "v_colloc_marked_increase",
@@ -1846,7 +1971,11 @@
       "word_family": [],
       "synonyms": ["sharp rise", "significant increase"],
       "register": "formal",
-      "ipa": "/mɑːrkt ˈɪnkriːs/"
+      "ipa": "/mɑːrkt ˈɪnkriːs/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "Since I started cycling to class, I've noticed a marked increase in my energy levels.",
+      "example_discussion": "The data show a marked increase in remote work since 2020.",
+      "usage_note": "Formal. \"Marked\" = clearly noticeable. Pronounced /mɑːrkt/, one syllable."
     },
     {
       "id": "v_colloc_steady_decline",
@@ -1864,7 +1993,11 @@
       "word_family": [],
       "synonyms": ["gradual decrease", "continuous fall"],
       "register": "neutral",
-      "ipa": "/ˈstɛdi dɪˈklaɪn/"
+      "ipa": "/ˈstɛdi dɪˈklaɪn/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "My grandparents' village has seen a steady decline in population.",
+      "example_discussion": "Newspapers have experienced a steady decline in readership.",
+      "usage_note": "Neutral. Opposite: \"steady increase/growth\"."
     },
     {
       "id": "v_colloc_vexed_question",
@@ -1882,7 +2015,11 @@
       "word_family": [],
       "synonyms": ["thorny issue", "contentious issue"],
       "register": "formal",
-      "ipa": "/vɛkst ˈkwɛstʃən/"
+      "ipa": "/vɛkst ˈkwɛstʃən/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "Where to spend the holidays is a vexed question in my family.",
+      "example_discussion": "How to fund rural schools remains a vexed question, and neither post fully answers it.",
+      "usage_note": "Formal. Means a difficult, much-debated problem."
     },
     {
       "id": "v_colloc_uphill_struggle",
@@ -1900,7 +2037,11 @@
       "word_family": [],
       "synonyms": ["uphill battle", "hard task"],
       "register": "neutral",
-      "ipa": "/ˈʌpˌhɪl ˈstrʌɡəl/"
+      "ipa": "/ˈʌpˌhɪl ˈstrʌɡəl/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "Getting my first internship was an uphill struggle, because I had no contacts in the industry.",
+      "example_discussion": "Mia underestimates what an uphill struggle it is to recruit teachers for rural schools.",
+      "usage_note": "Neutral. Also \"uphill battle\"."
     },
     {
       "id": "v_colloc_blanket_ban",
@@ -1918,7 +2059,11 @@
       "word_family": [],
       "synonyms": ["total ban", "outright prohibition"],
       "register": "neutral",
-      "ipa": "/ˈblæŋkɪt bæn/"
+      "ipa": "/ˈblæŋkɪt bæn/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "My old school had a blanket ban on phones, which I thought was too strict.",
+      "example_discussion": "A blanket ban on cars downtown would penalize people with disabilities.",
+      "usage_note": "Neutral. \"Blanket\" = applying to everything without exceptions."
     },
     {
       "id": "v_colloc_glaring_omission",
@@ -1936,7 +2081,11 @@
       "word_family": [],
       "synonyms": ["obvious gap", "striking absence"],
       "register": "formal",
-      "ipa": "/ˈɡlɛrɪŋ oʊˈmɪʃən/"
+      "ipa": "/ˈɡlɛrɪŋ oʊˈmɪʃən/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "Looking back, a glaring omission in my first CV was my volunteer work.",
+      "example_discussion": "The absence of teachers from the survey is a glaring omission.",
+      "usage_note": "Formal. \"Glaring\" = very obvious, in a negative sense."
     },
     {
       "id": "v_colloc_fine_line_between",
@@ -1954,7 +2103,11 @@
       "word_family": [],
       "synonyms": ["thin line between", "subtle difference between"],
       "register": "neutral",
-      "ipa": "/faɪn laɪn bɪˈtwiːn/"
+      "ipa": "/faɪn laɪn bɪˈtwiːn/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "In interviews, I try to walk the fine line between confident and boastful.",
+      "example_discussion": "There is a fine line between encouraging healthy habits and controlling students' lives, and Daniel's plan crosses it.",
+      "usage_note": "Neutral. \"A fine line between X and Y\". Also \"a thin line\"."
     },
     {
       "id": "v_colloc_burden_of_proof",
@@ -1972,7 +2125,11 @@
       "word_family": [],
       "synonyms": ["onus", "responsibility to prove"],
       "register": "formal",
-      "ipa": "/ˈbɜːrdən ʌv pruːf/"
+      "ipa": "/ˈbɜːrdən ʌv pruːf/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "My friend claimed I broke his phone, so the burden of proof was on him.",
+      "example_discussion": "If Daniel claims the scheme saves money, the burden of proof is on him to show the figures.",
+      "usage_note": "Formal, legal origin. \"The burden of proof lies with / is on…\"."
     },
     {
       "id": "v_colloc_point_of_no_return",
@@ -1990,7 +2147,11 @@
       "word_family": [],
       "synonyms": ["irreversible stage", "no going back"],
       "register": "neutral",
-      "ipa": "/pɔɪnt ʌv noʊ rɪˈtɜːrn/"
+      "ipa": "/pɔɪnt ʌv noʊ rɪˈtɜːrn/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "Once I had signed the lease abroad, I knew I was past the point of no return.",
+      "example_discussion": "Some scientists fear the ice sheet is near the point of no return.",
+      "usage_note": "Neutral. Often \"past/beyond the point of no return\"."
     },
     {
       "id": "v_colloc_knock_on_effect",
@@ -2008,7 +2169,11 @@
       "word_family": [],
       "synonyms": ["ripple effect", "domino effect", "repercussion"],
       "register": "neutral",
-      "ipa": "/ˈnɑːk ɑːn ɪˌfɛkt/"
+      "ipa": "/ˈnɑːk ɑːn ɪˌfɛkt/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "Losing my part-time job had a knock-on effect on my studies, because I had to find another one fast.",
+      "example_discussion": "Higher tuition fees could have a knock-on effect on rural towns, as fewer young people return.",
+      "usage_note": "Neutral, more British. American English often prefers \"ripple effect\"."
     },
     {
       "id": "v_colloc_conspicuous_by_its_absence",
@@ -2026,7 +2191,11 @@
       "word_family": [],
       "synonyms": ["notably absent", "missing"],
       "register": "formal",
-      "ipa": "/kənˈspɪkjuəs baɪ ɪts ˈæbsəns/"
+      "ipa": "/kənˈspɪkjuəs baɪ ɪts ˈæbsəns/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "When we planned the move, any offer of help from my brother was conspicuous by its absence.",
+      "example_discussion": "In Jonah's post, any mention of teachers is conspicuous by its absence.",
+      "usage_note": "Formal, ironic. The possessive changes with the subject: \"by his/her/its absence\"."
     },
     {
       "id": "v_colloc_acid_test",
@@ -2044,7 +2213,11 @@
       "word_family": [],
       "synonyms": ["litmus test", "real test"],
       "register": "neutral",
-      "ipa": "/ˈæsɪd tɛst/"
+      "ipa": "/ˈæsɪd tɛst/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "The real acid test for my new schedule will be exam week.",
+      "example_discussion": "The acid test for Kim's proposal is whether students actually use the new space.",
+      "usage_note": "Neutral. Means a decisive test. Also \"litmus test\"."
     },
     {
       "id": "v_colloc_fly_in_the_face_of",
@@ -2062,7 +2235,11 @@
       "word_family": [],
       "synonyms": ["contradict", "go against", "defy"],
       "register": "neutral",
-      "ipa": "/flaɪ ɪn ðə feɪs ʌv/"
+      "ipa": "/flaɪ ɪn ðə feɪs ʌv/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "Skipping breakfast flies in the face of everything my mother taught me.",
+      "example_discussion": "These results fly in the face of conventional wisdom about diet.",
+      "usage_note": "Neutral. Means contradict something accepted. Irregular: flew."
     },
     {
       "id": "v_colloc_go_hand_in_hand_with",
@@ -2080,7 +2257,11 @@
       "word_family": [],
       "synonyms": ["accompany", "be linked with"],
       "register": "neutral",
-      "ipa": "/ɡoʊ hænd ɪn hænd wɪð/"
+      "ipa": "/ɡoʊ hænd ɪn hænd wɪð/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "For me, creativity goes hand in hand with a bit of chaos.",
+      "example_discussion": "Better pay should go hand in hand with better training, as Mia argues.",
+      "usage_note": "Neutral. Means occur together. Not \"go hand by hand\"."
     },
     {
       "id": "v_colloc_open_to_question",
@@ -2098,7 +2279,11 @@
       "word_family": [],
       "synonyms": ["debatable", "questionable", "uncertain"],
       "register": "formal",
-      "ipa": "/ˈoʊpən tə ˈkwɛstʃən/"
+      "ipa": "/ˈoʊpən tə ˈkwɛstʃən/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "Whether that was the right choice is still open to question.",
+      "example_discussion": "Whether online classes are as effective as in-person ones is still open to question.",
+      "usage_note": "Formal. Means uncertain or debatable."
     },
     {
       "id": "v_colloc_in_the_face_of",
@@ -2116,7 +2301,11 @@
       "word_family": [],
       "synonyms": ["despite", "in spite of", "when confronted with"],
       "register": "formal",
-      "ipa": "/ɪn ðə feɪs ʌv/"
+      "ipa": "/ɪn ðə feɪs ʌv/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "My parents stayed calm in the face of some serious difficulties.",
+      "example_discussion": "Small farms have survived in the face of strong competition, which supports Lena's point.",
+      "usage_note": "Formal. Means despite or when confronted with."
     },
     {
       "id": "v_colloc_err_on_the_side_of_caution",
@@ -2134,7 +2323,11 @@
       "word_family": [],
       "synonyms": ["play it safe", "be careful"],
       "register": "neutral",
-      "ipa": "/ɜːr ɑːn ðə saɪd ʌv ˈkɔːʃən/"
+      "ipa": "/ɜːr ɑːn ðə saɪd ʌv ˈkɔːʃən/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "I always err on the side of caution and arrive early for interviews.",
+      "example_discussion": "With children's data, schools should err on the side of caution, as Daniel suggests.",
+      "usage_note": "Neutral. Pronounced /ɜːr/, like \"her\". Not \"make an error on the side\"."
     },
     {
       "id": "v_colloc_to_all_intents_and_purposes",
@@ -2152,7 +2345,11 @@
       "word_family": [],
       "synonyms": ["virtually", "effectively", "in practice"],
       "register": "formal",
-      "ipa": "/tu ɔːl ɪnˈtɛnts ænd ˈpɜːrpəsəz/"
+      "ipa": "/tu ɔːl ɪnˈtɛnts ænd ˈpɜːrpəsəz/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "To all intents and purposes, my brother runs the family business now.",
+      "example_discussion": "If the fee is that high, the course is, to all intents and purposes, closed to poorer students.",
+      "usage_note": "Formal. American English also uses \"for all intents and purposes\". Never \"to all intensive purposes\"."
     },
     {
       "id": "v_colloc_at_odds_with",
@@ -2170,7 +2367,672 @@
       "word_family": [],
       "synonyms": ["inconsistent with", "in conflict with", "contrary to"],
       "register": "formal",
-      "ipa": "/æt ɑːdz wɪð/"
+      "ipa": "/æt ɑːdz wɪð/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "A job with no free weekends would be at odds with my priorities right now.",
+      "example_discussion": "Daniel's proposal is at odds with the goal he himself sets out in his first sentence.",
+      "usage_note": "Neutral. Means in disagreement or inconsistent with."
+    },
+    {
+      "id": "v_colloc_compelling_argument",
+      "headword": "compelling argument",
+      "kind": "collocation",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "academic_collocations",
+      "definition": "a reason or set of reasons so strong that it is difficult to disagree",
+      "translation_fr": "argument convaincant",
+      "example_academic": "The authors make a compelling argument for regulating the industry.",
+      "example_spoken": "That's a pretty compelling argument for leaving early.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["persuasive argument", "convincing case"],
+      "register": "formal",
+      "ipa": "/kəmˈpɛlɪŋ ˈɑːrɡjəmənt/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "My manager made a compelling argument for staying, so I postponed my move.",
+      "example_discussion": "Lena makes a compelling argument, but she relies on a single example.",
+      "usage_note": "Formal. \"Make a compelling argument/case for\". French speakers often say \"a convincing argument\", which is fine but weaker."
+    },
+    {
+      "id": "v_colloc_draw_a_distinction",
+      "headword": "draw a distinction",
+      "kind": "collocation",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "academic_collocations",
+      "definition": "to explain or show that two similar things are different",
+      "translation_fr": "établir une distinction",
+      "example_academic": "The author draws a clear distinction between equality and equity.",
+      "example_spoken": "You have to draw a distinction between being tired and being lazy.",
+      "collocations": [],
+      "word_family": [],
+      "inflections": ["drew", "drawn"],
+      "synonyms": ["distinguish", "differentiate"],
+      "register": "formal",
+      "ipa": "/drɔː ə dɪˈstɪŋkʃən/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "I always draw a distinction between friends and colleagues, even when I like my colleagues.",
+      "example_discussion": "We need to draw a distinction between short-term costs and long-term benefits.",
+      "usage_note": "Formal. \"Draw a distinction between X and Y\". \"Make a distinction\" is also correct. Not \"do a distinction\". Irregular: drew, drawn."
+    },
+    {
+      "id": "v_colloc_tenuous_link",
+      "headword": "tenuous link",
+      "kind": "collocation",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "academic_collocations",
+      "definition": "a connection that is very weak or hard to prove",
+      "translation_fr": "lien ténu",
+      "example_academic": "The report suggests only a tenuous link between diet and the disease.",
+      "example_spoken": "That's a pretty tenuous link, if you ask me.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["weak connection", "slight link"],
+      "register": "formal",
+      "ipa": "/ˈtɛnjuəs lɪŋk/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "There's only a tenuous link between my degree and my first job, but the skills transferred.",
+      "example_discussion": "Jonah draws only a tenuous link between phones and grades, since other factors are ignored.",
+      "usage_note": "Formal. Also \"tenuous connection/evidence\". French \"ténu\" exists but is rarely translated this way by learners."
+    },
+    {
+      "id": "v_colloc_flawed_premise",
+      "headword": "flawed premise",
+      "kind": "collocation",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "academic_collocations",
+      "definition": "an idea used as the starting point of an argument that is wrong or weak",
+      "translation_fr": "prémisse erronée",
+      "example_academic": "The model rests on a flawed premise about how consumers behave.",
+      "example_spoken": "The whole plan starts from a flawed premise.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["false assumption", "faulty starting point"],
+      "register": "formal",
+      "ipa": "/flɔːd ˈprɛmɪs/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "My first business idea was built on a flawed premise: I assumed students had money to spend.",
+      "example_discussion": "The proposal rests on a flawed premise, namely that all families own a computer.",
+      "usage_note": "Formal. \"Premise\" is pronounced /ˈprɛmɪs/. Also \"a false premise\"."
+    },
+    {
+      "id": "v_colloc_acrimonious_debate",
+      "headword": "acrimonious debate",
+      "kind": "collocation",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "academic_collocations",
+      "definition": "a discussion in which people disagree angrily and bitterly",
+      "translation_fr": "débat houleux, débat acrimonieux",
+      "example_academic": "The reform followed an acrimonious debate in parliament.",
+      "example_spoken": "We had a pretty acrimonious debate about chores.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["bitter dispute", "heated argument"],
+      "register": "formal",
+      "ipa": "/ˌækrɪˈmoʊniəs dɪˈbeɪt/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "There was an acrimonious debate in my family about where to spend the holidays.",
+      "example_discussion": "An acrimonious debate rarely changes minds, which is why Mia's compromise matters.",
+      "usage_note": "Formal. Stronger than \"heated debate\". Also \"acrimonious divorce/dispute\"."
+    },
+    {
+      "id": "v_colloc_slender_majority",
+      "headword": "slender majority",
+      "kind": "collocation",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "academic_collocations",
+      "definition": "a majority that is very small",
+      "translation_fr": "faible majorité, courte majorité",
+      "example_academic": "The measure passed by a slender majority of three votes.",
+      "example_spoken": "They only won by a slender majority.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["narrow majority", "thin margin"],
+      "register": "formal",
+      "ipa": "/ˈslɛndər məˈdʒɔːrəti/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "Our student council elected me by a slender majority, so I felt I had to listen to everyone.",
+      "example_discussion": "A policy adopted by a slender majority needs broad consultation to last.",
+      "usage_note": "Formal. \"Narrow majority\" is more common; \"slender\" sounds more precise and written."
+    },
+    {
+      "id": "v_colloc_groundswell_of_support",
+      "headword": "groundswell of support",
+      "kind": "collocation",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "academic_collocations",
+      "definition": "a sudden increase in public support for something",
+      "translation_fr": "vague de soutien",
+      "example_academic": "The campaign benefited from a groundswell of support among young voters.",
+      "example_spoken": "There's been a real groundswell of support for the new park.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["wave of support", "surge of support"],
+      "register": "formal",
+      "ipa": "/ˈɡraʊndswɛl ʌv səˈpɔːrt/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "Our petition for longer library hours got a groundswell of support in just a week.",
+      "example_discussion": "Without a groundswell of support from parents, the reform is unlikely to succeed.",
+      "usage_note": "Formal. Also \"groundswell of opinion/opposition\"."
+    },
+    {
+      "id": "v_colloc_allay_fears",
+      "headword": "allay fears",
+      "kind": "collocation",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "academic_collocations",
+      "definition": "to make people feel less worried about something",
+      "translation_fr": "apaiser les craintes",
+      "example_academic": "The minister tried to allay fears about the safety of the vaccine.",
+      "example_spoken": "I called my parents to allay their fears.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["calm fears", "reassure"],
+      "register": "formal",
+      "ipa": "/əˈleɪ fɪrz/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "I sent my parents daily photos during my first month abroad to allay their fears.",
+      "example_discussion": "Clear information would allay fears about the new transport plan.",
+      "usage_note": "Formal. Also \"allay concerns/doubts\". Not \"ally\", a different word."
+    },
+    {
+      "id": "v_colloc_harbor_doubts",
+      "headword": "harbor doubts",
+      "kind": "collocation",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "academic_collocations",
+      "definition": "to keep doubts in your mind for a long time",
+      "translation_fr": "nourrir des doutes",
+      "example_academic": "Many economists harbor doubts about the forecast.",
+      "example_spoken": "I still harbor doubts about his plan.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["have misgivings", "have reservations"],
+      "register": "formal",
+      "ipa": "/ˈhɑːrbər daʊts/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "I harbored doubts about studying abroad, but they disappeared after the first week.",
+      "example_discussion": "Many teachers harbor doubts about the new curriculum, as Kim points out.",
+      "usage_note": "Formal. British spelling \"harbour\". Also \"harbor a grudge/suspicion\"."
+    },
+    {
+      "id": "v_colloc_stoke_fears",
+      "headword": "stoke fears",
+      "kind": "collocation",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "academic_collocations",
+      "definition": "to make people more afraid or worried",
+      "translation_fr": "attiser les craintes",
+      "example_academic": "Rumors of job cuts stoked fears among the staff.",
+      "example_spoken": "Those headlines just stoke fears.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["fuel fears", "inflame fears"],
+      "register": "formal",
+      "ipa": "/stoʊk fɪrz/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "Some news channels stoke fears about cities, but I've always felt safe here.",
+      "example_discussion": "Exaggerated statistics only stoke fears instead of informing the debate.",
+      "usage_note": "Neutral. Opposite of \"allay fears\". Also \"stoke tensions/anger\"."
+    },
+    {
+      "id": "v_colloc_fuel_speculation",
+      "headword": "fuel speculation",
+      "kind": "collocation",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "academic_collocations",
+      "definition": "to cause people to make more guesses about something",
+      "translation_fr": "alimenter les spéculations",
+      "example_academic": "His sudden resignation fueled speculation about a merger.",
+      "example_spoken": "Her silence just fueled speculation.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["spark rumors", "encourage guesswork"],
+      "register": "neutral",
+      "ipa": "/ˈfjuːəl ˌspɛkjəˈleɪʃən/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "My long absence from social media fueled speculation among my friends that I'd moved.",
+      "example_discussion": "Delaying the report will only fuel speculation that the results are bad.",
+      "usage_note": "Neutral. British spelling \"fuelled\". Also \"fuel concerns/debate\"."
+    },
+    {
+      "id": "v_colloc_flagrant_breach",
+      "headword": "flagrant breach",
+      "kind": "collocation",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "academic_collocations",
+      "definition": "a very obvious and serious violation of a rule or law",
+      "translation_fr": "violation flagrante",
+      "example_academic": "The decision was a flagrant breach of international law.",
+      "example_spoken": "That's a flagrant breach of the rules.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["blatant violation", "clear infringement"],
+      "register": "formal",
+      "ipa": "/ˈfleɪɡrənt briːtʃ/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "Copying a classmate's work would be a flagrant breach of trust, and I'd never do it.",
+      "example_discussion": "Sharing students' data without consent would be a flagrant breach of privacy.",
+      "usage_note": "Formal. \"Flagrant\" is transparent; the collocation with \"breach\" is the useful part. Not \"flagrant violation of a promise\"."
+    },
+    {
+      "id": "v_colloc_token_gesture",
+      "headword": "token gesture",
+      "kind": "collocation",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "academic_collocations",
+      "definition": "a small action done to show support, but not enough to make a real difference",
+      "translation_fr": "geste symbolique",
+      "example_academic": "The small grant was seen as a token gesture by local farmers.",
+      "example_spoken": "Planting one tree is just a token gesture.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["symbolic act", "empty gesture"],
+      "register": "neutral",
+      "ipa": "/ˈtoʊkən ˈdʒɛstʃər/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "Our company's green week felt like a token gesture, so I suggested real changes.",
+      "example_discussion": "A single meat-free day would be a token gesture unless it changes long-term habits.",
+      "usage_note": "Neutral, critical. \"Token\" = symbolic, insufficient. Different from \"goodwill gesture\" (positive)."
+    },
+    {
+      "id": "v_colloc_unfounded_allegation",
+      "headword": "unfounded allegation",
+      "kind": "collocation",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "academic_collocations",
+      "definition": "a claim that someone did something wrong, with no evidence to support it",
+      "translation_fr": "allégation sans fondement",
+      "example_academic": "The minister dismissed the report as an unfounded allegation.",
+      "example_spoken": "That's an unfounded allegation, and you know it.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["baseless claim", "groundless accusation"],
+      "register": "formal",
+      "ipa": "/ʌnˈfaʊndɪd ˌæləˈɡeɪʃən/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "When someone made an unfounded allegation against my team, we answered with facts.",
+      "example_discussion": "Calling the study biased is an unfounded allegation unless Daniel shows evidence.",
+      "usage_note": "Formal. Also \"unfounded claim/fears\". \"Allegation\" has four syllables."
+    },
+    {
+      "id": "v_colloc_inherent_tension",
+      "headword": "inherent tension",
+      "kind": "collocation",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "academic_collocations",
+      "definition": "a conflict that is a natural part of a situation and cannot be avoided",
+      "translation_fr": "tension inhérente",
+      "example_academic": "There is an inherent tension between privacy and security.",
+      "example_spoken": "There's an inherent tension in being a student and an employee.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["built-in conflict", "intrinsic tension"],
+      "register": "formal",
+      "ipa": "/ɪnˈhɪrənt ˈtɛnʃən/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "There's an inherent tension between studying full time and working, and I manage it with strict planning.",
+      "example_discussion": "Mia's plan contains an inherent tension between giving schools freedom and holding them accountable.",
+      "usage_note": "Formal. \"An inherent tension between X and Y\"."
+    },
+    {
+      "id": "v_colloc_raise_the_bar",
+      "headword": "raise the bar",
+      "kind": "idiom",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "academic_collocations",
+      "definition": "to set a higher standard that others must reach",
+      "translation_fr": "placer la barre plus haut",
+      "example_academic": "The new regulations raise the bar for safety in the industry.",
+      "example_spoken": "Her performance has really raised the bar.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["set a higher standard"],
+      "register": "neutral",
+      "ipa": "/reɪz ðə bɑːr/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "My last internship raised the bar for what I expect from an employer.",
+      "example_discussion": "Stricter rules would raise the bar for every school, not only the weakest ones.",
+      "usage_note": "Neutral, idiomatic. Same image as \"placer la barre plus haut\". Opposite: \"lower the bar\"."
+    },
+    {
+      "id": "v_colloc_set_a_precedent",
+      "headword": "set a precedent",
+      "kind": "collocation",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "academic_collocations",
+      "definition": "to do something that can be used later as an example or justification",
+      "translation_fr": "créer un précédent",
+      "example_academic": "The ruling set a precedent for similar cases.",
+      "example_spoken": "If we let him skip, it sets a precedent.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["establish a precedent"],
+      "register": "formal",
+      "ipa": "/sɛt ə ˈprɛsɪdənt/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "When I asked for flexible hours, my manager worried it would set a precedent.",
+      "example_discussion": "Exempting one school would set a precedent that others would soon follow.",
+      "usage_note": "Formal. \"Precedent\" is stressed on the first syllable. Not \"make a precedent\"."
+    },
+    {
+      "id": "v_colloc_voice_an_objection",
+      "headword": "voice an objection",
+      "kind": "collocation",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "academic_collocations",
+      "definition": "to express disagreement formally or openly",
+      "translation_fr": "exprimer une objection",
+      "example_academic": "Several members voiced an objection to the new rules.",
+      "example_spoken": "I voiced my objection, but nobody listened.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["raise an objection", "object"],
+      "register": "formal",
+      "ipa": "/vɔɪs ən əbˈdʒɛkʃən/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "In meetings, I try to voice an objection politely rather than staying silent.",
+      "example_discussion": "I would like to voice an objection to the idea that tests measure intelligence.",
+      "usage_note": "Formal. Also \"voice concerns/support\". Not \"say an objection\"."
+    },
+    {
+      "id": "v_colloc_weigh_the_evidence",
+      "headword": "weigh the evidence",
+      "kind": "collocation",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "academic_collocations",
+      "definition": "to consider all the facts carefully before deciding",
+      "translation_fr": "peser les éléments",
+      "example_academic": "Jurors must weigh the evidence before reaching a verdict.",
+      "example_spoken": "Let's weigh the evidence before we decide.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["assess the evidence", "consider the facts"],
+      "register": "formal",
+      "ipa": "/weɪ ði ˈɛvɪdəns/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "Before changing majors, I weighed the evidence carefully, including job prospects.",
+      "example_discussion": "If we weigh the evidence fairly, the second option seems more realistic.",
+      "usage_note": "Neutral. \"Evidence\" is uncountable: never \"evidences\"."
+    },
+    {
+      "id": "v_colloc_reach_a_verdict",
+      "headword": "reach a verdict",
+      "kind": "collocation",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "academic_collocations",
+      "definition": "to come to a final decision after careful consideration, especially in a court",
+      "translation_fr": "rendre un verdict, parvenir à un verdict",
+      "example_academic": "The jury reached a verdict after three days.",
+      "example_spoken": "Have you reached a verdict on the new phone?",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["come to a decision"],
+      "register": "formal",
+      "ipa": "/riːtʃ ə ˈvɜːrdɪkt/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "After testing both laptops for a week, I reached a verdict: lighter is better.",
+      "example_discussion": "It is too early to reach a verdict on the policy after only one year.",
+      "usage_note": "Formal. Also figurative. Not \"give a verdict\" for juries in English (judges deliver the sentence)."
+    },
+    {
+      "id": "v_colloc_incur_costs",
+      "headword": "incur costs",
+      "kind": "collocation",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "academic_collocations",
+      "definition": "to have to pay costs as a result of an action",
+      "translation_fr": "engager des frais, supporter des coûts",
+      "example_academic": "Firms that delay compliance may incur substantial costs.",
+      "example_spoken": "You'll incur extra costs if you cancel late.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["bear costs", "run up costs"],
+      "register": "formal",
+      "ipa": "/ɪnˈkɜːr kɑːsts/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "I incurred some unexpected costs when I moved, so I took a weekend job.",
+      "example_discussion": "Cities that delay maintenance incur far higher costs later.",
+      "usage_note": "Formal. Also \"incur debt/a penalty/losses\". Past: \"incurred\", double r."
+    },
+    {
+      "id": "v_colloc_yield_results",
+      "headword": "yield results",
+      "kind": "collocation",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "academic_collocations",
+      "definition": "to produce results, especially after effort or time",
+      "translation_fr": "donner des résultats, porter ses fruits",
+      "example_academic": "The new treatment has yet to yield results in larger trials.",
+      "example_spoken": "All that practice is finally yielding results.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["produce results", "pay off"],
+      "register": "formal",
+      "ipa": "/jiːld rɪˈzʌlts/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "My new study routine started to yield results after a month.",
+      "example_discussion": "Short campaigns rarely yield lasting results without follow-up.",
+      "usage_note": "Formal. Also \"yield benefits/insights\". Not \"give results\" in formal writing."
+    },
+    {
+      "id": "v_colloc_exert_pressure",
+      "headword": "exert pressure",
+      "kind": "collocation",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "academic_collocations",
+      "definition": "to use influence to try to make someone do something",
+      "translation_fr": "exercer une pression",
+      "example_academic": "Lobby groups exert pressure on lawmakers throughout the year.",
+      "example_spoken": "My parents never exerted pressure on me to study medicine.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["put pressure on", "push"],
+      "register": "formal",
+      "ipa": "/ɪɡˈzɜːrt ˈprɛʃər/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "My coach exerted a lot of pressure on us, but it made us better.",
+      "example_discussion": "Parents can exert pressure on schools, which is not always a bad thing.",
+      "usage_note": "Formal. \"Exert pressure on someone\". \"Put pressure on\" is the neutral equivalent."
+    },
+    {
+      "id": "v_colloc_curb_emissions",
+      "headword": "curb emissions",
+      "kind": "collocation",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "academic_collocations",
+      "definition": "to limit or reduce the amount of gas or pollution released",
+      "translation_fr": "réduire les émissions, limiter les émissions",
+      "example_academic": "The treaty aims to curb emissions from shipping.",
+      "example_spoken": "They want to curb emissions without hurting jobs.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["cut emissions", "limit emissions"],
+      "register": "formal",
+      "ipa": "/kɜːrb ɪˈmɪʃənz/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "I cycle to work partly to curb my own emissions, though it's a small step.",
+      "example_discussion": "Taxes alone will not curb emissions unless clean alternatives are affordable.",
+      "usage_note": "Neutral. \"Curb\" = restrain. Also \"curb spending/inflation\"."
+    },
+    {
+      "id": "v_colloc_spark_a_backlash",
+      "headword": "spark a backlash",
+      "kind": "collocation",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "academic_collocations",
+      "definition": "to cause a strong negative reaction from many people",
+      "translation_fr": "provoquer une levée de boucliers",
+      "example_academic": "The fee increase sparked a backlash among students.",
+      "example_spoken": "That ad sparked a huge backlash online.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["provoke an outcry", "trigger opposition"],
+      "register": "neutral",
+      "ipa": "/spɑːrk ə ˈbæklæʃ/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "When my school changed the uniform rules, it sparked a backlash among students.",
+      "example_discussion": "A sudden ban could spark a backlash that undermines the whole policy.",
+      "usage_note": "Neutral. Also \"provoke a backlash\". \"Backlash against something\"."
+    },
+    {
+      "id": "v_colloc_challenge_an_assumption",
+      "headword": "challenge an assumption",
+      "kind": "collocation",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "academic_collocations",
+      "definition": "to question whether a belief that people take for granted is true",
+      "translation_fr": "remettre en cause une hypothèse, un présupposé",
+      "example_academic": "The study challenges the assumption that older workers adapt slowly.",
+      "example_spoken": "I like teachers who challenge my assumptions.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["question a belief"],
+      "register": "formal",
+      "ipa": "/ˈtʃælɪndʒ ən əˈsʌmpʃən/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "Living abroad challenged my assumption that my way of doing things was normal.",
+      "example_discussion": "Mia challenges the assumption that competition always improves quality.",
+      "usage_note": "Neutral. French speakers sometimes use \"challenge\" to mean \"défi\" only; here it means question."
+    },
+    {
+      "id": "v_colloc_stark_warning",
+      "headword": "stark warning",
+      "kind": "collocation",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "academic_collocations",
+      "definition": "a very clear and serious warning about danger",
+      "translation_fr": "avertissement sévère, mise en garde sans détour",
+      "example_academic": "The report issued a stark warning about rising sea levels.",
+      "example_spoken": "The doctor gave me a stark warning about my diet.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["grim warning", "dire warning"],
+      "register": "formal",
+      "ipa": "/stɑːrk ˈwɔːrnɪŋ/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "My first exam result was a stark warning that I needed to change my habits.",
+      "example_discussion": "The figures are a stark warning to cities that still rely on cars.",
+      "usage_note": "Formal. \"Stark\" = harsh and plain. Also \"stark contrast/choice\"."
+    },
+    {
+      "id": "v_colloc_make_a_concession",
+      "headword": "make a concession",
+      "kind": "collocation",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "academic_collocations",
+      "definition": "to agree to something you did not want, in order to reach an agreement",
+      "translation_fr": "faire une concession",
+      "example_academic": "The union made a concession on working hours.",
+      "example_spoken": "I made a concession and let him pick the restaurant.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["compromise", "give ground"],
+      "register": "neutral",
+      "ipa": "/meɪk ə kənˈsɛʃən/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "In group projects, I'm willing to make a concession if it keeps the team together.",
+      "example_discussion": "Both sides would need to make a concession for the plan to work.",
+      "usage_note": "Neutral. \"Make concessions to someone\". Not \"do a concession\". Irregular: made."
+    },
+    {
+      "id": "v_colloc_cut_throat_competition",
+      "headword": "cut-throat competition",
+      "kind": "collocation",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "academic_collocations",
+      "definition": "competition that is extremely fierce and ruthless",
+      "translation_fr": "concurrence acharnée, concurrence féroce",
+      "example_academic": "Cut-throat competition has driven many small airlines out of business.",
+      "example_spoken": "There's cut-throat competition for internships in this city.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["fierce competition", "intense rivalry"],
+      "register": "informal",
+      "ipa": "/ˈkʌtˌθroʊt ˌkɑːmpəˈtɪʃən/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "There's cut-throat competition for places in my program, so I had to stand out.",
+      "example_discussion": "Cut-throat competition between schools may push them to focus only on test scores.",
+      "usage_note": "Informal to neutral. Also spelled \"cutthroat\". Stronger than \"fierce competition\"."
+    },
+    {
+      "id": "v_colloc_dismiss_out_of_hand",
+      "headword": "dismiss out of hand",
+      "kind": "idiom",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "academic_collocations",
+      "definition": "to reject an idea immediately, without considering it seriously",
+      "translation_fr": "rejeter d'emblée",
+      "example_academic": "The committee dismissed the proposal out of hand.",
+      "example_spoken": "Don't dismiss the idea out of hand.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["reject outright", "brush aside"],
+      "register": "neutral",
+      "ipa": "/dɪsˈmɪs aʊt ʌv hænd/",
+      "tags": ["c2_productive_1", "precise_collocations"],
+      "example_interview": "I used to dismiss online courses out of hand, but now I take one every summer.",
+      "example_discussion": "We should not dismiss Kim's suggestion out of hand just because it is unusual.",
+      "usage_note": "Neutral. The object goes between the verb and \"out of hand\". Not \"out of the hand\"."
     }
   ]
 }

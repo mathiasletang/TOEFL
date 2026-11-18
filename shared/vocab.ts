@@ -109,6 +109,14 @@ export const VocabEntrySchema = z.object({
   ipa: z.string().regex(/^\/[^/]+\/$/, "IPA must be written between slashes"),
   false_friend_fr: z.object({ trap: text, correct: text }).optional(),
   spelling_trap: text.optional(),
+  /** Batch and sub-theme labels, e.g. ["c2_productive_1", "hedging_stance"]. */
+  tags: z.array(z.string().regex(/^[a-z0-9_]+$/)).default([]),
+  /** Productive batch: an answer as it could be said in Take an Interview. */
+  example_interview: text.optional(),
+  /** Productive batch: a sentence as it could be written in an Academic Discussion post. */
+  example_discussion: text.optional(),
+  /** Register, and the typical mistake of a French speaker when there is one. */
+  usage_note: text.optional(),
 });
 export type VocabEntry = z.infer<typeof VocabEntrySchema>;
 
@@ -347,6 +355,8 @@ const FRENCH_HINT = /[a-zàâçéèêëîïôûùüÿœ]/i;
 export interface VocabValidationOptions {
   disciplineCategories?: string[];
   transparencyThreshold?: number;
+  /** Entries tagged with `batch` need a sub-theme from `themes` and the interview, discussion and usage fields. */
+  productive?: { batch: string; themes: string[] };
 }
 
 export function validateVocab(raw: Array<{ data: unknown; file?: string; category?: VocabCategory }>, opts: VocabValidationOptions = {}): VocabReport {
@@ -402,6 +412,22 @@ export function validateVocab(raw: Array<{ data: unknown; file?: string; categor
     if (e.synonyms.some((s) => s.toLowerCase() === e.headword.toLowerCase())) err("a synonym repeats the headword");
     if (e.word_family.some((f) => f.form.toLowerCase() === e.headword.toLowerCase() && f.pos === e.pos)) err("word family repeats the headword itself");
 
+    // Productive batch: sub-theme tag, an Interview answer, an Academic Discussion sentence and a usage note.
+    if (opts.productive && e.tags.includes(opts.productive.batch)) {
+      const themes = e.tags.filter((t) => opts.productive!.themes.includes(t));
+      if (themes.length !== 1) err(`batch entries need exactly one sub-theme tag (${opts.productive.themes.join(", ")})`);
+      if (e.tier !== "mastery") err("batch entries belong to the mastery tier");
+      for (const [name, ex] of [["interview", e.example_interview], ["discussion", e.example_discussion]] as const) {
+        if (!ex) err(`batch entries need example_${name}`);
+        else {
+          if (!exampleUsesEntry(ex, e)) err(`${name} example does not contain "${e.headword}" or a declared form`);
+          const n = tokenize(ex).length;
+          if (n < 6) err(`${name} example is too short (${n} words)`);
+          if (n > 45) warn(`${name} example is long (${n} words)`);
+        }
+      }
+      if (!e.usage_note) err("batch entries need a usage_note");
+    }
     if (e.category === "false_friends_fr" && !e.false_friend_fr) err("false_friends_fr entries need `false_friend_fr`");
     if (e.category === "spelling_traps" && !e.spelling_trap) err("spelling_traps entries need `spelling_trap`");
 
@@ -416,6 +442,17 @@ export function validateVocab(raw: Array<{ data: unknown; file?: string; categor
       ids.set(e.id, file);
       heads.set(key, e.id);
       entries.push(e);
+    }
+  }
+  // No headword may be an inflected form of another headword with the same part of speech
+  // ("underscores" next to "underscore"): it would be the same card twice.
+  const singles = new Map(entries.filter((e) => e.kind === "word").map((e) => [`${e.headword.toLowerCase()}|${e.pos}`, e]));
+  for (const e of singles.values()) {
+    const head = e.headword.toLowerCase();
+    for (const f of new Set([...inflectionsOf(head), ...e.inflections.map((x) => x.toLowerCase())])) {
+      if (f === head) continue;
+      const other = singles.get(`${f}|${e.pos}`);
+      if (other) errors.push({ id: other.id, level: "error", message: `"${other.headword}" is an inflected form of "${e.headword}" (${e.id}): duplicate entry` });
     }
   }
   return { entries, errors, warnings };

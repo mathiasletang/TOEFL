@@ -49,7 +49,7 @@ export function readVocab(dir = VOCAB_DIR): LoadedVocab {
     packs.push({ ...p, file: f, ids });
   }
   const v = CONFIG.internal.vocabulary;
-  return { ...validateVocab(raw, { disciplineCategories: v.discipline_categories, transparencyThreshold: v.transparency.threshold }), packs, fileErrors };
+  return { ...validateVocab(raw, { disciplineCategories: v.discipline_categories, transparencyThreshold: v.transparency.threshold, productive: { batch: v.productive.batch, themes: Object.keys(v.productive.themes) } }), packs, fileErrors };
 }
 
 export function syncVocab(db: DB, loaded: LoadedVocab = readVocab()): LoadedVocab {

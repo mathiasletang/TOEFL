@@ -1924,7 +1924,11 @@
       "word_family": [],
       "synonyms": ["apparently", "ostensibly", "on the surface"],
       "register": "neutral",
-      "ipa": "/ˈsiːmɪŋli/"
+      "ipa": "/ˈsiːmɪŋli/",
+      "tags": ["c2_productive_1", "hedging_stance"],
+      "example_interview": "It was a seemingly simple job, but it taught me more about patience than anything else.",
+      "example_discussion": "Seemingly minor rules, like dress codes, can shape how students feel about school.",
+      "usage_note": "Neutral. Signals a contrast between appearance and reality. Place it before the adjective: \"a seemingly simple task\"."
     },
     {
       "id": "v_func_it_would_appear_that",
@@ -1943,7 +1947,11 @@
       "word_family": [],
       "synonyms": ["it seems that", "apparently"],
       "register": "formal",
-      "ipa": "/ɪt wʊd əˈpɪr ðæt/"
+      "ipa": "/ɪt wʊd əˈpɪr ðæt/",
+      "tags": ["c2_productive_1", "hedging_stance"],
+      "example_interview": "From what my friends tell me, it would appear that the new schedule suits most people.",
+      "example_discussion": "It would appear that the policy reduced traffic, although the data cover only one year.",
+      "usage_note": "Formal. Softer than \"it seems that\". French speakers often write \"it would seem as though that\", mixing two structures."
     },
     {
       "id": "v_func_there_is_some_evidence_to_suggest_that",
@@ -1962,7 +1970,11 @@
       "word_family": [],
       "synonyms": ["research suggests that", "it appears that"],
       "register": "formal",
-      "ipa": "/ðɛr ɪz sʌm ˈɛvədəns tə səˈdʒɛst ðæt/"
+      "ipa": "/ðɛr ɪz sʌm ˈɛvədəns tə səˈdʒɛst ðæt/",
+      "tags": ["c2_productive_1", "hedging_stance"],
+      "example_interview": "There is some evidence to suggest that music helps concentration, so I study with headphones on.",
+      "example_discussion": "There is some evidence to suggest that later school start times improve grades, which supports Kim.",
+      "usage_note": "Formal. A safe way to cite research without overstating it. Do not add \"a\": \"there is some evidence\", never \"an evidence\"."
     },
     {
       "id": "v_func_it_is_not_inconceivable_that",
@@ -1981,7 +1993,11 @@
       "word_family": [],
       "synonyms": ["it is possible that", "it cannot be ruled out that"],
       "register": "formal",
-      "ipa": "/ɪt ɪz nɑːt ˌɪnkənˈsiːvəbəl ðæt/"
+      "ipa": "/ɪt ɪz nɑːt ˌɪnkənˈsiːvəbəl ðæt/",
+      "tags": ["c2_productive_1", "hedging_stance"],
+      "example_interview": "It is not inconceivable that I'll end up teaching, even if it isn't my plan right now.",
+      "example_discussion": "It is not inconceivable that remote work will reverse the growth of large cities.",
+      "usage_note": "Formal. Double negative = a cautious \"it is possible\". Useful to introduce a bold idea without claiming too much."
     },
     {
       "id": "v_func_one_might_argue_that",
@@ -2000,7 +2016,11 @@
       "word_family": [],
       "synonyms": ["it could be said that", "some would say that"],
       "register": "formal",
-      "ipa": "/wʌn maɪt ˈɑːrɡjuː ðæt/"
+      "ipa": "/wʌn maɪt ˈɑːrɡjuː ðæt/",
+      "tags": ["c2_productive_1", "hedging_stance"],
+      "example_interview": "One might argue that I spend too much time on sport, but it keeps me focused.",
+      "example_discussion": "One might argue that the ban is unfair to responsible users, yet the risks are real.",
+      "usage_note": "Formal. Introduces a view you may or may not share. In speech, \"some people would say\" is more natural."
     },
     {
       "id": "v_func_to_a_certain_degree",
@@ -2019,7 +2039,11 @@
       "word_family": [],
       "synonyms": ["partly", "to some extent", "in part"],
       "register": "neutral",
-      "ipa": "/tə ə ˈsɜːrtən dɪˈɡriː/"
+      "ipa": "/tə ə ˈsɜːrtən dɪˈɡriː/",
+      "tags": ["c2_productive_1", "hedging_stance"],
+      "example_interview": "I agree with that to a certain degree, but my own experience was a bit different.",
+      "example_discussion": "To a certain degree, Lena is right: price matters, but so does convenience.",
+      "usage_note": "Neutral. Same as \"to some extent\". French speakers often write \"in a certain degree\", which is wrong."
     },
     {
       "id": "v_func_in_some_respects",
@@ -2038,7 +2062,11 @@
       "word_family": [],
       "synonyms": ["in certain ways", "partly"],
       "register": "neutral",
-      "ipa": "/ɪn sʌm rɪˈspɛkts/"
+      "ipa": "/ɪn sʌm rɪˈspɛkts/",
+      "tags": ["c2_productive_1", "hedging_stance"],
+      "example_interview": "In some respects, living alone is easier, because I organize my day exactly as I want.",
+      "example_discussion": "In some respects, the two proposals are similar; both rely on volunteers.",
+      "usage_note": "Neutral. \"In some respects\", not \"in some aspects\". Plural \"respects\" is required."
     },
     {
       "id": "v_func_as_far_as_one_can_tell",
@@ -2057,7 +2085,11 @@
       "word_family": [],
       "synonyms": ["apparently", "it seems"],
       "register": "neutral",
-      "ipa": "/æz fɑːr æz wʌn kæn tɛl/"
+      "ipa": "/æz fɑːr æz wʌn kæn tɛl/",
+      "tags": ["c2_productive_1", "hedging_stance"],
+      "example_interview": "As far as one can tell from the reviews, the new café is worth a try.",
+      "example_discussion": "As far as one can tell from the available figures, the reform has not raised costs.",
+      "usage_note": "Formal. In speech, \"as far as I can tell\" is far more common. Not \"as far as one can say\"."
     },
     {
       "id": "v_func_it_remains_to_be_seen_whether",
@@ -2076,7 +2108,11 @@
       "word_family": [],
       "synonyms": ["it is unclear whether", "time will tell whether"],
       "register": "formal",
-      "ipa": "/ɪt rɪˈmeɪnz tə bi siːn ˈwɛðər/"
+      "ipa": "/ɪt rɪˈmeɪnz tə bi siːn ˈwɛðər/",
+      "tags": ["c2_productive_1", "hedging_stance"],
+      "example_interview": "It remains to be seen whether I'll get the internship, but I'm hopeful.",
+      "example_discussion": "It remains to be seen whether the new rules will change behavior or simply move the problem elsewhere.",
+      "usage_note": "Formal. Useful to end a balanced argument. Followed by \"whether\" or a question word, not \"if that\"."
     },
     {
       "id": "v_func_for_the_most_part",
@@ -2095,7 +2131,11 @@
       "word_family": [],
       "synonyms": ["mostly", "largely", "on the whole"],
       "register": "neutral",
-      "ipa": "/fɔːr ðə moʊst pɑːrt/"
+      "ipa": "/fɔːr ðə moʊst pɑːrt/",
+      "tags": ["c2_productive_1", "hedging_stance"],
+      "example_interview": "For the most part, my classmates were really welcoming when I arrived.",
+      "example_discussion": "For the most part, the evidence supports Daniel, although there are exceptions in rural areas.",
+      "usage_note": "Neutral. Not \"for the major part\" or \"for the most of part\", two common French-influenced errors."
     },
     {
       "id": "v_func_to_a_large_extent",
@@ -2114,7 +2154,11 @@
       "word_family": [],
       "synonyms": ["largely", "mainly", "in large part"],
       "register": "neutral",
-      "ipa": "/tə ə lɑːrdʒ ɪkˈstɛnt/"
+      "ipa": "/tə ə lɑːrdʒ ɪkˈstɛnt/",
+      "tags": ["c2_productive_1", "hedging_stance"],
+      "example_interview": "My choice of university was shaped to a large extent by my older sister.",
+      "example_discussion": "To a large extent, urban pollution is a transport problem rather than an industrial one.",
+      "usage_note": "Neutral. Not \"in a large extent\". Stronger than \"to some extent\", weaker than \"entirely\"."
     },
     {
       "id": "v_func_so_to_speak",
@@ -2133,7 +2177,11 @@
       "word_family": [],
       "synonyms": ["as it were", "in a manner of speaking"],
       "register": "neutral",
-      "ipa": "/soʊ tə spiːk/"
+      "ipa": "/soʊ tə spiːk/",
+      "tags": ["c2_productive_1", "hedging_stance"],
+      "example_interview": "I was the group's translator, so to speak, because I was the only one who spoke Spanish.",
+      "example_discussion": "Social media acts as a mirror, so to speak, reflecting what users already believe.",
+      "usage_note": "Neutral. Signals a figurative expression. Put it right after the image, not at the start of the sentence."
     },
     {
       "id": "v_func_in_a_sense",
@@ -2152,7 +2200,11 @@
       "word_family": [],
       "synonyms": ["in one way", "to some degree"],
       "register": "neutral",
-      "ipa": "/ɪn ə sɛns/"
+      "ipa": "/ɪn ə sɛns/",
+      "tags": ["c2_productive_1", "hedging_stance"],
+      "example_interview": "In a sense, moving abroad was my real education; I learned more outside class than in it.",
+      "example_discussion": "In a sense, both students are right, because they are talking about different time scales.",
+      "usage_note": "Neutral. Means \"from one point of view\". Not \"in a way of speaking\". Different from \"in the sense that…\"."
     },
     {
       "id": "v_func_it_is_fair_to_say_that",
@@ -2171,7 +2223,11 @@
       "word_family": [],
       "synonyms": ["it seems reasonable to say that", "arguably"],
       "register": "neutral",
-      "ipa": "/ɪt ɪz fɛr tə seɪ ðæt/"
+      "ipa": "/ɪt ɪz fɛr tə seɪ ðæt/",
+      "tags": ["c2_productive_1", "hedging_stance"],
+      "example_interview": "It is fair to say that my first semester was a steep learning curve.",
+      "example_discussion": "It is fair to say that the program has not reached the students who needed it most.",
+      "usage_note": "Neutral. Introduces a reasonable judgment. Do not write \"it is right to say\" in this sense."
     },
     {
       "id": "v_func_it_seems_plausible_that",
@@ -2190,7 +2246,11 @@
       "word_family": [],
       "synonyms": ["it is likely that", "it may well be that"],
       "register": "formal",
-      "ipa": "/ɪt siːmz ˈplɔːzəbəl ðæt/"
+      "ipa": "/ɪt siːmz ˈplɔːzəbəl ðæt/",
+      "tags": ["c2_productive_1", "hedging_stance"],
+      "example_interview": "It seems plausible that I'll stay in this city after graduating, given my job prospects.",
+      "example_discussion": "It seems plausible that cheaper fares would attract new passengers, but we need evidence.",
+      "usage_note": "Formal. \"Plausible\" = reasonable to believe, not \"possible\" in the sense of feasible."
     },
     {
       "id": "v_func_there_is_reason_to_believe_that",
@@ -2209,7 +2269,11 @@
       "word_family": [],
       "synonyms": ["it seems likely that", "evidence suggests that"],
       "register": "formal",
-      "ipa": "/ðɛr ɪz ˈriːzən tə bɪˈliːv ðæt/"
+      "ipa": "/ðɛr ɪz ˈriːzən tə bɪˈliːv ðæt/",
+      "tags": ["c2_productive_1", "hedging_stance"],
+      "example_interview": "There is reason to believe that our team will win this year; we've trained much harder.",
+      "example_discussion": "There is reason to believe that the decline will continue unless prices fall.",
+      "usage_note": "Formal. Not \"there are reasons to think that\" in academic writing, although that is understood."
     },
     {
       "id": "v_func_allegedly",
@@ -2228,7 +2292,11 @@
       "word_family": [{"form": "allege", "pos": "verb"}, {"form": "allegation", "pos": "noun"}],
       "synonyms": ["reportedly", "supposedly", "purportedly"],
       "register": "formal",
-      "ipa": "/əˈlɛdʒɪdli/"
+      "ipa": "/əˈlɛdʒɪdli/",
+      "tags": ["c2_productive_1", "hedging_stance"],
+      "example_interview": "My cousin allegedly met the president once, but nobody in the family believes him.",
+      "example_discussion": "The company allegedly ignored early warnings, which would explain the scale of the problem.",
+      "usage_note": "Neutral. Used to report a claim without endorsing it. Pronounced /əˈlɛdʒɪdli/, four syllables."
     },
     {
       "id": "v_func_reportedly",
@@ -2247,7 +2315,11 @@
       "word_family": [],
       "synonyms": ["allegedly", "apparently", "according to reports"],
       "register": "formal",
-      "ipa": "/rɪˈpɔːrtɪdli/"
+      "ipa": "/rɪˈpɔːrtɪdli/",
+      "tags": ["c2_productive_1", "hedging_stance"],
+      "example_interview": "My favorite café is reportedly closing next month, which is a shame.",
+      "example_discussion": "The city is reportedly planning to close two libraries, which would affect Mia's argument.",
+      "usage_note": "Neutral, typical of news. Places responsibility for the information on the source."
     },
     {
       "id": "v_func_on_balance",
@@ -2266,7 +2338,11 @@
       "word_family": [],
       "synonyms": ["overall", "all things considered", "all in all"],
       "register": "neutral",
-      "ipa": "/ɑːn ˈbæləns/"
+      "ipa": "/ɑːn ˈbæləns/",
+      "tags": ["c2_productive_1", "hedging_stance"],
+      "example_interview": "On balance, I'd say studying abroad was worth the cost.",
+      "example_discussion": "On balance, I side with Kim, because the long-term savings outweigh the initial cost.",
+      "usage_note": "Neutral. Excellent to announce a final position in Academic Discussion. Not \"in balance\"."
     },
     {
       "id": "v_func_broadly_speaking",
@@ -2285,7 +2361,11 @@
       "word_family": [],
       "synonyms": ["in general", "on the whole", "roughly"],
       "register": "neutral",
-      "ipa": "/ˈbrɔːdli ˈspiːkɪŋ/"
+      "ipa": "/ˈbrɔːdli ˈspiːkɪŋ/",
+      "tags": ["c2_productive_1", "hedging_stance"],
+      "example_interview": "Broadly speaking, I'm a morning person, though exams change that.",
+      "example_discussion": "Broadly speaking, the two proposals pursue the same goal by different means.",
+      "usage_note": "Neutral. Signals a generalization. Equivalent of \"grosso modo\"; \"largely speaking\" does not exist."
     },
     {
       "id": "v_func_up_to_a_point",
@@ -2304,7 +2384,11 @@
       "word_family": [],
       "synonyms": ["to some extent", "partly", "within limits"],
       "register": "neutral",
-      "ipa": "/ʌp tu ə pɔɪnt/"
+      "ipa": "/ʌp tu ə pɔɪnt/",
+      "tags": ["c2_productive_1", "hedging_stance"],
+      "example_interview": "I agree with you up to a point, but I'd never give up my car completely.",
+      "example_discussion": "Lena is right up to a point: incentives work, but only when the alternative is convenient.",
+      "usage_note": "Neutral. Polite partial agreement. Not \"until a certain point\" in this sense."
     },
     {
       "id": "v_func_to_my_knowledge",
@@ -2323,7 +2407,11 @@
       "word_family": [],
       "synonyms": ["as far as I know", "to the best of my knowledge"],
       "register": "formal",
-      "ipa": "/tə maɪ ˈnɑːlɪdʒ/"
+      "ipa": "/tə maɪ ˈnɑːlɪdʒ/",
+      "tags": ["c2_productive_1", "hedging_stance"],
+      "example_interview": "To my knowledge, nobody in my family has ever studied abroad before me.",
+      "example_discussion": "To my knowledge, no study has compared the two methods in secondary schools.",
+      "usage_note": "Formal. Not \"for my knowledge\". \"To the best of my knowledge\" is even more formal."
     },
     {
       "id": "v_func_i_would_tentatively_suggest_that",
@@ -2342,7 +2430,11 @@
       "word_family": [],
       "synonyms": ["perhaps", "I wonder whether"],
       "register": "formal",
-      "ipa": "/aɪ wʊd ˈtɛntətɪvli səˈdʒɛst ðæt/"
+      "ipa": "/aɪ wʊd ˈtɛntətɪvli səˈdʒɛst ðæt/",
+      "tags": ["c2_productive_1", "hedging_stance"],
+      "example_interview": "I would tentatively suggest that we meet earlier next time; mornings seem easier for everyone.",
+      "example_discussion": "I would tentatively suggest that both solutions could be tested on a small scale first.",
+      "usage_note": "Formal and very polite. Useful when you disagree with the professor's framing without sounding blunt."
     },
     {
       "id": "v_func_with_some_reservations",
@@ -2361,7 +2453,11 @@
       "word_family": [],
       "synonyms": ["with some doubts", "not without misgivings"],
       "register": "formal",
-      "ipa": "/wɪð sʌm ˌrɛzərˈveɪʃənz/"
+      "ipa": "/wɪð sʌm ˌrɛzərˈveɪʃənz/",
+      "tags": ["c2_productive_1", "hedging_stance"],
+      "example_interview": "I accepted the offer, with some reservations about the long commute.",
+      "example_discussion": "I support Lena's idea, with some reservations about who would run it.",
+      "usage_note": "Neutral. \"Reservations\" = doubts. It has nothing to do with booking a table here, a common confusion."
     },
     {
       "id": "v_func_if_i_m_not_mistaken",
@@ -2380,7 +2476,11 @@
       "word_family": [],
       "synonyms": ["if I remember correctly", "unless I'm wrong"],
       "register": "neutral",
-      "ipa": "/ɪf aɪm nɑːt mɪˈsteɪkən/"
+      "ipa": "/ɪf aɪm nɑːt mɪˈsteɪkən/",
+      "tags": ["c2_productive_1", "hedging_stance"],
+      "example_interview": "If I'm not mistaken, the museum is free on the first Sunday of the month.",
+      "example_discussion": "If I'm not mistaken, Jonah's figures come from a survey conducted before the pandemic.",
+      "usage_note": "Neutral, polite. Not \"if I don't mistake\". Use it to correct someone gently."
     },
     {
       "id": "v_func_correct_me_if_i_m_wrong",
@@ -2399,7 +2499,11 @@
       "word_family": [],
       "synonyms": ["if I'm not mistaken", "as I understand it"],
       "register": "informal",
-      "ipa": "/kəˈrɛkt mi ɪf aɪm rɔːŋ/"
+      "ipa": "/kəˈrɛkt mi ɪf aɪm rɔːŋ/",
+      "tags": ["c2_productive_1", "hedging_stance"],
+      "example_interview": "Correct me if I'm wrong, but I think the deadline was extended.",
+      "example_discussion": "Correct me if I'm wrong, but the study Ana cites only included adults.",
+      "usage_note": "Informal to neutral, mostly spoken. Introduces a gentle correction or doubt, often followed by \"but\"."
     },
     {
       "id": "v_func_i_d_hazard_a_guess_that",
@@ -2418,7 +2522,11 @@
       "word_family": [],
       "synonyms": ["I suspect that", "my guess is that"],
       "register": "informal",
-      "ipa": "/aɪd ˈhæzərd ə ɡɛs ðæt/"
+      "ipa": "/aɪd ˈhæzərd ə ɡɛs ðæt/",
+      "tags": ["c2_productive_1", "hedging_stance"],
+      "example_interview": "I'd hazard a guess that most students here sleep less than seven hours.",
+      "example_discussion": "I'd hazard a guess that the effect would be smaller in rural schools.",
+      "usage_note": "Informal. Signals an educated guess. False friend: here \"hazard\" means \"risk, venture\", not French \"hasard\" (chance)."
     },
     {
       "id": "v_func_more_often_than_not",
@@ -2437,7 +2545,11 @@
       "word_family": [],
       "synonyms": ["usually", "frequently", "as a rule"],
       "register": "neutral",
-      "ipa": "/mɔːr ˈɔːfən ðæn nɑːt/"
+      "ipa": "/mɔːr ˈɔːfən ðæn nɑːt/",
+      "tags": ["c2_productive_1", "hedging_stance"],
+      "example_interview": "More often than not, I study better in the library than at home.",
+      "example_discussion": "More often than not, the cheapest option turns out to be the most expensive in the long run.",
+      "usage_note": "Neutral. Means \"usually\". Not \"more often that not\"."
     },
     {
       "id": "v_func_conceivably",
@@ -2456,7 +2568,11 @@
       "word_family": [{"form": "conceive", "pos": "verb"}, {"form": "conceivable", "pos": "adjective"}],
       "synonyms": ["possibly", "potentially", "feasibly"],
       "register": "formal",
-      "ipa": "/kənˈsiːvəbli/"
+      "ipa": "/kənˈsiːvəbli/",
+      "tags": ["c2_productive_1", "hedging_stance"],
+      "example_interview": "I could conceivably finish my degree a semester early if I take summer classes.",
+      "example_discussion": "The tax could conceivably reduce consumption, but it would hit poorer households hardest.",
+      "usage_note": "Formal. Usually with \"could\" or \"might\". It suggests possibility, not likelihood."
     },
     {
       "id": "v_func_to_all_appearances",
@@ -2475,7 +2591,11 @@
       "word_family": [],
       "synonyms": ["apparently", "seemingly", "outwardly"],
       "register": "formal",
-      "ipa": "/tu ɔːl əˈpɪrənsəz/"
+      "ipa": "/tu ɔːl əˈpɪrənsəz/",
+      "tags": ["c2_productive_1", "hedging_stance"],
+      "example_interview": "To all appearances, my new roommate is very organized, but it's only been a week.",
+      "example_discussion": "To all appearances, the program is a success, yet no one has measured its effects.",
+      "usage_note": "Formal. Suggests that appearances might be misleading. \"From all appearances\" is also heard in American English."
     },
     {
       "id": "v_func_admittedly",
@@ -2494,7 +2614,11 @@
       "word_family": [{"form": "admit", "pos": "verb"}, {"form": "admission", "pos": "noun"}],
       "synonyms": ["granted", "certainly", "it is true that"],
       "register": "neutral",
-      "ipa": "/ədˈmɪtɪdli/"
+      "ipa": "/ədˈmɪtɪdli/",
+      "tags": ["c2_productive_1", "concession_contrast"],
+      "example_interview": "Admittedly, I wasn't the most organized student in my first year.",
+      "example_discussion": "Admittedly, the program is expensive, but Daniel ignores what inaction would cost.",
+      "usage_note": "Neutral. Concedes a weakness in your own position. Often followed by \"but\". Very useful in Academic Discussion."
     },
     {
       "id": "v_func_granted",
@@ -2509,11 +2633,15 @@
       "translation_fr": "certes, d'accord",
       "example_academic": "Granted, the method is expensive, yet no cheaper one gives reliable results.",
       "example_spoken": "Granted, the room is small, but the location is perfect.",
-      "collocations": ["granted that", "granted the"],
+      "collocations": ["granted that", "granted, it is true that"],
       "word_family": [{"form": "grant", "pos": "verb"}],
       "synonyms": ["admittedly", "of course", "true"],
       "register": "neutral",
-      "ipa": "/ˈɡræntɪd/"
+      "ipa": "/ˈɡræntɪd/",
+      "tags": ["c2_productive_1", "concession_contrast"],
+      "example_interview": "Granted, I'm not the fastest runner on the team, but I never miss training.",
+      "example_discussion": "Granted, online courses are cheaper; still, they rarely build a sense of community.",
+      "usage_note": "Neutral. Concedes a point before countering it. Usually at the start of the sentence, followed by a comma."
     },
     {
       "id": "v_func_while_it_is_true_that",
@@ -2532,7 +2660,11 @@
       "word_family": [],
       "synonyms": ["although", "admittedly"],
       "register": "formal",
-      "ipa": "/waɪl ɪt ɪz truː ðæt/"
+      "ipa": "/waɪl ɪt ɪz truː ðæt/",
+      "tags": ["c2_productive_1", "concession_contrast"],
+      "example_interview": "While it is true that I love cities, I could see myself living in the countryside one day.",
+      "example_discussion": "While it is true that cars pollute, banning them overnight would hurt rural workers.",
+      "usage_note": "Formal. Not \"if it is true that\", which expresses doubt rather than concession."
     },
     {
       "id": "v_func_this_is_not_to_say_that",
@@ -2551,7 +2683,11 @@
       "word_family": [],
       "synonyms": ["that does not mean that", "I am not suggesting that"],
       "register": "formal",
-      "ipa": "/ðɪs ɪz nɑːt tə seɪ ðæt/"
+      "ipa": "/ðɪs ɪz nɑːt tə seɪ ðæt/",
+      "tags": ["c2_productive_1", "concession_contrast"],
+      "example_interview": "I enjoy studying alone; this is not to say that I don't like group projects.",
+      "example_discussion": "This is not to say that technology has no place in class, only that it should not replace teachers.",
+      "usage_note": "Formal. Prevents a misunderstanding. French speakers sometimes write \"this does not want to say\", a calque of \"cela ne veut pas dire\"."
     },
     {
       "id": "v_func_even_so",
@@ -2570,7 +2706,11 @@
       "word_family": [],
       "synonyms": ["nevertheless", "nonetheless", "all the same"],
       "register": "neutral",
-      "ipa": "/ˈiːvən soʊ/"
+      "ipa": "/ˈiːvən soʊ/",
+      "tags": ["c2_productive_1", "concession_contrast"],
+      "example_interview": "The tickets were expensive. Even so, it was the best concert I've ever been to.",
+      "example_discussion": "Lena's data are limited. Even so, they raise a question the professor should take seriously.",
+      "usage_note": "Neutral. Means \"despite that\". Do not confuse with \"even if\", which introduces a hypothesis."
     },
     {
       "id": "v_func_all_the_same",
@@ -2589,7 +2729,11 @@
       "word_family": [],
       "synonyms": ["nevertheless", "even so", "anyway"],
       "register": "neutral",
-      "ipa": "/ɔːl ðə seɪm/"
+      "ipa": "/ɔːl ðə seɪm/",
+      "tags": ["c2_productive_1", "concession_contrast"],
+      "example_interview": "I knew the hike would be hard, but I went all the same.",
+      "example_discussion": "The new rule may seem harsh; all the same, I think Mia is right to defend it.",
+      "usage_note": "Neutral. Often at the end of the clause in speech. Same as \"nevertheless\"."
     },
     {
       "id": "v_func_having_said_that",
@@ -2608,7 +2752,11 @@
       "word_family": [],
       "synonyms": ["that said", "even so", "nevertheless"],
       "register": "neutral",
-      "ipa": "/ˈhævɪŋ sɛd ðæt/"
+      "ipa": "/ˈhævɪŋ sɛd ðæt/",
+      "tags": ["c2_productive_1", "concession_contrast"],
+      "example_interview": "The job pays well. Having said that, the hours are pretty long.",
+      "example_discussion": "The plan is well designed. Having said that, it ignores the cost of maintenance.",
+      "usage_note": "Neutral. Very common in speech and discussion posts. Not \"that being said that\"."
     },
     {
       "id": "v_func_for_all",
@@ -2627,7 +2775,11 @@
       "word_family": [],
       "synonyms": ["despite", "in spite of", "notwithstanding"],
       "register": "neutral",
-      "ipa": "/fɔːr ɔːl/"
+      "ipa": "/fɔːr ɔːl/",
+      "tags": ["c2_productive_1", "concession_contrast"],
+      "example_interview": "For all its noise, I really love living near the station.",
+      "example_discussion": "For all its benefits, the policy has not reached the students who need it most.",
+      "usage_note": "Formal. \"For all + noun phrase\" = despite. Not to be confused with \"for all of us\" (pour nous tous)."
     },
     {
       "id": "v_func_much_as",
@@ -2646,7 +2798,11 @@
       "word_family": [],
       "synonyms": ["although", "even though", "however much"],
       "register": "formal",
-      "ipa": "/mʌtʃ æz/"
+      "ipa": "/mʌtʃ æz/",
+      "tags": ["c2_productive_1", "concession_contrast"],
+      "example_interview": "Much as I love my hometown, I don't think I'll move back.",
+      "example_discussion": "Much as I sympathize with Lena's view, the numbers do not support it.",
+      "usage_note": "Formal. \"Much as I like X, …\" = although I like X. Often with verbs of feeling."
     },
     {
       "id": "v_func_be_it",
@@ -2665,7 +2821,11 @@
       "word_family": [],
       "synonyms": ["whether it is", "whether"],
       "register": "formal",
-      "ipa": "/bi ɪt/"
+      "ipa": "/bi ɪt/",
+      "tags": ["c2_productive_1", "concession_contrast"],
+      "example_interview": "Any sport, be it running or swimming, helps me clear my head.",
+      "example_discussion": "Every student, be it in the city or the countryside, should have reliable internet.",
+      "usage_note": "Formal. Subjunctive structure: \"be it X or Y\" = whether it is X or Y. Similar to French \"que ce soit\"."
     },
     {
       "id": "v_func_regardless_of",
@@ -2684,7 +2844,11 @@
       "word_family": [],
       "synonyms": ["irrespective of", "no matter", "notwithstanding"],
       "register": "neutral",
-      "ipa": "/rɪˈɡɑːrdləs ʌv/"
+      "ipa": "/rɪˈɡɑːrdləs ʌv/",
+      "tags": ["c2_productive_1", "concession_contrast"],
+      "example_interview": "I try to sleep eight hours regardless of how much work I have.",
+      "example_discussion": "Students should have access to tutoring regardless of their income.",
+      "usage_note": "Neutral. Not \"regardless\" alone before a noun, and never \"irregardless\" in careful English."
     },
     {
       "id": "v_func_irrespective_of",
@@ -2703,7 +2867,11 @@
       "word_family": [],
       "synonyms": ["regardless of", "independently of", "no matter"],
       "register": "formal",
-      "ipa": "/ˌɪrɪˈspɛktɪv ʌv/"
+      "ipa": "/ˌɪrɪˈspɛktɪv ʌv/",
+      "tags": ["c2_productive_1", "concession_contrast"],
+      "example_interview": "My parents supported my choices irrespective of what they thought privately.",
+      "example_discussion": "Support should be available irrespective of whether students live on campus.",
+      "usage_note": "Formal. Same meaning as \"regardless of\"; slightly more formal, good in written answers."
     },
     {
       "id": "v_func_it_must_be_conceded_that",
@@ -2722,7 +2890,11 @@
       "word_family": [],
       "synonyms": ["admittedly", "it has to be admitted that"],
       "register": "formal",
-      "ipa": "/ɪt mʌst bi kənˈsiːdɪd ðæt/"
+      "ipa": "/ɪt mʌst bi kənˈsiːdɪd ðæt/",
+      "tags": ["c2_productive_1", "concession_contrast"],
+      "example_interview": "It must be conceded that I wasn't very good at budgeting when I first moved out.",
+      "example_discussion": "It must be conceded that the critics have a point about the cost.",
+      "usage_note": "Formal. Strong written concession. The verb \"concede\" is transparent for French speakers; the passive structure is what matters."
     },
     {
       "id": "v_func_mind_you",
@@ -2741,7 +2913,11 @@
       "word_family": [],
       "synonyms": ["that said", "having said that", "admittedly"],
       "register": "informal",
-      "ipa": "/maɪnd juː/"
+      "ipa": "/maɪnd juː/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "My first job paid very little. Mind you, I learned more there than anywhere else.",
+      "example_discussion": "The plan is costly. Mind you, the alternative would cost even more in the long run.",
+      "usage_note": "Informal, spoken. Adds a qualification. Rare in formal writing; fine in an Interview answer."
     },
     {
       "id": "v_func_to_be_fair",
@@ -2760,7 +2936,11 @@
       "word_family": [],
       "synonyms": ["in fairness", "admittedly", "in all fairness"],
       "register": "neutral",
-      "ipa": "/tə bi fɛr/"
+      "ipa": "/tə bi fɛr/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "To be fair, my roommate did warn me about the noise.",
+      "example_discussion": "To be fair, Daniel does acknowledge the cost; he simply thinks it is worth paying.",
+      "usage_note": "Neutral. Balances a criticism. \"In fairness\" is a slightly more formal variant."
     },
     {
       "id": "v_func_that_being_said",
@@ -2779,7 +2959,11 @@
       "word_family": [],
       "synonyms": ["having said that", "that said", "even so"],
       "register": "neutral",
-      "ipa": "/ðæt ˈbiːɪŋ sɛd/"
+      "ipa": "/ðæt ˈbiːɪŋ sɛd/",
+      "tags": ["c2_productive_1", "concession_contrast"],
+      "example_interview": "I loved the city. That being said, I wouldn't want to live there in winter.",
+      "example_discussion": "The proposal is ambitious. That being said, it lacks any clear funding plan.",
+      "usage_note": "Neutral. Equivalent to \"having said that\". Avoid stacking several such markers in one post."
     },
     {
       "id": "v_func_whatever_the_merits_of",
@@ -2798,7 +2982,11 @@
       "word_family": [],
       "synonyms": ["however good", "regardless of the value of"],
       "register": "formal",
-      "ipa": "/ˈwʌtˌɛvər ðə ˈmɛrɪts ʌv/"
+      "ipa": "/ˈwʌtˌɛvər ðə ˈmɛrɪts ʌv/",
+      "tags": ["c2_productive_1", "concession_contrast"],
+      "example_interview": "Whatever the merits of online shopping, I still prefer to see things before I buy them.",
+      "example_discussion": "Whatever the merits of Daniel's plan, it does not address the cost to families.",
+      "usage_note": "Formal. Sets aside a debate to focus on another point. Followed by a noun phrase."
     },
     {
       "id": "v_func_while_acknowledging_that",
@@ -2817,7 +3005,11 @@
       "word_family": [],
       "synonyms": ["although", "granting that"],
       "register": "formal",
-      "ipa": "/waɪl əkˈnɑːlɪdʒɪŋ ðæt/"
+      "ipa": "/waɪl əkˈnɑːlɪdʒɪŋ ðæt/",
+      "tags": ["c2_productive_1", "concession_contrast"],
+      "example_interview": "While acknowledging that I made mistakes, I'm proud of how the project turned out.",
+      "example_discussion": "While acknowledging that Kim's idea is cheap, I doubt it would reach the students who need it.",
+      "usage_note": "Formal. The verb is \"acknowledge\", with -dge; French speakers often misspell it \"aknowledge\"."
     },
     {
       "id": "v_func_it_is_one_thing_to",
@@ -2836,7 +3028,11 @@
       "word_family": [],
       "synonyms": ["it is easy to... but harder to"],
       "register": "neutral",
-      "ipa": "/ɪt ɪz wʌn θɪŋ tu/"
+      "ipa": "/ɪt ɪz wʌn θɪŋ tu/",
+      "tags": ["c2_productive_1", "concession_contrast"],
+      "example_interview": "It is one thing to set a goal and another thing to stick to it, as I learned last year.",
+      "example_discussion": "It is one thing to ban phones in class and quite another to enforce the ban.",
+      "usage_note": "Neutral. Two-part structure: \"It is one thing to X and (quite) another to Y\". Do not drop the second part."
     },
     {
       "id": "v_func_though",
@@ -2855,7 +3051,11 @@
       "word_family": [{"form": "although", "pos": "conjunction"}],
       "synonyms": ["however", "nevertheless", "still"],
       "register": "neutral",
-      "ipa": "/ðoʊ/"
+      "ipa": "/ðoʊ/",
+      "tags": ["c2_productive_1", "concession_contrast"],
+      "example_interview": "My hometown is small. I'd love to go back one day, though.",
+      "example_discussion": "The policy is expensive. It would pay for itself within a decade, though.",
+      "usage_note": "Informal at the end of a sentence. Different from \"although\", which starts a clause. Very natural in Interview answers."
     },
     {
       "id": "v_func_at_the_same_time",
@@ -2874,7 +3074,11 @@
       "word_family": [],
       "synonyms": ["however", "nevertheless", "on the other hand"],
       "register": "neutral",
-      "ipa": "/æt ðə seɪm taɪm/"
+      "ipa": "/æt ðə seɪm taɪm/",
+      "tags": ["c2_productive_1", "concession_contrast"],
+      "example_interview": "I love my job. At the same time, I know I'll need a degree to progress.",
+      "example_discussion": "Technology helps students; at the same time, it can be a constant distraction.",
+      "usage_note": "Neutral. Here it introduces a contrasting consideration, not simultaneity. Context makes the sense clear."
     },
     {
       "id": "v_func_and_yet",
@@ -2893,7 +3097,11 @@
       "word_family": [],
       "synonyms": ["nevertheless", "but", "still"],
       "register": "neutral",
-      "ipa": "/ænd jɛt/"
+      "ipa": "/ænd jɛt/",
+      "tags": ["c2_productive_1", "concession_contrast"],
+      "example_interview": "I was terrified of public speaking, and yet I volunteered to give the welcome talk.",
+      "example_discussion": "The city spends more than ever on transport, and yet congestion keeps rising.",
+      "usage_note": "Neutral. Stresses a surprising contrast. More emphatic than \"but\"."
     },
     {
       "id": "v_func_even_then",
@@ -2912,7 +3120,11 @@
       "word_family": [],
       "synonyms": ["still", "nevertheless"],
       "register": "neutral",
-      "ipa": "/ˈiːvən ðɛn/"
+      "ipa": "/ˈiːvən ðɛn/",
+      "tags": ["c2_productive_1", "concession_contrast"],
+      "example_interview": "I practiced my speech every night, and even then my hands were shaking on the day.",
+      "example_discussion": "Even then, as Mia notes, only a minority of students used the new service.",
+      "usage_note": "Neutral. \"Even in that case\". Different from \"even so\" (despite that)."
     },
     {
       "id": "v_func_then_again",
@@ -2931,7 +3143,11 @@
       "word_family": [],
       "synonyms": ["on the other hand", "but then", "having said that"],
       "register": "informal",
-      "ipa": "/ðɛn əˈɡɛn/"
+      "ipa": "/ðɛn əˈɡɛn/",
+      "tags": ["c2_productive_1", "concession_contrast"],
+      "example_interview": "I'd love a bigger room. Then again, I'm hardly ever there.",
+      "example_discussion": "Online courses are cheaper. Then again, completion rates are much lower.",
+      "usage_note": "Informal to neutral. Adds a counter-consideration, often in speech. Not \"and again\"."
     },
     {
       "id": "v_func_with_the_proviso_that",
@@ -2950,7 +3166,11 @@
       "word_family": [],
       "synonyms": ["provided that", "on condition that"],
       "register": "formal",
-      "ipa": "/wɪð ðə prəˈvaɪzoʊ ðæt/"
+      "ipa": "/wɪð ðə prəˈvaɪzoʊ ðæt/",
+      "tags": ["c2_productive_1", "concession_contrast"],
+      "example_interview": "My parents agreed to lend me the car, with the proviso that I pay for the fuel.",
+      "example_discussion": "I would accept the plan, with the proviso that it is reviewed after one year.",
+      "usage_note": "Formal. Means \"on condition that\". Pronounced /prəˈvaɪzoʊ/."
     },
     {
       "id": "v_func_if_only_because",
@@ -2969,7 +3189,11 @@
       "word_family": [],
       "synonyms": ["at least because", "if for no other reason than"],
       "register": "formal",
-      "ipa": "/ɪf ˈoʊnli bɪˈkɔːz/"
+      "ipa": "/ɪf ˈoʊnli bɪˈkɔːz/",
+      "tags": ["c2_productive_1", "concession_contrast"],
+      "example_interview": "I'm glad I took that class, if only because I met my best friend there.",
+      "example_discussion": "The program deserves funding, if only because nothing else is available in rural areas.",
+      "usage_note": "Formal. Gives at least one reason. Not \"only if because\", a frequent scrambling."
     },
     {
       "id": "v_func_what_is_striking_is",
@@ -2988,7 +3212,11 @@
       "word_family": [],
       "synonyms": ["remarkably", "notably"],
       "register": "formal",
-      "ipa": "/wʌt ɪz ˈstraɪkɪŋ ɪz/"
+      "ipa": "/wʌt ɪz ˈstraɪkɪŋ ɪz/",
+      "tags": ["c2_productive_1", "emphasis"],
+      "example_interview": "What is striking is how quickly I got used to the new routine.",
+      "example_discussion": "What is striking is that both students agree on the goal but not on the means.",
+      "usage_note": "Neutral. A pseudo-cleft that puts the key observation first. In speech, \"what's striking is\" is also fine."
     },
     {
       "id": "v_func_not_least",
@@ -3007,7 +3235,11 @@
       "word_family": [],
       "synonyms": ["especially", "particularly", "above all"],
       "register": "formal",
-      "ipa": "/nɑːt liːst/"
+      "ipa": "/nɑːt liːst/",
+      "tags": ["c2_productive_1", "emphasis"],
+      "example_interview": "I chose this university for many reasons, not least its music program.",
+      "example_discussion": "Lena's proposal has many advantages, not least its low cost.",
+      "usage_note": "Formal. Means \"especially\". Not \"not the least\" in this use."
     },
     {
       "id": "v_func_first_and_foremost",
@@ -3026,7 +3258,11 @@
       "word_family": [],
       "synonyms": ["above all", "primarily", "most importantly"],
       "register": "neutral",
-      "ipa": "/fɜːrst ænd ˈfɔːrmoʊst/"
+      "ipa": "/fɜːrst ænd ˈfɔːrmoʊst/",
+      "tags": ["c2_productive_1", "emphasis"],
+      "example_interview": "First and foremost, I'm a student; my job comes second.",
+      "example_discussion": "First and foremost, any reform should protect the students who need help most.",
+      "usage_note": "Neutral. Stresses priority. Do not use it for a simple list order (\"firstly\")."
     },
     {
       "id": "v_func_by_no_means",
@@ -3045,7 +3281,11 @@
       "word_family": [],
       "synonyms": ["not at all", "in no way", "far from"],
       "register": "formal",
-      "ipa": "/baɪ noʊ miːnz/"
+      "ipa": "/baɪ noʊ miːnz/",
+      "tags": ["c2_productive_1", "emphasis"],
+      "example_interview": "It was by no means an easy decision to change majors.",
+      "example_discussion": "The evidence is by no means conclusive, as Mia herself admits.",
+      "usage_note": "Formal. Strong negative. Not \"by no way\". Different from \"by all means\" (please do)."
     },
     {
       "id": "v_func_in_no_way",
@@ -3064,7 +3304,11 @@
       "word_family": [],
       "synonyms": ["by no means", "not at all"],
       "register": "formal",
-      "ipa": "/ɪn noʊ weɪ/"
+      "ipa": "/ɪn noʊ weɪ/",
+      "tags": ["c2_productive_1", "emphasis"],
+      "example_interview": "That in no way changed my mind about the course.",
+      "example_discussion": "A single bad result in no way proves that the method is useless.",
+      "usage_note": "Formal. At the start of a sentence, it requires inversion: \"In no way does this justify…\"."
     },
     {
       "id": "v_func_far_from",
@@ -3083,7 +3327,11 @@
       "word_family": [],
       "synonyms": ["not at all", "quite the opposite of"],
       "register": "neutral",
-      "ipa": "/fɑːr frʌm/"
+      "ipa": "/fɑːr frʌm/",
+      "tags": ["c2_productive_1", "emphasis"],
+      "example_interview": "Far from discouraging me, failing my first exam made me work twice as hard.",
+      "example_discussion": "Far from saving money, the policy Kim defends would shift costs to families.",
+      "usage_note": "Neutral. \"Far from + -ing\" = the opposite is true. French speakers sometimes write \"far of\", a calque of \"loin de\"."
     },
     {
       "id": "v_func_if_nothing_else",
@@ -3102,7 +3350,11 @@
       "word_family": [],
       "synonyms": ["at least", "at the very least"],
       "register": "neutral",
-      "ipa": "/ɪf ˈnʌθɪŋ ɛls/"
+      "ipa": "/ɪf ˈnʌθɪŋ ɛls/",
+      "tags": ["c2_productive_1", "emphasis"],
+      "example_interview": "If nothing else, my year abroad taught me to be patient.",
+      "example_discussion": "If nothing else, Daniel's post shows how little data we have on this question.",
+      "usage_note": "Neutral. \"At least\". Placed at the start of the sentence."
     },
     {
       "id": "v_func_all_the_more",
@@ -3121,7 +3373,11 @@
       "word_family": [],
       "synonyms": ["even more", "especially"],
       "register": "neutral",
-      "ipa": "/ɔːl ðə mɔːr/"
+      "ipa": "/ɔːl ðə mɔːr/",
+      "tags": ["c2_productive_1", "emphasis"],
+      "example_interview": "Winning was all the more satisfying because nobody expected it.",
+      "example_discussion": "The result is all the more surprising given the small sample.",
+      "usage_note": "Neutral. \"All the more + adjective + because/given…\". Equivalent to \"d'autant plus\"."
     },
     {
       "id": "v_func_let_alone",
@@ -3140,7 +3396,11 @@
       "word_family": [],
       "synonyms": ["not to mention", "still less", "much less"],
       "register": "neutral",
-      "ipa": "/lɛt əˈloʊn/"
+      "ipa": "/lɛt əˈloʊn/",
+      "tags": ["c2_productive_1", "emphasis"],
+      "example_interview": "When I arrived, I couldn't order a coffee in English, let alone give a presentation.",
+      "example_discussion": "Many schools cannot afford textbooks, let alone tablets for every student.",
+      "usage_note": "Neutral. Used after a negative. French speakers often put it after a positive sentence, which sounds wrong."
     },
     {
       "id": "v_func_to_say_nothing_of",
@@ -3159,7 +3419,11 @@
       "word_family": [],
       "synonyms": ["not to mention", "let alone", "besides"],
       "register": "formal",
-      "ipa": "/tə seɪ ˈnʌθɪŋ ʌv/"
+      "ipa": "/tə seɪ ˈnʌθɪŋ ʌv/",
+      "tags": ["c2_productive_1", "emphasis"],
+      "example_interview": "Moving cities was expensive, to say nothing of the stress.",
+      "example_discussion": "Kim's plan would cost millions, to say nothing of the time needed to train staff.",
+      "usage_note": "Formal. Adds a further, stronger point. Same function as \"not to mention\"."
     },
     {
       "id": "v_func_precisely_because",
@@ -3178,7 +3442,11 @@
       "word_family": [],
       "synonyms": ["exactly because", "just because"],
       "register": "neutral",
-      "ipa": "/prɪˈsaɪsli bɪˈkɔːz/"
+      "ipa": "/prɪˈsaɪsli bɪˈkɔːz/",
+      "tags": ["c2_productive_1", "emphasis"],
+      "example_interview": "I chose this program precisely because it includes an internship.",
+      "example_discussion": "The policy works precisely because it is simple to understand.",
+      "usage_note": "Neutral. Stresses that the reason is exactly this one, often a surprising one."
     },
     {
       "id": "v_func_it_cannot_be_overstated",
@@ -3197,7 +3465,11 @@
       "word_family": [],
       "synonyms": ["it is vital", "it is crucial"],
       "register": "formal",
-      "ipa": "/ɪt ˈkænɑːt bi ˌoʊvərˈsteɪtɪd/"
+      "ipa": "/ɪt ˈkænɑːt bi ˌoʊvərˈsteɪtɪd/",
+      "tags": ["c2_productive_1", "emphasis"],
+      "example_interview": "It cannot be overstated how much my teachers shaped my choices.",
+      "example_discussion": "It cannot be overstated how much rural students depend on public transport.",
+      "usage_note": "Formal. Means \"it is extremely important\". French speakers sometimes misread it as \"it should not be exaggerated\"."
     },
     {
       "id": "v_func_it_is_worth_stressing_that",
@@ -3216,7 +3488,11 @@
       "word_family": [],
       "synonyms": ["it should be emphasized that", "notably"],
       "register": "formal",
-      "ipa": "/ɪt ɪz wɜːrθ ˈstrɛsɪŋ ðæt/"
+      "ipa": "/ɪt ɪz wɜːrθ ˈstrɛsɪŋ ðæt/",
+      "tags": ["c2_productive_1", "emphasis"],
+      "example_interview": "It is worth stressing that I did all of this while working part time.",
+      "example_discussion": "It is worth stressing that Mia's figures come from a single school.",
+      "usage_note": "Formal. Draws attention to a key point. \"It is worth + -ing\", never \"it is worth to stress\"."
     },
     {
       "id": "v_func_nowhere_is_this_more_evident_than",
@@ -3235,7 +3511,11 @@
       "word_family": [],
       "synonyms": ["this is especially clear in", "the clearest example is"],
       "register": "formal",
-      "ipa": "/ˈnoʊwɛr ɪz ðɪs mɔːr ˈɛvədənt ðæn/"
+      "ipa": "/ˈnoʊwɛr ɪz ðɪs mɔːr ˈɛvədənt ðæn/",
+      "tags": ["c2_productive_1", "emphasis"],
+      "example_interview": "Nowhere is this more evident than in my family, where everyone speaks three languages.",
+      "example_discussion": "Nowhere is this more evident than in the long queues Lena describes at the start of term.",
+      "usage_note": "Formal. Requires inversion after \"nowhere\". A strong way to introduce your best example."
     },
     {
       "id": "v_func_it_was_not_until",
@@ -3254,7 +3534,11 @@
       "word_family": [],
       "synonyms": ["only when", "only after"],
       "register": "formal",
-      "ipa": "/ɪt wɑz nɑːt ənˈtɪl/"
+      "ipa": "/ɪt wɑz nɑːt ənˈtɪl/",
+      "tags": ["c2_productive_1", "emphasis"],
+      "example_interview": "It was not until my second year that I really enjoyed my studies.",
+      "example_discussion": "It was not until the 1990s that the problem received serious attention.",
+      "usage_note": "Neutral. \"It was not until X that Y\" = Y only happened after X. French speakers often drop the \"that\"."
     },
     {
       "id": "v_func_above_and_beyond",
@@ -3273,7 +3557,11 @@
       "word_family": [],
       "synonyms": ["far beyond", "more than required"],
       "register": "neutral",
-      "ipa": "/əˈbʌv ænd biˈɑːnd/"
+      "ipa": "/əˈbʌv ænd biˈɑːnd/",
+      "tags": ["c2_productive_1", "emphasis"],
+      "example_interview": "My manager went above and beyond to help me settle in.",
+      "example_discussion": "Teachers who go above and beyond deserve recognition, but not in the form of unpaid hours.",
+      "usage_note": "Neutral. \"Go above and beyond\" = do much more than required."
     },
     {
       "id": "v_func_in_its_own_right",
@@ -3292,7 +3580,11 @@
       "word_family": [],
       "synonyms": ["independently", "on its own merits"],
       "register": "neutral",
-      "ipa": "/ɪn ɪts oʊn raɪt/"
+      "ipa": "/ɪn ɪts oʊn raɪt/",
+      "tags": ["c2_productive_1", "emphasis"],
+      "example_interview": "Cooking has become a hobby in its own right for me, not just a necessity.",
+      "example_discussion": "Music should be valued as a subject in its own right, not as a break from math.",
+      "usage_note": "Neutral. Means \"independently, on its own merits\". \"In his/her own right\" for people."
     },
     {
       "id": "v_func_to_put_it_bluntly",
@@ -3311,7 +3603,11 @@
       "word_family": [],
       "synonyms": ["frankly", "to be blunt", "in plain terms"],
       "register": "informal",
-      "ipa": "/tə pʊt ɪt ˈblʌntli/"
+      "ipa": "/tə pʊt ɪt ˈblʌntli/",
+      "tags": ["c2_productive_1", "emphasis"],
+      "example_interview": "To put it bluntly, my first apartment was a disaster.",
+      "example_discussion": "To put it bluntly, the current plan cannot work without more staff.",
+      "usage_note": "Neutral, direct. Signals frankness. Use sparingly in written answers."
     },
     {
       "id": "v_func_make_no_mistake",
@@ -3330,7 +3626,11 @@
       "word_family": [],
       "synonyms": ["believe me", "be in no doubt"],
       "register": "neutral",
-      "ipa": "/meɪk noʊ mɪˈsteɪk/"
+      "ipa": "/meɪk noʊ mɪˈsteɪk/",
+      "tags": ["c2_productive_1", "emphasis"],
+      "example_interview": "Make no mistake, I know this role is demanding, and that's why I want it.",
+      "example_discussion": "Make no mistake: without funding, Kim's plan will stay on paper.",
+      "usage_note": "Neutral, emphatic. Typical of speeches. Not \"do no mistake\"."
     },
     {
       "id": "v_func_if_anything",
@@ -3349,7 +3649,11 @@
       "word_family": [],
       "synonyms": ["on the contrary", "rather"],
       "register": "neutral",
-      "ipa": "/ɪf ˈɛniθɪŋ/"
+      "ipa": "/ɪf ˈɛniθɪŋ/",
+      "tags": ["c2_productive_1", "emphasis"],
+      "example_interview": "Living alone didn't make me lonely; if anything, it made me more sociable.",
+      "example_discussion": "Shorter holidays would not help students; if anything, they would increase burnout.",
+      "usage_note": "Neutral. Suggests the truth may be the opposite of what was said. Not \"if something\"."
     },
     {
       "id": "v_func_crucially",
@@ -3368,7 +3672,11 @@
       "word_family": [{"form": "crucial", "pos": "adjective"}],
       "synonyms": ["above all", "most importantly", "critically"],
       "register": "formal",
-      "ipa": "/ˈkruːʃəli/"
+      "ipa": "/ˈkruːʃəli/",
+      "tags": ["c2_productive_1", "emphasis"],
+      "example_interview": "Crucially, I had a mentor who believed in me.",
+      "example_discussion": "Crucially, none of the studies Jonah cites followed students for more than a year.",
+      "usage_note": "Neutral. Introduces the most important point. Overused in some essays; one per answer is enough."
     },
     {
       "id": "v_func_it_bears_repeating_that",
@@ -3387,7 +3695,11 @@
       "word_family": [],
       "synonyms": ["it is worth repeating that", "once again"],
       "register": "formal",
-      "ipa": "/ɪt bɛrz rɪˈpiːtɪŋ ðæt/"
+      "ipa": "/ɪt bɛrz rɪˈpiːtɪŋ ðæt/",
+      "tags": ["c2_productive_1", "emphasis"],
+      "example_interview": "It bears repeating that I had no training before that first job.",
+      "example_discussion": "It bears repeating that Mia's survey only included volunteers.",
+      "usage_note": "Formal. Means \"it is worth saying again\". \"Bears\" here means \"deserves\", not the animal."
     },
     {
       "id": "v_func_what_is_more",
@@ -3406,7 +3718,11 @@
       "word_family": [],
       "synonyms": ["moreover", "furthermore", "besides"],
       "register": "neutral",
-      "ipa": "/wʌt ɪz mɔːr/"
+      "ipa": "/wʌt ɪz mɔːr/",
+      "tags": ["c2_productive_1", "emphasis"],
+      "example_interview": "I speak three languages. What is more, I've worked in international teams.",
+      "example_discussion": "Free transport would reduce traffic; what is more, it would help low-income students most.",
+      "usage_note": "Neutral. Adds a stronger point. \"What's more\" in speech. Not \"what more is\"."
     },
     {
       "id": "v_func_more_to_the_point",
@@ -3425,7 +3741,11 @@
       "word_family": [],
       "synonyms": ["more importantly", "what matters more"],
       "register": "neutral",
-      "ipa": "/mɔːr tə ðə pɔɪnt/"
+      "ipa": "/mɔːr tə ðə pɔɪnt/",
+      "tags": ["c2_productive_1", "emphasis"],
+      "example_interview": "I could live with my parents. More to the point, I want to be independent.",
+      "example_discussion": "Daniel's plan is costly and, more to the point, nobody has asked students what they want.",
+      "usage_note": "Neutral. Introduces something more relevant than what was just said."
     },
     {
       "id": "v_func_all_too",
@@ -3444,7 +3764,11 @@
       "word_family": [],
       "synonyms": ["far too", "only too"],
       "register": "neutral",
-      "ipa": "/ɔːl tuː/"
+      "ipa": "/ɔːl tuː/",
+      "tags": ["c2_productive_1", "emphasis"],
+      "example_interview": "I know all too well how hard it is to study while working.",
+      "example_discussion": "Students are all too often left out of decisions that affect them, as Kim says.",
+      "usage_note": "Neutral. \"All too + adjective/adverb\" stresses that something unwelcome is very true."
     },
     {
       "id": "v_func_the_thing_is",
@@ -3463,7 +3787,11 @@
       "word_family": [],
       "synonyms": ["the problem is", "the point is"],
       "register": "informal",
-      "ipa": "/ðə θɪŋ ɪz/"
+      "ipa": "/ðə θɪŋ ɪz/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "The thing is, I've never really liked studying in silence.",
+      "example_discussion": "The thing is, nobody has asked the teachers what they need.",
+      "usage_note": "Informal, spoken. Introduces the real issue. In writing, \"the problem is\" or \"the key point is\"."
     },
     {
       "id": "v_func_the_point_is",
@@ -3482,7 +3810,11 @@
       "word_family": [],
       "synonyms": ["what matters is", "the key thing is"],
       "register": "neutral",
-      "ipa": "/ðə pɔɪnt ɪz/"
+      "ipa": "/ðə pɔɪnt ɪz/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "The point is, I learned more from that failure than from any success.",
+      "example_discussion": "The point is that the policy helps those who need it least.",
+      "usage_note": "Neutral. Brings the conversation back to the essential idea."
     },
     {
       "id": "v_func_the_way_i_see_it",
@@ -3501,7 +3833,11 @@
       "word_family": [],
       "synonyms": ["in my view", "as I see it"],
       "register": "informal",
-      "ipa": "/ðə weɪ aɪ siː ɪt/"
+      "ipa": "/ðə weɪ aɪ siː ɪt/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "The way I see it, university is about learning to think, not just getting a job.",
+      "example_discussion": "The way I see it, both proposals could work if they were combined.",
+      "usage_note": "Informal to neutral. Introduces a personal view. A good alternative to \"in my opinion\"."
     },
     {
       "id": "v_func_if_you_ask_me",
@@ -3520,7 +3856,11 @@
       "word_family": [],
       "synonyms": ["in my opinion", "personally"],
       "register": "informal",
-      "ipa": "/ɪf juː æsk miː/"
+      "ipa": "/ɪf juː æsk miː/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "If you ask me, the best part of the city is the riverside.",
+      "example_discussion": "If you ask me, the professor's question assumes a false choice.",
+      "usage_note": "Informal. A personal opinion, sometimes slightly provocative."
     },
     {
       "id": "v_func_come_to_think_of_it",
@@ -3539,7 +3879,11 @@
       "word_family": [],
       "synonyms": ["now that I think about it", "actually"],
       "register": "informal",
-      "ipa": "/kʌm tə θɪŋk ʌv ɪt/"
+      "ipa": "/kʌm tə θɪŋk ʌv ɪt/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "Come to think of it, my interest in languages probably started with travel.",
+      "example_discussion": "Come to think of it, Sara's example comes from the same region as the study.",
+      "usage_note": "Informal, spoken. Signals a thought that has just occurred to you."
     },
     {
       "id": "v_func_as_i_was_saying",
@@ -3558,7 +3902,11 @@
       "word_family": [],
       "synonyms": ["to get back to the point", "anyway"],
       "register": "neutral",
-      "ipa": "/æz aɪ wɑz ˈseɪɪŋ/"
+      "ipa": "/æz aɪ wɑz ˈseɪɪŋ/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "Anyway, as I was saying, that summer changed my plans completely.",
+      "example_discussion": "As I was saying in my earlier post, funding is the real obstacle.",
+      "usage_note": "Neutral. Returns to a point after an interruption or digression."
     },
     {
       "id": "v_func_to_cut_a_long_story_short",
@@ -3577,7 +3925,11 @@
       "word_family": [],
       "synonyms": ["in short", "in brief", "anyway"],
       "register": "informal",
-      "ipa": "/tə kʌt ə lɔːŋ ˈstɔːri ʃɔːrt/"
+      "ipa": "/tə kʌt ə lɔːŋ ˈstɔːri ʃɔːrt/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "To cut a long story short, I ended up studying the subject I liked least at school.",
+      "example_discussion": "To cut a long story short, the pilot project failed because nobody used it.",
+      "usage_note": "Informal. Skips details to reach the outcome. Not \"to make a long story short\" in British English, though American English uses that."
     },
     {
       "id": "v_func_at_the_end_of_the_day",
@@ -3596,7 +3948,11 @@
       "word_family": [],
       "synonyms": ["ultimately", "when all is said and done"],
       "register": "informal",
-      "ipa": "/æt ði ɛnd ʌv ðə deɪ/"
+      "ipa": "/æt ði ɛnd ʌv ðə deɪ/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "At the end of the day, I chose the university that felt right.",
+      "example_discussion": "At the end of the day, the decision depends on what we value more: cost or quality.",
+      "usage_note": "Informal. Means \"ultimately\". Overused by some speakers; avoid it more than once per answer."
     },
     {
       "id": "v_func_when_it_comes_to",
@@ -3615,7 +3971,11 @@
       "word_family": [],
       "synonyms": ["as regards", "regarding", "in terms of"],
       "register": "neutral",
-      "ipa": "/wɛn ɪt kʌmz tu/"
+      "ipa": "/wɛn ɪt kʌmz tu/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "When it comes to teamwork, I'm usually the one who keeps track of deadlines.",
+      "example_discussion": "When it comes to public health, prevention is usually cheaper than treatment.",
+      "usage_note": "Neutral. \"When it comes to + noun or -ing\". Not \"when it comes to + infinitive\"."
     },
     {
       "id": "v_func_as_it_happens",
@@ -3634,7 +3994,11 @@
       "word_family": [],
       "synonyms": ["as it turns out", "by chance", "actually"],
       "register": "neutral",
-      "ipa": "/æz ɪt ˈhæpənz/"
+      "ipa": "/æz ɪt ˈhæpənz/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "As it happens, I've already used the software you mentioned.",
+      "example_discussion": "As it happens, the city tried a similar scheme in 2015.",
+      "usage_note": "Neutral. Introduces a relevant coincidence or fact."
     },
     {
       "id": "v_func_let_me_put_it_this_way",
@@ -3653,7 +4017,11 @@
       "word_family": [],
       "synonyms": ["in other words", "to put it another way"],
       "register": "neutral",
-      "ipa": "/lɛt mi pʊt ɪt ðɪs weɪ/"
+      "ipa": "/lɛt mi pʊt ɪt ðɪs weɪ/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "Let me put it this way: I've never missed a deadline in three years.",
+      "example_discussion": "Let me put it this way: a policy nobody understands is a policy nobody will follow.",
+      "usage_note": "Neutral. Rephrases more clearly or more tactfully. Followed by a colon in writing."
     },
     {
       "id": "v_func_the_bottom_line_is",
@@ -3672,7 +4040,11 @@
       "word_family": [],
       "synonyms": ["essentially", "the key point is"],
       "register": "informal",
-      "ipa": "/ðə ˈbɑːtəm laɪn ɪz/"
+      "ipa": "/ðə ˈbɑːtəm laɪn ɪz/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "The bottom line is, I need a job that fits around my classes.",
+      "example_discussion": "The bottom line is that no plan works if teachers are not consulted.",
+      "usage_note": "Informal. Introduces the essential fact. From accounting (\"the last line of a budget\")."
     },
     {
       "id": "v_func_on_a_related_note",
@@ -3691,7 +4063,11 @@
       "word_family": [],
       "synonyms": ["similarly", "in the same vein"],
       "register": "neutral",
-      "ipa": "/ɑːn ə rɪˈleɪtɪd noʊt/"
+      "ipa": "/ɑːn ə rɪˈleɪtɪd noʊt/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "On a related note, I've also started learning Italian.",
+      "example_discussion": "On a related note, the same issue affects public libraries.",
+      "usage_note": "Neutral. Moves to a connected topic without breaking the flow."
     },
     {
       "id": "v_func_that_brings_me_to",
@@ -3710,7 +4086,11 @@
       "word_family": [],
       "synonyms": ["which leads me to", "moving on to"],
       "register": "neutral",
-      "ipa": "/ðæt brɪŋz mi tu/"
+      "ipa": "/ðæt brɪŋz mi tu/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "That brings me to the main reason I applied for this program.",
+      "example_discussion": "That brings me to my second objection to Kim's proposal.",
+      "usage_note": "Neutral. Signposts the next point in a talk or post."
     },
     {
       "id": "v_func_going_back_to",
@@ -3729,7 +4109,11 @@
       "word_family": [],
       "synonyms": ["returning to", "to return to"],
       "register": "neutral",
-      "ipa": "/ˈɡoʊɪŋ bæk tu/"
+      "ipa": "/ˈɡoʊɪŋ bæk tu/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "Going back to what you asked earlier, I started playing piano at six.",
+      "example_discussion": "Going back to the professor's question, I think the answer depends on age.",
+      "usage_note": "Neutral. Returns to an earlier point. \"Going back to + noun phrase\"."
     },
     {
       "id": "v_func_as_it_turns_out",
@@ -3748,7 +4132,11 @@
       "word_family": [],
       "synonyms": ["in fact", "as it happens", "actually"],
       "register": "neutral",
-      "ipa": "/æz ɪt tɜːrnz aʊt/"
+      "ipa": "/æz ɪt tɜːrnz aʊt/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "As it turns out, the class I almost dropped became my favorite.",
+      "example_discussion": "As it turns out, the first study had a serious flaw.",
+      "usage_note": "Neutral. Reveals the real situation, often a surprise."
     },
     {
       "id": "v_func_needless_to_say",
@@ -3767,7 +4155,11 @@
       "word_family": [],
       "synonyms": ["of course", "obviously", "it goes without saying"],
       "register": "neutral",
-      "ipa": "/ˈniːdləs tə seɪ/"
+      "ipa": "/ˈniːdləs tə seɪ/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "Needless to say, my first attempt at cooking for twelve people was chaotic.",
+      "example_discussion": "Needless to say, any reform needs the support of teachers.",
+      "usage_note": "Neutral. Introduces something obvious; use it for emphasis, not literally."
     },
     {
       "id": "v_func_last_but_not_least",
@@ -3786,7 +4178,11 @@
       "word_family": [],
       "synonyms": ["finally", "lastly"],
       "register": "neutral",
-      "ipa": "/læst bʌt nɑːt liːst/"
+      "ipa": "/læst bʌt nɑːt liːst/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "Last but not least, I want to mention my sister, who encouraged me.",
+      "example_discussion": "Last but not least, the cost to taxpayers must be considered.",
+      "usage_note": "Neutral. Introduces the final item while stressing its importance."
     },
     {
       "id": "v_func_that_is_to_say",
@@ -3805,7 +4201,11 @@
       "word_family": [],
       "synonyms": ["in other words", "namely", "i.e."],
       "register": "formal",
-      "ipa": "/ðæt ɪz tə seɪ/"
+      "ipa": "/ðæt ɪz tə seɪ/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "I'm a night owl, that is to say, I work best after ten.",
+      "example_discussion": "Kim's proposal is regressive, that is to say, it costs poorer families more.",
+      "usage_note": "Formal. Clarifies or restates. In speech, \"I mean\" or \"in other words\" is more natural."
     },
     {
       "id": "v_func_in_short",
@@ -3824,7 +4224,11 @@
       "word_family": [],
       "synonyms": ["to sum up", "in brief", "in a word"],
       "register": "neutral",
-      "ipa": "/ɪn ʃɔːrt/"
+      "ipa": "/ɪn ʃɔːrt/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "In short, it was the best decision I've ever made.",
+      "example_discussion": "In short, Lena's plan is fair but too expensive to work.",
+      "usage_note": "Neutral. Introduces a brief summary. Not \"in shortly\"."
     },
     {
       "id": "v_func_to_that_end",
@@ -3843,7 +4247,11 @@
       "word_family": [],
       "synonyms": ["for this purpose", "with this in mind"],
       "register": "formal",
-      "ipa": "/tə ðæt ɛnd/"
+      "ipa": "/tə ðæt ɛnd/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "I want to work abroad. To that end, I'm taking an extra language course.",
+      "example_discussion": "The city wants fewer cars downtown. To that end, it has expanded bus routes.",
+      "usage_note": "Formal. Means \"for that purpose\". Different from \"in the end\" (finally)."
     },
     {
       "id": "v_func_in_turn",
@@ -3860,9 +4268,13 @@
       "example_spoken": "I helped her, and she in turn helped her roommate.",
       "collocations": [],
       "word_family": [],
-      "synonyms": ["consequently", "subsequently"],
+      "synonyms": ["as a result", "then"],
       "register": "neutral",
-      "ipa": "/ɪn tɜːrn/"
+      "ipa": "/ɪn tɜːrn/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "My teacher inspired me, and I in turn try to help younger students.",
+      "example_discussion": "Better sleep improves focus, which in turn raises grades, as Daniel argues.",
+      "usage_note": "Neutral. Describes a chain of effects or a reciprocal action."
     },
     {
       "id": "v_func_for_one_thing",
@@ -3881,7 +4293,11 @@
       "word_family": [],
       "synonyms": ["firstly", "to begin with"],
       "register": "neutral",
-      "ipa": "/fɔːr wʌn θɪŋ/"
+      "ipa": "/fɔːr wʌn θɪŋ/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "I can't move there. For one thing, the rent is far too high.",
+      "example_discussion": "The plan is unrealistic. For one thing, it ignores maintenance costs.",
+      "usage_note": "Informal to neutral. Gives a first reason, implying there are others."
     },
     {
       "id": "v_func_by_the_same_token",
@@ -3900,7 +4316,11 @@
       "word_family": [],
       "synonyms": ["similarly", "likewise", "equally"],
       "register": "formal",
-      "ipa": "/baɪ ðə seɪm ˈtoʊkən/"
+      "ipa": "/baɪ ðə seɪm ˈtoʊkən/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "If I expect honesty from my friends, then by the same token I have to be honest with them.",
+      "example_discussion": "If schools can ban phones, then by the same token they could ban laptops, which seems absurd.",
+      "usage_note": "Formal. Applies the same reasoning to a related case."
     },
     {
       "id": "v_func_on_that_note",
@@ -3919,7 +4339,11 @@
       "word_family": [],
       "synonyms": ["with that", "and so"],
       "register": "neutral",
-      "ipa": "/ɑːn ðæt noʊt/"
+      "ipa": "/ɑːn ðæt noʊt/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "On that note, I think I've said everything about my hometown.",
+      "example_discussion": "On that note, I will leave the final word to Mia.",
+      "usage_note": "Neutral. Closes a topic or moves to a final remark."
     },
     {
       "id": "v_func_to_put_it_simply",
@@ -3938,7 +4362,11 @@
       "word_family": [],
       "synonyms": ["simply put", "in simple terms", "basically"],
       "register": "neutral",
-      "ipa": "/tə pʊt ɪt ˈsɪmpli/"
+      "ipa": "/tə pʊt ɪt ˈsɪmpli/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "To put it simply, I love teaching.",
+      "example_discussion": "To put it simply, the tax shifts the cost from drivers to everyone.",
+      "usage_note": "Neutral. Introduces a simplified explanation."
     },
     {
       "id": "v_func_incidentally",
@@ -3957,7 +4385,11 @@
       "word_family": [{"form": "incidental", "pos": "adjective"}],
       "synonyms": ["by the way", "in passing"],
       "register": "neutral",
-      "ipa": "/ˌɪnsəˈdɛntəli/"
+      "ipa": "/ˌɪnsəˈdɛntəli/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "Incidentally, that's also where I met my best friend.",
+      "example_discussion": "Incidentally, the study Mia cites was funded by a phone company.",
+      "usage_note": "Neutral. Adds a side remark. Not \"accidentally\", which means by mistake."
     },
     {
       "id": "v_func_in_a_nutshell",
@@ -3976,7 +4408,11 @@
       "word_family": [],
       "synonyms": ["in short", "briefly", "to sum up"],
       "register": "informal",
-      "ipa": "/ɪn ə ˈnʌtʃɛl/"
+      "ipa": "/ɪn ə ˈnʌtʃɛl/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "In a nutshell, I'm organized, curious and good with people.",
+      "example_discussion": "In a nutshell, Jonah's proposal is cheap but unfair.",
+      "usage_note": "Informal. A very short summary. Not suitable for formal essays, fine in speech."
     },
     {
       "id": "v_func_then_there_s_the_question_of",
@@ -3995,7 +4431,11 @@
       "word_family": [],
       "synonyms": ["there is also", "another issue is"],
       "register": "informal",
-      "ipa": "/ðɛn ðɛrz ðə ˈkwɛstʃən ʌv/"
+      "ipa": "/ðɛn ðɛrz ðə ˈkwɛstʃən ʌv/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "I'd love to study abroad; then there's the question of how I'd pay for it.",
+      "example_discussion": "Then there's the question of who decides which students qualify, which none of the posts address.",
+      "usage_note": "Informal, spoken. Adds another issue to consider."
     },
     {
       "id": "v_func_to_round_off",
@@ -4014,7 +4454,11 @@
       "word_family": [],
       "synonyms": ["to conclude", "finally", "to finish"],
       "register": "neutral",
-      "ipa": "/tə raʊnd ɔːf/"
+      "ipa": "/tə raʊnd ɔːf/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "To round off, I'd say this experience made me more independent.",
+      "example_discussion": "To round off, the evidence suggests a cautious approach.",
+      "usage_note": "Neutral. Signals the end of a talk or answer."
     },
     {
       "id": "v_func_i_take_your_point",
@@ -4033,7 +4477,11 @@
       "word_family": [],
       "synonyms": ["fair point", "I see your point"],
       "register": "neutral",
-      "ipa": "/aɪ teɪk jɔːr pɔɪnt/"
+      "ipa": "/aɪ teɪk jɔːr pɔɪnt/",
+      "tags": ["c2_productive_1", "hedging_stance"],
+      "example_interview": "I take your point about the cost, but I'd still choose the smaller college.",
+      "example_discussion": "I take your point, Marco, but the evidence you mention is from a very different context.",
+      "usage_note": "Neutral. Accepts an argument before disagreeing. \"I take your point, but…\" is a polite opener in Academic Discussion."
     },
     {
       "id": "v_func_i_d_go_along_with_that",
@@ -4052,7 +4500,11 @@
       "word_family": [],
       "synonyms": ["I agree", "sounds good"],
       "register": "informal",
-      "ipa": "/aɪd ɡoʊ əˈlɔːŋ wɪð ðæt/"
+      "ipa": "/aɪd ɡoʊ əˈlɔːŋ wɪð ðæt/",
+      "tags": ["c2_productive_1", "hedging_stance"],
+      "example_interview": "If my friends want to cook together on Sundays, I'd go along with that.",
+      "example_discussion": "I'd go along with that proposal, provided the schedule is flexible.",
+      "usage_note": "Informal to neutral. Means agree or accept. In writing, \"I would support that\" is more formal."
     },
     {
       "id": "v_func_that_s_debatable",
@@ -4071,7 +4523,11 @@
       "word_family": [],
       "synonyms": ["that's questionable", "I'm not so sure"],
       "register": "neutral",
-      "ipa": "/ðæts dɪˈbeɪtəbəl/"
+      "ipa": "/ðæts dɪˈbeɪtəbəl/",
+      "tags": ["c2_productive_1", "hedging_stance"],
+      "example_interview": "My brother says I'm the messy one at home, but that's debatable.",
+      "example_discussion": "Lena calls the policy a success; that's debatable, given the drop in attendance.",
+      "usage_note": "Neutral, slightly informal. A short way to disagree without being rude. In writing, \"that is debatable\"."
     },
     {
       "id": "v_func_i_m_not_convinced_that",
@@ -4090,7 +4546,11 @@
       "word_family": [],
       "synonyms": ["I doubt that", "I'm not sure that"],
       "register": "neutral",
-      "ipa": "/aɪm nɑːt kənˈvɪnst ðæt/"
+      "ipa": "/aɪm nɑːt kənˈvɪnst ðæt/",
+      "tags": ["c2_productive_1", "hedging_stance"],
+      "example_interview": "I'm not convinced that working at night suits me, so I'm looking for a day job.",
+      "example_discussion": "I'm not convinced that higher fines would change drivers' behavior.",
+      "usage_note": "Neutral. Polite disagreement. Followed by a clause, not by \"of that\"."
     },
     {
       "id": "v_func_i_see_where_you_re_coming_from",
@@ -4109,7 +4569,11 @@
       "word_family": [],
       "synonyms": ["I understand your view", "I see your point"],
       "register": "informal",
-      "ipa": "/aɪ siː wɛr jʊr ˈkʌmɪŋ frʌm/"
+      "ipa": "/aɪ siː wɛr jʊr ˈkʌmɪŋ frʌm/",
+      "tags": ["c2_productive_1", "hedging_stance"],
+      "example_interview": "I see where you're coming from, but I think a gap year can be useful.",
+      "example_discussion": "I see where you're coming from, Sara, but the costs fall on taxpayers, not just users.",
+      "usage_note": "Informal to neutral. Shows understanding before disagreeing. Not \"I see from where you come\"."
     },
     {
       "id": "v_func_you_have_a_point_there",
@@ -4128,7 +4592,11 @@
       "word_family": [],
       "synonyms": ["that's true", "fair enough"],
       "register": "informal",
-      "ipa": "/juː hæv ə pɔɪnt ðɛr/"
+      "ipa": "/juː hæv ə pɔɪnt ðɛr/",
+      "tags": ["c2_productive_1", "hedging_stance"],
+      "example_interview": "You have a point there; I hadn't thought about the cost of travel.",
+      "example_discussion": "You have a point there, Jonah: the policy does ignore part-time workers.",
+      "usage_note": "Informal to neutral. Concedes that someone is partly right. Not \"you have a point here\" in this sense."
     },
     {
       "id": "v_func_i_d_question_whether",
@@ -4147,7 +4615,11 @@
       "word_family": [],
       "synonyms": ["I doubt whether", "I'm not sure whether"],
       "register": "neutral",
-      "ipa": "/aɪd ˈkwɛstʃən ˈwɛðər/"
+      "ipa": "/aɪd ˈkwɛstʃən ˈwɛðər/",
+      "tags": ["c2_productive_1", "hedging_stance"],
+      "example_interview": "When people say a degree guarantees a job, I'd question whether that's still true.",
+      "example_discussion": "I'd question whether a ban would change anything if parents keep buying phones for younger children.",
+      "usage_note": "Neutral. Polite doubt. Followed by \"whether\", not \"if that\"."
     },
     {
       "id": "v_func_that_s_only_part_of_the_story",
@@ -4166,7 +4638,11 @@
       "word_family": [],
       "synonyms": ["there is more to it", "that's not the whole picture"],
       "register": "neutral",
-      "ipa": "/ðæts ˈoʊnli pɑːrt ʌv ðə ˈstɔːri/"
+      "ipa": "/ðæts ˈoʊnli pɑːrt ʌv ðə ˈstɔːri/",
+      "tags": ["c2_productive_1", "hedging_stance"],
+      "example_interview": "Sure, the job pays well, but that's only part of the story; the hours are terrible.",
+      "example_discussion": "Higher wages matter, but that's only part of the story: housing costs have risen faster.",
+      "usage_note": "Informal to neutral. Points out that an explanation is incomplete."
     },
     {
       "id": "v_func_i_couldn_t_have_put_it_better",
@@ -4185,7 +4661,11 @@
       "word_family": [],
       "synonyms": ["exactly", "well said"],
       "register": "informal",
-      "ipa": "/aɪ ˈkʊdənt hæv pʊt ɪt ˈbɛtər/"
+      "ipa": "/aɪ ˈkʊdənt hæv pʊt ɪt ˈbɛtər/",
+      "tags": ["c2_productive_1", "hedging_stance"],
+      "example_interview": "My friend said the trip was \"tiring but worth every minute\", and I couldn't have put it better.",
+      "example_discussion": "Mia says the rule punishes the wrong students, and I couldn't have put it better.",
+      "usage_note": "Informal to neutral. Strong agreement. Not \"I couldn't have said better\", which is incomplete."
     },
     {
       "id": "v_func_fair_enough",
@@ -4204,7 +4684,885 @@
       "word_family": [],
       "synonyms": ["okay", "that's reasonable", "fair point"],
       "register": "informal",
-      "ipa": "/fɛr ɪˈnʌf/"
+      "ipa": "/fɛr ɪˈnʌf/",
+      "tags": ["c2_productive_1", "hedging_stance"],
+      "example_interview": "Fair enough, I'll take the earlier train if it makes things easier.",
+      "example_discussion": "Fair enough, Kim, but cheaper is not always better for students.",
+      "usage_note": "Informal. Accepts a point as reasonable, sometimes reluctantly. Avoid it in formal written answers."
+    },
+    {
+      "id": "v_func_by_contrast",
+      "headword": "by contrast",
+      "kind": "formula",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "functional_language",
+      "function": "concession",
+      "definition": "used to compare two things and show how different the second one is",
+      "translation_fr": "en revanche, par contraste",
+      "example_academic": "Northern sites are well preserved; by contrast, the southern ones are badly eroded.",
+      "example_spoken": "My sister loves the city. By contrast, I'd rather live by the sea.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["in contrast", "on the other hand", "conversely"],
+      "register": "formal",
+      "ipa": "/baɪ ˈkɑːntræst/",
+      "tags": ["c2_productive_1", "concession_contrast"],
+      "example_interview": "My high school was tiny; by contrast, my university has thirty thousand students.",
+      "example_discussion": "Public transport is cheap in Lena's city; by contrast, it is almost absent in rural areas.",
+      "usage_note": "Formal. Compares two different things. Not \"at the contrary\", a frequent French calque."
+    },
+    {
+      "id": "v_func_on_the_contrary",
+      "headword": "on the contrary",
+      "kind": "formula",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "functional_language",
+      "function": "concession",
+      "definition": "used to say that the opposite of what was just said is true",
+      "translation_fr": "au contraire",
+      "example_academic": "The reform did not reduce costs; on the contrary, it increased them.",
+      "example_spoken": "I'm not bored at all. On the contrary, I'm loving it.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["quite the opposite", "far from it"],
+      "register": "neutral",
+      "ipa": "/ɑːn ðə ˈkɑːntrɛri/",
+      "tags": ["c2_productive_1", "concession_contrast"],
+      "example_interview": "Moving abroad didn't make me homesick; on the contrary, it made me more independent.",
+      "example_discussion": "The ban did not reduce smoking; on the contrary, the figures show a slight increase.",
+      "usage_note": "Neutral. Contradicts a statement. French speakers overuse it for simple contrast, where \"by contrast\" or \"on the other hand\" is correct."
+    },
+    {
+      "id": "v_func_that_is_not_to_deny_that",
+      "headword": "that is not to deny that",
+      "kind": "formula",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "functional_language",
+      "function": "concession",
+      "definition": "used to accept a point while making clear that your argument still stands",
+      "translation_fr": "je ne nie pas pour autant que",
+      "example_academic": "The policy has flaws; that is not to deny that it helped many families.",
+      "example_spoken": "It was stressful. That is not to deny that I learned a lot.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["admittedly", "of course"],
+      "register": "formal",
+      "ipa": "/ðæt ɪz nɑːt tə dɪˈnaɪ ðæt/",
+      "tags": ["c2_productive_1", "concession_contrast"],
+      "example_interview": "My first job was exhausting. That is not to deny that it taught me a great deal.",
+      "example_discussion": "Technology can distract students; that is not to deny that it also opens new ways of learning.",
+      "usage_note": "Formal. Prevents your criticism from sounding absolute. Close to \"this is not to say that\"."
+    },
+    {
+      "id": "v_func_for_all_that",
+      "headword": "for all that",
+      "kind": "formula",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "functional_language",
+      "function": "concession",
+      "definition": "despite what has just been said",
+      "translation_fr": "malgré tout, pour autant",
+      "example_academic": "The method is slow and costly; for all that, it remains the most reliable.",
+      "example_spoken": "He's a bit rude. For all that, I like working with him.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["nevertheless", "even so", "all the same"],
+      "register": "formal",
+      "ipa": "/fɔːr ɔːl ðæt/",
+      "tags": ["c2_productive_1", "concession_contrast"],
+      "example_interview": "The commute is long. For all that, I wouldn't change jobs.",
+      "example_discussion": "The study has a small sample; for all that, its conclusions match earlier research.",
+      "usage_note": "Formal. Means \"nevertheless\". Not \"for all this\" in the same sense, though it is understood."
+    },
+    {
+      "id": "v_func_as_opposed_to",
+      "headword": "as opposed to",
+      "kind": "formula",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "functional_language",
+      "function": "concession",
+      "definition": "used to make a contrast between two things",
+      "translation_fr": "par opposition à, plutôt que",
+      "example_academic": "The study measured actual behavior, as opposed to what people said they did.",
+      "example_spoken": "I prefer working in the morning, as opposed to late at night.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["rather than", "instead of", "in contrast to"],
+      "register": "neutral",
+      "ipa": "/æz əˈpoʊzd tu/",
+      "tags": ["c2_productive_1", "concession_contrast"],
+      "example_interview": "I like learning by doing, as opposed to just listening to lectures.",
+      "example_discussion": "We should measure what students can do, as opposed to how many hours they sit in class.",
+      "usage_note": "Neutral. Followed by a noun or -ing. Not \"opposed to\" alone in this sense."
+    },
+    {
+      "id": "v_func_contrary_to",
+      "headword": "contrary to",
+      "kind": "formula",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "functional_language",
+      "function": "concession",
+      "definition": "in a way that is the opposite of what someone expected or claimed",
+      "translation_fr": "contrairement à",
+      "example_academic": "Contrary to earlier claims, the drug had no effect on memory.",
+      "example_spoken": "Contrary to what I expected, the exam was quite easy.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["unlike", "in contrast to", "against"],
+      "register": "formal",
+      "ipa": "/ˈkɑːntrɛri tu/",
+      "tags": ["c2_productive_1", "concession_contrast"],
+      "example_interview": "Contrary to what my parents thought, I actually enjoyed boarding school.",
+      "example_discussion": "Contrary to Jonah's assumption, most students in the survey supported the new rule.",
+      "usage_note": "Formal. \"Contrary to popular belief / to what X said\". French speakers often use it to compare two people (\"contrary to my brother\"), where \"unlike\" is correct."
+    },
+    {
+      "id": "v_func_only_to",
+      "headword": "only to",
+      "kind": "formula",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "functional_language",
+      "function": "concession",
+      "definition": "used to show that something happened after an action and made the action useless or disappointing",
+      "translation_fr": "pour finalement, pour au final",
+      "example_academic": "Researchers spent years on the project, only to see it cancelled.",
+      "example_spoken": "I ran to the station, only to find the train had left.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["but then", "and then unfortunately"],
+      "register": "neutral",
+      "ipa": "/ˈoʊnli tu/",
+      "tags": ["c2_productive_1", "concession_contrast"],
+      "example_interview": "I studied for weeks, only to find out the exam had been moved.",
+      "example_discussion": "Many towns build large stadiums only to see them empty after one event.",
+      "usage_note": "Neutral. Structure: \"…, only to + infinitive\". Expresses a disappointing outcome, not purpose."
+    },
+    {
+      "id": "v_func_on_the_face_of_it",
+      "headword": "on the face of it",
+      "kind": "formula",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "functional_language",
+      "function": "concession",
+      "definition": "used to say that something seems true at first, although it may not be",
+      "translation_fr": "à première vue",
+      "example_academic": "On the face of it, the results support the theory, but the sample was very small.",
+      "example_spoken": "On the face of it, it's a great deal. Read the small print, though.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["at first sight", "apparently", "seemingly"],
+      "register": "neutral",
+      "ipa": "/ɑːn ðə feɪs ʌv ɪt/",
+      "tags": ["c2_productive_1", "concession_contrast"],
+      "example_interview": "On the face of it, the job looked perfect, but the hours were impossible.",
+      "example_discussion": "On the face of it, Kim's plan is cheaper, yet it ignores the cost of maintenance.",
+      "usage_note": "Neutral. Prepares a contrast with reality. Not \"in the face of it\", which means something else."
+    },
+    {
+      "id": "v_func_there_is_some_truth_in",
+      "headword": "there is some truth in",
+      "kind": "formula",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "functional_language",
+      "function": "concession",
+      "definition": "used to accept that an idea is partly correct before adding a reservation",
+      "translation_fr": "il y a du vrai dans",
+      "example_academic": "There is some truth in the claim, but it ignores regional differences.",
+      "example_spoken": "There is some truth in what you're saying.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["that is partly true", "you have a point"],
+      "register": "neutral",
+      "ipa": "/ðɛr ɪz sʌm truːθ ɪn/",
+      "tags": ["c2_productive_1", "concession_contrast"],
+      "example_interview": "There is some truth in the idea that you learn more from failure, but it isn't fun at the time.",
+      "example_discussion": "There is some truth in Daniel's argument, but he overlooks students who work part time.",
+      "usage_note": "Neutral. Polite partial agreement. \"There is some truth in/to it\". Not \"there is a truth in\"."
+    },
+    {
+      "id": "v_func_it_may_well_be_that",
+      "headword": "it may well be that",
+      "kind": "formula",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "functional_language",
+      "function": "concession",
+      "definition": "used to accept that something is possibly true, often before an objection",
+      "translation_fr": "il se peut bien que",
+      "example_academic": "It may well be that the effect is real, but the study cannot prove it.",
+      "example_spoken": "It may well be that he's busy, but he could still reply.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["perhaps", "it is possible that"],
+      "register": "formal",
+      "ipa": "/ɪt meɪ wɛl bi ðæt/",
+      "tags": ["c2_productive_1", "concession_contrast"],
+      "example_interview": "It may well be that I'll change careers one day, but for now I love this field.",
+      "example_discussion": "It may well be that the policy reduces costs, but at what price for quality?",
+      "usage_note": "Formal. \"May well\" = it is quite possible. Often followed by \"but\". Not \"it can well be that\"."
+    },
+    {
+      "id": "v_func_what_strikes_me_is",
+      "headword": "what strikes me is",
+      "kind": "formula",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "functional_language",
+      "function": "emphasis",
+      "definition": "used in speech to introduce what you find most surprising or important",
+      "translation_fr": "ce qui me frappe, c'est",
+      "example_academic": "What strikes me is how little the debate has changed in twenty years.",
+      "example_spoken": "What strikes me is how calm she stayed.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["what I find striking is", "what surprises me is"],
+      "register": "neutral",
+      "ipa": "/wʌt straɪks mi ɪz/",
+      "tags": ["c2_productive_1", "emphasis"],
+      "example_interview": "What strikes me is how friendly people are here compared with my hometown.",
+      "example_discussion": "What strikes me is that neither student mentions the teachers' point of view.",
+      "usage_note": "Neutral, personal. A pseudo-cleft that foregrounds your reaction. Not \"what strikes me, it is\", a calque of French."
+    },
+    {
+      "id": "v_func_it_is_x_that",
+      "headword": "it is X that",
+      "kind": "idiom",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "functional_language",
+      "function": "emphasis",
+      "definition": "a cleft structure used to put strong emphasis on one part of a sentence",
+      "translation_fr": "c'est X que / qui",
+      "example_academic": "It is funding, not design, that explains the failure of the program.",
+      "example_spoken": "It is the noise that bothers me, not the heat.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["what matters is", "the thing that"],
+      "register": "neutral",
+      "ipa": "/ɪt ɪz ... ðæt/",
+      "tags": ["c2_productive_1", "emphasis"],
+      "example_interview": "It was my grandmother who taught me to cook, and it is cooking that relaxes me most.",
+      "example_discussion": "It is housing, rather than wages, that drives young people out of cities.",
+      "usage_note": "Neutral. Cleft sentence: \"It is/was + focus + that/who + rest\". French speakers know \"c'est… que\" but rarely use it in English, where it adds strong emphasis."
+    },
+    {
+      "id": "v_func_all_i_m_saying_is",
+      "headword": "all I'm saying is",
+      "kind": "formula",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "functional_language",
+      "function": "emphasis",
+      "definition": "used in speech to make your point sound modest or to clarify what you mean",
+      "translation_fr": "tout ce que je dis, c'est que",
+      "example_academic": "All I'm saying is that the data need checking before we publish.",
+      "example_spoken": "All I'm saying is, maybe we should leave earlier.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["I'm only suggesting", "my point is simply"],
+      "register": "informal",
+      "ipa": "/ɔːl aɪm ˈseɪɪŋ ɪz/",
+      "tags": ["c2_productive_1", "emphasis"],
+      "example_interview": "All I'm saying is that a gap year isn't a waste of time if you use it well.",
+      "example_discussion": "All I'm saying is that we need evidence before we ban phones in every school.",
+      "usage_note": "Informal, spoken. Softens a point while insisting on it. Avoid it in formal writing."
+    },
+    {
+      "id": "v_func_if_there_is_one_thing",
+      "headword": "if there is one thing",
+      "kind": "formula",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "functional_language",
+      "function": "emphasis",
+      "definition": "used to introduce the single most important point you want to make",
+      "translation_fr": "s'il y a une chose",
+      "example_academic": "If there is one thing the crisis showed, it is the value of local suppliers.",
+      "example_spoken": "If there is one thing I've learned, it's to back up my files.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["above all", "the main lesson is"],
+      "register": "neutral",
+      "ipa": "/ɪf ðɛr ɪz wʌn θɪŋ/",
+      "tags": ["c2_productive_1", "emphasis"],
+      "example_interview": "If there is one thing I'm proud of, it's learning Spanish on my own.",
+      "example_discussion": "If there is one thing both students agree on, it is that the current system fails rural families.",
+      "usage_note": "Neutral. Structure: \"If there is one thing (that) X, it is Y\". Keep both parts."
+    },
+    {
+      "id": "v_func_what_really_matters_is",
+      "headword": "what really matters is",
+      "kind": "formula",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "functional_language",
+      "function": "emphasis",
+      "definition": "used to introduce the point you consider most important",
+      "translation_fr": "ce qui compte vraiment, c'est",
+      "example_academic": "What really matters is whether the changes improve patient outcomes.",
+      "example_spoken": "What really matters is that everyone got home safely.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["the key point is", "what counts is"],
+      "register": "neutral",
+      "ipa": "/wʌt ˈriːli ˈmætərz ɪz/",
+      "tags": ["c2_productive_1", "emphasis"],
+      "example_interview": "What really matters is that I enjoy what I study, not just the salary.",
+      "example_discussion": "What really matters is not the price of the program but who can access it.",
+      "usage_note": "Neutral. A pseudo-cleft. \"Matters\" agrees with \"what\" (singular). Not \"what really matter is\"."
+    },
+    {
+      "id": "v_func_funnily_enough",
+      "headword": "funnily enough",
+      "kind": "formula",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "functional_language",
+      "function": "speech_structuring",
+      "definition": "used to introduce something surprising or odd",
+      "translation_fr": "chose curieuse, bizarrement",
+      "example_academic": "Funnily enough, the least expensive treatment turned out to be the most effective.",
+      "example_spoken": "Funnily enough, I was just thinking about you.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["strangely enough", "oddly enough", "curiously"],
+      "register": "informal",
+      "ipa": "/ˈfʌnəli ɪˈnʌf/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "Funnily enough, I hated science at school, and now I'm studying chemistry.",
+      "example_discussion": "Funnily enough, the cheapest option in Kim's list is also the greenest.",
+      "usage_note": "Informal, British in flavor. \"Oddly enough\" and \"strangely enough\" are neutral alternatives."
+    },
+    {
+      "id": "v_func_believe_it_or_not",
+      "headword": "believe it or not",
+      "kind": "formula",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "functional_language",
+      "function": "speech_structuring",
+      "definition": "used to introduce something surprising but true",
+      "translation_fr": "crois-le ou non, aussi incroyable que cela paraisse",
+      "example_academic": "Believe it or not, the tiny island once had a population of ten thousand.",
+      "example_spoken": "Believe it or not, I've never seen the sea.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["surprisingly", "amazingly"],
+      "register": "informal",
+      "ipa": "/bɪˈliːv ɪt ɔːr nɑːt/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "Believe it or not, I learned English mostly from cooking videos.",
+      "example_discussion": "Believe it or not, the city spends more on parking than on libraries.",
+      "usage_note": "Informal, spoken. Fine in an Interview answer, too casual for an essay."
+    },
+    {
+      "id": "v_func_as_luck_would_have_it",
+      "headword": "as luck would have it",
+      "kind": "formula",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "functional_language",
+      "function": "speech_structuring",
+      "definition": "used to say that something happened by chance, either good or bad",
+      "translation_fr": "par chance, le hasard a voulu que",
+      "example_academic": "As luck would have it, the archive had survived the fire.",
+      "example_spoken": "As luck would have it, there was one seat left.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["by chance", "fortunately", "unfortunately"],
+      "register": "neutral",
+      "ipa": "/æz lʌk wʊd hæv ɪt/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "As luck would have it, my first boss was also from my hometown.",
+      "example_discussion": "As luck would have it, a similar policy was tried in 2015, so we have data.",
+      "usage_note": "Neutral. Can introduce good or bad luck; context decides."
+    },
+    {
+      "id": "v_func_come_to_that",
+      "headword": "come to that",
+      "kind": "formula",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "functional_language",
+      "function": "speech_structuring",
+      "definition": "used in speech to add that what you just said is also true of something else",
+      "translation_fr": "d'ailleurs, à ce propos",
+      "example_academic": "The museum has no café; come to that, it has no shop either.",
+      "example_spoken": "I've never been to Rome. Come to that, I've never been to Italy.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["for that matter", "actually"],
+      "register": "informal",
+      "ipa": "/kʌm tə ðæt/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "I don't really watch TV. Come to that, I don't watch many films either.",
+      "example_discussion": "Few students use the gym; come to that, few use the library on weekends either.",
+      "usage_note": "Informal, British. \"For that matter\" is the neutral equivalent."
+    },
+    {
+      "id": "v_func_for_what_it_s_worth",
+      "headword": "for what it's worth",
+      "kind": "formula",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "functional_language",
+      "function": "speech_structuring",
+      "definition": "used to offer an opinion or fact modestly, admitting it may not be important",
+      "translation_fr": "pour ce que ça vaut",
+      "example_academic": "For what it's worth, the earlier study reached the same conclusion.",
+      "example_spoken": "For what it's worth, I think you made the right choice.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["in my humble opinion", "if it helps"],
+      "register": "informal",
+      "ipa": "/fɔːr wʌt ɪts wɜːrθ/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "For what it's worth, I think I'd be a good fit for this team.",
+      "example_discussion": "For what it's worth, my own school tried this and the results were mixed.",
+      "usage_note": "Informal. Modest way to add a view. Written \"for what it is worth\" in formal texts."
+    },
+    {
+      "id": "v_func_at_any_rate",
+      "headword": "at any rate",
+      "kind": "formula",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "functional_language",
+      "function": "speech_structuring",
+      "definition": "used to correct or limit what you have just said, or to return to the main point",
+      "translation_fr": "en tout cas, du moins",
+      "example_academic": "The plan failed, or at any rate it did not meet its targets.",
+      "example_spoken": "At any rate, we'll know more tomorrow.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["anyway", "in any case", "at least"],
+      "register": "neutral",
+      "ipa": "/æt ˈɛni reɪt/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "I loved that job, or at any rate most of it.",
+      "example_discussion": "At any rate, the figures do not support the claim that crime has doubled.",
+      "usage_note": "Neutral. Two uses: correcting yourself (\"or at any rate…\") and moving on (\"At any rate, …\")."
+    },
+    {
+      "id": "v_func_in_all_honesty",
+      "headword": "in all honesty",
+      "kind": "formula",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "functional_language",
+      "function": "speech_structuring",
+      "definition": "used to show that you are saying what you really think",
+      "translation_fr": "en toute honnêteté",
+      "example_academic": "In all honesty, the evidence for the second hypothesis is thin.",
+      "example_spoken": "In all honesty, I didn't enjoy the film.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["honestly", "frankly", "to be honest"],
+      "register": "neutral",
+      "ipa": "/ɪn ɔːl ˈɑːnəsti/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "In all honesty, I chose this major because of one inspiring teacher.",
+      "example_discussion": "In all honesty, I am not sure either proposal would work without more staff.",
+      "usage_note": "Neutral. Slightly more formal than \"to be honest\". Not \"in all frankness\" in common use."
+    },
+    {
+      "id": "v_func_truth_be_told",
+      "headword": "truth be told",
+      "kind": "formula",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "functional_language",
+      "function": "speech_structuring",
+      "definition": "used to admit something you might not have said otherwise",
+      "translation_fr": "à vrai dire",
+      "example_academic": "Truth be told, the first prototype barely worked.",
+      "example_spoken": "Truth be told, I was a bit nervous.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["to be honest", "actually"],
+      "register": "neutral",
+      "ipa": "/truːθ bi toʊld/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "Truth be told, I almost didn't apply because I thought I had no chance.",
+      "example_discussion": "Truth be told, the original plan never had enough funding.",
+      "usage_note": "Neutral. An admission. Not \"to tell the truth be told\", a mix of two expressions."
+    },
+    {
+      "id": "v_func_let_s_face_it",
+      "headword": "let's face it",
+      "kind": "formula",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "functional_language",
+      "function": "speech_structuring",
+      "definition": "used to say that something unpleasant must be accepted as true",
+      "translation_fr": "regardons les choses en face",
+      "example_academic": "Let's face it: no single policy will solve the housing crisis.",
+      "example_spoken": "Let's face it, we're not going to finish tonight.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["let's be honest", "admittedly"],
+      "register": "informal",
+      "ipa": "/lɛts feɪs ɪt/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "Let's face it, nobody enjoys exams, but they push me to really learn.",
+      "example_discussion": "Let's face it: most people will not change their habits unless it saves them money.",
+      "usage_note": "Informal. Direct; use it once per answer at most."
+    },
+    {
+      "id": "v_func_to_put_it_mildly",
+      "headword": "to put it mildly",
+      "kind": "formula",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "functional_language",
+      "function": "speech_structuring",
+      "definition": "used to say that the reality is much stronger than the words you are using",
+      "translation_fr": "c'est le moins qu'on puisse dire",
+      "example_academic": "The early results were, to put it mildly, disappointing.",
+      "example_spoken": "The trip was, to put it mildly, a disaster.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["to say the least"],
+      "register": "neutral",
+      "ipa": "/tə pʊt ɪt ˈmaɪldli/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "My first attempt at cooking for friends was, to put it mildly, not a success.",
+      "example_discussion": "The proposal is, to put it mildly, optimistic about how quickly people will change.",
+      "usage_note": "Neutral, ironic. \"To say the least\" is a close equivalent."
+    },
+    {
+      "id": "v_func_if_push_comes_to_shove",
+      "headword": "if push comes to shove",
+      "kind": "formula",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "functional_language",
+      "function": "speech_structuring",
+      "definition": "if a situation becomes difficult and action is really necessary",
+      "translation_fr": "en cas de besoin, au pire",
+      "example_academic": "If push comes to shove, the council could sell the building.",
+      "example_spoken": "If push comes to shove, I can sleep on the sofa.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["if necessary", "in the worst case"],
+      "register": "informal",
+      "ipa": "/ɪf pʊʃ kʌmz tə ʃʌv/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "If push comes to shove, I could finish my degree part time while working.",
+      "example_discussion": "If push comes to shove, schools could share specialist teachers between sites.",
+      "usage_note": "Informal. Introduces a fallback option."
+    },
+    {
+      "id": "v_func_it_goes_without_saying",
+      "headword": "it goes without saying",
+      "kind": "formula",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "functional_language",
+      "function": "speech_structuring",
+      "definition": "used to say that something is so obvious that it hardly needs to be said",
+      "translation_fr": "il va sans dire",
+      "example_academic": "It goes without saying that the results must be replicated.",
+      "example_spoken": "It goes without saying that you're welcome to stay.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["obviously", "needless to say"],
+      "register": "neutral",
+      "ipa": "/ɪt ɡoʊz wɪˈðaʊt ˈseɪɪŋ/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "It goes without saying that I'd be willing to travel for this job.",
+      "example_discussion": "It goes without saying that teachers must be consulted, yet none of the posts mention them.",
+      "usage_note": "Neutral. Exact equivalent of \"il va sans dire\". Usually followed by \"that\"."
+    },
+    {
+      "id": "v_func_the_long_and_the_short_of_it",
+      "headword": "the long and the short of it",
+      "kind": "formula",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "functional_language",
+      "function": "speech_structuring",
+      "definition": "the basic facts of a situation, without the details",
+      "translation_fr": "en résumé, en un mot",
+      "example_academic": "The long and the short of it is that the project ran out of money.",
+      "example_spoken": "The long and the short of it is, we're moving.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["in short", "basically"],
+      "register": "informal",
+      "ipa": "/ðə lɔːŋ ənd ðə ʃɔːrt ʌv ɪt/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "The long and the short of it is that I fell in love with teaching during my internship.",
+      "example_discussion": "The long and the short of it is that Kim's plan helps only students who already own cars.",
+      "usage_note": "Informal. Usually \"The long and the short of it is (that)…\"."
+    },
+    {
+      "id": "v_func_off_the_top_of_my_head",
+      "headword": "off the top of my head",
+      "kind": "formula",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "functional_language",
+      "function": "speech_structuring",
+      "definition": "without checking or thinking carefully; from memory",
+      "translation_fr": "de mémoire, comme ça sans réfléchir",
+      "example_academic": "Off the top of my head, I'd estimate the sample at about two hundred.",
+      "example_spoken": "Off the top of my head, I can't remember her name.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["roughly", "from memory"],
+      "register": "informal",
+      "ipa": "/ɔːf ðə tɑːp ʌv maɪ hɛd/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "Off the top of my head, I'd say my biggest strength is patience.",
+      "example_discussion": "Off the top of my head, I can think of three cities where this approach has worked.",
+      "usage_note": "Informal. Signals an approximate answer. Very useful in Interview when you need time."
+    },
+    {
+      "id": "v_func_for_the_record",
+      "headword": "for the record",
+      "kind": "formula",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "functional_language",
+      "function": "speech_structuring",
+      "definition": "used to state something clearly and officially, so that it is known",
+      "translation_fr": "pour mémoire, pour qu'on le sache",
+      "example_academic": "For the record, the committee did not approve the final version.",
+      "example_spoken": "For the record, I never said that.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["to be clear", "officially"],
+      "register": "neutral",
+      "ipa": "/fɔːr ðə ˈrɛkərd/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "For the record, I wasn't the one who broke the printer.",
+      "example_discussion": "For the record, my point was about cost, not about whether the program is useful.",
+      "usage_note": "Neutral. Clarifies your position. Not \"for the memory\"."
+    },
+    {
+      "id": "v_func_as_a_matter_of_fact",
+      "headword": "as a matter of fact",
+      "kind": "formula",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "functional_language",
+      "function": "speech_structuring",
+      "definition": "used to add a detail that supports or surprisingly corrects what was said",
+      "translation_fr": "en fait, justement",
+      "example_academic": "As a matter of fact, the first recorded use of the term is much older.",
+      "example_spoken": "As a matter of fact, I've just finished it.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["actually", "in fact"],
+      "register": "neutral",
+      "ipa": "/æz ə ˈmætər ʌv fækt/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "As a matter of fact, I've already started learning the software this job uses.",
+      "example_discussion": "As a matter of fact, the city tried a similar ban in 2012.",
+      "usage_note": "Neutral. Often introduces a surprising detail. \"Actually\" is the shorter equivalent."
+    },
+    {
+      "id": "v_func_now_that_you_mention_it",
+      "headword": "now that you mention it",
+      "kind": "formula",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "functional_language",
+      "function": "speech_structuring",
+      "definition": "used to say that someone's remark has made you notice or remember something",
+      "translation_fr": "maintenant que vous le dites",
+      "example_academic": "Now that you mention it, the second graph does look odd.",
+      "example_spoken": "Now that you mention it, I haven't seen her for weeks.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["come to think of it"],
+      "register": "informal",
+      "ipa": "/naʊ ðæt juː ˈmɛnʃən ɪt/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "Now that you mention it, my interest in design probably started with Lego.",
+      "example_discussion": "Now that you mention it, Jonah, the survey did leave out evening students.",
+      "usage_note": "Informal, spoken. Reacts to someone else's remark."
+    },
+    {
+      "id": "v_func_speaking_of_which",
+      "headword": "speaking of which",
+      "kind": "formula",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "functional_language",
+      "function": "speech_structuring",
+      "definition": "used to introduce a topic connected to what was just mentioned",
+      "translation_fr": "à ce propos, en parlant de ça",
+      "example_academic": "Speaking of which, the next conference will focus on this very issue.",
+      "example_spoken": "Speaking of which, have you booked the tickets?",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["on that subject", "by the way"],
+      "register": "informal",
+      "ipa": "/ˈspiːkɪŋ ʌv wɪtʃ/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "I love hiking. Speaking of which, I'm planning a trip to the Alps this summer.",
+      "example_discussion": "Several students mentioned costs. Speaking of which, nobody has asked who would pay for maintenance.",
+      "usage_note": "Informal. Links to the previous topic naturally."
+    },
+    {
+      "id": "v_func_on_second_thought",
+      "headword": "on second thought",
+      "kind": "formula",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "functional_language",
+      "function": "speech_structuring",
+      "definition": "used to say that you have changed your mind after thinking again",
+      "translation_fr": "à la réflexion, réflexion faite",
+      "example_academic": "On second thought, a smaller pilot study might be wiser.",
+      "example_spoken": "On second thought, I'll stay home.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["having reconsidered", "actually"],
+      "register": "neutral",
+      "ipa": "/ɑːn ˈsɛkənd θɔːt/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "I wanted to study law, but on second thought, I realized I preferred working with data.",
+      "example_discussion": "On second thought, I agree with Mia that a gradual approach would be safer.",
+      "usage_note": "Neutral. American form; British English says \"on second thoughts\"."
+    },
+    {
+      "id": "v_func_if_memory_serves",
+      "headword": "if memory serves",
+      "kind": "formula",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "functional_language",
+      "function": "speech_structuring",
+      "definition": "used to say that you think you remember correctly",
+      "translation_fr": "si j'ai bonne mémoire",
+      "example_academic": "If memory serves, the law was passed in 1994.",
+      "example_spoken": "If memory serves, she lives near the station.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["if I remember correctly", "if I'm not mistaken"],
+      "register": "neutral",
+      "ipa": "/ɪf ˈmɛməri sɜːrvz/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "If memory serves, I was about eight when I first went abroad.",
+      "example_discussion": "If memory serves, a similar policy was rejected by voters a few years ago.",
+      "usage_note": "Neutral, slightly literary. \"If memory serves me right\" is also common."
+    },
+    {
+      "id": "v_func_to_my_mind",
+      "headword": "to my mind",
+      "kind": "formula",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "functional_language",
+      "function": "speech_structuring",
+      "definition": "in my opinion",
+      "translation_fr": "à mon avis, selon moi",
+      "example_academic": "To my mind, the strongest evidence comes from the field studies.",
+      "example_spoken": "To my mind, it's the best café in town.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["in my view", "as I see it"],
+      "register": "neutral",
+      "ipa": "/tə maɪ maɪnd/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "To my mind, a good teacher is someone who makes you curious.",
+      "example_discussion": "To my mind, the professor's question has no single answer, which is why the debate matters.",
+      "usage_note": "Neutral. A natural alternative to \"in my opinion\". Not \"for my mind\"."
+    },
+    {
+      "id": "v_func_that_s_the_thing",
+      "headword": "that's the thing",
+      "kind": "formula",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "functional_language",
+      "function": "speech_structuring",
+      "definition": "used in speech to point out the important issue or problem",
+      "translation_fr": "c'est bien là le problème",
+      "example_academic": "That's the thing: nobody knows how long the effect lasts.",
+      "example_spoken": "That's the thing, I don't have a car.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["that's the problem", "the point is"],
+      "register": "informal",
+      "ipa": "/ðæts ðə θɪŋ/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "I'd love to travel more, but that's the thing, I can't afford it yet.",
+      "example_discussion": "That's the thing: a ban does nothing if it is never enforced.",
+      "usage_note": "Informal, spoken. Signals the crux of the matter. Avoid in formal essays."
+    },
+    {
+      "id": "v_func_it_s_not_that",
+      "headword": "it's not that",
+      "kind": "formula",
+      "pos": "phrase",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "functional_language",
+      "function": "speech_structuring",
+      "definition": "used in speech to reject one possible explanation before giving the real one",
+      "translation_fr": "ce n'est pas que",
+      "example_academic": "It's not that the theory is wrong; it simply explains too little.",
+      "example_spoken": "It's not that I don't like him. I just don't know him.",
+      "collocations": [],
+      "word_family": [],
+      "synonyms": ["it isn't that", "it isn't because"],
+      "register": "informal",
+      "ipa": "/ɪts nɑːt ðæt/",
+      "tags": ["c2_productive_1", "spoken_markers"],
+      "example_interview": "It's not that I dislike big cities; I just sleep better in quiet places.",
+      "example_discussion": "It's not that Daniel is wrong; it's just that he answers a different question.",
+      "usage_note": "Informal to neutral. Usually followed by a second clause with \"just\" or \"simply\". Equivalent of \"ce n'est pas que…\"."
     }
   ]
 }
