@@ -16,6 +16,7 @@
     "serve": "tsx server/index.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "validate:content": "tsx scripts/validate-content.ts",
+    "vocab:stock": "tsx scripts/vocab-stock.ts",
     "test": "vitest run",
     "check": "npm run typecheck && npm run validate:content && npm run test"
   },

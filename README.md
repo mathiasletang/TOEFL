@@ -28,6 +28,7 @@ Open **http://127.0.0.1:8787**, pick a profile and train.
 | `npm run dev` | Development: API with auto-reload (8787) + Vite UI with hot reload on **http://localhost:5173** |
 | `npm run serve` | Serve the last build without rebuilding |
 | `npm run validate:content` | Validate every exercise and vocabulary entry; report simulation forms and vocabulary counts |
+| `npm run vocab:stock` | Per profile, the vocabulary entries neither known nor learned yet, by tier and category, and how many the introduction order will serve (`-- --user Mathias` for one profile) |
 | `npm test` | Unit and integration tests (Vitest) |
 | `npm run typecheck` | Strict TypeScript check of server, shared engine and UI |
 | `npm run check` | typecheck + content validation + tests |
@@ -89,9 +90,13 @@ npm install
 The **Vocabulary** tab has four views.
 
 - **Bank:** browse and search the 1,250 entries, filtered by tier, CEFR level, category, status, and French cognates. The "Essentials" tab comes first. A word's page shows its full content, plays it (server TTS when configured, otherwise the browser voice) and lists the exercises of the bank in which the word appears. That list is built automatically by matching word forms in the exercise texts.
-- **Triage:** sort the words that come next, in your introduction order. Press **J** if you know the word (it will never be introduced) or **K** to learn it (it is queued first). **Space** shows the meaning and **U** undoes the last decision. One known word in ten is checked about a week later in a production format (typing, gap fill, word formation or dictation). If you pass, the word stays out of your deck; if you fail, it goes back into it.
-- **Daily session:** due reviews and pending checks first, then new words up to your daily limit (20 by default, set per profile in Settings).
-  - **6.0 target:** functional language, then academic collocations, phrasal verbs and idioms, French–English false friends, general academic C1–C2 words, then the rest. Discipline terms (biology, geology…) are never introduced by the schedule; they only enter your deck when you miss them in an exercise, or when you add them yourself.
+- **Triage:** sort the words that come next, in your introduction order. The question is **"Would you use it spontaneously when speaking?"**, not "Do you understand it?".
+  - **J** = yes: the word is marked known and never introduced. **K** = no: it joins the learning queue, ahead of scheduled words.
+  - **Space** shows the meaning and **U** undoes the last decision.
+  - Triage resumes where you stopped, with a progress bar.
+  - One known word in ten comes back about a week later as typing or a gap fill (`recall_typed` or `cloze_typed`). If you pass, it stays out of your deck; if you fail, it goes back into learning.
+- **Daily session:** due reviews and pending checks first, then new words up to your daily limit (25 by default, up to 40, set per profile in Settings).
+  - **6.0 target:** functional language, then academic collocations, phrasal verbs and idioms, French–English false friends, general academic C1–C2 words, then the rest. Discipline terms (biology, geology…) are never introduced by the schedule. They enter your deck only through errors: when you miss questions on an academic passage or a listening set, up to three discipline terms from that text are added. You can also add one yourself.
   - **5.0 or 5.5 target:** the Essentials tier first, then B2 → C1 → C2.
   - **French cognates** always come last, whatever the target.
 - **Stats:** words by state (new / known / learning / mature) and by tier, retention over 30 days, and the words that keep failing.
@@ -112,6 +117,19 @@ Each card rotates through eight exercise formats:
 Once a card has passed format 1, at least 60 % of its reviews are production formats. Typed answers are classified with the same classes as Complete the Words (spelling, inflection, word formation, meaning), and these errors feed the error profile shown in Focus weaknesses and Progress.
 
 **French cognates.** Each entry has a computed `transparent_fr` score: the similarity between the word and its French translation, after accents, articles and regular spelling correspondences are removed (-ize → -iser, -ity → -ité…). A single word at or above the threshold (0.7, set in config) counts as transparent, which is about 417 entries; expressions and false friends never do. A transparent discipline term cannot be C2: the 117 that were have been moved to Extended / C1.
+
+**Productive C2 batch.** 300 Mastery entries are tagged `c2_productive_1`, split into six sub-themes:
+
+| Sub-theme | Entries |
+|---|---|
+| Argumentation and nuance verbs | 60 |
+| Hedging and stance | 40 |
+| Concession and contrast | 35 |
+| Emphasis | 30 |
+| Precise collocations | 80 |
+| Spoken discourse markers | 55 |
+
+Besides the usual fields, each of these entries has an answer as it could be said in Take an Interview, a sentence as it could be written in an Academic Discussion post, and a usage note: register, and the typical mistake of a French speaker when there is one.
 
 **Your own words.** A missed Complete the Words gap or a missed vocabulary question adds the word to your deck automatically (function words are ignored). On any correction screen, "Add words to vocabulary" lets you click a word to add it. A word that is not in the bank becomes a personal card with the sentence it came from. Added words are studied before the scheduled introductions.
 

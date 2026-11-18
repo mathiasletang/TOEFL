@@ -3623,7 +3623,11 @@
       "word_family": [],
       "synonyms": ["contradict", "disguise", "mask"],
       "register": "formal",
-      "ipa": "/bɪˈlaɪ/"
+      "ipa": "/bɪˈlaɪ/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "My grandmother's quiet manner really belies how much she has achieved; she ran a business for forty years.",
+      "example_discussion": "Sam's figures look reassuring, but they belie a deeper problem: the gains are concentrated in two cities.",
+      "usage_note": "Formal. Means \"give a false impression of\" — not \"contradict\" in the sense of arguing. French speakers sometimes use it as \"nier\", which is deny."
     },
     {
       "id": "v_acad_underscore",
@@ -3641,7 +3645,11 @@
       "word_family": [],
       "synonyms": ["highlight", "emphasize", "stress"],
       "register": "formal",
-      "ipa": "/ˌʌndərˈskɔːr/"
+      "ipa": "/ˌʌndərˈskɔːr/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "That experience really underscored for me how much a good mentor can change things.",
+      "example_discussion": "The professor's example underscores a point Lena only hinted at: access matters more than cost.",
+      "usage_note": "Formal, common in academic writing. Same meaning as \"underline\"; never \"souligner\" in the sense of drawing a line under text."
     },
     {
       "id": "v_acad_bear_out",
@@ -3657,9 +3665,14 @@
       "example_spoken": "The numbers bear out what you said in the meeting.",
       "collocations": ["bear out a claim", "bear out the findings", "fully bear out"],
       "word_family": [],
+      "inflections": ["bore", "borne"],
       "synonyms": ["confirm", "support", "vindicate"],
       "register": "neutral",
-      "ipa": "/ber aʊt/"
+      "ipa": "/ber aʊt/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "I always thought early starts made me more productive, and my grades this year have borne that out.",
+      "example_discussion": "The survey data bear out Daniel's claim, at least for students who live on campus.",
+      "usage_note": "Neutral. Usually \"the data/results bear out a claim\". The object can come between the parts: \"bear this out\". Irregular: bore, borne."
     },
     {
       "id": "v_acad_bolster",
@@ -3677,7 +3690,11 @@
       "word_family": [],
       "synonyms": ["strengthen", "reinforce", "shore up"],
       "register": "neutral",
-      "ipa": "/ˈboʊlstər/"
+      "ipa": "/ˈboʊlstər/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "Working in the lab bolstered my confidence more than any class did.",
+      "example_discussion": "Lena's second example bolsters her argument, because it comes from a completely different country.",
+      "usage_note": "Neutral to formal. Takes an argument, case, confidence or position as object. Do not confuse with \"boost\", which is about amounts."
     },
     {
       "id": "v_acad_temper",
@@ -3695,7 +3712,11 @@
       "word_family": [],
       "synonyms": ["moderate", "soften", "qualify"],
       "register": "formal",
-      "ipa": "/ˈtɛmpər/"
+      "ipa": "/ˈtɛmpər/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "I'm excited about the internship, but I try to temper my expectations until I know the team.",
+      "example_discussion": "I agree with Marco, but I would temper his conclusion: the study only covered one season.",
+      "usage_note": "Formal. \"Temper a claim / expectations / enthusiasm\" = make it less extreme. French \"tempérer\" exists, but learners rarely use the English verb."
     },
     {
       "id": "v_acad_fathom",
@@ -3713,7 +3734,11 @@
       "word_family": [{"form": "unfathomable", "pos": "adjective"}],
       "synonyms": ["grasp", "comprehend", "make sense of"],
       "register": "neutral",
-      "ipa": "/ˈfæðəm/"
+      "ipa": "/ˈfæðəm/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "I honestly couldn't fathom why my roommate wanted to live without a fridge.",
+      "example_discussion": "It is hard to fathom how the policy could succeed without any funding for teachers.",
+      "usage_note": "Mostly negative or with \"hard to\": \"I can't fathom why…\". It means understand, not \"sonder\" in the sense of polling."
     },
     {
       "id": "v_acad_eschew",
@@ -3731,7 +3756,11 @@
       "word_family": [],
       "synonyms": ["avoid", "shun", "steer clear of"],
       "register": "formal",
-      "ipa": "/ɪsˈtʃuː/"
+      "ipa": "/ɪsˈtʃuː/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "I've always eschewed group chats for project work; I'd rather meet in person.",
+      "example_discussion": "The authors deliberately eschew technical terms, which is why I found the article persuasive.",
+      "usage_note": "Formal and literary. Pronounced /ɪsˈtʃuː/. In speech, \"avoid\" or \"steer clear of\" is more natural."
     },
     {
       "id": "v_acad_obviate",
@@ -3749,7 +3778,11 @@
       "word_family": [],
       "synonyms": ["remove", "preclude", "make unnecessary"],
       "register": "formal",
-      "ipa": "/ˈɑːbvieɪt/"
+      "ipa": "/ˈɑːbvieɪt/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "Having all my notes online obviates the need to carry folders around campus.",
+      "example_discussion": "Online forms would obviate the need for students to queue, as Kim points out.",
+      "usage_note": "Formal. Almost always \"obviate the need for/to\". It does not mean \"obvious\"; French speakers sometimes link the two."
     },
     {
       "id": "v_acad_posit",
@@ -3767,7 +3800,11 @@
       "word_family": [],
       "synonyms": ["suggest", "propose", "assume"],
       "register": "formal",
-      "ipa": "/ˈpɑːzɪt/"
+      "ipa": "/ˈpɑːzɪt/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "In my thesis I posit that small towns adapt faster than cities, which surprised my supervisor.",
+      "example_discussion": "Ana posits a direct link between screen time and sleep, but her sources only show a correlation.",
+      "usage_note": "Formal, academic. \"Posit that…\" or \"posit a link/the existence of\". Not \"poser\" in the general sense of putting something down."
     },
     {
       "id": "v_acad_conflate",
@@ -3785,7 +3822,11 @@
       "word_family": [{"form": "conflation", "pos": "noun"}],
       "synonyms": ["confuse", "merge", "mix up"],
       "register": "formal",
-      "ipa": "/kənˈfleɪt/"
+      "ipa": "/kənˈfleɪt/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "People often conflate being busy with being productive, and I used to make that mistake too.",
+      "example_discussion": "I think Jonah conflates two different issues: whether the policy works and whether it is fair.",
+      "usage_note": "Formal. Structure: \"conflate X with/and Y\". Useful in discussions to point out a confusion politely."
     },
     {
       "id": "v_acad_hamper",
@@ -3803,7 +3844,11 @@
       "word_family": [],
       "synonyms": ["hinder", "impede", "obstruct"],
       "register": "neutral",
-      "ipa": "/ˈhæmpər/"
+      "ipa": "/ˈhæmpər/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "My lack of Spanish really hampered me during my first month abroad.",
+      "example_discussion": "Poor public transport hampers any effort to reduce car use in rural areas.",
+      "usage_note": "Neutral. Takes progress, efforts or people as object. Close to \"hinder\"; \"hamper\" is also a noun (a basket), unrelated."
     },
     {
       "id": "v_acad_impinge",
@@ -3821,7 +3866,11 @@
       "word_family": [],
       "synonyms": ["encroach", "intrude", "affect"],
       "register": "formal",
-      "ipa": "/ɪmˈpɪndʒ/"
+      "ipa": "/ɪmˈpɪndʒ/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "I don't let my part-time job impinge on my study time; I keep weekends separate.",
+      "example_discussion": "Monitoring student emails would impinge on their privacy, whatever the intention.",
+      "usage_note": "Formal. Always \"impinge on/upon\". French speakers often say \"impinge something\" without the preposition."
     },
     {
       "id": "v_acad_jeopardize",
@@ -3839,7 +3888,11 @@
       "word_family": [{"form": "jeopardy", "pos": "noun"}],
       "synonyms": ["endanger", "threaten", "compromise"],
       "register": "neutral",
-      "ipa": "/ˈdʒɛpərdaɪz/"
+      "ipa": "/ˈdʒɛpərdaɪz/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "I didn't want to jeopardize my scholarship, so I dropped one of my extra activities.",
+      "example_discussion": "Cutting the research budget now could jeopardize projects that took years to set up.",
+      "usage_note": "Neutral. Spelled \"jeopardise\" in British English. Object: safety, future, chances, a project."
     },
     {
       "id": "v_acad_outweigh",
@@ -3855,9 +3908,13 @@
       "example_spoken": "Honestly, the cost outweighs the convenience for me.",
       "collocations": ["outweigh the risks", "outweigh the benefits", "far outweigh"],
       "word_family": [],
-      "synonyms": ["exceed", "override", "prevail over"],
+      "synonyms": ["exceed", "surpass", "prevail over"],
       "register": "neutral",
-      "ipa": "/ˌaʊtˈweɪ/"
+      "ipa": "/ˌaʊtˈweɪ/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "For me, the benefits of living on campus clearly outweigh the cost.",
+      "example_discussion": "Even if the program is expensive, its long-term benefits outweigh the initial investment.",
+      "usage_note": "Neutral, very useful in Academic Discussion: \"the benefits outweigh the costs\". No preposition after it: not \"outweigh on\" or \"outweigh over\"."
     },
     {
       "id": "v_acad_overstate",
@@ -3875,7 +3932,11 @@
       "word_family": [{"form": "overstatement", "pos": "noun"}],
       "synonyms": ["exaggerate", "inflate", "overplay"],
       "register": "neutral",
-      "ipa": "/ˌoʊvərˈsteɪt/"
+      "ipa": "/ˌoʊvərˈsteɪt/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "I think people overstate how hard it is to learn a third language once you have two.",
+      "example_discussion": "Kim overstates the case: the evidence shows a modest effect, not a revolution.",
+      "usage_note": "Neutral. \"Overstate the case / the importance\". Opposite: \"understate\". Avoid \"over-exaggerate\", which is redundant."
     },
     {
       "id": "v_acad_downplay",
@@ -3893,7 +3954,11 @@
       "word_family": [],
       "synonyms": ["minimize", "play down", "understate"],
       "register": "neutral",
-      "ipa": "/ˌdaʊnˈpleɪ/"
+      "ipa": "/ˌdaʊnˈpleɪ/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "I tend to downplay my own role in group projects, which my professor told me to stop doing.",
+      "example_discussion": "The report downplays the cost of maintenance, which is where most projects fail.",
+      "usage_note": "Neutral. Same meaning as \"play down\". Object: risks, importance, role. Not \"minimize\" in the mathematical sense."
     },
     {
       "id": "v_acad_unravel",
@@ -3911,7 +3976,11 @@
       "word_family": [],
       "synonyms": ["disentangle", "solve", "fall apart"],
       "register": "neutral",
-      "ipa": "/ʌnˈrævəl/"
+      "ipa": "/ʌnˈrævəl/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "It took me a whole semester to unravel how the university's credit system actually works.",
+      "example_discussion": "Unraveling the causes of the decline requires data from several decades, not one survey.",
+      "usage_note": "Neutral. Two senses: explain something complex, or fall apart (\"the plan unraveled\"). Spelled \"unravelled\" in British English."
     },
     {
       "id": "v_acad_warrant",
@@ -3929,7 +3998,11 @@
       "word_family": [{"form": "unwarranted", "pos": "adjective"}],
       "synonyms": ["justify", "merit", "call for"],
       "register": "formal",
-      "ipa": "/ˈwɔːrənt/"
+      "ipa": "/ˈwɔːrənt/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "A small delay doesn't warrant a complaint, in my opinion; things happen.",
+      "example_discussion": "The evidence does not warrant such a strong conclusion, so I would phrase it more cautiously.",
+      "usage_note": "Formal. Means \"justify\". Often negative: \"hardly warrants\". French speakers sometimes confuse it with \"guarantee\" (warranty)."
     },
     {
       "id": "v_acad_hinder",
@@ -3947,7 +4020,11 @@
       "word_family": [{"form": "hindrance", "pos": "noun"}],
       "synonyms": ["hamper", "impede", "obstruct"],
       "register": "neutral",
-      "ipa": "/ˈhɪndər/"
+      "ipa": "/ˈhɪndər/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "Being too much of a perfectionist sometimes hinders me more than it helps.",
+      "example_discussion": "Strict visa rules hinder the exchange of researchers, as Paolo's example shows.",
+      "usage_note": "Neutral. Object: progress, development, people. Pronounced /ˈhɪndər/, short i."
     },
     {
       "id": "v_acad_curtail",
@@ -3965,7 +4042,11 @@
       "word_family": [],
       "synonyms": ["restrict", "cut back", "limit"],
       "register": "formal",
-      "ipa": "/kərˈteɪl/"
+      "ipa": "/kərˈteɪl/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "I had to curtail my social life a bit during exam season, which was hard.",
+      "example_discussion": "If governments curtail funding for public libraries, students from poorer families lose the most.",
+      "usage_note": "Formal. Means reduce or limit. Object: spending, rights, activities. Not used for physically cutting something."
     },
     {
       "id": "v_acad_forestall",
@@ -3983,7 +4064,11 @@
       "word_family": [],
       "synonyms": ["prevent", "preempt", "head off"],
       "register": "formal",
-      "ipa": "/fɔːrˈstɔːl/"
+      "ipa": "/fɔːrˈstɔːl/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "I always confirm meeting times in writing to forestall any confusion.",
+      "example_discussion": "Clear rules on data sharing would forestall many of the disputes Mia describes.",
+      "usage_note": "Formal. Means act early to prevent. Less common than \"prevent\", so it stands out in a written answer."
     },
     {
       "id": "v_acad_skew",
@@ -4001,7 +4086,11 @@
       "word_family": [{"form": "skewed", "pos": "adjective"}],
       "synonyms": ["distort", "bias", "slant"],
       "register": "neutral",
-      "ipa": "/skjuː/"
+      "ipa": "/skjuː/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "My first impression of the city was skewed by the terrible weather that week.",
+      "example_discussion": "Kim's survey only reached students in the library, which may skew the results.",
+      "usage_note": "Neutral. \"Skew the results/data\"; the adjective \"skewed\" is very common. Pronounced /skjuː/."
     },
     {
       "id": "v_acad_gauge",
@@ -4019,7 +4108,11 @@
       "word_family": [],
       "synonyms": ["assess", "measure", "estimate"],
       "register": "neutral",
-      "ipa": "/ɡeɪdʒ/"
+      "ipa": "/ɡeɪdʒ/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "In interviews, I try to gauge the mood of the room before I make a joke.",
+      "example_discussion": "It is difficult to gauge public opinion from social media alone, since most users never post.",
+      "usage_note": "Neutral. Spelled g-a-u-g-e, pronounced /ɡeɪdʒ/. French speakers often misspell it \"guage\"."
     },
     {
       "id": "v_acad_garner",
@@ -4037,7 +4130,11 @@
       "word_family": [],
       "synonyms": ["gather", "win", "attract"],
       "register": "formal",
-      "ipa": "/ˈɡɑːrnər/"
+      "ipa": "/ˈɡɑːrnər/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "Our student project garnered more attention than we expected, including a local newspaper article.",
+      "example_discussion": "The proposal has garnered support from both teachers and parents, which makes it more realistic.",
+      "usage_note": "Formal. Object: support, attention, praise, votes. In speech, \"get\" or \"attract\" is more natural."
     },
     {
       "id": "v_acad_epitomize",
@@ -4055,7 +4152,11 @@
       "word_family": [{"form": "epitome", "pos": "noun"}],
       "synonyms": ["embody", "typify", "exemplify"],
       "register": "formal",
-      "ipa": "/ɪˈpɪtəmaɪz/"
+      "ipa": "/ɪˈpɪtəmaɪz/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "For me, my old neighborhood epitomizes what a community should feel like.",
+      "example_discussion": "The new library epitomizes the shift Ana mentions: from storing books to hosting people.",
+      "usage_note": "Formal. Noun: \"epitome\" /ɪˈpɪtəmi/, four syllables. Means \"be a perfect example of\", not \"summarize\"."
     },
     {
       "id": "v_acad_encapsulate",
@@ -4073,7 +4174,11 @@
       "word_family": [],
       "synonyms": ["summarize", "sum up", "capture"],
       "register": "formal",
-      "ipa": "/ɪnˈkæpsjəleɪt/"
+      "ipa": "/ɪnˈkæpsjəleɪt/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "One phrase from my grandfather encapsulates his whole philosophy: work hard, then rest properly.",
+      "example_discussion": "Lena's last sentence encapsulates the dilemma: we want innovation but fear its costs.",
+      "usage_note": "Formal. Means capture the essence in a short form. Useful to introduce a summary in Academic Discussion."
     },
     {
       "id": "v_acad_foreshadow",
@@ -4091,7 +4196,11 @@
       "word_family": [],
       "synonyms": ["presage", "herald", "prefigure"],
       "register": "formal",
-      "ipa": "/fɔːrˈʃædoʊ/"
+      "ipa": "/fɔːrˈʃædoʊ/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "Looking back, my first summer job foreshadowed the career I want now.",
+      "example_discussion": "The protests of the 1960s foreshadowed many of the debates we are having today.",
+      "usage_note": "Neutral. Mostly about events or stories. Do not use it for weather forecasts (\"forecast\")."
     },
     {
       "id": "v_acad_dispel",
@@ -4109,7 +4218,11 @@
       "word_family": [],
       "synonyms": ["banish", "eliminate", "allay"],
       "register": "neutral",
-      "ipa": "/dɪˈspɛl/"
+      "ipa": "/dɪˈspɛl/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "My first week here completely dispelled my fear that I wouldn't make friends.",
+      "example_discussion": "Better data could dispel the myth that young people do not care about local politics.",
+      "usage_note": "Neutral. Object: myth, doubts, fears, rumors. Spelled with one l in \"dispel\", two in \"dispelled\"."
     },
     {
       "id": "v_acad_debunk",
@@ -4127,7 +4240,11 @@
       "word_family": [],
       "synonyms": ["disprove", "refute", "expose"],
       "register": "neutral",
-      "ipa": "/diːˈbʌŋk/"
+      "ipa": "/diːˈbʌŋk/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "I love videos that debunk popular myths about nutrition.",
+      "example_discussion": "Several studies have debunked the idea that multitasking makes people more efficient.",
+      "usage_note": "Neutral, slightly informal. Object: myth, claim, theory. Stronger than \"question\": it shows the idea is false."
     },
     {
       "id": "v_acad_hedge",
@@ -4145,7 +4262,11 @@
       "word_family": [{"form": "hedging", "pos": "noun"}],
       "synonyms": ["qualify", "equivocate", "soften"],
       "register": "neutral",
-      "ipa": "/hɛdʒ/"
+      "ipa": "/hɛdʒ/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "When I'm not sure of an answer in an interview, I hedge a little instead of guessing wildly.",
+      "example_discussion": "Jonah hedges his claim carefully, which I think makes it more convincing, not less.",
+      "usage_note": "Neutral. \"Hedge a claim\" = make it less absolute. Also \"hedge one's bets\". Useful vocabulary for talking about writing itself."
     },
     {
       "id": "v_acad_qualify",
@@ -4163,7 +4284,11 @@
       "word_family": [{"form": "qualification", "pos": "noun"}],
       "synonyms": ["limit", "modify", "temper"],
       "register": "formal",
-      "ipa": "/ˈkwɑːləfaɪ/"
+      "ipa": "/ˈkwɑːləfaɪ/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "I'd qualify what I said earlier: online classes work well for me, but only for theory.",
+      "example_discussion": "I agree with Sara, though I would qualify her point: the effect depends on the age group.",
+      "usage_note": "Formal in this sense. \"Qualify a statement\" = add limits. French speakers mostly know only \"qualify for\" (se qualifier)."
     },
     {
       "id": "v_acad_broach",
@@ -4181,7 +4306,11 @@
       "word_family": [],
       "synonyms": ["raise", "bring up", "introduce"],
       "register": "neutral",
-      "ipa": "/broʊtʃ/"
+      "ipa": "/broʊtʃ/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "During my internship, I had to broach the topic of unpaid overtime with my supervisor.",
+      "example_discussion": "Few speakers broach the question of who will maintain the new parks once they are built.",
+      "usage_note": "Neutral. Almost always \"broach the subject/topic/question\". Pronounced /broʊtʃ/, like \"brooch\"."
     },
     {
       "id": "v_acad_allude",
@@ -4199,7 +4328,11 @@
       "word_family": [{"form": "allusion", "pos": "noun"}],
       "synonyms": ["refer", "hint", "suggest"],
       "register": "formal",
-      "ipa": "/əˈluːd/"
+      "ipa": "/əˈluːd/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "My professor alluded to a surprise in the final exam, which made everyone nervous.",
+      "example_discussion": "Kim alludes to the cost of the program but never says who would pay for it.",
+      "usage_note": "Formal. Always \"allude to\". Noun: \"allusion\". It means mention indirectly, not \"make allusion\"."
     },
     {
       "id": "v_acad_foster",
@@ -4217,7 +4350,11 @@
       "word_family": [],
       "synonyms": ["encourage", "promote", "nurture"],
       "register": "neutral",
-      "ipa": "/ˈfɑːstər/"
+      "ipa": "/ˈfɑːstər/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "Team sports fostered a sense of discipline in me that I still rely on.",
+      "example_discussion": "Group projects foster cooperation, but only when roles are clearly defined.",
+      "usage_note": "Neutral. Object: debate, cooperation, a sense of… Also means caring for a child temporarily (\"foster parents\")."
     },
     {
       "id": "v_acad_spur",
@@ -4235,7 +4372,11 @@
       "word_family": [],
       "synonyms": ["stimulate", "prompt", "drive"],
       "register": "neutral",
-      "ipa": "/spɜːr/"
+      "ipa": "/spɜːr/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "Failing my first exam actually spurred me to change my study habits.",
+      "example_discussion": "Lower prices could spur demand for electric cars, but only if charging stations follow.",
+      "usage_note": "Neutral. \"Spur someone to do something\" or \"spur growth/innovation\". Past: \"spurred\", double r."
     },
     {
       "id": "v_acad_hasten",
@@ -4253,7 +4394,11 @@
       "word_family": [],
       "synonyms": ["accelerate", "speed up", "expedite"],
       "register": "formal",
-      "ipa": "/ˈheɪsən/"
+      "ipa": "/ˈheɪsən/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "Moving abroad hastened my independence; I had to learn to cook within a week.",
+      "example_discussion": "Cutting maintenance budgets will only hasten the decline of public transport.",
+      "usage_note": "Formal. Pronounced /ˈheɪsən/, silent t. Object: decline, end, process. Not used for people hurrying in modern speech."
     },
     {
       "id": "v_acad_compound",
@@ -4271,7 +4416,11 @@
       "word_family": [],
       "synonyms": ["aggravate", "exacerbate", "worsen"],
       "register": "neutral",
-      "ipa": "/kəmˈpaʊnd/"
+      "ipa": "/kəmˈpaʊnd/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "I missed the bus, and the rain compounded the problem, so I arrived soaked.",
+      "example_discussion": "Low wages compound the housing crisis, because workers cannot afford to live near their jobs.",
+      "usage_note": "Neutral. As a verb, stress on the second syllable: /kəmˈpaʊnd/. Means \"make worse\", not \"compose\"."
     },
     {
       "id": "v_acad_offset",
@@ -4289,7 +4438,11 @@
       "word_family": [],
       "synonyms": ["counterbalance", "compensate for", "cancel out"],
       "register": "neutral",
-      "ipa": "/ˌɔːfˈsɛt/"
+      "ipa": "/ˌɔːfˈsɛt/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "The longer commute is offset by much cheaper rent, so I'm happy with my choice.",
+      "example_discussion": "The environmental cost of building the line would be offset within a decade by fewer car trips.",
+      "usage_note": "Neutral. Past form is also \"offset\". Structure: \"X is offset by Y\". Useful for weighing pros and cons."
     },
     {
       "id": "v_acad_counteract",
@@ -4307,7 +4460,11 @@
       "word_family": [],
       "synonyms": ["neutralize", "offset", "counter"],
       "register": "neutral",
-      "ipa": "/ˌkaʊntərˈækt/"
+      "ipa": "/ˌkaʊntərˈækt/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "I try to counteract long days at my desk with a walk every evening.",
+      "example_discussion": "Free tutoring could counteract some of the disadvantages Mia describes for rural students.",
+      "usage_note": "Neutral. Object: effects, trends. Different from \"counterattack\". French \"contrecarrer\" is the closest equivalent."
     },
     {
       "id": "v_acad_dovetail",
@@ -4325,7 +4482,11 @@
       "word_family": [],
       "synonyms": ["coincide", "fit together", "match"],
       "register": "neutral",
-      "ipa": "/ˈdʌvteɪl/"
+      "ipa": "/ˈdʌvteɪl/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "My part-time job dovetails nicely with my studies because it's in the same field.",
+      "example_discussion": "This proposal dovetails with Daniel's point about local control, so the two could be combined.",
+      "usage_note": "Neutral. \"Dovetail with something\" = fit together well. A woodworking metaphor; French speakers rarely know it."
     },
     {
       "id": "v_acad_deem",
@@ -4343,7 +4504,11 @@
       "word_family": [],
       "synonyms": ["consider", "judge", "regard as"],
       "register": "formal",
-      "ipa": "/diːm/"
+      "ipa": "/diːm/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "My parents deemed it too dangerous for me to travel alone at sixteen.",
+      "example_discussion": "If a policy is deemed unfair by most citizens, it will not last, however efficient it is.",
+      "usage_note": "Formal, often passive: \"be deemed necessary\". French speakers tend to overuse \"consider\", which is fine but less precise."
     },
     {
       "id": "v_acad_ascertain",
@@ -4361,7 +4526,11 @@
       "word_family": [],
       "synonyms": ["determine", "establish", "find out"],
       "register": "formal",
-      "ipa": "/ˌæsərˈteɪn/"
+      "ipa": "/ˌæsərˈteɪn/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "Before choosing my major, I tried to ascertain what jobs graduates actually got.",
+      "example_discussion": "It is difficult to ascertain the long-term effects of the program after only two years.",
+      "usage_note": "Formal. Pronounced /ˌæsərˈteɪn/, stress on the last syllable. Means find out for sure, not \"assert\"."
     },
     {
       "id": "v_acad_surmise",
@@ -4379,7 +4548,11 @@
       "word_family": [],
       "synonyms": ["guess", "infer", "suppose"],
       "register": "formal",
-      "ipa": "/sərˈmaɪz/"
+      "ipa": "/sərˈmaɪz/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "From his silence, I surmised that my friend hadn't enjoyed the film.",
+      "example_discussion": "One can only surmise why the author omitted the results from the second region.",
+      "usage_note": "Formal. Means guess from limited evidence. Stress on the second syllable. Not common in casual speech."
     },
     {
       "id": "v_acad_contend",
@@ -4397,7 +4570,11 @@
       "word_family": [{"form": "contention", "pos": "noun"}],
       "synonyms": ["argue", "maintain", "assert"],
       "register": "formal",
-      "ipa": "/kənˈtɛnd/"
+      "ipa": "/kənˈtɛnd/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "I would contend that the best teachers are the ones who admit when they are wrong.",
+      "example_discussion": "Marco contends that taxes are the only solution, but subsidies have worked elsewhere.",
+      "usage_note": "Formal. \"Contend that…\" = argue firmly. Also \"contend with\" = deal with a difficulty, a different meaning."
     },
     {
       "id": "v_acad_stifle",
@@ -4415,7 +4592,11 @@
       "word_family": [],
       "synonyms": ["suppress", "smother", "inhibit"],
       "register": "neutral",
-      "ipa": "/ˈstaɪfəl/"
+      "ipa": "/ˈstaɪfəl/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "Too many rules can stifle creativity; that's what I noticed in my first job.",
+      "example_discussion": "Strict uniform policies may stifle self-expression, which is exactly Lena's concern.",
+      "usage_note": "Neutral. Object: creativity, innovation, debate. Also \"stifle a yawn/laugh\". Pronounced /ˈstaɪfəl/."
     },
     {
       "id": "v_acad_scrutinize",
@@ -4433,7 +4614,11 @@
       "word_family": [{"form": "scrutiny", "pos": "noun"}],
       "synonyms": ["examine", "inspect", "analyze"],
       "register": "formal",
-      "ipa": "/ˈskruːtənaɪz/"
+      "ipa": "/ˈskruːtənaɪz/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "Before I sign a lease, I scrutinize every line, ever since a bad experience last year.",
+      "example_discussion": "Any claim about health benefits should be scrutinized before it shapes school policy.",
+      "usage_note": "Formal. Noun: \"scrutiny\", often \"under scrutiny\". Spelled \"scrutinise\" in British English."
     },
     {
       "id": "v_acad_buttress",
@@ -4451,7 +4636,11 @@
       "word_family": [],
       "synonyms": ["bolster", "support", "reinforce"],
       "register": "formal",
-      "ipa": "/ˈbʌtrəs/"
+      "ipa": "/ˈbʌtrəs/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "I buttressed my scholarship application with letters from two former employers.",
+      "example_discussion": "Kim buttresses her position with data from three countries, which makes it hard to dismiss.",
+      "usage_note": "Formal. Literally a support built against a wall. Object: argument, claim, case."
     },
     {
       "id": "v_acad_elicit",
@@ -4469,7 +4658,11 @@
       "word_family": [],
       "synonyms": ["draw out", "evoke", "prompt"],
       "register": "formal",
-      "ipa": "/ɪˈlɪsɪt/"
+      "ipa": "/ɪˈlɪsɪt/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "My question to the panel elicited a long silence, which was a little embarrassing.",
+      "example_discussion": "Open-ended questions elicit more honest answers than multiple-choice surveys.",
+      "usage_note": "Formal. \"Elicit a response/information\". Do not confuse with \"illicit\" (illegal); they sound alike."
     },
     {
       "id": "v_acad_detract",
@@ -4483,11 +4676,15 @@
       "translation_fr": "nuire à, diminuer",
       "example_academic": "The minor errors do not detract from the overall value of the study.",
       "example_spoken": "The noisy room detracted from an otherwise great talk.",
-      "collocations": ["detract from the value", "detract from the quality", "detract attention"],
+      "collocations": ["detract from the value", "detract from the quality", "detract from the experience"],
       "word_family": [],
       "synonyms": ["diminish", "reduce", "take away from"],
       "register": "neutral",
-      "ipa": "/dɪˈtrækt/"
+      "ipa": "/dɪˈtrækt/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "The noise outside didn't detract from how much I enjoyed the concert.",
+      "example_discussion": "A few weak examples do not detract from the overall strength of Daniel's argument.",
+      "usage_note": "Neutral. Always \"detract from\". Useful for concessive evaluation: \"X does not detract from Y\"."
     },
     {
       "id": "v_acad_inordinate",
@@ -5024,11 +5221,258 @@
       "translation_fr": "inversement, à l'inverse",
       "example_academic": "Higher temperatures speed up the reaction; conversely, cooling slows it down.",
       "example_spoken": "Some students love group work; conversely, others find it exhausting.",
-      "collocations": ["and conversely", "or conversely", "conversely speaking"],
+      "collocations": ["and conversely", "or conversely"],
       "word_family": [{"form": "converse", "pos": "noun"}],
       "synonyms": ["on the other hand", "by contrast", "inversely"],
       "register": "formal",
-      "ipa": "/kənˈvɜːrsli/"
+      "ipa": "/kənˈvɜːrsli/",
+      "tags": ["c2_productive_1", "concession_contrast"],
+      "example_interview": "When I'm well rested I learn fast; conversely, when I'm tired, nothing sticks.",
+      "example_discussion": "Higher fares might reduce crowding; conversely, they could push people back into their cars.",
+      "usage_note": "Formal. Introduces the reverse case. Not a synonym of \"on the contrary\", which corrects a statement."
+    },
+    {
+      "id": "v_acad_rebut",
+      "headword": "rebut",
+      "kind": "word",
+      "pos": "verb",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "general_academic",
+      "definition": "to argue that a claim or criticism is false, giving reasons",
+      "translation_fr": "réfuter, contrer",
+      "example_academic": "The authors rebut the main objection by showing that the effect persists in older adults.",
+      "example_spoken": "She calmly rebutted every point he made during the debate.",
+      "collocations": ["rebut a claim", "rebut an argument", "rebut criticism"],
+      "word_family": [{"form": "rebuttal", "pos": "noun"}],
+      "synonyms": ["refute", "counter", "disprove"],
+      "register": "formal",
+      "ipa": "/rɪˈbʌt/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "In debate club I learned to rebut an argument without attacking the person who made it.",
+      "example_discussion": "Kim's point can be rebutted quite simply: the cheaper option has already failed twice.",
+      "usage_note": "Formal. Noun: \"rebuttal\". Close to \"refute\", but \"rebut\" stresses giving a counterargument rather than proving falsity."
+    },
+    {
+      "id": "v_acad_vindicate",
+      "headword": "vindicate",
+      "kind": "word",
+      "pos": "verb",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "general_academic",
+      "definition": "to show that someone or something was right, after doubt or criticism",
+      "translation_fr": "donner raison à, justifier",
+      "example_academic": "Later excavations vindicated the archaeologist's controversial dating of the site.",
+      "example_spoken": "The final results completely vindicated her decision to change the design.",
+      "collocations": ["be vindicated", "vindicate a decision", "fully vindicate"],
+      "word_family": [{"form": "vindication", "pos": "noun"}],
+      "synonyms": ["justify", "bear out", "confirm"],
+      "register": "formal",
+      "ipa": "/ˈvɪndɪkeɪt/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "When I got the scholarship, I felt vindicated, because everyone had told me not to apply.",
+      "example_discussion": "If the pilot program succeeds, it will vindicate Mia's view that small incentives can change habits.",
+      "usage_note": "Formal. Often passive: \"feel/be vindicated\". Not related to \"revendiquer\" (claim), a frequent confusion."
+    },
+    {
+      "id": "v_acad_shore_up",
+      "headword": "shore up",
+      "kind": "phrasal_verb",
+      "pos": "verb",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "general_academic",
+      "definition": "to support or strengthen something that is weak or likely to fail",
+      "translation_fr": "étayer, consolider",
+      "example_academic": "The government borrowed heavily to shore up the struggling banks.",
+      "example_spoken": "We need a few more examples to shore up our argument.",
+      "collocations": ["shore up support", "shore up confidence", "shore up the economy"],
+      "word_family": [],
+      "synonyms": ["bolster", "prop up", "reinforce"],
+      "register": "neutral",
+      "ipa": "/ʃɔːr ʌp/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "Before my interview, I shored up my weak points by practicing with a friend.",
+      "example_discussion": "Daniel tries to shore up his case with one survey, but a single source is not enough.",
+      "usage_note": "Neutral. Object: support, confidence, an argument, an institution. The object can come between the parts: \"shore it up\"."
+    },
+    {
+      "id": "v_acad_tease_out",
+      "headword": "tease out",
+      "kind": "phrasal_verb",
+      "pos": "verb",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "general_academic",
+      "definition": "to find or separate information or meaning that is not obvious, with care and effort",
+      "translation_fr": "faire ressortir, démêler",
+      "example_academic": "The study teases out the separate effects of income and education.",
+      "example_spoken": "It took us an hour to tease out what the client really wanted.",
+      "collocations": ["tease out the differences", "tease out the implications", "carefully tease out"],
+      "word_family": [],
+      "synonyms": ["extract", "disentangle", "draw out"],
+      "register": "neutral",
+      "ipa": "/tiːz aʊt/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "Talking to my tutor helped me tease out what I actually wanted from my degree.",
+      "example_discussion": "It is worth teasing out two separate questions in Lena's post: cost and fairness.",
+      "usage_note": "Neutral, academic. Implies patient analysis. Not \"tease\" in the sense of joking with someone."
+    },
+    {
+      "id": "v_acad_bear_on",
+      "headword": "bear on",
+      "kind": "phrasal_verb",
+      "pos": "verb",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "general_academic",
+      "definition": "to be relevant to something or to affect it",
+      "translation_fr": "avoir trait à, influer sur",
+      "example_academic": "These findings bear directly on the debate about class size.",
+      "example_spoken": "I'm not sure how that story bears on our decision.",
+      "collocations": ["bear directly on", "bear on the question", "bear on the outcome"],
+      "word_family": [],
+      "synonyms": ["relate to", "concern", "affect"],
+      "register": "formal",
+      "ipa": "/bɛr ɑːn/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "My experience in retail bears directly on this job, because I dealt with customers every day.",
+      "example_discussion": "The study Ana cites does not really bear on our question, since it concerns adults.",
+      "usage_note": "Formal. Also \"bear upon\". \"Have a bearing on\" is a common equivalent. Not \"bear\" in the sense of tolerate."
+    },
+    {
+      "id": "v_acad_speak_to",
+      "headword": "speak to",
+      "kind": "phrasal_verb",
+      "pos": "verb",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "general_academic",
+      "definition": "to be relevant to a subject, or to deal with it, especially as evidence",
+      "translation_fr": "traiter de, témoigner de",
+      "example_academic": "The new data speak to a long-standing question about migration routes.",
+      "example_spoken": "Her record speaks to her commitment to the team.",
+      "collocations": ["speak to the issue", "speak to the question", "speak directly to"],
+      "word_family": [],
+      "synonyms": ["address", "relate to", "bear on"],
+      "register": "neutral",
+      "ipa": "/spiːk tu/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "I think my volunteering speaks to how much I care about education.",
+      "example_discussion": "Kim's example speaks to a broader problem: rules that are never enforced.",
+      "usage_note": "Neutral. In this sense it means \"be evidence of\" or \"address\", not \"talk to someone\". Very natural in American English."
+    },
+    {
+      "id": "v_acad_weigh_up",
+      "headword": "weigh up",
+      "kind": "phrasal_verb",
+      "pos": "verb",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "general_academic",
+      "definition": "to consider the advantages and disadvantages of something carefully before deciding",
+      "translation_fr": "peser, évaluer",
+      "example_academic": "Policymakers must weigh up the costs of intervention against the risks of doing nothing.",
+      "example_spoken": "I'm still weighing up whether to take the job.",
+      "collocations": ["weigh up the options", "weigh up the pros and cons", "carefully weigh up"],
+      "word_family": [],
+      "synonyms": ["assess", "consider", "evaluate"],
+      "register": "neutral",
+      "ipa": "/weɪ ʌp/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "I spent weeks weighing up the two offers before I chose this university.",
+      "example_discussion": "We need to weigh up the short-term cost against the long-term savings Mia describes.",
+      "usage_note": "Neutral, more British. American English often says \"weigh\" alone: \"weigh the options\"."
+    },
+    {
+      "id": "v_acad_uphold",
+      "headword": "uphold",
+      "kind": "word",
+      "pos": "verb",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "general_academic",
+      "definition": "to support a principle or decision and keep it in force",
+      "translation_fr": "maintenir, faire respecter, confirmer",
+      "example_academic": "The court upheld the original ruling despite the new evidence.",
+      "example_spoken": "Teachers are expected to uphold the school's code of conduct.",
+      "collocations": ["uphold a decision", "uphold the law", "uphold a principle"],
+      "word_family": [{"form": "upheld", "pos": "verb"}],
+      "inflections": ["upheld"],
+      "synonyms": ["maintain", "support", "confirm"],
+      "register": "formal",
+      "ipa": "/ʌpˈhoʊld/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "As team captain, I had to uphold the rules even when my friends broke them.",
+      "example_discussion": "Schools should uphold the principle of equal access, whatever the cost.",
+      "usage_note": "Formal. Irregular: upheld. Typical objects: a decision, a ruling, the law, a principle, values."
+    },
+    {
+      "id": "v_acad_discount",
+      "headword": "discount",
+      "kind": "word",
+      "pos": "verb",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "general_academic",
+      "definition": "to treat an idea or possibility as unimportant or not worth considering",
+      "translation_fr": "écarter, ne pas tenir compte de",
+      "example_academic": "We cannot discount the possibility that the samples were contaminated.",
+      "example_spoken": "Don't discount her advice just because she's younger than you.",
+      "collocations": ["discount the possibility", "discount a theory", "cannot discount"],
+      "word_family": [],
+      "synonyms": ["dismiss", "disregard", "rule out"],
+      "register": "neutral",
+      "ipa": "/dɪsˈkaʊnt/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "I wouldn't discount the idea of working abroad later, even if I'm staying here for now.",
+      "example_discussion": "We should not discount Jonah's concern about privacy simply because it is hard to measure.",
+      "usage_note": "Neutral. As a verb meaning \"dismiss\", stress on the second syllable. French speakers mostly know only the noun (a price reduction)."
+    },
+    {
+      "id": "v_acad_flesh_out",
+      "headword": "flesh out",
+      "kind": "phrasal_verb",
+      "pos": "verb",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "general_academic",
+      "definition": "to add more details to an idea, plan or argument",
+      "translation_fr": "étoffer, développer",
+      "example_academic": "The second chapter fleshes out the theory with three detailed case studies.",
+      "example_spoken": "Can you flesh out your proposal before the meeting?",
+      "collocations": ["flesh out a plan", "flesh out an idea", "flesh out the details"],
+      "word_family": [],
+      "synonyms": ["develop", "expand", "elaborate on"],
+      "register": "neutral",
+      "ipa": "/flɛʃ aʊt/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "In my first job, my manager taught me to flesh out an idea before presenting it.",
+      "example_discussion": "Mia's proposal is promising, but it needs to be fleshed out with a budget.",
+      "usage_note": "Neutral. The object can come between the parts: \"flesh it out\". French speakers tend to say \"develop\", which is correct but vaguer."
+    },
+    {
+      "id": "v_acad_pin_down",
+      "headword": "pin down",
+      "kind": "phrasal_verb",
+      "pos": "verb",
+      "cefr": "C2",
+      "tier": "mastery",
+      "category": "general_academic",
+      "definition": "to identify or describe something exactly, or to make someone give a clear answer",
+      "translation_fr": "cerner, définir avec précision",
+      "example_academic": "The exact cause of the decline is difficult to pin down.",
+      "example_spoken": "I tried to pin him down to a date, but he wouldn't commit.",
+      "collocations": ["pin down the cause", "hard to pin down", "pin someone down"],
+      "word_family": [],
+      "synonyms": ["identify", "determine", "nail down"],
+      "register": "neutral",
+      "ipa": "/pɪn daʊn/",
+      "tags": ["c2_productive_1", "argument_verbs"],
+      "example_interview": "It's hard to pin down exactly when I decided to study economics.",
+      "example_discussion": "It is difficult to pin down what Jonah means by \"success\", which weakens his argument.",
+      "usage_note": "Neutral. \"Hard to pin down\" is very common. With a person: \"pin someone down\" = force a clear answer."
     }
   ]
 }

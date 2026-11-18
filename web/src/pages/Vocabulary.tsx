@@ -138,6 +138,19 @@ function EntryCard({ entry, audio, compact }: { entry: VocabEntry; audio?: strin
           {!compact && <SpeakButton text={entry.example_spoken} url={url("spoken")} label="" />}
         </div>
       </div>
+      {entry.example_interview && (
+        <div className="flex items-start gap-2">
+          <span className="label mt-1 w-20 shrink-0">Interview</span>
+          <span className="reading text-[15px]">{entry.example_interview}</span>
+        </div>
+      )}
+      {entry.example_discussion && (
+        <div className="flex items-start gap-2">
+          <span className="label mt-1 w-20 shrink-0">Discussion</span>
+          <span className="reading text-[15px]">{entry.example_discussion}</span>
+        </div>
+      )}
+      {entry.usage_note && <Notice>{entry.usage_note}</Notice>}
       {entry.collocations.length > 0 && (
         <div>
           <span className="label mr-2">Collocations</span>
@@ -1019,6 +1032,8 @@ interface TriageEntry {
 }
 interface TriageBatch {
   remaining: number;
+  total: number;
+  done: number;
   known: number;
   learn: number;
   to_verify: number;
@@ -1046,7 +1061,7 @@ export function VocabTriage({ user }: { user: string }) {
         const r = await api.post<{ verify_scheduled: boolean }>(`/api/users/${user}/vocab/triage`, { entryId: cur.id, decision });
         setHistory((h) => [...h, { entry: cur, decision }]);
         if (r.verify_scheduled) setNote(`“${cur.headword}” will be checked in a production exercise in ${meta?.triage.verify_after_days ?? 7} days (one known word in ${data.verify_every}).`);
-        setData({ ...data, remaining: data.remaining - 1, known: data.known + (decision === "known" ? 1 : 0), learn: data.learn + (decision === "learn" ? 1 : 0) });
+        setData({ ...data, remaining: data.remaining - 1, done: data.done + 1, known: data.known + (decision === "known" ? 1 : 0), learn: data.learn + (decision === "learn" ? 1 : 0) });
         setReveal(false);
         if (i + 1 >= data.entries.length) {
           setI(0);
@@ -1091,12 +1106,21 @@ export function VocabTriage({ user }: { user: string }) {
 
   return (
     <div>
-      <PageTitle title="Vocabulary" sub="Triage the words that come next, in your introduction order. Known words are never introduced; one in ten is checked later in a production exercise." />
+      <PageTitle title="Vocabulary" sub="Triage the words that come next, in your introduction order. Words you would use are never introduced; one in ten is checked later by typing it." />
       <VocabNav user={user} active="triage" />
       {error != null && <ErrorBox error={error} />}
       {loading && !data && <Spinner />}
       {data && (
         <div className="mx-auto max-w-2xl">
+          <div className="mb-1 flex items-center justify-between text-xs text-zinc-500">
+            <span>
+              {data.done} / {data.total} sorted
+            </span>
+            <span>{data.total ? Math.round((data.done / data.total) * 100) : 0} %</span>
+          </div>
+          <div className="mb-3">
+            <Bar value={data.done} max={Math.max(1, data.total)} tone="ok" />
+          </div>
           <div className="mb-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-zinc-500">
             <span>{data.remaining} left to triage</span>
             <span>{data.known} known</span>
@@ -1125,16 +1149,17 @@ export function VocabTriage({ user }: { user: string }) {
                   Show meaning <Kbd>Space</Kbd>
                 </button>
               )}
-              <div className="mt-6 grid grid-cols-2 gap-3">
+              <div className="mt-6 text-center text-base font-medium">Would you use it spontaneously when speaking?</div>
+              <div className="mt-3 grid grid-cols-2 gap-3">
                 <button className="btn justify-center py-3" disabled={busy} onClick={() => decide("known")}>
-                  I know it <Kbd>J</Kbd>
+                  Yes, I would <Kbd>J</Kbd>
                 </button>
                 <button className="btn btn-primary justify-center py-3" disabled={busy} onClick={() => decide("learn")}>
-                  To learn <Kbd>K</Kbd>
+                  No — learn it <Kbd>K</Kbd>
                 </button>
               </div>
               <p className="mt-3 text-xs text-zinc-400">
-                “Known” means you can use it, not only recognize it. <button className="underline" onClick={undo} disabled={!history.length || busy}>Undo last</button> <Kbd>U</Kbd>
+                Not “do I understand it?”: understanding is not enough. <button className="underline" onClick={undo} disabled={!history.length || busy}>Undo last</button> <Kbd>U</Kbd>
               </p>
             </div>
           )}

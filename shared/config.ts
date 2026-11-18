@@ -57,7 +57,9 @@ export interface AppConfig {
       discipline_categories: string[];
       transparency: { threshold: number };
       introduction: { rules: IntroductionRule[] };
-      triage: { verify_every: number; verify_after_days: number; batch_size: number };
+      triage: { verify_every: number; verify_formats: string[]; verify_after_days: number; batch_size: number };
+      productive: { batch: string; themes: Record<string, number> };
+      harvest: { discipline_terms_per_text: number };
       srs: {
         new_per_day_default: number;
         new_per_day_options: number[];

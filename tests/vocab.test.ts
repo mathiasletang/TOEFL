@@ -91,7 +91,7 @@ describe("vocabulary bank (content/vocab)", () => {
   it("matches the internal targets for tiers and CEFR shares", () => {
     const T = CONFIG.internal.vocabulary.targets;
     expect(counts.total).toBe(T.tier.core + T.tier.extended + T.tier.mastery);
-    expect(counts.total).toBe(1250);
+    expect(counts.total).toBe(1329);
     expect(counts.by_tier).toMatchObject(T.tier);
     for (const [level, share] of Object.entries(T.cefr_share)) expect(Math.abs((counts.by_cefr[level] ?? 0) / counts.total - share)).toBeLessThanOrEqual(T.share_tolerance);
     expect(CONFIG.internal.vocabulary.tiers.core.note).toMatch(/Not an official list/);
@@ -109,14 +109,14 @@ describe("vocabulary bank (content/vocab)", () => {
     const db = openDb(":memory:");
     syncVocab(db, v);
     const n = () => (db.prepare("SELECT COUNT(*) c FROM vocab_entries WHERE active = 1").get() as { c: number }).c;
-    expect(n()).toBe(1250);
+    expect(n()).toBe(1329);
     expect(listVocab(db, { tier: "core" })).toHaveLength(400);
     expect((db.prepare("SELECT transparent_fr t FROM vocab_entries WHERE id = 'v_acad_analyze'").get() as { t: number }).t).toBe(1);
     expect(getVocabEntry(db, "v_acad_analyze")?.translation_fr).toBe("analyser");
     syncVocab(db, { ...v, entries: v.entries.slice(1) });
-    expect(n()).toBe(1249);
+    expect(n()).toBe(1328);
     syncVocab(db, v);
-    expect(n()).toBe(1250);
+    expect(n()).toBe(1329);
     db.close();
   });
 });
@@ -168,5 +168,55 @@ describe("recalibration for French speakers", () => {
     for (const h of ["belie", "bolster", "it would appear that", "admittedly", "let alone", "the thing is", "draw attention to", "at odds with"]) expect(by(h), h).toMatchObject({ tier: "mastery", cefr: "C2" });
     // Discipline terms now make up a small part of Mastery.
     expect(mastery.filter((e) => V.discipline_categories.includes(e.category)).length).toBeLessThan(60);
+  });
+});
+
+describe("first productive C2 batch", () => {
+  const v = readVocab();
+  const P = CONFIG.internal.vocabulary.productive;
+  const batch = v.entries.filter((e) => e.tags.includes(P.batch));
+  const head = (h: string) => v.entries.find((e) => e.headword === h)!;
+
+  it("has 300 entries split by sub-theme as planned", () => {
+    expect(batch).toHaveLength(300);
+    for (const [theme, n] of Object.entries(P.themes)) expect(batch.filter((e) => e.tags.includes(theme)).length, theme).toBe(n);
+  });
+
+  it("gives every entry an Interview answer, an Academic Discussion sentence and a usage note", () => {
+    for (const e of batch) {
+      expect(e.tier, e.id).toBe("mastery");
+      expect(e.cefr, e.id).toBe("C2");
+      expect(e.example_interview && exampleUsesEntry(e.example_interview, e), e.id).toBeTruthy();
+      expect(e.example_discussion && exampleUsesEntry(e.example_discussion, e), e.id).toBeTruthy();
+      expect(e.usage_note?.length, e.id).toBeGreaterThan(20);
+      expect(isTransparent(e, CONFIG.internal.vocabulary.transparency.threshold), e.id).toBe(false);
+    }
+    expect(head("dismiss out of hand").tags).toContain("precise_collocations");
+    expect(head("mind you").tags).toContain("spoken_markers");
+  });
+
+  it("uses four genuinely different examples for each entry", () => {
+    // Word-overlap (Jaccard) between any two of the academic, spoken, interview and discussion examples.
+    const words = (t: string) => new Set(t.toLowerCase().match(/[a-z']+/g) ?? []);
+    const overlap = (a: string, b: string) => {
+      const A = words(a);
+      const B = words(b);
+      return [...A].filter((w) => B.has(w)).length / new Set([...A, ...B]).size;
+    };
+    for (const e of batch) {
+      const ex = [e.example_academic, e.example_spoken, e.example_interview!, e.example_discussion!];
+      for (let i = 0; i < ex.length; i++) for (let k = i + 1; k < ex.length; k++) expect(overlap(ex[i]!, ex[k]!), `${e.id} examples ${i}/${k}`).toBeLessThan(0.6);
+    }
+  });
+
+  it("rejects a batch entry without its extra fields, and duplicates through inflected forms", () => {
+    const base = { ...head("rebut") };
+    const opts = { productive: { batch: P.batch, themes: Object.keys(P.themes) } };
+    const missing = { ...base, example_interview: undefined, usage_note: undefined };
+    expect(validateVocab([{ data: missing }], opts).errors.map((e) => e.message).join("\n")).toMatch(/example_interview[\s\S]*usage_note/);
+    const twoThemes = { ...base, tags: [P.batch, "emphasis", "argument_verbs"] };
+    expect(validateVocab([{ data: twoThemes }], opts).errors.map((e) => e.message).join("\n")).toMatch(/exactly one sub-theme/);
+    const inflected = { ...base, id: "v_acad_rebuts", headword: "rebuts", tags: [], example_academic: "The second paper rebuts the first one point by point.", example_spoken: "She rebuts every criticism calmly." };
+    expect(validateVocab([{ data: base }, { data: inflected }]).errors.map((e) => e.message).join("\n")).toMatch(/"rebuts" is an inflected form of "rebut"/);
   });
 });
