@@ -10,7 +10,7 @@ import { listVocab } from "./vocab";
 import { listExercises } from "./content";
 import { CONFIG } from "../shared/config";
 import { FUNCTION_WORDS } from "../shared/align";
-import { containsPhrase, inflectionsOf, tokenize, type VocabEntry } from "../shared/vocab";
+import { containsPhrase, frTransparency, inflectionsOf, isTransparent, tokenize, type VocabEntry } from "../shared/vocab";
 import type { Exercise } from "../shared/schema";
 import type { ScoreResult } from "../shared/scoring";
 import {
@@ -19,7 +19,8 @@ import {
   cardStatus,
   checkAnswer,
   chooseFormat,
-  introductionRank,
+  introductionKey,
+  PRODUCTION_FORMATS,
   isProduction,
   publicQuestion,
   qualityFor,
@@ -31,6 +32,7 @@ import {
 } from "../shared/vocabSrs";
 
 const P = CONFIG.internal.vocabulary.srs;
+const V = CONFIG.internal.vocabulary;
 
 export class VocabError extends Error {
   constructor(public statusCode: number, message: string) {
@@ -47,6 +49,10 @@ export interface Bank {
   /** Inflected form of a single-word headword → entry id. */
   forms: Map<string, string>;
   entryForms: Map<string, Set<string>>;
+  /** transparent_fr score per entry, and the entries counted as transparent. */
+  transparency: Map<string, number>;
+  transparent: Set<string>;
+  orders: Map<number, VocabEntry[]>;
 }
 
 const banks = new WeakMap<DB, Bank>();
@@ -56,9 +62,11 @@ export function bankFor(db: DB): Bank {
   let b = banks.get(db);
   if (b) return b;
   const entries = listVocab(db);
-  b = { entries, byId: new Map(), byHeadword: new Map(), forms: new Map(), entryForms: new Map() };
+  b = { entries, byId: new Map(), byHeadword: new Map(), forms: new Map(), entryForms: new Map(), transparency: new Map(), transparent: new Set(), orders: new Map() };
   for (const e of entries) {
     b.byId.set(e.id, e);
+    b.transparency.set(e.id, frTransparency(e.headword, e.translation_fr));
+    if (isTransparent(e, V.transparency.threshold)) b.transparent.add(e.id);
     const head = e.headword.toLowerCase();
     if (!b.byHeadword.has(head)) b.byHeadword.set(head, e.id);
     if (/\s/.test(head)) continue;
@@ -152,9 +160,12 @@ export interface CardRow {
   introduced_at: string | null;
   last_reviewed_at: string | null;
   created_at: string;
+  triage: "known" | "learn" | null;
+  verify_due_at: string | null;
+  verified_at: string | null;
 }
 
-export type CardOrigin = "scheduled" | "manual" | "harvest_ctw" | "harvest_question";
+export type CardOrigin = "scheduled" | "manual" | "triage" | "harvest_ctw" | "harvest_question";
 
 export function getCard(db: DB, id: string): CardRow | null {
   return (db.prepare("SELECT * FROM vocab_cards WHERE id = ?").get(id) as CardRow | undefined) ?? null;
@@ -195,6 +206,9 @@ export function addWord(db: DB, userId: string, w: { entryId?: string; word?: st
       : db.prepare("SELECT * FROM vocab_cards WHERE user_id = ? AND entry_id IS NULL AND headword = ?").get(userId, headword)
   ) as CardRow | undefined;
   if (existing) {
+    // A word marked as known but missed in an exercise (or added on purpose) goes back to learning.
+    if (existing.triage === "known" && (w.origin.startsWith("harvest") || w.origin === "manual"))
+      db.prepare("UPDATE vocab_cards SET triage = 'learn', verify_due_at = NULL WHERE id = ?").run(existing.id);
     // A word missed again in an exercise comes back at the front of the queue.
     if (w.origin.startsWith("harvest") && existing.review_count > 0 && (existing.due_at ?? "") > nowIso()) db.prepare("UPDATE vocab_cards SET due_at = ? WHERE id = ?").run(nowIso(), existing.id);
     return { card: getCard(db, existing.id)!, created: false, matched: entry ? "bank" : "personal" };
@@ -255,12 +269,37 @@ function hash(s: string): number {
 }
 
 /** Bank entries in introduction order for a target band (stable; mixed across categories inside a rank). */
+/**
+ * Bank entries the daily schedule introduces, in order, for a target band (config →
+ * internal.vocabulary.introduction). Excluded categories are left out; transparent entries come last.
+ */
 export function introductionOrder(bank: Bank, target: number): VocabEntry[] {
-  return [...bank.entries].sort((a, b) => introductionRank(a, target) - introductionRank(b, target) || hash(a.id) - hash(b.id) || a.id.localeCompare(b.id));
+  const cached = bank.orders.get(target);
+  if (cached) return cached;
+  const keyed = bank.entries.flatMap((e) => {
+    const k = introductionKey(e, target, V.introduction.rules, bank.transparent.has(e.id));
+    return k ? [{ e, k }] : [];
+  });
+  keyed.sort((a, b) => a.k[0] - b.k[0] || a.k[1] - b.k[1] || a.k[2] - b.k[2] || hash(a.e.id) - hash(b.e.id) || a.e.id.localeCompare(b.e.id));
+  const order = keyed.map((x) => x.e);
+  bank.orders.set(target, order);
+  return order;
+}
+
+/** Not yet in the deck and next in the introduction order. */
+function remainingIntroductions(db: DB, bank: Bank, userId: string): VocabEntry[] {
+  const have = new Set((db.prepare("SELECT entry_id FROM vocab_cards WHERE user_id = ? AND entry_id IS NOT NULL").all(userId) as Array<{ entry_id: string }>).map((r) => r.entry_id));
+  return introductionOrder(bank, userTargetBand(db, userId)).filter((e) => !have.has(e.id));
+}
+
+export function statusOf(card: Pick<CardRow, "triage" | "review_count" | "interval_days">): CardStatus | "known" {
+  return card.triage === "known" && card.review_count === 0 ? "known" : cardStatus(card, P);
 }
 
 export interface DeckSummary {
   due: number;
+  verify_due: number;
+  known: number;
   new_left: number;
   new_per_day: number;
   introduced_today: number;
@@ -275,15 +314,17 @@ export function deckSummary(db: DB, userId: string, now = new Date()): DeckSumma
   const start = dayStart(now);
   const c = db
     .prepare(
-      `SELECT COALESCE(SUM(review_count > 0 AND due_at <= ?), 0) due, COALESCE(SUM(introduced_at >= ?), 0) today, COALESCE(SUM(review_count = 0), 0) queued,
-         COALESCE(SUM(entry_id IS NOT NULL), 0) bank_cards, COALESCE(SUM(review_count > 0), 0) learned, MIN(CASE WHEN review_count > 0 AND due_at > ? THEN due_at END) next_due
+      `SELECT COALESCE(SUM(review_count > 0 AND due_at <= ?), 0) due, COALESCE(SUM(triage = 'known' AND verify_due_at <= ?), 0) verify_due,
+         COALESCE(SUM(triage = 'known' AND review_count = 0), 0) known, COALESCE(SUM(introduced_at >= ?), 0) today,
+         COALESCE(SUM(review_count = 0 AND COALESCE(triage, '') <> 'known'), 0) queued,
+         COALESCE(SUM(review_count > 0), 0) learned, MIN(CASE WHEN review_count > 0 AND due_at > ? THEN due_at END) next_due
        FROM vocab_cards WHERE user_id = ?`,
     )
-    .get(iso, start, iso, userId) as { due: number; today: number; queued: number; bank_cards: number; learned: number; next_due: string | null };
+    .get(iso, iso, start, iso, userId) as { due: number; verify_due: number; known: number; today: number; queued: number; learned: number; next_due: string | null };
   const reviewed = (db.prepare("SELECT COUNT(*) n FROM vocab_reviews WHERE user_id = ? AND created_at >= ?").get(userId, start) as { n: number }).n;
   const perDay = newPerDay(db, userId);
-  const available = c.queued + Math.max(0, bank.entries.length - c.bank_cards);
-  return { due: c.due, new_left: Math.min(Math.max(0, perDay - c.today), available), new_per_day: perDay, introduced_today: c.today, reviewed_today: reviewed, learned: c.learned, next_due_at: c.next_due };
+  const available = c.queued + remainingIntroductions(db, bank, userId).length;
+  return { due: c.due + c.verify_due, verify_due: c.verify_due, known: c.known, new_left: Math.min(Math.max(0, perDay - c.today), available), new_per_day: perDay, introduced_today: c.today, reviewed_today: reviewed, learned: c.learned, next_due_at: c.next_due };
 }
 
 function studyable(bank: Bank, card: CardRow): Studyable {
@@ -302,7 +343,10 @@ export function cardView(card: CardRow, now = new Date()) {
     entry_id: card.entry_id,
     personal: !card.entry_id,
     origin: card.origin,
-    status: cardStatus(card, P) as CardStatus,
+    status: statusOf(card),
+    triage: card.triage,
+    verify_due_at: card.verify_due_at,
+    verified_at: card.verified_at,
     due: card.review_count > 0 && (card.due_at ?? "") <= now.toISOString(),
     due_at: card.due_at,
     interval_days: card.interval_days,
@@ -319,15 +363,21 @@ export function nextCard(db: DB, userId: string, opts: { audio: boolean }, now =
   const bank = bankFor(db);
   const iso = now.toISOString();
   let card = db.prepare("SELECT * FROM vocab_cards WHERE user_id = ? AND review_count > 0 AND due_at <= ? ORDER BY due_at, id LIMIT 1").get(userId, iso) as CardRow | undefined;
-  let phase: "review" | "new" = "review";
+  let phase: "review" | "new" | "verify" = "review";
   const summary = deckSummary(db, userId, now);
+  if (!card) {
+    // A word marked as known during triage, checked once in a production format.
+    card = db.prepare("SELECT * FROM vocab_cards WHERE user_id = ? AND triage = 'known' AND verify_due_at <= ? ORDER BY verify_due_at, id LIMIT 1").get(userId, iso) as CardRow | undefined;
+    if (card) phase = "verify";
+  }
   if (!card && summary.new_left > 0) {
     phase = "new";
     // Words the user added or missed come before the scheduled introduction order.
-    card = db.prepare("SELECT * FROM vocab_cards WHERE user_id = ? AND review_count = 0 ORDER BY (origin = 'scheduled'), created_at, id LIMIT 1").get(userId) as CardRow | undefined;
+    card = db
+      .prepare("SELECT * FROM vocab_cards WHERE user_id = ? AND review_count = 0 AND COALESCE(triage, '') <> 'known' ORDER BY (origin = 'scheduled'), created_at, id LIMIT 1")
+      .get(userId) as CardRow | undefined;
     if (!card) {
-      const have = new Set((db.prepare("SELECT entry_id FROM vocab_cards WHERE user_id = ? AND entry_id IS NOT NULL").all(userId) as Array<{ entry_id: string }>).map((r) => r.entry_id));
-      const next = introductionOrder(bank, userTargetBand(db, userId)).find((e) => !have.has(e.id));
+      const next = remainingIntroductions(db, bank, userId)[0];
       if (next) card = insertCard(db, userId, { entryId: next.id, headword: next.headword, origin: "scheduled" });
     }
   }
@@ -345,7 +395,8 @@ export function nextCard(db: DB, userId: string, opts: { audio: boolean }, now =
   }
   if (!card) return { card: null, question: null, summary };
   const e = studyable(bank, card);
-  const format = chooseFormat(cardState(card), availableFormats(e, opts), P);
+  const available = availableFormats(e, opts);
+  const format = phase === "verify" ? verifyFormat(card, available) : chooseFormat(cardState(card), available, P);
   const q = buildQuestion(e, format, String(card.review_count), bank.entries);
   return {
     card: { ...cardView(card, now), phase, tier: "tier" in e ? e.tier : "personal", cefr: "cefr" in e ? e.cefr : null },
@@ -356,17 +407,41 @@ export function nextCard(db: DB, userId: string, opts: { audio: boolean }, now =
   };
 }
 
+/** Production format used to check a word marked as known (stable for a given card). */
+function verifyFormat(card: CardRow, available: Format[]): Format {
+  const prod = PRODUCTION_FORMATS.filter((f) => available.includes(f));
+  return prod.length ? prod[hash(card.id) % prod.length]! : (available.find((f) => f !== "study") ?? "recall_typed");
+}
+
 export function submitReview(db: DB, userId: string, r: { cardId: string; format: string; seed: number; choice?: number | null; text?: string | null; elapsedMs?: number }, now = new Date()) {
   const bank = bankFor(db);
   const card = getCard(db, r.cardId);
   if (!card || card.user_id !== userId) throw new VocabError(404, "Unknown card");
   if (r.seed !== card.review_count) throw new VocabError(409, "This card was already answered; load the next one.");
+  const verifying = card.triage === "known" && !!card.verify_due_at;
+  if (card.triage === "known" && !verifying) throw new VocabError(409, "This word is marked as known.");
   const e = studyable(bank, card);
   if (!(FORMATS as readonly string[]).includes(r.format) || !availableFormats(e, { audio: true }).includes(r.format as Format)) throw new VocabError(400, "Format not available for this card");
   const format = r.format as Format;
+  if (verifying && !isProduction(format)) throw new VocabError(400, "Known words are checked in a production format");
   const q = buildQuestion(e, format, String(card.review_count), bank.entries);
   const checked = checkAnswer(q, { choice: r.choice, text: r.text });
   const elapsed = Math.max(0, Math.round(r.elapsedMs ?? 0));
+  if (verifying && checked.correct) {
+    // Confirmed: the word stays out of the deck.
+    const iso = now.toISOString();
+    db.transaction(() => {
+      db.prepare("UPDATE vocab_cards SET verify_due_at = NULL, verified_at = ? WHERE id = ?").run(iso, card.id);
+      db.prepare(
+        `INSERT INTO vocab_reviews (user_id, card_id, entry_id, format, production, first_exposure, correct, quality, error_tag, response, expected, elapsed_ms, interval_before, interval_after, created_at)
+         VALUES (?, ?, ?, ?, 1, 0, 1, 5, NULL, ?, ?, ?, 0, 0, ?)`,
+      ).run(userId, card.id, card.entry_id, format, checked.given, checked.expected, elapsed || null, iso);
+    })();
+    const updated = getCard(db, card.id)!;
+    return { correct: true, near_miss: false, expected: checked.expected, given: checked.given, error_tag: null, quality: 5, format, verification: "passed" as const, card: cardView(updated, now), entry: card.entry_id ? (bank.byId.get(card.entry_id) ?? null) : null, headword: card.headword, summary: deckSummary(db, userId, now) };
+  }
+  // A failed check turns the "known" word into a normal card, scheduled like any missed word.
+  if (verifying) db.prepare("UPDATE vocab_cards SET triage = 'learn', verify_due_at = NULL WHERE id = ?").run(card.id);
   const quality = q.input === "none" ? 4 : qualityFor({ correct: checked.correct, nearMiss: checked.nearMiss, elapsedMs: elapsed || Number.MAX_SAFE_INTEGER, typed: q.input === "typed" }, P);
   const s = schedule(card, quality, now, P);
   const iso = now.toISOString();
@@ -391,6 +466,7 @@ export function submitReview(db: DB, userId: string, r: { cardId: string; format
     error_tag: checked.errorTag,
     quality,
     format,
+    verification: verifying ? ("failed" as const) : null,
     card: cardView(updated, now),
     entry: card.entry_id ? (bank.byId.get(card.entry_id) ?? null) : null,
     headword: card.headword,
@@ -411,25 +487,44 @@ export interface BankRow {
   category: string | null;
   definition: string | null;
   translation_fr: string | null;
-  status: CardStatus;
+  status: CardStatus | "known";
   in_deck: boolean;
   due: boolean;
+  transparent_fr: number | null;
+  transparent: boolean;
 }
 
-export function listBank(db: DB, userId: string, f: { tier?: string; cefr?: string; category?: string; status?: string; q?: string } = {}, now = new Date()): BankRow[] {
+export function listBank(db: DB, userId: string, f: { tier?: string; cefr?: string; category?: string; status?: string; q?: string; transparent?: string } = {}, now = new Date()): BankRow[] {
   const bank = bankFor(db);
   const cards = db.prepare("SELECT * FROM vocab_cards WHERE user_id = ?").all(userId) as CardRow[];
   const byEntry = new Map(cards.filter((c) => c.entry_id).map((c) => [c.entry_id!, c]));
   const iso = now.toISOString();
   const rows: BankRow[] = bank.entries.map((e) => {
     const c = byEntry.get(e.id);
-    return { id: e.id, card_id: c?.id ?? null, headword: e.headword, kind: e.kind, pos: e.pos, cefr: e.cefr, tier: e.tier, category: e.category, definition: e.definition, translation_fr: e.translation_fr, status: c ? cardStatus(c, P) : "new", in_deck: !!c, due: !!c && c.review_count > 0 && (c.due_at ?? "") <= iso };
+    return {
+      id: e.id,
+      card_id: c?.id ?? null,
+      headword: e.headword,
+      kind: e.kind,
+      pos: e.pos,
+      cefr: e.cefr,
+      tier: e.tier,
+      category: e.category,
+      definition: e.definition,
+      translation_fr: e.translation_fr,
+      status: c ? statusOf(c) : "new",
+      in_deck: !!c,
+      due: !!c && c.review_count > 0 && (c.due_at ?? "") <= iso,
+      transparent_fr: bank.transparency.get(e.id) ?? null,
+      transparent: bank.transparent.has(e.id),
+    };
   });
   for (const c of cards.filter((c) => !c.entry_id))
-    rows.push({ id: c.id, card_id: c.id, headword: c.headword, kind: "personal", pos: null, cefr: null, tier: "personal", category: null, definition: c.source_sentence, translation_fr: null, status: cardStatus(c, P), in_deck: true, due: c.review_count > 0 && (c.due_at ?? "") <= iso });
+    rows.push({ id: c.id, card_id: c.id, headword: c.headword, kind: "personal", pos: null, cefr: null, tier: "personal", category: null, definition: c.source_sentence, translation_fr: null, status: statusOf(c), in_deck: true, due: c.review_count > 0 && (c.due_at ?? "") <= iso, transparent_fr: null, transparent: false });
   const q = f.q?.trim().toLowerCase();
   return rows
     .filter((r) => (!f.tier || r.tier === f.tier) && (!f.cefr || r.cefr === f.cefr) && (!f.category || r.category === f.category))
+    .filter((r) => !f.transparent || (f.transparent === "1" ? r.transparent : !r.transparent))
     .filter((r) => !f.status || (f.status === "due" ? r.due : f.status === "in_deck" ? r.in_deck : r.status === f.status))
     .filter((r) => !q || r.headword.toLowerCase().includes(q) || (r.translation_fr ?? "").toLowerCase().includes(q) || (r.definition ?? "").toLowerCase().includes(q))
     .sort((a, b) => a.headword.localeCompare(b.headword));
@@ -440,21 +535,21 @@ export function listBank(db: DB, userId: string, f: { tier?: string; cefr?: stri
 export function deckStats(db: DB, userId: string, now = new Date()) {
   const bank = bankFor(db);
   const cards = db.prepare("SELECT * FROM vocab_cards WHERE user_id = ?").all(userId) as CardRow[];
-  const blank = () => ({ new: 0, learning: 0, mature: 0, total: 0 });
+  const blank = () => ({ new: 0, known: 0, learning: 0, mature: 0, total: 0 });
   const byTier: Record<string, ReturnType<typeof blank>> = { core: blank(), extended: blank(), mastery: blank(), personal: blank() };
   const byEntry = new Map(cards.filter((c) => c.entry_id).map((c) => [c.entry_id!, c]));
   for (const e of bank.entries) {
     const c = byEntry.get(e.id);
     const t = byTier[e.tier]!;
-    t[c ? cardStatus(c, P) : "new"]++;
+    t[c ? statusOf(c) : "new"]++;
     t.total++;
   }
   for (const c of cards.filter((c) => !c.entry_id)) {
-    byTier.personal![cardStatus(c, P)]++;
+    byTier.personal![statusOf(c)]++;
     byTier.personal!.total++;
   }
   const byStatus = blank();
-  for (const t of Object.values(byTier)) for (const k of ["new", "learning", "mature", "total"] as const) byStatus[k] += t[k];
+  for (const t of Object.values(byTier)) for (const k of ["new", "known", "learning", "mature", "total"] as const) byStatus[k] += t[k];
 
   const since = new Date(now.getTime() - P.retention_window_days * 86400000).toISOString();
   const reviews = db.prepare("SELECT card_id, production, first_exposure, correct, error_tag, created_at FROM vocab_reviews WHERE user_id = ? AND created_at >= ? ORDER BY created_at").all(userId, since) as Array<{
@@ -562,4 +657,60 @@ export function createChallenge(db: DB, userId: string, c: { cardIds: string[]; 
   const id = crypto.randomUUID();
   db.prepare("INSERT INTO vocab_challenges (id, user_id, mode, words_json, text, text_source, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)").run(id, userId, c.mode, JSON.stringify(words), text, text ? c.textSource : "none", nowIso());
   return db.prepare("SELECT * FROM vocab_challenges WHERE id = ?").get(id) as ChallengeRow;
+}
+
+// ---------------------------------------------------------------- triage
+
+/** Next entries to triage: those the schedule would introduce, in the same order. */
+export function triageQueue(db: DB, userId: string, limit = V.triage.batch_size) {
+  const bank = bankFor(db);
+  const remaining = remainingIntroductions(db, bank, userId);
+  const counts = db
+    .prepare("SELECT COALESCE(SUM(triage = 'known'), 0) known, COALESCE(SUM(triage = 'learn' AND origin = 'triage'), 0) learn, COALESCE(SUM(triage = 'known' AND verify_due_at IS NOT NULL), 0) to_verify FROM vocab_cards WHERE user_id = ?")
+    .get(userId) as { known: number; learn: number; to_verify: number };
+  return {
+    remaining: remaining.length,
+    ...counts,
+    verify_every: V.triage.verify_every,
+    entries: remaining.slice(0, limit).map((e) => ({
+      id: e.id,
+      headword: e.headword,
+      kind: e.kind,
+      pos: e.pos,
+      cefr: e.cefr,
+      tier: e.tier,
+      category: e.category,
+      definition: e.definition,
+      translation_fr: e.translation_fr,
+      example: e.example_academic,
+      transparent_fr: bank.transparency.get(e.id) ?? null,
+      transparent: bank.transparent.has(e.id),
+    })),
+  };
+}
+
+/**
+ * J = known: the word never comes as a new card; every `verify_every`-th known word is checked
+ * in a production format after `verify_after_days`. K = to learn: queued before scheduled words.
+ */
+export function triageDecide(db: DB, userId: string, entryId: string, decision: "known" | "learn", now = new Date()) {
+  const bank = bankFor(db);
+  const entry = bank.byId.get(entryId);
+  if (!entry) throw new VocabError(404, "Unknown vocabulary entry");
+  let card = db.prepare("SELECT * FROM vocab_cards WHERE user_id = ? AND entry_id = ?").get(userId, entryId) as CardRow | undefined;
+  if (card && card.review_count > 0) throw new VocabError(409, "This word is already being studied.");
+  if (!card) card = insertCard(db, userId, { entryId, headword: entry.headword, origin: "triage" });
+  let verifyAt: string | null = null;
+  if (decision === "known") {
+    const known = (db.prepare("SELECT COUNT(*) n FROM vocab_cards WHERE user_id = ? AND triage = 'known' AND id <> ?").get(userId, card.id) as { n: number }).n + 1;
+    if (known % V.triage.verify_every === 0) verifyAt = new Date(now.getTime() + V.triage.verify_after_days * 86400000).toISOString();
+  }
+  db.prepare("UPDATE vocab_cards SET triage = ?, verify_due_at = ?, verified_at = NULL WHERE id = ?").run(decision, verifyAt, card.id);
+  return { card: cardView(getCard(db, card.id)!, now), verify_scheduled: verifyAt != null };
+}
+
+/** Undo a triage decision on a word that has not been studied yet. */
+export function triageUndo(db: DB, userId: string, entryId: string): boolean {
+  const r = db.prepare("DELETE FROM vocab_cards WHERE user_id = ? AND entry_id = ? AND review_count = 0 AND triage IS NOT NULL").run(userId, entryId);
+  return r.changes > 0;
 }

@@ -75,7 +75,12 @@ afterAll(async () => {
 describe("vocabulary bank routes", () => {
   it("lists the bank with filters, search and per-user status", async () => {
     const all = (await get(`/api/users/${A}/vocab/entries`)).json();
-    expect(all.total).toBe(1000);
+    expect(all.total).toBe(1250);
+    const cognates = (await get(`/api/users/${A}/vocab/entries?transparent=1`)).json();
+    const others = (await get(`/api/users/${A}/vocab/entries?transparent=0`)).json();
+    expect(cognates.total + others.total).toBe(1250);
+    expect(cognates.entries.every((e: { transparent: boolean; transparent_fr: number }) => e.transparent && e.transparent_fr >= CONFIG.internal.vocabulary.transparency.threshold)).toBe(true);
+    expect(others.entries.some((e: { transparent: boolean }) => e.transparent)).toBe(false);
     const core = (await get(`/api/users/${A}/vocab/entries?tier=core`)).json();
     expect(core.total).toBe(400);
     expect(core.entries.every((e: { tier: string; status: string }) => e.tier === "core" && e.status === "new")).toBe(true);
@@ -125,20 +130,36 @@ describe("daily session", () => {
     expect((await get(`/api/users/${A}/dashboard`)).json().vocabulary).toMatchObject({ due: 0, new_left: 3 });
   });
 
-  it("introduces core words first, in the order of the profile's target", async () => {
-    for (const [u, target] of [[A, 5], [B, 6]] as const) {
+  it("introduces words in the order of the profile's target, French cognates last", async () => {
+    const bank = bankFor(db);
+    for (const [u, target, firstCategory] of [[A, 5, null], [B, 6, "functional_language"]] as const) {
       await app.inject({ method: "PATCH", url: `/api/users/${u}`, payload: { target_band: target } });
       const n = await next(u);
-      const first = introductionOrder(bankFor(db), target)[0]!;
+      const first = introductionOrder(bank, target)[0]!;
       expect(n.card!.entry_id).toBe(first.id);
-      expect(first.tier).toBe("core");
+      if (firstCategory) expect(first.category).toBe(firstCategory);
+      else expect(first.tier).toBe("core");
+      expect(bank.transparent.has(first.id)).toBe(false);
       expect(n.card!.phase).toBe("new");
       expect(n.question!.format).toBe("meaning_choice");
     }
-    const order5 = introductionOrder(bankFor(db), 5).slice(400).map((e) => e.cefr);
-    const order6 = introductionOrder(bankFor(db), 6).slice(400).map((e) => e.cefr);
-    expect(order5.join("").replace(/(B2)+/, "B").replace(/(C1)+/, "1").replace(/(C2)+/, "2")).toBe("B12");
-    expect(order6.join("").replace(/(C1)+/, "1").replace(/(C2)+/, "2").replace(/(B2)+/, "B")).toBe("12B");
+    for (const target of [5, 6]) {
+      const order = introductionOrder(bank, target);
+      const firstTransparent = order.findIndex((e) => bank.transparent.has(e.id));
+      expect(order.slice(firstTransparent).every((e) => bank.transparent.has(e.id))).toBe(true);
+    }
+    // 6.0: discipline terms never enter by introduction; the groups come in the configured order.
+    const order6 = introductionOrder(bank, 6).filter((e) => !bank.transparent.has(e.id));
+    expect(order6.some((e) => CONFIG.internal.vocabulary.discipline_categories.includes(e.category))).toBe(false);
+    const groupOf = (c: string) => ["functional_language", "academic_collocations", "phrasal_verbs_idioms", "false_friends_fr"].indexOf(c);
+    const seq = order6.map((e) => (groupOf(e.category) >= 0 ? groupOf(e.category) : e.category === "general_academic" && e.cefr !== "B2" ? 4 : 5));
+    expect(seq.every((g, i) => i === 0 || g >= seq[i - 1]!)).toBe(true);
+    // 5.0: core first, then B2 → C1 → C2 (discipline terms included).
+    const order5 = introductionOrder(bank, 5).filter((e) => !bank.transparent.has(e.id));
+    const nCore = order5.filter((e) => e.tier === "core").length;
+    expect(order5.slice(0, nCore).every((e) => e.tier === "core")).toBe(true);
+    expect(order5.slice(nCore).map((e) => e.cefr).join("").replace(/(B2)+/, "B").replace(/(C1)+/, "1").replace(/(C2)+/, "2")).toBe("B12");
+    expect(order5.some((e) => CONFIG.internal.vocabulary.discipline_categories.includes(e.category))).toBe(true);
   });
 
   it("never sends the answer key, checks answers on the server and schedules the card", async () => {
@@ -227,8 +248,9 @@ describe("daily session", () => {
     const s = (await get(`/api/users/${A}/vocab/stats`)).json();
     expect(s.by_tier.core.total).toBe(400);
     expect(s.by_tier.core.learning + s.by_tier.core.mature).toBe(3);
-    expect(s.by_status.total).toBe(1000);
-    expect(s.by_status.new).toBe(997);
+    expect(s.by_status.total).toBe(1250);
+    expect(s.by_status.new).toBe(1247);
+    expect(s.by_status.known).toBe(0);
     expect(s.window_days).toBe(30);
     expect(s.retention.reviews).toBeGreaterThan(10);
     expect(s.retention.rate).toBeGreaterThan(0.5);
@@ -354,5 +376,87 @@ describe("production challenge", () => {
     expect(rated.self_rating).toBe(4);
     expect((await post(`/api/vocab/challenges/${spoken.id}/self-rate`, { rating: 9 }, plain)).statusCode).toBe(400);
     expect((await app.inject({ method: "POST", url: `/api/users/${A}/vocab/challenge/transcribe`, payload: Buffer.from("x"), headers: { "content-type": "audio/webm" } })).statusCode).toBe(409);
+  });
+});
+
+describe("triage", () => {
+  // Runs on the second database, where this profile has no card yet.
+  const T = CONFIG.internal.vocabulary.triage;
+  const tri = (entryId: string, decision: "known" | "learn") => post(`/api/users/${B}/vocab/triage`, { entryId, decision }, plain);
+  const nextB = async () => (await post(`/api/users/${B}/vocab/next`, {}, plain)).json() as Next;
+  const answerB = async (n: Next, correct: boolean) => {
+    const bank = bankFor(plainDb);
+    const q = buildQuestion(bank.byId.get(n.card!.entry_id!)!, n.question!.format, String(n.seed), bank.entries);
+    const payload = q.input === "choice" ? { choice: correct ? q.answerIndex : (q.answerIndex! + 1) % 4 } : { text: correct ? q.expected : "zzzz" };
+    return (await post(`/api/users/${B}/vocab/reviews`, { cardId: n.card!.id, format: n.question!.format, seed: n.seed, elapsedMs: 3000, ...payload }, plain)).json();
+  };
+  let known: string[] = [];
+
+  it("lists upcoming words in introduction order", async () => {
+    const t = (await get(`/api/users/${B}/vocab/triage`, plain)).json();
+    const order = introductionOrder(bankFor(plainDb), 6);
+    expect(t.entries).toHaveLength(T.batch_size);
+    expect(t.entries.map((e: { id: string }) => e.id)).toEqual(order.slice(0, T.batch_size).map((e) => e.id));
+    expect(t).toMatchObject({ remaining: order.length, known: 0, learn: 0, verify_every: T.verify_every });
+    known = t.entries.slice(0, 2 * T.verify_every).map((e: { id: string }) => e.id);
+  });
+
+  it("schedules a production check for one known word in ten", async () => {
+    const flags: boolean[] = [];
+    for (const id of known) flags.push((await tri(id, "known")).json().verify_scheduled);
+    expect(flags.filter(Boolean)).toHaveLength(2);
+    expect(flags[T.verify_every - 1]).toBe(true);
+    expect(flags[2 * T.verify_every - 1]).toBe(true);
+    const t = (await get(`/api/users/${B}/vocab/triage`, plain)).json();
+    expect(t).toMatchObject({ known: known.length, to_verify: 2 });
+    expect(t.entries.some((e: { id: string }) => known.includes(e.id))).toBe(false);
+  });
+
+  it("never introduces a known word, and queues words to learn first", async () => {
+    const t = (await get(`/api/users/${B}/vocab/triage`, plain)).json();
+    const learnId = t.entries[3].id;
+    expect((await tri(learnId, "learn")).json().card).toMatchObject({ triage: "learn", status: "new" });
+    const n = await nextB();
+    expect(n.card!.entry_id).toBe(learnId);
+    expect(known).not.toContain(n.card!.entry_id);
+    expect((await tri(learnId, "known")).statusCode).toBe(200); // not reviewed yet: can still be re-sorted
+    await answerB(await nextB(), true);
+    const s = (await get(`/api/users/${B}/vocab/summary`, plain)).json();
+    expect(s.known).toBe(known.length + 1);
+    // A word already studied cannot be triaged.
+    const studied = (plainDb.prepare("SELECT entry_id FROM vocab_cards WHERE user_id = ? AND review_count > 0").get(B) as { entry_id: string }).entry_id;
+    expect((await tri(studied, "known")).statusCode).toBe(409);
+    expect((await get(`/api/users/${B}/vocab/entries?status=known`, plain)).json().total).toBe(known.length + 1);
+  });
+
+  it("undoes a triage decision", async () => {
+    const last = known[known.length - 2]!;
+    expect((await plain.inject({ method: "DELETE", url: `/api/users/${B}/vocab/triage/${last}` })).statusCode).toBe(200);
+    expect((await plain.inject({ method: "DELETE", url: `/api/users/${B}/vocab/triage/${last}` })).statusCode).toBe(409);
+    known = known.filter((k) => k !== last);
+  });
+
+  it("checks known words in production: a pass keeps them out, a failure puts them back", async () => {
+    plainDb.prepare("UPDATE vocab_cards SET verify_due_at = '2020-01-01T00:00:00.000Z' WHERE user_id = ? AND verify_due_at IS NOT NULL").run(B);
+    expect((await get(`/api/users/${B}/vocab/summary`, plain)).json().verify_due).toBe(2);
+    const first = await nextB();
+    expect(first.card!.phase).toBe("verify");
+    expect(isProduction(first.question!.format)).toBe(true);
+    // A recognition format is refused for a check.
+    expect((await post(`/api/users/${B}/vocab/reviews`, { cardId: first.card!.id, format: "meaning_choice", seed: 0, choice: 0 }, plain)).statusCode).toBe(400);
+    const pass = await answerB(first, true);
+    expect(pass).toMatchObject({ correct: true, verification: "passed", card: { status: "known", triage: "known", verify_due_at: null } });
+    expect(pass.card.verified_at).toBeTruthy();
+    const second = await nextB();
+    expect(second.card!.phase).toBe("verify");
+    const fail = await answerB(second, false);
+    expect(fail).toMatchObject({ correct: false, verification: "failed", card: { triage: "learn", status: "learning", review_count: 1 } });
+    expect((await get(`/api/users/${B}/vocab/summary`, plain)).json().verify_due).toBe(0);
+  });
+
+  it("moves a known word back to learning when it is missed or added on purpose", async () => {
+    const id = known[0]!;
+    const r = (await post(`/api/users/${B}/vocab/cards`, { entryId: id }, plain)).json();
+    expect(r.card).toMatchObject({ triage: "learn", status: "new" });
   });
 });

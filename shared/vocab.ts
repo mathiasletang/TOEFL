@@ -77,6 +77,7 @@ export const VOCAB_FUNCTIONS = [
   "email_apology",
   "email_follow_up",
   "email_recommendation",
+  "emphasis",
 ] as const;
 
 const id = z.string().regex(/^v_[a-z0-9_]+$/, "vocab ids look like v_category_headword");
@@ -343,7 +344,12 @@ export interface VocabReport {
 
 const FRENCH_HINT = /[a-zàâçéèêëîïôûùüÿœ]/i;
 
-export function validateVocab(raw: Array<{ data: unknown; file?: string; category?: VocabCategory }>): VocabReport {
+export interface VocabValidationOptions {
+  disciplineCategories?: string[];
+  transparencyThreshold?: number;
+}
+
+export function validateVocab(raw: Array<{ data: unknown; file?: string; category?: VocabCategory }>, opts: VocabValidationOptions = {}): VocabReport {
   const errors: VocabIssue[] = [];
   const warnings: VocabIssue[] = [];
   const entries: VocabEntry[] = [];
@@ -374,6 +380,8 @@ export function validateVocab(raw: Array<{ data: unknown; file?: string; categor
     if (e.tier === "mastery" && e.cefr !== "C2") err(`mastery entries are C2 (found ${e.cefr})`);
     if (e.tier === "extended" && e.cefr === "C2") err("extended entries are C1 (B2 for common discipline words)");
     if (e.tier === "core" && e.cefr === "C2") err("core entries are B2 or C1");
+    if (e.cefr === "C2" && (opts.disciplineCategories ?? []).includes(e.category) && isTransparent(e, opts.transparencyThreshold ?? 1.1))
+      err(`a discipline term that is transparent for French speakers (transparent_fr ${frTransparency(e.headword, e.translation_fr)}) is not C2: use extended / C1`);
 
     // A hyphenated compound ("avant-garde") is one word; an expression has spaces.
     const multi = e.headword.trim().split(/\s+/).length > 1;
@@ -434,4 +442,58 @@ export function countVocab(entries: VocabEntry[]): VocabCounts {
     row[e.cefr]++;
   }
   return c;
+}
+
+// ---------------------------------------------------------------- French transparency
+
+/** Lowercase, strip accents and everything but letters and spaces. */
+function foldFr(s: string): string {
+  return s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z ]+/g, " ").replace(/\s+/g, " ").trim();
+}
+
+function editDistance(a: string, b: string): number {
+  const prev = Array.from({ length: b.length + 1 }, (_, j) => j);
+  for (let i = 1; i <= a.length; i++) {
+    let diag = prev[0]!;
+    prev[0] = i;
+    for (let j = 1; j <= b.length; j++) {
+      const tmp = prev[j]!;
+      prev[j] = Math.min(prev[j]! + 1, prev[j - 1]! + 1, diag + (a[i - 1] === b[j - 1] ? 0 : 1));
+      diag = tmp;
+    }
+  }
+  return prev[b.length]!;
+}
+
+/** Regular English → French spelling correspondences (analyze → analyser, ecology → ecologie…). */
+const EN_FR_ENDINGS: Array<[RegExp, string]> = [
+  [/ization$/, "isation"], [/ize$/, "iser"], [/yze$/, "yser"], [/ity$/, "ite"], [/ical$/, "ique"], [/ic$/, "ique"], [/ous$/, "eux"],
+  [/ive$/, "if"], [/ary$/, "aire"], [/ory$/, "oire"], [/ism$/, "isme"], [/ist$/, "iste"], [/y$/, "ie"], [/ate$/, "er"], [/er$/, "re"],
+];
+const FR_FILLERS = new Set(["le", "la", "les", "l", "un", "une", "des", "de", "du", "d", "se", "s", "qch", "qqch", "qn", "quelque", "chose", "etre", "faire"]);
+
+/**
+ * How transparent an entry is for a French speaker: the best string similarity (0–1) between the
+ * headword and one of its French translations, after accents, articles and regular spelling
+ * correspondences are removed. Near 1 = a cognate a French speaker understands on sight.
+ */
+export function frTransparency(headword: string, translationFr: string): number {
+  const en = foldFr(headword);
+  const variants = new Set([en, ...EN_FR_ENDINGS.filter(([re]) => re.test(en)).map(([re, fr]) => en.replace(re, fr))]);
+  let best = 0;
+  for (const raw of translationFr.replace(/\([^)]*\)/g, " ").split(/[,;/]|\bou\b/)) {
+    const fr = foldFr(raw).split(" ").filter((w) => !FR_FILLERS.has(w)).join(" ");
+    if (!fr) continue;
+    for (const v of variants) {
+      const sim = 1 - editDistance(v, fr) / Math.max(v.length, fr.length);
+      if (sim > best) best = sim;
+    }
+  }
+  return Math.round(best * 100) / 100;
+}
+
+/** A single word a French speaker understands on sight (false friends never count). */
+export function isTransparent(e: Pick<VocabEntry, "headword" | "translation_fr" | "kind" | "false_friend_fr" | "category">, threshold: number): boolean {
+  if (e.kind !== "word" || e.false_friend_fr || e.category === "false_friends_fr") return false;
+  return frTransparency(e.headword, e.translation_fr) >= threshold;
 }

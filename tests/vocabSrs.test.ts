@@ -7,7 +7,7 @@ import {
   cardStatus,
   checkAnswer,
   chooseFormat,
-  introductionRank,
+  introductionKey,
   isProduction,
   locateForm,
   publicQuestion,
@@ -105,18 +105,40 @@ describe("format rotation", () => {
 });
 
 describe("introduction order", () => {
-  const rank = (tier: "core" | "extended" | "mastery", cefr: "B2" | "C1" | "C2", target: number) => introductionRank({ tier, cefr }, target);
-  it("puts the core tier first for every target", () => {
-    for (const t of [5, 5.5, 6]) {
-      expect(rank("core", "C1", t)).toBeLessThan(rank("extended", "B2", t));
-      expect(rank("core", "C1", t)).toBeLessThan(rank("mastery", "C2", t));
-    }
+  const rules = CONFIG.internal.vocabulary.introduction.rules;
+  const key = (category: string, tier: string, cefr: string, target: number, transparent = false) => introductionKey({ category, tier, cefr } as never, target, rules, transparent);
+  const before = (a: number[] | null, b: number[] | null) => {
+    expect(a && b).toBeTruthy();
+    for (let i = 0; i < 3; i++) if (a![i] !== b![i]) return a![i]! < b![i]!;
+    return false;
+  };
+
+  it("for a 6.0 target: functional language, collocations, phrasal verbs, false friends, academic C1-C2, then the rest", () => {
+    const seq = [
+      key("functional_language", "mastery", "C2", 6),
+      key("academic_collocations", "core", "C1", 6),
+      key("phrasal_verbs_idioms", "core", "B2", 6),
+      key("false_friends_fr", "core", "B2", 6),
+      key("general_academic", "mastery", "C2", 6),
+      key("campus_daily_life", "core", "B2", 6),
+    ];
+    for (let i = 1; i < seq.length; i++) expect(before(seq[i - 1]!, seq[i]!), `step ${i}`).toBe(true);
   });
-  it("goes B2 → C1 for a 5.0 target and C1 → C2 for a 6.0 target", () => {
-    expect(rank("extended", "B2", 5)).toBeLessThan(rank("extended", "C1", 5));
-    expect(rank("extended", "C1", 5)).toBeLessThan(rank("mastery", "C2", 5));
-    expect(rank("extended", "C1", 6)).toBeLessThan(rank("mastery", "C2", 6));
-    expect(rank("mastery", "C2", 6)).toBeLessThan(rank("extended", "B2", 6));
+
+  it("keeps discipline terms out of the schedule for a 6.0 target only", () => {
+    expect(key("geology", "extended", "C1", 6)).toBeNull();
+    expect(key("biology", "mastery", "C2", 6)).toBeNull();
+    expect(key("geology", "extended", "C1", 5)).not.toBeNull();
+  });
+
+  it("keeps the core-first, B2 → C1 → C2 order for a 5.0 target", () => {
+    expect(before(key("geology", "core", "C1", 5), key("general_academic", "extended", "B2", 5))).toBe(true);
+    expect(before(key("geology", "extended", "B2", 5), key("geology", "extended", "C1", 5))).toBe(true);
+    expect(before(key("general_academic", "extended", "C1", 5), key("general_academic", "mastery", "C2", 5))).toBe(true);
+  });
+
+  it("puts transparent entries last for every target", () => {
+    for (const t of [5, 6]) expect(before(key("campus_daily_life", "core", "B2", t), key("functional_language", "core", "C1", t, true))).toBe(true);
   });
 });
 

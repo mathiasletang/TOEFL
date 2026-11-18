@@ -123,7 +123,7 @@ Recordings are used only when every key of the exercise has a file. Otherwise th
 
 # Vocabulary bank
 
-The vocabulary bank lives in `content/vocab/`, **one JSON file per category**. It is validated by `npm run validate:content`, loaded into SQLite at startup (tables `vocab_packs` and `vocab_entries`, migration `002_vocab.sql`), and has no user interface yet.
+The vocabulary bank lives in `content/vocab/`, **one JSON file per category**. It is validated by `npm run validate:content`, loaded into SQLite at startup (tables `vocab_packs` and `vocab_entries`, migration `002_vocab.sql`), and is used by the Vocabulary tab.
 
 All entries are original. Do not copy dictionary definitions or import external word lists. The **core** tier ("Essentials") is an *internal high-yield selection*, not an official list, and CEFR levels are author estimates. Every pack's `selection_note` must say so.
 
@@ -177,13 +177,15 @@ Both examples must contain the headword, one of its inflections, or a form decla
 | `extended` | Extended (C1) | C1, and B2 for common discipline words | Vocabulary by discipline and function |
 | `mastery` | Mastery (C2) | C2 | Nuance, precision and formal register |
 
-Internal targets (in `config/toefl-2026.json` → `internal.vocabulary`): 400 core, 350 extended, 250 mastery; about 30 % B2, 45 % C1, 25 % C2. The validator warns when the CEFR shares drift by more than 5 points.
+Internal targets (in `config/toefl-2026.json` → `internal.vocabulary`): 400 core, 467 extended, 383 mastery; about 26 % B2, 43 % C1, 31 % C2. The validator warns when the CEFR shares drift by more than 5 points.
+
+Mastery is meant for **productive C2 language for a French speaker**: nuance verbs, hedging, concession, emphasis, spoken discourse markers and precise collocations. Prefer words whose French translation is not a near-copy. A discipline term that is transparent for a French speaker (`transparent_fr` ≥ the threshold in `internal.vocabulary.transparency`, e.g. subduction/subduction) is not C2. File it as extended / C1. The validator rejects it at C2.
 
 ## Categories and functions
 
 Categories: `general_academic`, `biology`, `ecology`, `geology`, `astronomy`, `psychology`, `sociology`, `anthropology`, `economics`, `history`, `art_history`, `linguistics`, `environmental_science`, `technology`, `campus_daily_life`, `functional_language`, `academic_collocations`, `phrasal_verbs_idioms`, `false_friends_fr`, `spelling_traps`.
 
-Functions (`functional_language` only): `cause_consequence`, `concession`, `hedging`, `agreement_disagreement`, `speech_structuring`, `email_request`, `email_complaint`, `email_apology`, `email_follow_up`, `email_recommendation`.
+Functions (`functional_language` only): `cause_consequence`, `concession`, `hedging`, `agreement_disagreement`, `speech_structuring`, `email_request`, `email_complaint`, `email_apology`, `email_follow_up`, `email_recommendation`, `emphasis`.
 
 ## What the validator checks
 
@@ -195,5 +197,6 @@ Functions (`functional_language` only): `cause_consequence`, `concession`, `hedg
 - tier and CEFR are coherent, and the entry's category matches its pack;
 - pack-specific fields are present (`function`, `false_friend_fr`, `spelling_trap`);
 - one pack per category, and no pack presents itself as an official list.
+- no transparent discipline term at C2 (see Tiers above).
 
 `npm run validate:content` prints the counts by tier, CEFR and category. Add `-- --vocab-warnings` to list warnings, such as a collocation that does not contain its headword.

@@ -10,7 +10,7 @@ import { SimulationLauncher, SimulationRunner, SimulationResults } from "./pages
 import { Progress } from "./pages/Progress";
 import { Settings } from "./pages/Settings";
 import { Shadowing } from "./pages/Shadowing";
-import { VocabBank, VocabEntryPage, VocabSession, VocabStats } from "./pages/Vocabulary";
+import { VocabBank, VocabEntryPage, VocabSession, VocabStats, VocabTriage } from "./pages/Vocabulary";
 
 const USERS = ["Virgile", "Mathias"];
 
@@ -83,6 +83,7 @@ function Routes() {
   if ((m = match("/u/:user/review/:attempt", path))) return <Shell user={user} wide><ReviewPage user={user} attemptId={m.attempt!} /></Shell>;
   if ((m = match("/u/:user/focus", path))) return <Shell user={user}><Focus user={user} /></Shell>;
   if ((m = match("/u/:user/vocab", path))) return <Shell user={user}><VocabBank user={user} /></Shell>;
+  if ((m = match("/u/:user/vocab/triage", path))) return <Shell user={user}><VocabTriage user={user} /></Shell>;
   if ((m = match("/u/:user/vocab/session", path))) return <Shell user={user}><VocabSession user={user} /></Shell>;
   if ((m = match("/u/:user/vocab/stats", path))) return <Shell user={user}><VocabStats user={user} /></Shell>;
   if ((m = match("/u/:user/vocab/entry/:entry", path))) return <Shell user={user}><VocabEntryPage user={user} entryId={m.entry!} /></Shell>;

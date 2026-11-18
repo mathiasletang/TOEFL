@@ -28,6 +28,7 @@ interface Meta {
   mature_interval_days: number;
   production_share_min: number;
   challenge: { words: number; seconds: number };
+  triage: { verify_every: number; verify_after_days: number };
   note: string;
 }
 interface CardView {
@@ -35,7 +36,7 @@ interface CardView {
   entry_id: string | null;
   personal: boolean;
   origin: string;
-  status: "new" | "learning" | "mature";
+  status: "new" | "known" | "learning" | "mature";
   due: boolean;
   due_at: string | null;
   interval_days: number;
@@ -46,18 +47,19 @@ interface CardView {
 }
 
 const TIER_LABEL = (meta: Meta | null, tier: string) => (tier === "personal" ? "Personal" : (meta?.tiers[tier]?.label ?? tier));
-const STATUS_CLS: Record<string, string> = { new: "text-zinc-500", learning: "border-amber-200 bg-amber-50 text-amber-800", mature: "border-green-200 bg-green-50 text-green-800" };
+const STATUS_CLS: Record<string, string> = { new: "text-zinc-500", known: "border-sky-200 bg-sky-50 text-sky-800", learning: "border-amber-200 bg-amber-50 text-amber-800", mature: "border-green-200 bg-green-50 text-green-800" };
 const ORIGIN_LABEL: Record<string, string> = { scheduled: "Daily introduction", manual: "Added by you", harvest_ctw: "Missed in Complete the Words", harvest_question: "Missed vocabulary question" };
 
 function useMeta() {
   return useApi<Meta>("/api/vocab/meta").data;
 }
 
-function VocabNav({ user, active, live }: { user: string; active: "bank" | "session" | "stats"; live?: Summary | null }) {
+function VocabNav({ user, active, live }: { user: string; active: "bank" | "triage" | "session" | "stats"; live?: Summary | null }) {
   const fetched = useApi<Summary>(`/api/users/${user}/vocab/summary`).data;
   const summary = live ?? fetched;
   const tabs = [
     ["bank", "Bank", `/u/${user}/vocab`],
+    ["triage", "Triage", `/u/${user}/vocab/triage`],
     ["session", "Daily session", `/u/${user}/vocab/session`],
     ["stats", "Stats", `/u/${user}/vocab/stats`],
   ] as const;
@@ -171,9 +173,11 @@ interface BankRow {
   category: string | null;
   definition: string | null;
   translation_fr: string | null;
-  status: "new" | "learning" | "mature";
+  status: "new" | "known" | "learning" | "mature";
   in_deck: boolean;
   due: boolean;
+  transparent_fr: number | null;
+  transparent: boolean;
 }
 
 export function VocabBank({ user }: { user: string }) {
@@ -183,8 +187,9 @@ export function VocabBank({ user }: { user: string }) {
   const [category, setCategory] = useState("");
   const [status, setStatus] = useState("");
   const [q, setQ] = useState("");
+  const [transparent, setTransparent] = useState("");
   const [shown, setShown] = useState(150);
-  const query = useMemo(() => new URLSearchParams(Object.entries({ tier, cefr, category, status, q }).filter(([, v]) => v)).toString(), [tier, cefr, category, status, q]);
+  const query = useMemo(() => new URLSearchParams(Object.entries({ tier, cefr, category, status, q, transparent }).filter(([, v]) => v)).toString(), [tier, cefr, category, status, q, transparent]);
   const { data, error, loading, setData } = useApi<{ total: number; entries: BankRow[] }>(`/api/users/${user}/vocab/entries?${query}`);
   useEffect(() => setShown(150), [query]);
   const add = async (row: BankRow) => {
@@ -194,7 +199,7 @@ export function VocabBank({ user }: { user: string }) {
   const tiers = ["core", "extended", "mastery", "personal", ""];
   return (
     <div>
-      <PageTitle title="Vocabulary" sub="1,000 original entries. Tiers and CEFR levels are internal conventions of this app — “Essentials” is an internal high-yield selection, not an official list." />
+      <PageTitle title="Vocabulary" sub="1,250 original entries. Tiers and CEFR levels are internal conventions of this app — “Essentials” is an internal high-yield selection, not an official list." />
       <VocabNav user={user} active="bank" />
       <div className="mb-3 flex flex-wrap gap-1">
         {tiers.map((t) => (
@@ -225,7 +230,13 @@ export function VocabBank({ user }: { user: string }) {
           <option value="learning">Learning</option>
           <option value="mature">Mature</option>
           <option value="due">Due now</option>
+          <option value="known">Known (triage)</option>
           <option value="in_deck">In my deck</option>
+        </select>
+        <select className="input" value={transparent} onChange={(e) => setTransparent(e.target.value)} aria-label="French cognates" title="Words a French speaker understands on sight (transparent_fr ≥ threshold). They are introduced last.">
+          <option value="">Any word</option>
+          <option value="1">French cognates only</option>
+          <option value="0">No French cognates</option>
         </select>
         {data && <span className="text-xs text-zinc-500">{data.total} entries</span>}
       </div>
@@ -242,6 +253,11 @@ export function VocabBank({ user }: { user: string }) {
                 {e.pos && <span className="ml-2 text-xs text-zinc-400">{e.pos}</span>}
                 <div className="truncate text-[13px] text-zinc-500">{e.translation_fr ? `${e.translation_fr} — ${e.definition}` : (e.definition ?? "Personal card")}</div>
               </div>
+              {e.transparent && (
+                <span className="chip border-zinc-200 text-zinc-400" title={`Transparent for French speakers (similarity ${e.transparent_fr?.toFixed(2)}): introduced last`}>
+                  ≈ FR
+                </span>
+              )}
               {e.cefr && <span className="chip">{e.cefr}</span>}
               <span className={`chip ${STATUS_CLS[e.status]}`}>{e.due ? "due" : e.status}</span>
               {e.in_deck ? (
@@ -363,7 +379,7 @@ export function VocabEntryPage({ user, entryId }: { user: string; entryId: strin
 // ---------------------------------------------------------------- daily session
 
 interface NextCard {
-  card: (CardView & { phase: "review" | "new"; tier: string; cefr: string | null }) | null;
+  card: (CardView & { phase: "review" | "new" | "verify"; tier: string; cefr: string | null }) | null;
   seed: number;
   question: { format: Format; input: "choice" | "typed" | "none"; instruction: string; prompt: string; detail?: string; options?: string[]; speak?: string; firstLetter?: string } | null;
   audio_url: string | null;
@@ -376,6 +392,7 @@ interface ReviewResult {
   given: string;
   error_label: string | null;
   format: Format;
+  verification: "passed" | "failed" | null;
   card: CardView;
   entry: VocabEntry | null;
   headword: string;
@@ -484,7 +501,9 @@ export function VocabSession({ user }: { user: string }) {
         <div className="mx-auto max-w-2xl">
           <div className="card p-6">
             <div className="mb-4 flex flex-wrap items-center gap-2 text-xs">
-              <span className={`chip ${cur.card.phase === "new" ? "border-blue-200 bg-blue-50 text-blue-800" : ""}`}>{cur.card.phase === "new" ? "New word" : "Review"}</span>
+              <span className={`chip ${cur.card.phase === "new" ? "border-blue-200 bg-blue-50 text-blue-800" : cur.card.phase === "verify" ? "border-sky-200 bg-sky-50 text-sky-800" : ""}`}>
+                {cur.card.phase === "new" ? "New word" : cur.card.phase === "verify" ? "Check: a word you marked as known" : "Review"}
+              </span>
               <span className="chip">{meta?.formats[q.format] ?? q.format}</span>
               <span className="chip">{TIER_LABEL(meta, cur.card.tier)}{cur.card.cefr ? ` · ${cur.card.cefr}` : ""}</span>
               {cur.card.origin.startsWith("harvest") && <span className="chip border-amber-200 bg-amber-50 text-amber-800">{ORIGIN_LABEL[cur.card.origin]}</span>}
@@ -563,7 +582,17 @@ export function VocabSession({ user }: { user: string }) {
             <div className="card mt-4 p-6">
               <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
                 <div className={`text-sm font-semibold ${result.correct ? "text-green-700" : "text-red-700"}`}>
-                  {q.input === "none" ? "Saved to your rotation" : result.correct ? "Correct" : result.near_miss ? "Almost — check the spelling" : "Not quite"}
+                  {result.verification === "passed"
+                    ? "Confirmed — this word stays out of your deck"
+                    : result.verification === "failed"
+                      ? "Not quite — this word goes back into your deck"
+                      : q.input === "none"
+                        ? "Saved to your rotation"
+                        : result.correct
+                          ? "Correct"
+                          : result.near_miss
+                            ? "Almost — check the spelling"
+                            : "Not quite"}
                   {!result.correct && result.error_label && <span className="ml-2 font-normal text-zinc-500">({result.error_label})</span>}
                 </div>
                 <button ref={nextRef} className="btn btn-primary" onClick={load} disabled={busy}>
@@ -843,8 +872,8 @@ function Challenge({ user }: { user: string }) {
 // ---------------------------------------------------------------- stats
 
 interface Stats {
-  by_tier: Record<string, { new: number; learning: number; mature: number; total: number }>;
-  by_status: { new: number; learning: number; mature: number; total: number };
+  by_tier: Record<string, { new: number; known: number; learning: number; mature: number; total: number }>;
+  by_status: { new: number; known: number; learning: number; mature: number; total: number };
   window_days: number;
   retention: { reviews: number; correct: number; rate: number | null };
   production_share: number | null;
@@ -877,7 +906,7 @@ export function VocabStats({ user }: { user: string }) {
       {data && (
         <div className="space-y-5">
           <div className="grid gap-4 md:grid-cols-4">
-            <Stat label="New" value={data.by_status.new} sub="not studied yet" />
+            <Stat label="New" value={data.by_status.new} sub={`not studied yet · ${data.by_status.known} marked known in triage`} />
             <Stat label="Learning" value={data.by_status.learning} sub={`interval under ${meta?.mature_interval_days ?? 21} days`} />
             <Stat label="Mature" value={data.by_status.mature} sub={`interval of ${meta?.mature_interval_days ?? 21} days or more`} />
             <Stat
@@ -893,6 +922,7 @@ export function VocabStats({ user }: { user: string }) {
                 <tr className="text-left text-xs text-zinc-500">
                   <th className="pb-2 font-medium">Tier (internal)</th>
                   <th className="font-medium">New</th>
+                  <th className="font-medium">Known</th>
                   <th className="font-medium">Learning</th>
                   <th className="font-medium">Mature</th>
                   <th className="w-1/3 font-medium">Studied</th>
@@ -905,6 +935,7 @@ export function VocabStats({ user }: { user: string }) {
                     <tr key={tier} className="border-t border-zinc-100">
                       <td className="py-2 font-medium">{TIER_LABEL(meta, tier)}</td>
                       <td className="tabular-nums">{t.new}</td>
+                      <td className="tabular-nums">{t.known}</td>
                       <td className="tabular-nums">{t.learning}</td>
                       <td className="tabular-nums">{t.mature}</td>
                       <td>
@@ -964,6 +995,150 @@ export function VocabStats({ user }: { user: string }) {
             {data.summary.next_due_at ? `Next card due ${new Date(data.summary.next_due_at).toLocaleString()}. ` : ""}
             {meta?.note}
           </p>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------- triage
+
+interface TriageEntry {
+  id: string;
+  headword: string;
+  kind: string;
+  pos: string;
+  cefr: string;
+  tier: string;
+  category: string;
+  definition: string;
+  translation_fr: string;
+  example: string;
+  transparent_fr: number | null;
+  transparent: boolean;
+}
+interface TriageBatch {
+  remaining: number;
+  known: number;
+  learn: number;
+  to_verify: number;
+  verify_every: number;
+  entries: TriageEntry[];
+}
+
+/** Fast sort of upcoming words: J = I know it (never introduced), K = to learn. */
+export function VocabTriage({ user }: { user: string }) {
+  const meta = useMeta();
+  const { data, error, loading, reload, setData } = useApi<TriageBatch>(`/api/users/${user}/vocab/triage`);
+  const [i, setI] = useState(0);
+  const [reveal, setReveal] = useState(false);
+  const [history, setHistory] = useState<Array<{ entry: TriageEntry; decision: "known" | "learn" }>>([]);
+  const [busy, setBusy] = useState(false);
+  const [note, setNote] = useState<string | null>(null);
+  const cur = data?.entries[i] ?? null;
+
+  const decide = useCallback(
+    async (decision: "known" | "learn") => {
+      if (!cur || busy || !data) return;
+      setBusy(true);
+      setNote(null);
+      try {
+        const r = await api.post<{ verify_scheduled: boolean }>(`/api/users/${user}/vocab/triage`, { entryId: cur.id, decision });
+        setHistory((h) => [...h, { entry: cur, decision }]);
+        if (r.verify_scheduled) setNote(`“${cur.headword}” will be checked in a production exercise in ${meta?.triage.verify_after_days ?? 7} days (one known word in ${data.verify_every}).`);
+        setData({ ...data, remaining: data.remaining - 1, known: data.known + (decision === "known" ? 1 : 0), learn: data.learn + (decision === "learn" ? 1 : 0) });
+        setReveal(false);
+        if (i + 1 >= data.entries.length) {
+          setI(0);
+          await reload();
+        } else setI(i + 1);
+      } finally {
+        setBusy(false);
+      }
+    },
+    [cur, busy, data, user, i, reload, setData, meta],
+  );
+  const undo = useCallback(async () => {
+    const last = history[history.length - 1];
+    if (!last || busy) return;
+    setBusy(true);
+    try {
+      await api.del(`/api/users/${user}/vocab/triage/${last.entry.id}`);
+      setHistory((h) => h.slice(0, -1));
+      setNote(`Undone: “${last.entry.headword}”.`);
+      setI(0);
+      await reload();
+    } finally {
+      setBusy(false);
+    }
+  }, [history, busy, user, reload]);
+
+  useEffect(() => {
+    const on = (e: KeyboardEvent) => {
+      if ((e.target as HTMLElement).closest("input, textarea, select")) return;
+      const k = e.key.toLowerCase();
+      if (k === "j") void decide("known");
+      else if (k === "k") void decide("learn");
+      else if (k === "u") void undo();
+      else if (k === " ") {
+        e.preventDefault();
+        setReveal((r) => !r);
+      }
+    };
+    window.addEventListener("keydown", on);
+    return () => window.removeEventListener("keydown", on);
+  }, [decide, undo]);
+
+  return (
+    <div>
+      <PageTitle title="Vocabulary" sub="Triage the words that come next, in your introduction order. Known words are never introduced; one in ten is checked later in a production exercise." />
+      <VocabNav user={user} active="triage" />
+      {error != null && <ErrorBox error={error} />}
+      {loading && !data && <Spinner />}
+      {data && (
+        <div className="mx-auto max-w-2xl">
+          <div className="mb-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-zinc-500">
+            <span>{data.remaining} left to triage</span>
+            <span>{data.known} known</span>
+            <span>{data.learn} to learn</span>
+            <span>{data.to_verify} known word(s) awaiting a check</span>
+          </div>
+          {!cur ? (
+            <Notice tone="ok">Nothing left to triage: every word in your introduction order has been sorted or is already in your deck.</Notice>
+          ) : (
+            <div className="card p-6">
+              <div className="mb-3 flex flex-wrap gap-1.5 text-xs">
+                <span className="chip">{meta?.categories[cur.category] ?? cur.category}</span>
+                <span className="chip">{TIER_LABEL(meta, cur.tier)} · {cur.cefr}</span>
+                {cur.transparent && <span className="chip" title={`Similarity with the French translation: ${cur.transparent_fr?.toFixed(2)}`}>≈ French cognate</span>}
+              </div>
+              <div className="text-3xl font-semibold">{cur.headword}</div>
+              <div className="mt-1 text-sm text-zinc-500">{cur.pos}</div>
+              <p className="reading mt-4 text-[15px]">{cur.example}</p>
+              {reveal ? (
+                <div className="mt-4 rounded-md bg-zinc-50 p-3 text-sm">
+                  <div>{cur.definition}</div>
+                  <div className="mt-1 text-zinc-500">FR : {cur.translation_fr}</div>
+                </div>
+              ) : (
+                <button className="mt-4 text-xs text-zinc-500 underline" onClick={() => setReveal(true)}>
+                  Show meaning <Kbd>Space</Kbd>
+                </button>
+              )}
+              <div className="mt-6 grid grid-cols-2 gap-3">
+                <button className="btn justify-center py-3" disabled={busy} onClick={() => decide("known")}>
+                  I know it <Kbd>J</Kbd>
+                </button>
+                <button className="btn btn-primary justify-center py-3" disabled={busy} onClick={() => decide("learn")}>
+                  To learn <Kbd>K</Kbd>
+                </button>
+              </div>
+              <p className="mt-3 text-xs text-zinc-400">
+                “Known” means you can use it, not only recognize it. <button className="underline" onClick={undo} disabled={!history.length || busy}>Undo last</button> <Kbd>U</Kbd>
+              </p>
+            </div>
+          )}
+          {note && <p className="mt-3 text-sm text-zinc-600">{note}</p>}
         </div>
       )}
     </div>

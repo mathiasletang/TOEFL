@@ -622,7 +622,43 @@
         "extended": { "label": "Extended (C1)", "cefr": ["B2", "C1"], "note": "C1-level vocabulary by discipline and function; common discipline words that are really B2 are kept here and labelled B2." },
         "mastery": { "label": "Mastery (C2)", "cefr": ["C2"], "note": "C2-level vocabulary: nuance, precision and formal register." }
       },
-      "targets": { "tier": { "core": 400, "extended": 350, "mastery": 250 }, "cefr_share": { "B2": 0.3, "C1": 0.45, "C2": 0.25 }, "share_tolerance": 0.05 },
+      "targets": { "tier": { "core": 400, "extended": 467, "mastery": 383 }, "cefr_share": { "B2": 0.26, "C1": 0.43, "C2": 0.31 }, "share_tolerance": 0.05 },
+      "discipline_categories": ["biology", "ecology", "geology", "astronomy", "psychology", "sociology", "anthropology", "economics", "history", "art_history", "linguistics", "environmental_science", "technology"],
+      "transparency": {
+        "$comment": "transparent_fr = best string similarity (0-1) between a headword and one of its French translations, after accents, articles and regular spelling correspondences are removed. Only single words count as transparent; false friends never do. A transparent discipline term cannot be C2.",
+        "threshold": 0.7
+      },
+      "introduction": {
+        "$comment": "Order in which bank entries are introduced as new cards, by profile target (the first rule whose min_target is reached applies). Groups come first, in order; then the rest by rest_cefr_order. Transparent entries always come last. Excluded categories never enter by introduction, only through automatic harvest or a manual add.",
+        "rules": [
+          {
+            "min_target": 6.0,
+            "groups": [
+              { "category": "functional_language" },
+              { "category": "academic_collocations" },
+              { "category": "phrasal_verbs_idioms" },
+              { "category": "false_friends_fr" },
+              { "category": "general_academic", "cefr": ["C1", "C2"] }
+            ],
+            "group_cefr_order": ["C1", "C2", "B2"],
+            "rest_cefr_order": ["C1", "C2", "B2"],
+            "exclude_categories": ["biology", "ecology", "geology", "astronomy", "psychology", "sociology", "anthropology", "economics", "history", "art_history", "linguistics", "environmental_science", "technology"]
+          },
+          {
+            "min_target": 0,
+            "groups": [{ "tier": "core" }],
+            "group_cefr_order": ["B2", "C1"],
+            "rest_cefr_order": ["B2", "C1", "C2"],
+            "exclude_categories": []
+          }
+        ]
+      },
+      "triage": {
+        "$comment": "Triage mode: J = known (never introduced as a new card), K = to learn. One known card in verify_every is checked later in a production format; a failed check turns it into a normal card.",
+        "verify_every": 10,
+        "verify_after_days": 7,
+        "batch_size": 30
+      },
       "srs": {
         "$comment": "SM-2-style scheduler. Every value is an internal training parameter.",
         "new_per_day_default": 20,
