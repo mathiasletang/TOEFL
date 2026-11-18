@@ -62,7 +62,7 @@ npm install
 | **Quick Drill** | Practice | Choose any of the 12 task types and start immediately. You get a correction screen after every item. |
 | **Focus Weaknesses** | Focus weaknesses | Picks exercises that target your most costly recurring error patterns, plus spaced retries of failed items. |
 | **TOEFL Simulation** | Simulation | Strict, timed sections or a full test. Reading and Listening use Module 1 → Module 2 routing. |
-| **Vocabulary** | Vocabulary | Spaced-repetition practice on the 1,000-entry bank: daily session, bank browser, statistics (see below). |
+| **Vocabulary** | Vocabulary | Spaced-repetition practice on the 1,250-entry bank: triage, daily session, bank browser, statistics (see below). |
 
 **Strict vs Practice** (toggle on Practice / Focus):
 
@@ -86,11 +86,15 @@ npm install
 
 ### Vocabulary
 
-The **Vocabulary** tab has three views.
+The **Vocabulary** tab has four views.
 
-- **Bank:** browse and search the 1,000 entries, filtered by tier, CEFR level, category and status. The "Essentials" tab comes first. A word's page shows its full content, plays it (server TTS when configured, otherwise the browser voice) and lists the exercises of the bank in which the word appears. That list is built automatically by matching word forms in the exercise texts.
-- **Daily session:** due reviews first, then new words up to your daily limit (20 by default, set per profile in Settings). New words are introduced in order: the Essentials tier first for everyone, then B2 → C1 → C2 for a 5.0 or 5.5 target, or C1 → C2 → B2 for a 6.0 target.
-- **Stats:** words by state (new / learning / mature) and by tier, retention over 30 days, and the words that keep failing.
+- **Bank:** browse and search the 1,250 entries, filtered by tier, CEFR level, category, status, and French cognates. The "Essentials" tab comes first. A word's page shows its full content, plays it (server TTS when configured, otherwise the browser voice) and lists the exercises of the bank in which the word appears. That list is built automatically by matching word forms in the exercise texts.
+- **Triage:** sort the words that come next, in your introduction order. Press **J** if you know the word (it will never be introduced) or **K** to learn it (it is queued first). **Space** shows the meaning and **U** undoes the last decision. One known word in ten is checked about a week later in a production format (typing, gap fill, word formation or dictation). If you pass, the word stays out of your deck; if you fail, it goes back into it.
+- **Daily session:** due reviews and pending checks first, then new words up to your daily limit (20 by default, set per profile in Settings).
+  - **6.0 target:** functional language, then academic collocations, phrasal verbs and idioms, French–English false friends, general academic C1–C2 words, then the rest. Discipline terms (biology, geology…) are never introduced by the schedule; they only enter your deck when you miss them in an exercise, or when you add them yourself.
+  - **5.0 or 5.5 target:** the Essentials tier first, then B2 → C1 → C2.
+  - **French cognates** always come last, whatever the target.
+- **Stats:** words by state (new / known / learning / mature) and by tier, retention over 30 days, and the words that keep failing.
 
 Each card rotates through eight exercise formats:
 
@@ -106,6 +110,8 @@ Each card rotates through eight exercise formats:
 | 8 | Dictation → the word is spoken, you write it | production |
 
 Once a card has passed format 1, at least 60 % of its reviews are production formats. Typed answers are classified with the same classes as Complete the Words (spelling, inflection, word formation, meaning), and these errors feed the error profile shown in Focus weaknesses and Progress.
+
+**French cognates.** Each entry has a computed `transparent_fr` score: the similarity between the word and its French translation, after accents, articles and regular spelling correspondences are removed (-ize → -iser, -ity → -ité…). A single word at or above the threshold (0.7, set in config) counts as transparent, which is about 417 entries; expressions and false friends never do. A transparent discipline term cannot be C2: the 117 that were have been moved to Extended / C1.
 
 **Your own words.** A missed Complete the Words gap or a missed vocabulary question adds the word to your deck automatically (function words are ignored). On any correction screen, "Add words to vocabulary" lets you click a word to add it. A word that is not in the bank becomes a personal card with the sentence it came from. Added words are studied before the scheduled introductions.
 
@@ -170,7 +176,7 @@ AI evaluation calls the Anthropic Messages API with structured JSON output. Ever
 
 Drop a JSON file into `content/exercises/`, run `npm run validate:content`, then restart. The format, the rules and examples for every task type are in **`docs/CONTENT_GUIDE.md`**.
 
-The same applies to the **vocabulary bank** in `content/vocab/` (1,000 original entries in 20 packs), which the Vocabulary tab uses. Its "Essentials" tier is an internal high-yield selection, not an official list. Entries removed from the files are deactivated; your review history is kept.
+The same applies to the **vocabulary bank** in `content/vocab/` (1,250 original entries in 20 packs), which the Vocabulary tab uses. Its "Essentials" tier is an internal high-yield selection, not an official list. Entries removed from the files are deactivated; your review history is kept.
 
 Invalid exercises and vocabulary entries are never imported. The server logs them and the validator fails. The current bank holds 220 original exercises (Reading: 40 Complete the Words, 36 Daily Life sets, 24 academic passages). No exercise is reused inside or across forms. Reading alone can supply 9 official-format forms, but complete full tests are still limited to **2** by the Listening bank (`npm run validate:content` prints the exact counts).
 

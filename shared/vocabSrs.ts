@@ -5,6 +5,7 @@
  */
 import { classifyCtwError } from "./errors";
 import { inflectionsOf, type VocabEntry } from "./vocab";
+import type { IntroductionRule } from "./config";
 
 export interface SrsParams {
   initial_ease: number;
@@ -92,11 +93,23 @@ export function chooseFormat(c: Pick<CardState, "recognition_passed" | "practice
   return prod[0] ?? (available.includes("study") ? "study" : "recall_typed");
 }
 
-/** Order in which new bank entries are introduced: core first, then by the profile's target. */
-export function introductionRank(e: Pick<VocabEntry, "tier" | "cefr">, target: number): number {
-  const cefr = target >= 6 ? { C1: 0, C2: 1, B2: 2 } : { B2: 0, C1: 1, C2: 2 };
-  if (e.tier === "core") return e.cefr === "B2" ? 0 : 1;
-  return 10 + cefr[e.cefr];
+/**
+ * Sort key for introducing new bank entries, or null when the entry is never introduced by the
+ * schedule (excluded category). Lower keys come first: transparent entries last, then the
+ * rule's groups in order, then the rest; CEFR order and a stable tie-break inside each.
+ */
+export function introductionKey(
+  e: Pick<VocabEntry, "tier" | "cefr" | "category">,
+  target: number,
+  rules: IntroductionRule[],
+  transparent: boolean,
+): [number, number, number] | null {
+  const rule = [...rules].sort((a, b) => b.min_target - a.min_target).find((r) => target >= r.min_target) ?? rules[rules.length - 1]!;
+  if (rule.exclude_categories.includes(e.category)) return null;
+  const g = rule.groups.findIndex((m) => (!m.category || m.category === e.category) && (!m.tier || m.tier === e.tier) && (!m.cefr || m.cefr.includes(e.cefr)));
+  const order = g >= 0 ? rule.group_cefr_order : rule.rest_cefr_order;
+  const c = order.indexOf(e.cefr);
+  return [transparent ? 1 : 0, g >= 0 ? g : rule.groups.length, c >= 0 ? c : order.length];
 }
 
 // ---------------------------------------------------------------- questions

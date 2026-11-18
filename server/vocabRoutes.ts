@@ -26,6 +26,9 @@ import {
   listBank,
   nextCard,
   submitReview,
+  triageDecide,
+  triageQueue,
+  triageUndo,
   type ChallengeRow,
 } from "./vocabDeck";
 
@@ -83,6 +86,8 @@ export function registerVocabRoutes(app: FastifyInstance, ctx: VocabRouteContext
 
   app.get("/api/vocab/meta", async () => ({
     tiers: CONFIG.internal.vocabulary.tiers,
+    transparency_threshold: CONFIG.internal.vocabulary.transparency.threshold,
+    triage: CONFIG.internal.vocabulary.triage,
     categories: VOCAB_CATEGORY_LABEL,
     formats: FORMAT_LABEL,
     new_per_day_default: P.new_per_day_default,
@@ -94,10 +99,10 @@ export function registerVocabRoutes(app: FastifyInstance, ctx: VocabRouteContext
   }));
 
   // ------------------------------------------------------------- bank
-  app.get<{ Params: { id: string }; Querystring: { tier?: string; cefr?: string; category?: string; status?: string; q?: string } }>("/api/users/:id/vocab/entries", async (req) => {
+  app.get<{ Params: { id: string }; Querystring: { tier?: string; cefr?: string; category?: string; status?: string; q?: string; transparent?: string } }>("/api/users/:id/vocab/entries", async (req) => {
     ctx.requireUser(req.params.id);
     const q = req.query;
-    const rows = listBank(db, req.params.id, { tier: q.tier || undefined, cefr: q.cefr || undefined, category: q.category || undefined, status: q.status || undefined, q: q.q || undefined });
+    const rows = listBank(db, req.params.id, { tier: q.tier || undefined, cefr: q.cefr || undefined, category: q.category || undefined, status: q.status || undefined, q: q.q || undefined, transparent: q.transparent || undefined });
     return { total: rows.length, entries: rows };
   });
 
@@ -143,6 +148,23 @@ export function registerVocabRoutes(app: FastifyInstance, ctx: VocabRouteContext
     const added = addWord(db, req.params.id, { entryId: body.entryId, word: body.word, sentence: body.sentence, exerciseId: body.exerciseId, origin: "manual" });
     if (!added) throw new VocabError(400, "Nothing to add: select a word.");
     return { created: added.created, matched: added.matched, headword: added.card.headword, card: cardView(added.card), summary: deckSummary(db, req.params.id) };
+  });
+
+  // ------------------------------------------------------------- triage
+  app.get<{ Params: { id: string }; Querystring: { limit?: string } }>("/api/users/:id/vocab/triage", async (req) => {
+    ctx.requireUser(req.params.id);
+    const limit = Math.max(1, Math.min(100, Number(req.query.limit) || CONFIG.internal.vocabulary.triage.batch_size));
+    return triageQueue(db, req.params.id, limit);
+  });
+  app.post<{ Params: { id: string } }>("/api/users/:id/vocab/triage", async (req) => {
+    ctx.requireUser(req.params.id);
+    const body = parse(z.object({ entryId: z.string(), decision: z.enum(["known", "learn"]) }), req.body);
+    return { ...triageDecide(db, req.params.id, body.entryId, body.decision), summary: deckSummary(db, req.params.id) };
+  });
+  app.delete<{ Params: { id: string; entryId: string } }>("/api/users/:id/vocab/triage/:entryId", async (req) => {
+    ctx.requireUser(req.params.id);
+    if (!triageUndo(db, req.params.id, req.params.entryId)) throw new VocabError(409, "Nothing to undo for this word.");
+    return { ok: true, summary: deckSummary(db, req.params.id) };
   });
 
   // ------------------------------------------------------------- session

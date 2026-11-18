@@ -54,6 +54,10 @@ export interface AppConfig {
     vocabulary: {
       tiers: Record<"core" | "extended" | "mastery", { label: string; cefr: string[]; note: string }>;
       targets: { tier: Record<"core" | "extended" | "mastery", number>; cefr_share: Record<"B2" | "C1" | "C2", number>; share_tolerance: number };
+      discipline_categories: string[];
+      transparency: { threshold: number };
+      introduction: { rules: IntroductionRule[] };
+      triage: { verify_every: number; verify_after_days: number; batch_size: number };
       srs: {
         new_per_day_default: number;
         new_per_day_options: number[];
@@ -107,3 +111,13 @@ export interface PlanBlockConfig {
 }
 
 export type PlanCategory = "writing" | "speaking" | "reading_listening" | "focus";
+
+export interface IntroductionRule {
+  min_target: number;
+  /** Entries matching a group come first, group by group. */
+  groups: Array<{ category?: string; tier?: string; cefr?: string[] }>;
+  group_cefr_order: string[];
+  rest_cefr_order: string[];
+  /** Never introduced by the daily schedule (still reachable through harvest or a manual add). */
+  exclude_categories: string[];
+}

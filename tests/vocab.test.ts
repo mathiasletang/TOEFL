@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { readVocab, syncVocab, listVocab, getVocabEntry } from "../server/vocab";
 import { openDb } from "../server/db";
 import { CONFIG } from "../shared/config";
-import { VOCAB_CATEGORIES, containsPhrase, countVocab, definitionIsCircular, exampleUsesEntry, inflectionsOf, validateVocab } from "../shared/vocab";
+import { VOCAB_CATEGORIES, containsPhrase, countVocab, definitionIsCircular, exampleUsesEntry, frTransparency, inflectionsOf, isTransparent, validateVocab } from "../shared/vocab";
 
 const base = {
   id: "v_test_analyze",
@@ -90,7 +90,8 @@ describe("vocabulary bank (content/vocab)", () => {
   });
   it("matches the internal targets for tiers and CEFR shares", () => {
     const T = CONFIG.internal.vocabulary.targets;
-    expect(counts.total).toBe(1000);
+    expect(counts.total).toBe(T.tier.core + T.tier.extended + T.tier.mastery);
+    expect(counts.total).toBe(1250);
     expect(counts.by_tier).toMatchObject(T.tier);
     for (const [level, share] of Object.entries(T.cefr_share)) expect(Math.abs((counts.by_cefr[level] ?? 0) / counts.total - share)).toBeLessThanOrEqual(T.share_tolerance);
     expect(CONFIG.internal.vocabulary.tiers.core.note).toMatch(/Not an official list/);
@@ -108,13 +109,64 @@ describe("vocabulary bank (content/vocab)", () => {
     const db = openDb(":memory:");
     syncVocab(db, v);
     const n = () => (db.prepare("SELECT COUNT(*) c FROM vocab_entries WHERE active = 1").get() as { c: number }).c;
-    expect(n()).toBe(1000);
+    expect(n()).toBe(1250);
     expect(listVocab(db, { tier: "core" })).toHaveLength(400);
+    expect((db.prepare("SELECT transparent_fr t FROM vocab_entries WHERE id = 'v_acad_analyze'").get() as { t: number }).t).toBe(1);
     expect(getVocabEntry(db, "v_acad_analyze")?.translation_fr).toBe("analyser");
     syncVocab(db, { ...v, entries: v.entries.slice(1) });
-    expect(n()).toBe(999);
+    expect(n()).toBe(1249);
     syncVocab(db, v);
-    expect(n()).toBe(1000);
+    expect(n()).toBe(1250);
     db.close();
+  });
+});
+
+describe("recalibration for French speakers", () => {
+  const v = readVocab();
+  const V = CONFIG.internal.vocabulary;
+  const th = V.transparency.threshold;
+  const by = (h: string) => v.entries.find((e) => e.headword === h)!;
+
+  it("measures how transparent a word is for a French speaker", () => {
+    expect(frTransparency("accretion", "accrétion")).toBe(1);
+    expect(frTransparency("analyze", "analyser")).toBe(1); // -yze → -yser
+    expect(frTransparency("address", "adresse")).toBeGreaterThanOrEqual(th);
+    expect(frTransparency("apartment", "appartement")).toBeGreaterThanOrEqual(th);
+    expect(frTransparency("achieve", "atteindre, réaliser, obtenir")).toBeLessThan(th);
+    expect(frTransparency("belie", "démentir, masquer")).toBeLessThan(th);
+  });
+
+  it("never counts expressions or false friends as transparent", () => {
+    expect(isTransparent(by("reach a consensus"), th)).toBe(false);
+    expect(isTransparent(by("facile"), th)).toBe(false);
+    expect(by("facile").false_friend_fr).toBeTruthy();
+    expect(isTransparent(by("subduction"), th)).toBe(true);
+    const transparent = v.entries.filter((e) => isTransparent(e, th));
+    expect(transparent.length).toBeGreaterThan(350);
+    expect(transparent.length).toBeLessThan(450);
+  });
+
+  it("has no transparent discipline term at C2, and rejects one", () => {
+    const disc = new Set(V.discipline_categories);
+    expect(v.entries.filter((e) => disc.has(e.category) && e.cefr === "C2" && isTransparent(e, th))).toEqual([]);
+    expect(by("subduction")).toMatchObject({ tier: "extended", cefr: "C1" });
+    const bad = { ...by("subduction"), tier: "mastery", cefr: "C2" };
+    const msgs = validateVocab([{ data: bad }], { disciplineCategories: V.discipline_categories, transparencyThreshold: th }).errors.map((e) => e.message).join("\n");
+    expect(msgs).toMatch(/transparent for French speakers .* is not C2/);
+  });
+
+  it("adds 250 productive C2 entries: nuance, hedging, concession, emphasis, discourse markers, collocations", () => {
+    const mastery = v.entries.filter((e) => e.tier === "mastery");
+    expect(mastery).toHaveLength(V.targets.tier.mastery);
+    const productive = mastery.filter((e) => ["general_academic", "functional_language", "academic_collocations"].includes(e.category));
+    expect(productive.length).toBeGreaterThanOrEqual(250);
+    const fn = (f: string) => mastery.filter((e) => e.function === f).length;
+    expect(fn("hedging")).toBeGreaterThanOrEqual(30);
+    expect(fn("concession")).toBeGreaterThanOrEqual(25);
+    expect(fn("emphasis")).toBeGreaterThanOrEqual(25);
+    expect(fn("speech_structuring")).toBeGreaterThanOrEqual(30);
+    for (const h of ["belie", "bolster", "it would appear that", "admittedly", "let alone", "the thing is", "draw attention to", "at odds with"]) expect(by(h), h).toMatchObject({ tier: "mastery", cefr: "C2" });
+    // Discipline terms now make up a small part of Mastery.
+    expect(mastery.filter((e) => V.discipline_categories.includes(e.category)).length).toBeLessThan(60);
   });
 });
