@@ -56,7 +56,7 @@
     "profile_targets": { "Virgile": 5.0, "Mathias": 6.0 },
     "profile_exam_dates": { "Mathias": "2027-01-09" },
     "plan": {
-      "$comment": "Daily plan shown on the Dashboard. Internal training schedule, not an ETS recommendation. Days are counted before the exam date (J-n). Tasks: a task type, 'focus' (Focus weaknesses) or 'simulation:<scope>[:short]'.",
+      "$comment": "Daily plan shown on the Dashboard. Internal training schedule, not an ETS recommendation. Days are counted before the exam date (J-n). Tasks: a task type, 'focus' (Focus weaknesses) or 'simulation:<scope>[:short]'. Block durations are estimated from drill_seconds (+ audio and response windows) and checked by validatePlan().",
       "phases": [
         {
           "id": "diagnostic",
@@ -87,81 +87,143 @@
           "goal": "Full strict simulations, short reviews, no new material."
         }
       ],
-      "base": {
-        "shadowing_minutes": 10,
-        "shadowing_task": "listen_and_repeat"
+      "main_block": {
+        "min_minutes": 30,
+        "max_minutes": 40
+      },
+      "targets": {
+        "$comment": "Weekly share of main-block minutes. With 7 blocks of 30-40 min and the minimum day counts, Reading + Listening cannot exceed about 17 %, hence the tolerance.",
+        "shares": {
+          "writing": 0.35,
+          "speaking": 0.3,
+          "reading_listening": 0.2,
+          "focus": 0.15
+        },
+        "tolerance": 0.05,
+        "min_days": {
+          "writing": 3,
+          "speaking": 2
+        }
+      },
+      "correction": {
+        "writing": {
+          "kind": "rewrite",
+          "label": "Rewrite",
+          "instruction": "Rewrite each response with errors: the whole email or post from the feedback and the model answer, or each missed sentence in full. Then compare the two versions line by line."
+        },
+        "speaking": {
+          "kind": "rerecord",
+          "label": "Re-record",
+          "instruction": "Listen to your recordings, then re-record your two weakest answers (or every sentence where you dropped words). Keep the better take and note what changed."
+        },
+        "reading_listening": {
+          "kind": "review",
+          "label": "Review",
+          "instruction": "Redo every missed question without the clock, then write one line on why the key is right and why your choice was wrong."
+        },
+        "focus": {
+          "kind": "review",
+          "label": "Review",
+          "instruction": "Redo the missed items of each drill and write the rule or pattern behind each mistake in one line."
+        }
+      },
+      "diagnostic": {
+        "task": "simulation:full:short",
+        "label": "Diagnostic test",
+        "note": "No full simulation completed yet: the diagnostic comes first, because the rest of the plan relies on your error profile."
+      },
+      "shadowing": {
+        "minutes": 10,
+        "sources": [
+          "conversation",
+          "academic_talk"
+        ],
+        "max_words": 25,
+        "min_words": 5,
+        "no_repeat_days": 14,
+        "max_segments": 20,
+        "instruction": "For each segment: listen once, then speak along with the audio three times, then say it once without the text."
+      },
+      "estimates": {
+        "audio_words_per_minute": 150
       },
       "rotations": {
         "default": {
           "diagnostic": {
             "mon": {
               "main": {
-                "task": "complete_the_words",
-                "items": 3,
-                "mode": "practice"
+                "task": "academic_discussion",
+                "items": 2,
+                "mode": "practice",
+                "correction_minutes": 10
               },
               "optional": {
-                "task": "read_in_daily_life",
-                "items": 2,
+                "task": "complete_the_words",
+                "items": 3,
                 "mode": "practice"
               }
             },
             "tue": {
               "main": {
-                "task": "academic_talk",
-                "items": 2,
-                "mode": "practice"
+                "task": "take_an_interview",
+                "items": 6,
+                "mode": "practice",
+                "correction_minutes": 16
               },
               "optional": {
                 "task": "listen_choose_response",
-                "items": 6,
+                "items": 10,
                 "mode": "practice"
               }
             },
             "wed": {
               "main": {
-                "task": "write_an_email",
-                "items": 1,
-                "mode": "practice"
+                "task": "read_academic_passage",
+                "items": 6,
+                "mode": "practice",
+                "correction_minutes": 10
               },
               "optional": {
-                "task": "build_a_sentence",
-                "items": 5,
+                "task": "conversation",
+                "items": 3,
                 "mode": "practice"
               }
             },
             "thu": {
               "main": {
-                "task": "take_an_interview",
-                "items": 1,
-                "mode": "practice"
+                "task": "write_an_email",
+                "items": 3,
+                "mode": "practice",
+                "correction_minutes": 9
               },
               "optional": {
-                "task": "listen_and_repeat",
-                "items": 1,
+                "task": "read_in_daily_life",
+                "items": 3,
                 "mode": "practice"
               }
             },
             "fri": {
               "main": {
-                "task": "read_academic_passage",
-                "items": 2,
-                "mode": "practice"
+                "task": "listen_and_repeat",
+                "items": 12,
+                "mode": "practice",
+                "correction_minutes": 18
               },
               "optional": {
-                "task": "conversation",
-                "items": 2,
+                "task": "announcement",
+                "items": 3,
                 "mode": "practice"
               }
             },
             "sat": {
               "main": {
-                "task": "academic_discussion",
-                "items": 1,
-                "mode": "practice"
+                "task": "build_a_sentence",
+                "items": 30,
+                "mode": "practice",
+                "correction_minutes": 13
               },
               "optional": {
-                "task": "announcement",
+                "task": "academic_talk",
                 "items": 2,
                 "mode": "practice"
               }
@@ -169,8 +231,9 @@
             "sun": {
               "main": {
                 "task": "focus",
-                "items": 3,
-                "mode": "practice"
+                "items": 8,
+                "mode": "practice",
+                "correction_minutes": 9
               },
               "optional": null
             }
@@ -178,57 +241,36 @@
           "foundations": {
             "mon": {
               "main": {
-                "task": "complete_the_words",
-                "items": 4,
-                "mode": "practice"
+                "task": "academic_discussion",
+                "items": 2,
+                "mode": "practice",
+                "correction_minutes": 10
               },
               "optional": {
-                "task": "focus",
-                "items": 2,
+                "task": "complete_the_words",
+                "items": 4,
                 "mode": "practice"
               }
             },
             "tue": {
               "main": {
-                "task": "conversation",
-                "items": 3,
-                "mode": "practice"
+                "task": "listen_and_repeat",
+                "items": 12,
+                "mode": "practice",
+                "correction_minutes": 18
               },
               "optional": {
-                "task": "listen_choose_response",
-                "items": 8,
+                "task": "conversation",
+                "items": 3,
                 "mode": "practice"
               }
             },
             "wed": {
               "main": {
-                "task": "build_a_sentence",
-                "items": 10,
-                "mode": "practice"
-              },
-              "optional": {
                 "task": "write_an_email",
-                "items": 1,
-                "mode": "practice"
-              }
-            },
-            "thu": {
-              "main": {
-                "task": "listen_and_repeat",
-                "items": 2,
-                "mode": "practice"
-              },
-              "optional": {
-                "task": "take_an_interview",
-                "items": 1,
-                "mode": "practice"
-              }
-            },
-            "fri": {
-              "main": {
-                "task": "read_academic_passage",
-                "items": 2,
-                "mode": "practice"
+                "items": 3,
+                "mode": "practice",
+                "correction_minutes": 9
               },
               "optional": {
                 "task": "read_in_daily_life",
@@ -236,23 +278,51 @@
                 "mode": "practice"
               }
             },
-            "sat": {
+            "thu": {
               "main": {
-                "task": "academic_discussion",
-                "items": 1,
-                "mode": "practice"
+                "task": "academic_talk",
+                "items": 8,
+                "mode": "practice",
+                "correction_minutes": 12
               },
               "optional": {
-                "task": "academic_talk",
-                "items": 2,
+                "task": "listen_choose_response",
+                "items": 10,
+                "mode": "practice"
+              }
+            },
+            "fri": {
+              "main": {
+                "task": "take_an_interview",
+                "items": 6,
+                "mode": "practice",
+                "correction_minutes": 16
+              },
+              "optional": {
+                "task": "announcement",
+                "items": 3,
+                "mode": "practice"
+              }
+            },
+            "sat": {
+              "main": {
+                "task": "build_a_sentence",
+                "items": 30,
+                "mode": "practice",
+                "correction_minutes": 13
+              },
+              "optional": {
+                "task": "read_academic_passage",
+                "items": 1,
                 "mode": "practice"
               }
             },
             "sun": {
               "main": {
                 "task": "focus",
-                "items": 4,
-                "mode": "practice"
+                "items": 8,
+                "mode": "practice",
+                "correction_minutes": 9
               },
               "optional": null
             }
@@ -260,9 +330,10 @@
           "intensification": {
             "mon": {
               "main": {
-                "task": "read_academic_passage",
-                "items": 3,
-                "mode": "strict"
+                "task": "simulation:reading",
+                "items": 1,
+                "mode": "strict",
+                "correction_minutes": 10
               },
               "optional": {
                 "task": "complete_the_words",
@@ -272,45 +343,23 @@
             },
             "tue": {
               "main": {
-                "task": "academic_talk",
-                "items": 3,
-                "mode": "strict"
+                "task": "academic_discussion",
+                "items": 2,
+                "mode": "strict",
+                "correction_minutes": 10
               },
               "optional": {
-                "task": "announcement",
-                "items": 2,
+                "task": "listen_choose_response",
+                "items": 10,
                 "mode": "strict"
               }
             },
             "wed": {
               "main": {
-                "task": "academic_discussion",
-                "items": 1,
-                "mode": "strict"
-              },
-              "optional": {
-                "task": "build_a_sentence",
-                "items": 10,
-                "mode": "strict"
-              }
-            },
-            "thu": {
-              "main": {
                 "task": "take_an_interview",
-                "items": 2,
-                "mode": "strict"
-              },
-              "optional": {
-                "task": "listen_and_repeat",
-                "items": 1,
-                "mode": "strict"
-              }
-            },
-            "fri": {
-              "main": {
-                "task": "focus",
-                "items": 4,
-                "mode": "practice"
+                "items": 6,
+                "mode": "strict",
+                "correction_minutes": 16
               },
               "optional": {
                 "task": "read_in_daily_life",
@@ -318,61 +367,88 @@
                 "mode": "strict"
               }
             },
-            "sat": {
+            "thu": {
               "main": {
-                "task": "simulation:reading",
+                "task": "simulation:writing",
                 "items": 1,
-                "mode": "strict"
+                "mode": "strict",
+                "correction_minutes": 12
               },
               "optional": {
-                "task": "simulation:listening",
-                "items": 1,
+                "task": "conversation",
+                "items": 3,
+                "mode": "strict"
+              }
+            },
+            "fri": {
+              "main": {
+                "task": "listen_and_repeat",
+                "items": 12,
+                "mode": "strict",
+                "correction_minutes": 18
+              },
+              "optional": {
+                "task": "academic_talk",
+                "items": 2,
+                "mode": "strict"
+              }
+            },
+            "sat": {
+              "main": {
+                "task": "write_an_email",
+                "items": 3,
+                "mode": "strict",
+                "correction_minutes": 9
+              },
+              "optional": {
+                "task": "build_a_sentence",
+                "items": 10,
                 "mode": "strict"
               }
             },
             "sun": {
               "main": {
-                "task": "write_an_email",
-                "items": 2,
-                "mode": "strict"
-              },
-              "optional": {
                 "task": "focus",
-                "items": 2,
-                "mode": "practice"
-              }
+                "items": 8,
+                "mode": "practice",
+                "correction_minutes": 9
+              },
+              "optional": null
             }
           },
           "exam_mode": {
             "mon": {
               "main": {
-                "task": "simulation:reading",
+                "task": "simulation:writing",
                 "items": 1,
-                "mode": "strict"
+                "mode": "strict",
+                "correction_minutes": 12
               },
               "optional": {
-                "task": "focus",
-                "items": 2,
-                "mode": "practice"
+                "task": "complete_the_words",
+                "items": 3,
+                "mode": "strict"
               }
             },
             "tue": {
               "main": {
-                "task": "simulation:listening",
-                "items": 1,
-                "mode": "strict"
+                "task": "take_an_interview",
+                "items": 6,
+                "mode": "strict",
+                "correction_minutes": 16
               },
               "optional": {
-                "task": "complete_the_words",
-                "items": 2,
+                "task": "read_academic_passage",
+                "items": 1,
                 "mode": "strict"
               }
             },
             "wed": {
               "main": {
-                "task": "simulation:writing",
+                "task": "simulation:listening",
                 "items": 1,
-                "mode": "strict"
+                "mode": "strict",
+                "correction_minutes": 10
               },
               "optional": {
                 "task": "build_a_sentence",
@@ -382,37 +458,45 @@
             },
             "thu": {
               "main": {
-                "task": "simulation:speaking",
-                "items": 1,
-                "mode": "strict"
+                "task": "academic_discussion",
+                "items": 2,
+                "mode": "strict",
+                "correction_minutes": 10
               },
               "optional": {
                 "task": "listen_choose_response",
-                "items": 6,
+                "items": 10,
                 "mode": "strict"
               }
             },
             "fri": {
               "main": {
-                "task": "focus",
-                "items": 3,
-                "mode": "practice"
+                "task": "listen_and_repeat",
+                "items": 12,
+                "mode": "strict",
+                "correction_minutes": 18
               },
-              "optional": null
+              "optional": {
+                "task": "announcement",
+                "items": 3,
+                "mode": "strict"
+              }
             },
             "sat": {
               "main": {
-                "task": "simulation:full",
-                "items": 1,
-                "mode": "strict"
+                "task": "write_an_email",
+                "items": 3,
+                "mode": "strict",
+                "correction_minutes": 9
               },
               "optional": null
             },
             "sun": {
               "main": {
                 "task": "focus",
-                "items": 2,
-                "mode": "practice"
+                "items": 8,
+                "mode": "practice",
+                "correction_minutes": 9
               },
               "optional": null
             }

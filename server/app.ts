@@ -10,7 +10,7 @@ import { syncContent, readContent, getExercise, listExercises, type LoadedConten
 import { syncVocab, readVocab, type LoadedVocab } from "./vocab";
 import { countVocab } from "../shared/vocab";
 import { registerVocabRoutes } from "./vocabRoutes";
-import { dailyPlan, setPlanCheck } from "./plan";
+import { dailyPlan, setPlanCheck, shadowingSession, shadowPool } from "./plan";
 import { PLAN_BLOCKS, isIsoDate, localDate } from "../shared/plan";
 import { deckSummary, newPerDay } from "./vocabDeck";
 import { getAttempt, rescoreAttempt, reviewPayload } from "./attempts";
@@ -209,6 +209,19 @@ export async function buildApp(opts: AppOptions = {}): Promise<{ app: FastifyIns
     user(db, req.params.id);
     return dailyPlan(db, req.params.id, req.query.date ? parse(PlanDate, req.query.date) : localDate());
   });
+  app.get<{ Params: { id: string }; Querystring: { date?: string } }>("/api/users/:id/shadowing", async (req) => {
+    user(db, req.params.id);
+    const session = shadowingSession(db, req.params.id, req.query.date ? parse(PlanDate, req.query.date) : localDate());
+    const tts = ttsAvailable(env);
+    return { ...session, audio: tts ? "tts" : "browser", segments: session.segments.map((s) => ({ ...s, url: tts ? `/api/shadowing/audio/${encodeURIComponent(s.id)}` : null })) };
+  });
+  app.get<{ Params: { segmentId: string } }>("/api/shadowing/audio/:segmentId", async (req, reply) => {
+    const seg = shadowPool(db).find((s) => s.id === req.params.segmentId);
+    if (!seg) throw new HttpError(404, "Unknown segment");
+    if (!ttsAvailable(env)) throw new HttpError(404, "No TTS provider; use the browser fallback.");
+    const f = await ttsFile(env, db, { exerciseId: seg.exercise_id, key: `shadow_${seg.id}`, text: seg.text, voice: pickVoice(env, seg.voice, seg.speaker_index) });
+    return sendFile(reply, f.path, f.mime);
+  });
   app.put<{ Params: { id: string } }>("/api/users/:id/plan/checks", async (req) => {
     user(db, req.params.id);
     const body = parse(z.object({ date: PlanDate, block: z.enum(PLAN_BLOCKS), done: z.boolean() }), req.body);
@@ -288,8 +301,8 @@ export async function buildApp(opts: AppOptions = {}): Promise<{ app: FastifyIns
 
   // ------------------------------------------------------------- drill sessions
   app.post("/api/sessions", async (req) => {
-    const body = parse(z.object({ userId: UserId, exerciseId: z.string(), mode: z.enum(["practice", "strict"]) }), req.body);
-    return createDrill(db, body.userId, body.exerciseId, body.mode);
+    const body = parse(z.object({ userId: UserId, exerciseId: z.string(), mode: z.enum(["practice", "strict"]), origin: z.enum(["focus"]).nullable().optional() }), req.body);
+    return createDrill(db, body.userId, body.exerciseId, body.mode, body.origin ?? null);
   });
   app.get<{ Params: { id: string } }>("/api/users/:id/active-session", async (req) => {
     user(db, req.params.id);

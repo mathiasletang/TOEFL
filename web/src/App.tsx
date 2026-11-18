@@ -9,6 +9,7 @@ import { Focus } from "./pages/Focus";
 import { SimulationLauncher, SimulationRunner, SimulationResults } from "./pages/Simulation";
 import { Progress } from "./pages/Progress";
 import { Settings } from "./pages/Settings";
+import { Shadowing } from "./pages/Shadowing";
 import { VocabBank, VocabEntryPage, VocabSession, VocabStats } from "./pages/Vocabulary";
 
 const USERS = ["Virgile", "Mathias"];
@@ -85,6 +86,7 @@ function Routes() {
   if ((m = match("/u/:user/vocab/session", path))) return <Shell user={user}><VocabSession user={user} /></Shell>;
   if ((m = match("/u/:user/vocab/stats", path))) return <Shell user={user}><VocabStats user={user} /></Shell>;
   if ((m = match("/u/:user/vocab/entry/:entry", path))) return <Shell user={user}><VocabEntryPage user={user} entryId={m.entry!} /></Shell>;
+  if ((m = match("/u/:user/shadowing", path))) return <Shell user={user}><Shadowing user={user} /></Shell>;
   if ((m = match("/u/:user/simulate", path))) return <Shell user={user}><SimulationLauncher user={user} /></Shell>;
   if ((m = match("/u/:user/sim/:sim", path))) return <Shell user={user} wide><SimulationRunner user={user} simId={m.sim!} /></Shell>;
   if ((m = match("/u/:user/sim/:sim/results", path))) return <Shell user={user}><SimulationResults user={user} simId={m.sim!} /></Shell>;

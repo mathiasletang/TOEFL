@@ -44,7 +44,7 @@ export function sessionView(db: DB, s: SessionRow) {
   };
 }
 
-export function createDrill(db: DB, userId: string, exerciseId: string, mode: "practice" | "strict") {
+export function createDrill(db: DB, userId: string, exerciseId: string, mode: "practice" | "strict", origin: "focus" | null = null) {
   const ex = getExercise(db, exerciseId);
   if (!ex) throw new Error("Unknown exercise");
   // Only one active drill per user: abandon any previous one.
@@ -53,9 +53,9 @@ export function createDrill(db: DB, userId: string, exerciseId: string, mode: "p
   const id = crypto.randomUUID();
   const now = nowIso();
   db.prepare(
-    `INSERT INTO sessions (id, user_id, kind, mode, exercise_id, status, time_limit_ms, started_at, deadline_at, state_json, updated_at)
-     VALUES (?, ?, 'drill', ?, ?, 'active', ?, ?, NULL, '{}', ?)`,
-  ).run(id, userId, mode, exerciseId, secs == null ? null : secs * 1000, now, now);
+    `INSERT INTO sessions (id, user_id, kind, mode, exercise_id, status, time_limit_ms, started_at, deadline_at, state_json, updated_at, origin)
+     VALUES (?, ?, 'drill', ?, ?, 'active', ?, ?, NULL, '{}', ?, ?)`,
+  ).run(id, userId, mode, exerciseId, secs == null ? null : secs * 1000, now, now, origin);
   const s = getSession(db, id)!;
   // Timers start immediately except for listening tasks (they start after the audio).
   if (secs != null && !timerStartsAfterAudio(ex.task_type)) startTimer(db, id);

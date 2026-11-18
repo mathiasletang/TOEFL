@@ -37,7 +37,7 @@ export function Focus({ user }: { user: string }) {
           <div className="text-lg font-semibold">{f.data.task_type ? TASK_LABEL[f.data.task_type] : ""}</div>
           <p className="mt-1 text-sm text-zinc-600">{f.data.reason}</p>
           <div className="mt-4 flex gap-2">
-            <Link to={`/u/${user}/drill/${f.data.exercise_id}?mode=${mode}`} className="btn btn-primary">
+            <Link to={`/u/${user}/drill/${f.data.exercise_id}?mode=${mode}&from=focus`} className="btn btn-primary">
               Start
             </Link>
             <button className="btn" onClick={f.reload}>

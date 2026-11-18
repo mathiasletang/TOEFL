@@ -118,11 +118,16 @@ The schedule is an SM-2-style algorithm. Its parameters (intervals, ease, daily 
 The top of the Dashboard shows a plan built backwards from your exam date (set it in Settings; Mathias's is 2027-01-09).
 
 - **Phase**, counted in days before the exam: Diagnostic (J-55 and earlier), Foundations (J-54 to J-34), Intensification (J-33 to J-13), Exam mode (J-12 to J-1).
-- **Daily base:** due vocabulary reviews, 10 minutes of shadowing (Listen and Repeat in practice mode) and the main block of the day. Each block has a button that opens the right drill directly, in the right mode, or starts the planned simulation.
-- **Optional block** and the **next checkpoint** (a full test at J-55, J-34, J-13 and J-5).
-- A "done" box per block, saved in the database, and a count of consecutive days on which the whole daily base was done. An unfinished today does not break the count until the day is over.
+- **Diagnostic first.** Until you have completed one full simulation, the day's main block is the diagnostic test (short full test). The planned block resumes afterwards.
+- **Daily base:** due vocabulary reviews, 10 minutes of shadowing, and the main block. Each block has a button that opens the right drill directly, in the right mode, or starts the planned simulation.
+- **Main block: 30 to 40 minutes.** Each main block has two steps: the exercises, then an explicit correction step. Writing days end with a rewrite, Speaking days with a re-recording, and Reading, Listening and Focus days with a review of every missed question. The correction step links to the day's latest review.
+- **How the duration is estimated:** drill time limit (`drill_seconds`), plus the audio for listening tasks (the clock starts after it), and the prompts and response windows for speaking tasks. Simulations use the official module minutes.
+- **Weekly balance of the main block:** Writing 35 %, Speaking 30 %, Reading + Listening 20 %, Focus weaknesses 15 %, with Writing on at least 3 days and Speaking on at least 2. With seven blocks of 30–40 minutes and those day minimums, Reading + Listening cannot exceed about 17 %. The plan therefore stays within ±5 points of each target, and `validatePlan()` checks this.
+- **Shadowing:** short segments of at most 25 words cut from the conversation and academic-talk scripts. A segment never comes back within 14 days. Each day gets as many segments as the pool allows under that rule (11 with the current bank, up to 20). Play each segment, speak along three times, then say it once without the text.
+- **Last 7 days vs plan:** the real share of exercise time per category, next to the target. Drills opened from Focus weaknesses count as focus.
+- **Optional block**, the **next checkpoint** (a full test at J-55, J-34, J-13 and J-5), a "done" box per block, and the number of consecutive days with the whole daily base done.
 
-Each phase has a rotation per weekday: a main block and an optional block, each with a task, a number of exercises and a mode (strict or practice). Everything is in `config/toefl-2026.json` → `internal.plan`: phases, `rotations.default`, an optional rotation per profile (`rotations.Mathias`, `rotations.Virgile`), and checkpoints. A task is a task type, `focus` (Focus weaknesses) or `simulation:<scope>[:short]`. The schedule is an internal training plan, not an ETS recommendation.
+Everything is configured in `config/toefl-2026.json` → `internal.plan`: phases, the 30–40 minute bounds, the targets and their tolerance, the correction steps, the diagnostic, shadowing, `rotations.default`, an optional rotation per profile (`rotations.Mathias`, `rotations.Virgile`), and checkpoints. A main block is `{ task, items, mode, correction_minutes }`, where `task` is a task type, `focus`, or `simulation:<scope>[:short]`. The schedule is an internal training plan, not an ETS recommendation.
 
 ### Dashboard and progress
 
