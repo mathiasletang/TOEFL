@@ -27,7 +27,12 @@ export interface AppConfig {
     profile_exam_dates: Record<string, string>;
     plan: {
       phases: Array<{ id: string; label: string; from_days: number | null; to_days: number; goal: string }>;
-      base: { shadowing_minutes: number; shadowing_task: string };
+      main_block: { min_minutes: number; max_minutes: number };
+      targets: { shares: Record<PlanCategory, number>; tolerance: number; min_days: Partial<Record<PlanCategory, number>> };
+      correction: Record<PlanCategory, { kind: "rewrite" | "rerecord" | "review"; label: string; instruction: string }>;
+      diagnostic: { task: string; label: string; note: string };
+      shadowing: { minutes: number; sources: string[]; max_words: number; min_words: number; no_repeat_days: number; max_segments: number; instruction: string };
+      estimates: { audio_words_per_minute: number };
       /** Rotation per profile (falls back to "default"): phase id → weekday (mon…sun) → blocks. */
       rotations: Record<string, Record<string, Record<string, { main: PlanBlockConfig; optional: PlanBlockConfig | null }>>>;
       checkpoints: Array<{ days_before: number; label: string; task: string }>;
@@ -97,4 +102,8 @@ export interface PlanBlockConfig {
   task: string;
   items: number;
   mode: "strict" | "practice";
+  /** Main blocks: minutes of explicit correction after the exercises (rewrite, re-record or review). */
+  correction_minutes?: number;
 }
+
+export type PlanCategory = "writing" | "speaking" | "reading_listening" | "focus";

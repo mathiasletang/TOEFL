@@ -49,7 +49,7 @@ export function ReviewPage({ user, attemptId }: { user: string; attemptId: strin
                 </button>
               )}
               {next.focus?.exercise_id && next.focus.exercise_id !== next.same && (
-                <button className="btn" title={next.focus.reason} onClick={() => navigate(`/u/${user}/drill/${next.focus!.exercise_id}?mode=${mode}`)}>
+                <button className="btn" title={next.focus.reason} onClick={() => navigate(`/u/${user}/drill/${next.focus!.exercise_id}?mode=${mode}&from=focus`)}>
                   Next weakness drill
                 </button>
               )}

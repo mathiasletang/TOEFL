@@ -18,6 +18,8 @@ interface SessionView {
 export function Drill({ user, exerciseId }: { user: string; exerciseId: string }) {
   const { search, navigate } = useRouter();
   const mode = (search.get("mode") === "practice" ? "practice" : "strict") as "strict" | "practice";
+  // Drills opened from Focus weaknesses are marked so the weekly mix can count them as focus work.
+  const origin = search.get("from") === "focus" ? "focus" : null;
   const [view, setView] = useState<SessionView | null>(null);
   const [error, setError] = useState<unknown>(null);
   const [response, setResponse] = useState<unknown>(undefined);
@@ -41,7 +43,7 @@ export function Drill({ user, exerciseId }: { user: string; exerciseId: string }
         }
         let v: SessionView;
         if (act.active && "session" in act.active && act.active.session.exercise_id === exerciseId && act.active.session.mode === mode) v = act.active;
-        else v = await api.post<SessionView>("/api/sessions", { userId: user, exerciseId, mode });
+        else v = await api.post<SessionView>("/api/sessions", { userId: user, exerciseId, mode, origin });
         if (cancelled) return;
         setOffset(clockOffset(v.server_now));
         setView(v);
@@ -53,7 +55,7 @@ export function Drill({ user, exerciseId }: { user: string; exerciseId: string }
     return () => {
       cancelled = true;
     };
-  }, [user, exerciseId, mode, navigate]);
+  }, [user, exerciseId, mode, origin, navigate]);
 
   const elapsed = useCallback(() => (view ? Date.now() + offset - Date.parse(view.session.started_at) : 0), [view, offset]);
 
