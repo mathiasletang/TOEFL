@@ -21,6 +21,8 @@ export interface SectionEstimate {
   confidence: Confidence;
   evidence: string;
   n: number;
+  /** Scored items (Reading/Listening) or scored responses (Writing/Speaking) needed before a band is shown. */
+  min_n?: number;
   method: string;
   components?: Record<string, { value: number | null; n: number; weight: number }>;
 }
@@ -85,7 +87,7 @@ function receptiveEstimate(db: DB, userId: string, section: "reading" | "listeni
   const conf = confidenceFor(n, P.min_items_for_estimate, 40);
   const acc = n ? rows.filter((r) => r.correct).length / n : null;
   if (conf === "insufficient")
-    return { section, band: null, range: null, confidence: conf, n, method: "irt-lite", evidence: `${n} scored item(s); at least ${P.min_items_for_estimate} needed.` };
+    return { section, band: null, range: null, confidence: conf, n, min_n: P.min_items_for_estimate, method: "irt-lite", evidence: `${n} scored item(s); at least ${P.min_items_for_estimate} needed.` };
   const est = estimateTheta(rows.map((r) => ({ b: r.b, correct: !!r.correct })));
   const band = thetaToBand(est.theta);
   const range: [number, number] = [thetaToBand(est.theta - est.sd), thetaToBand(est.theta + est.sd)];
@@ -95,6 +97,7 @@ function receptiveEstimate(db: DB, userId: string, section: "reading" | "listeni
     range,
     confidence: conf,
     n,
+    min_n: P.min_items_for_estimate,
     method: "irt-lite",
     evidence: `${n} items, training accuracy ${(acc! * 100).toFixed(0)}%, ability θ=${est.theta.toFixed(2)}±${est.sd.toFixed(2)} (author-estimated item difficulty).`,
   };
@@ -145,6 +148,7 @@ function productiveEstimate(db: DB, userId: string, section: "writing" | "speaki
       range: null,
       confidence: "insufficient",
       n,
+      min_n: minN,
       method: "raw-proportion",
       components,
       evidence: `${n} scored response(s). Writing/Speaking need scored productive responses (AI evaluation, transcripts or self-ratings).`,
@@ -159,6 +163,7 @@ function productiveEstimate(db: DB, userId: string, section: "writing" | "speaki
     range: [proportionToBand(Math.max(0, p - spread)), proportionToBand(Math.min(1, p + spread))],
     confidence: conf,
     n,
+    min_n: minN,
     method: "raw-proportion",
     components,
     evidence: `${(p * 100).toFixed(0)}% of blueprint raw points on ${covered}/${parts.length} task types${covered < parts.length ? " (missing task types weighted out)" : ""}.`,

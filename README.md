@@ -154,7 +154,7 @@ The schedule is an SM-2-style algorithm. Its parameters (intervals, ease, daily 
 
 ### Today's plan
 
-The top of the Dashboard shows a plan built backwards from your exam date (set it in Settings; Mathias's is 2027-01-09).
+The Today page shows a plan built backwards from your exam date (set it in Settings; Mathias's is 2027-01-09).
 
 - **Phase**, counted in days before the exam: Diagnostic (J-55 and earlier), Foundations (J-54 to J-34), Intensification (J-33 to J-13), Exam mode (J-12 to J-1).
 - **Diagnostic first.** Until you have completed one full simulation, the day's main block is the diagnostic test (short full test). The planned block resumes afterwards.
@@ -163,26 +163,30 @@ The top of the Dashboard shows a plan built backwards from your exam date (set i
 - **How the duration is estimated:** drill time limit (`drill_seconds`), plus the audio for listening tasks (the clock starts after it), and the prompts and response windows for speaking tasks. Simulations use the official module minutes.
 - **Weekly balance of the main block:** Writing 35 %, Speaking 30 %, Reading + Listening 20 %, Focus weaknesses 15 %, with Writing on at least 3 days and Speaking on at least 2. With seven blocks of 30–40 minutes and those day minimums, Reading + Listening cannot exceed about 17 %. The plan therefore stays within ±5 points of each target, and `validatePlan()` checks this.
 - **Shadowing:** short segments of at most 25 words cut from the conversation and academic-talk scripts. A segment never comes back within 14 days. Each day gets as many segments as the pool allows under that rule (11 with the current bank, up to 20). Play each segment, speak along three times, then say it once without the text.
-- **Last 7 days vs plan:** the real share of exercise time per category, next to the target. Drills opened from Focus weaknesses count as focus.
-- **Optional block**, the **next checkpoint** (a full test at J-55, J-34, J-13 and J-5), a "done" box per block, and the number of consecutive days with the whole daily base done.
+- **Last 7 days vs plan:** the plan endpoint still returns the real share of exercise time per category next to the target (drills opened from Focus weaknesses count as focus); it is not shown on the Today page.
+- **Bonus round** (the optional block, unlocked once the base is done), **checkpoints** (a full test at J-55, J-34, J-13 and J-5), and the number of consecutive days with the whole daily base done.
 
 Everything is configured in `config/toefl-2026.json` → `internal.plan`: phases, the 30–40 minute bounds, the targets and their tolerance, the correction steps, the diagnostic, shadowing, `rotations.default`, an optional rotation per profile (`rotations.Mathias`, `rotations.Virgile`), and checkpoints. A main block is `{ task, items, mode, correction_minutes }`, where `task` is a task type, `focus`, or `simulation:<scope>[:short]`. The schedule is an internal training plan, not an ETS recommendation.
 
-### Dashboard and progress
+### Today and progress
 
-The dashboard shows:
+The Today page (`/u/:user`) shows, from top to bottom:
 
-- your target and the threshold arithmetic (Band 6.0 needs a section mean ≥ 5.75, i.e. a sum ≥ 23.0);
-- the projected overall and section bands with ranges and confidence;
-- days remaining, your most critical weakness and the recommended next drill;
-- the number of vocabulary cards due, with a direct link to today's session;
-- the trend chart and your last full simulation.
+- the date, the phase and the number of days to the exam;
+- **Today's session:** the day's steps as a numbered list (current step filled, next steps outlined, done steps checked; click a step's marker to mark it done), the bonus round in dashed outline, a segmented progress bar and **Start session**, which opens `/u/:user/session` and walks through the steps one at a time. "Clock hidden" marks a block in practice mode;
+- a ring with the steps done today, and the streak with the seven days of the week;
+- **Unlock your projected band:** a tile per section. A section without enough data shows "?.?", a padlock and how many scored items (Reading, Listening: 10) or scored responses (Writing: 5, Speaking: 7) are still needed; otherwise its projected band and range. The internal training estimate note stays under the tiles;
+- **The road to the exam:** one dot per day from the start of the plan (the first fixed-length phase, or your first activity if earlier) to the exam, with the phases below in proportion to their length;
+- **Word of the moment:** the next new word of your introduction order. "I'd use it already" marks it as known, as in the Triage; "Add to my deck" adds it;
+- **Before anything else**, while there is neither a completed full simulation nor an official score: start a full simulation, or enter the four section bands of an official ETS test.
 
-The Progress page adds:
+Official ETS scores are stored in the database (`official_scores`, migration 008) and shown on Progress as an anchor next to the current internal projection. The overall band is the mean of the four sections rounded to the nearest half band. The app does not verify them.
+
+The Progress page also shows:
 
 - per-task accuracy, EWMA, trend and speed;
 - the error profile and the critical-path ranking;
-- recent versus historical results and your full attempt history;
+- recent versus historical results, the trend chart and your full attempt history;
 - a READY gate scaled to your target.
 
 ---

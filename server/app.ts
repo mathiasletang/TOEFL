@@ -9,6 +9,7 @@ import { loadEnv, ROOT, type Env } from "./env";
 import { syncContent, readContent, getExercise, listExercises, type LoadedContent } from "./content";
 import { syncVocab, readVocab, type LoadedVocab } from "./vocab";
 import { countVocab } from "../shared/vocab";
+import { isValidBand, overallBand } from "../shared/bands";
 import { registerVocabRoutes } from "./vocabRoutes";
 import { dailyPlan, setPlanCheck, shadowingSession, shadowPool } from "./plan";
 import { PLAN_BLOCKS, isIsoDate, localDate } from "../shared/plan";
@@ -227,6 +228,52 @@ export async function buildApp(opts: AppOptions = {}): Promise<{ app: FastifyIns
     const body = parse(z.object({ date: PlanDate, block: z.enum(PLAN_BLOCKS), done: z.boolean() }), req.body);
     setPlanCheck(db, req.params.id, body.date, body.block, body.done);
     return dailyPlan(db, req.params.id, body.date);
+  });
+
+  // ------------------------------------------------------------- official ETS scores (anchor)
+  const officialView = (r: { id: string; taken_on: string; reading: number; listening: number; writing: number; speaking: number; created_at: string }) => ({
+    ...r,
+    overall: overallBand(r),
+  });
+  const listOfficial = (userId: string) =>
+    (db.prepare("SELECT id, taken_on, reading, listening, writing, speaking, created_at FROM official_scores WHERE user_id = ? ORDER BY taken_on DESC, created_at DESC").all(userId) as Array<
+      Parameters<typeof officialView>[0]
+    >).map(officialView);
+  app.get<{ Params: { id: string } }>("/api/users/:id/official-scores", async (req) => {
+    const u = user(db, req.params.id);
+    return { scores: listOfficial(u.id), note: "Scores you entered from an official ETS score report. The overall band is the mean of the four sections rounded to the nearest half band." };
+  });
+  app.post<{ Params: { id: string } }>("/api/users/:id/official-scores", async (req) => {
+    const u = user(db, req.params.id);
+    const Band = z.number().refine(isValidBand, "each section band is between 1 and 6, in half-band steps");
+    const body = parse(
+      z.object({
+        taken_on: z.string().refine(isIsoDate, "taken_on must be YYYY-MM-DD").refine((d) => d <= localDate(), "the test date cannot be in the future"),
+        reading: Band,
+        listening: Band,
+        writing: Band,
+        speaking: Band,
+      }),
+      req.body,
+    );
+    const id = crypto.randomUUID();
+    db.prepare("INSERT INTO official_scores (id, user_id, taken_on, reading, listening, writing, speaking, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)").run(
+      id,
+      u.id,
+      body.taken_on,
+      body.reading,
+      body.listening,
+      body.writing,
+      body.speaking,
+      nowIso(),
+    );
+    return { scores: listOfficial(u.id) };
+  });
+  app.delete<{ Params: { id: string; scoreId: string } }>("/api/users/:id/official-scores/:scoreId", async (req) => {
+    const u = user(db, req.params.id);
+    const r = db.prepare("DELETE FROM official_scores WHERE id = ? AND user_id = ?").run(req.params.scoreId, u.id);
+    if (!r.changes) throw new HttpError(404, "Unknown official score");
+    return { scores: listOfficial(u.id) };
   });
 
   app.get<{ Params: { id: string } }>("/api/users/:id/progress", async (req) => {

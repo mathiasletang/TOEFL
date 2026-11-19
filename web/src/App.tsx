@@ -1,7 +1,8 @@
 import { useEffect, useLayoutEffect, type ReactNode } from "react";
 import { RouterProvider, useRouter, match, Link } from "./lib/router";
 import { UserSelect } from "./pages/UserSelect";
-import { Dashboard } from "./pages/Dashboard";
+import { Today } from "./pages/Today";
+import { Session } from "./pages/Session";
 import { Practice, PracticeTask } from "./pages/Practice";
 import { Drill } from "./pages/Drill";
 import { ReviewPage } from "./pages/ReviewPage";
@@ -21,7 +22,7 @@ const USERS = ["Virgile", "Mathias"];
 function Shell({ user, children, wide }: { user: string; children: ReactNode; wide?: boolean }) {
   const { path, navigate } = useRouter();
   const nav = [
-    ["Dashboard", `/u/${user}`],
+    ["Today", `/u/${user}`],
     ["Practice", `/u/${user}/practice`],
     ["Focus weaknesses", `/u/${user}/focus`],
     ["Vocabulary", `/u/${user}/vocab`],
@@ -34,7 +35,7 @@ function Shell({ user, children, wide }: { user: string; children: ReactNode; wi
     <div className="min-h-screen">
       <header className="sticky top-0 z-20 border-b border-line bg-bg/95 backdrop-blur">
         <div className="mx-auto flex min-h-16 max-w-6xl items-center gap-5 px-4">
-          <Link to={`/u/${user}`} className="flex min-h-11 items-center gap-2.5 rounded-btn text-[15px] font-black tracking-tight" aria-label="TOEFL 2026 Trainer, dashboard">
+          <Link to={`/u/${user}`} className="flex min-h-11 items-center gap-2.5 rounded-btn text-[15px] font-black tracking-tight" aria-label="TOEFL 2026 Trainer, today">
             <span className="flex h-9 w-9 items-center justify-center rounded-[12px] bg-accent text-lg font-black text-on-accent" aria-hidden>
               T
             </span>
@@ -42,7 +43,7 @@ function Shell({ user, children, wide }: { user: string; children: ReactNode; wi
           </Link>
           <nav className="flex min-w-0 flex-1 gap-1 overflow-x-auto py-2" aria-label="Main">
             {nav.map(([label, to]) => {
-              const active = to === `/u/${user}` ? path === to : path.startsWith(to);
+              const active = to === `/u/${user}` ? path === to || path === `${to}/session` : path.startsWith(to);
               return (
                 <Link key={to} to={to} aria-current={active ? "page" : undefined} className={`tab ${active ? "tab-active" : ""}`}>
                   {label}
@@ -87,7 +88,8 @@ function Routes() {
     return null;
   }
   let m: Record<string, string> | null;
-  if ((m = match("/u/:user", path))) return <Shell user={user}><Dashboard user={user} /></Shell>;
+  if ((m = match("/u/:user", path))) return <Shell user={user}><Today user={user} /></Shell>;
+  if ((m = match("/u/:user/session", path))) return <Shell user={user}><Session user={user} /></Shell>;
   if ((m = match("/u/:user/practice", path))) return <Shell user={user}><Practice user={user} /></Shell>;
   if ((m = match("/u/:user/practice/:task", path))) return <Shell user={user}><PracticeTask user={user} task={m.task!} /></Shell>;
   if ((m = match("/u/:user/drill/:ex", path))) return <Shell user={user} wide><Drill user={user} exerciseId={m.ex!} /></Shell>;
@@ -107,7 +109,7 @@ function Routes() {
   return (
     <Shell user={user}>
       <p className="text-sm text-dim">
-        Page not found. <Link to={`/u/${user}`} className="text-accent underline">Dashboard</Link>
+        Page not found. <Link to={`/u/${user}`} className="font-bold text-text underline underline-offset-4">Today</Link>
       </p>
     </Shell>
   );

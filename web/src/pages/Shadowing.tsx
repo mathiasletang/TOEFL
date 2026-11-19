@@ -68,7 +68,7 @@ export function Shadowing({ user }: { user: string }) {
         sub={`${data.minutes} minutes · ${data.segments.length} segments from conversations and academic talks · none repeats within ${data.no_repeat_days} days`}
         right={
           <Link to={`/u/${user}`} className="btn btn-ghost">
-            Dashboard
+            Today
           </Link>
         }
       />

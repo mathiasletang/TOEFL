@@ -5,7 +5,10 @@ import { Spinner, ErrorBox, PageTitle, Bar, ConfidenceTag } from "../components/
 import { BandChart } from "../components/Charts";
 import { ERROR_TAG_LABELS } from "../../../shared/errors";
 import { TASK_LABEL, type TaskType } from "../../../shared/schema";
-import type { ProjectionView } from "./Dashboard";
+import type { OfficialScore, ProjectionView } from "../lib/today";
+import { api } from "../lib/api";
+import { useState } from "react";
+import { OfficialScoreForm } from "../components/OfficialScoreForm";
 import { IconArrowRight, IconCheck, IconDot, IconX } from "../components/icons";
 
 interface ProgressData {
@@ -28,6 +31,7 @@ export function Progress({ user }: { user: string }) {
   return (
     <div className="space-y-5">
       <PageTitle title="Progress" sub="All figures are computed from your stored attempts. Band estimates are internal training projections, not official scores." />
+      <OfficialAnchor user={user} projection={data.projection} />
 
       <div className="card p-6">
         <div className="mb-3 flex items-center justify-between">
@@ -177,6 +181,89 @@ export function Progress({ user }: { user: string }) {
         </table>
         {data.attempts.length === 0 && <p className="text-sm text-dim">No attempts yet.</p>}
       </div>
+    </div>
+  );
+}
+
+/** Official ETS results entered by the user: the anchor the internal projections can be compared with. */
+function OfficialAnchor({ user, projection }: { user: string; projection: ProjectionView }) {
+  const { data, error, reload, setData } = useApi<{ scores: OfficialScore[]; note: string }>(`/api/users/${user}/official-scores`);
+  const [adding, setAdding] = useState(false);
+  if (error) return <ErrorBox error={error} onRetry={reload} />;
+  if (!data) return null;
+  const [latest, ...older] = data.scores;
+  const remove = async (id: string) => setData({ ...data, ...(await api.del<{ scores: OfficialScore[] }>(`/api/users/${user}/official-scores/${id}`)) });
+  return (
+    <div className="card p-6">
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <div className="label">Official ETS anchor</div>
+          <p className="mt-1 text-[13px] text-muted">{latest ? `Test of ${latest.taken_on}, entered from your ETS score report.` : "No official score entered. If you have taken the real test, its four section bands give the projections an anchor."}</p>
+        </div>
+        <button className="btn" aria-expanded={adding} onClick={() => setAdding(!adding)}>
+          {adding ? "Close" : "Add official scores"}
+        </button>
+      </div>
+      {adding && (
+        <OfficialScoreForm
+          user={user}
+          onSaved={() => {
+            setAdding(false);
+            void reload();
+          }}
+        />
+      )}
+      {latest && (
+        <table className="mt-4 w-full text-[13px]">
+          <thead className="text-left text-dim">
+            <tr>
+              <th className="py-1 font-bold"></th>
+              {SECTION_ORDER.map((s) => (
+                <th key={s} className="font-bold">{SECTION_LABEL[s]}</th>
+              ))}
+              <th className="font-bold">Overall</th>
+            </tr>
+          </thead>
+          <tbody className="tabular-nums">
+            <tr className="border-t border-line">
+              <td className="py-2 font-extrabold">Official ({latest.taken_on})</td>
+              {SECTION_ORDER.map((s) => (
+                <td key={s} className="text-lg font-black">{band(latest[s])}</td>
+              ))}
+              <td className="text-lg font-black">{band(latest.overall)}</td>
+            </tr>
+            <tr className="border-t border-line text-muted">
+              <td className="py-2">Internal projection now</td>
+              {SECTION_ORDER.map((s) => {
+                const p = projection.sections[s]?.band ?? null;
+                const diff = p == null ? null : p - latest[s];
+                return (
+                  <td key={s}>
+                    {band(p)}
+                    {diff != null && diff !== 0 && <span className="ml-1 text-xs text-dim">({diff > 0 ? "+" : ""}{diff.toFixed(1)})</span>}
+                  </td>
+                );
+              })}
+              <td>{band(projection.overall.band)}</td>
+            </tr>
+          </tbody>
+        </table>
+      )}
+      {data.scores.length > 0 && (
+        <ul className="mt-3 space-y-1 text-xs text-dim">
+          {[latest!, ...older].map((o) => (
+            <li key={o.id} className="flex flex-wrap items-center gap-2">
+              <span>
+                {o.taken_on}: R {band(o.reading)} · L {band(o.listening)} · W {band(o.writing)} · S {band(o.speaking)} · overall {band(o.overall)}
+              </span>
+              <button className="btn btn-ghost text-xs" onClick={() => remove(o.id)} aria-label={`Delete the official score of ${o.taken_on}`}>
+                Delete
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+      <p className="mt-3 text-xs text-dim">{data.note} Internal projections are training estimates, not official scores; the gap between the two rows is only indicative.</p>
     </div>
   );
 }
