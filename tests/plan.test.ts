@@ -295,3 +295,78 @@ describe("daily plan routes", () => {
     expect((await tick("2026-11-12", "breakfast")).statusCode).toBe(400);
   });
 });
+
+describe("Today page data", () => {
+  it("gives the road from the start of the plan to the exam, with phases, checkpoints and done days", async () => {
+    // Earlier tests completed the base on 10 and 11 November.
+    const p = (await get("/api/users/Mathias/plan?date=2026-11-12")).json();
+    expect(p.road.start).toBe("2026-11-10"); // first activity, before the fixed-length phases begin (J-55)
+    expect(p.road.exam_date).toBe("2027-01-09");
+    expect(p.road.done).toEqual(["2026-11-10", "2026-11-11"]);
+    expect(p.road.phases.map((x: { id: string }) => x.id)).toEqual(PLAN.phases.map((x) => x.id));
+    expect(p.road.phases[0]).toMatchObject({ from: "2026-11-10", to: addDays("2027-01-09", -PLAN.phases[0]!.to_days) });
+    expect(p.road.phases.at(-1).to).toBe("2027-01-08");
+    // Phases follow each other without gaps.
+    for (let i = 1; i < p.road.phases.length; i++) expect(p.road.phases[i].from).toBe(addDays(p.road.phases[i - 1].to, 1));
+    expect(p.road.checkpoints.map((c: { days_before: number }) => c.days_before)).toEqual(PLAN.checkpoints.map((c) => c.days_before));
+    expect(p.road.checkpoints[0].date).toBe(addDays("2027-01-09", -PLAN.checkpoints[0]!.days_before));
+  });
+
+  it("starts the road at the first fixed-length phase for a profile without activity", async () => {
+    await app.inject({ method: "PATCH", url: "/api/users/Virgile", payload: { exam_date: "2027-03-01" } });
+    const p = (await get("/api/users/Virgile/plan?date=2026-11-12")).json();
+    const first = Math.max(...PLAN.phases.map((x) => x.from_days ?? x.to_days));
+    expect(p.road.start).toBe(daysBetween("2026-11-12", "2027-03-01") > first ? "2026-11-12" : addDays("2027-03-01", -first));
+    expect(p.road.done).toEqual([]);
+  });
+
+  it("lists the current week from Monday with the complete days", async () => {
+    const p = (await get("/api/users/Mathias/plan?date=2026-11-12")).json();
+    expect(p.week_days).toEqual({ start: "2026-11-09", today: "2026-11-12", done: ["2026-11-10", "2026-11-11"] });
+    const sunday = (await get("/api/users/Mathias/plan?date=2026-11-15")).json();
+    expect(sunday.week_days.start).toBe("2026-11-09");
+  });
+
+  it("tells how much data each section still needs before a band is projected", async () => {
+    const d = (await get("/api/users/Virgile/dashboard")).json();
+    expect(d.projection.sections.reading.min_n).toBe(CONFIG.internal.projection.min_items_for_estimate);
+    expect(d.projection.sections.speaking).toMatchObject({ band: null, n: 0 }); // locked until enough scored responses
+    expect(d.projection.sections.listening.min_n).toBe(CONFIG.internal.projection.min_items_for_estimate);
+    expect(d.projection.sections.writing.min_n).toBe(5);
+    expect(d.projection.sections.speaking.min_n).toBe(7);
+    expect(d.projection.disclaimer).toMatch(/Internal training estimate/);
+  });
+});
+
+describe("official ETS scores", () => {
+  const url = "/api/users/Mathias/official-scores";
+  const post = (payload: object) => app.inject({ method: "POST", url, payload });
+
+  it("stores the four section bands and computes the overall band", async () => {
+    expect((await get(url)).json().scores).toEqual([]);
+    const r = await post({ taken_on: "2026-06-01", reading: 5.5, listening: 5.5, writing: 5, speaking: 5 });
+    expect(r.statusCode).toBe(200);
+    const s = r.json().scores;
+    expect(s).toHaveLength(1);
+    expect(s[0]).toMatchObject({ taken_on: "2026-06-01", reading: 5.5, listening: 5.5, writing: 5, speaking: 5, overall: 5.5 }); // mean 5.25 rounds up
+    await post({ taken_on: "2026-09-15", reading: 6, listening: 5.5, writing: 5, speaking: 4.5 });
+    expect((await get(url)).json().scores.map((x: { taken_on: string }) => x.taken_on)).toEqual(["2026-09-15", "2026-06-01"]); // latest first
+  });
+
+  it("rejects bands off the half-band scale, out of range, or a future date", async () => {
+    expect((await post({ taken_on: "2026-06-01", reading: 5.25, listening: 5, writing: 5, speaking: 5 })).statusCode).toBe(400);
+    expect((await post({ taken_on: "2026-06-01", reading: 6.5, listening: 5, writing: 5, speaking: 5 })).statusCode).toBe(400);
+    expect((await post({ taken_on: "2026-06-01", reading: 5, listening: 5, writing: 5 })).statusCode).toBe(400);
+    expect((await post({ taken_on: "2999-01-01", reading: 5, listening: 5, writing: 5, speaking: 5 })).statusCode).toBe(400);
+    expect((await post({ taken_on: "01/06/2026", reading: 5, listening: 5, writing: 5, speaking: 5 })).statusCode).toBe(400);
+  });
+
+  it("keeps profiles apart and deletes one score", async () => {
+    expect((await get("/api/users/Virgile/official-scores")).json().scores).toEqual([]);
+    const [latest] = (await get(url)).json().scores;
+    expect((await app.inject({ method: "DELETE", url: `/api/users/Virgile/official-scores/${latest.id}` })).statusCode).toBe(404);
+    const after = (await app.inject({ method: "DELETE", url: `${url}/${latest.id}` })).json().scores;
+    expect(after.map((x: { taken_on: string }) => x.taken_on)).toEqual(["2026-06-01"]);
+    expect((await get("/api/users/Nobody/official-scores")).statusCode).toBe(404);
+  });
+});

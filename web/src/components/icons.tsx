@@ -110,3 +110,14 @@ export const IconDot = ({ filled, ...p }: P & { filled?: boolean }) => (
     <circle cx="12" cy="12" r="5" fill={filled ? "currentColor" : "none"} />
   </Svg>
 );
+export const IconLock = (p: P) => (
+  <Svg {...p}>
+    <rect x="5" y="10.5" width="14" height="10" rx="2.5" />
+    <path d="M8 10.5V7.5a4 4 0 0 1 8 0v3" />
+  </Svg>
+);
+export const IconPlus = (p: P) => (
+  <Svg {...p}>
+    <path d="M12 5v14M5 12h14" />
+  </Svg>
+);

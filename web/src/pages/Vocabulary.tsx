@@ -673,7 +673,7 @@ function SessionEnd({ user, summary, done, right, onRecheck }: { user: string; s
             See stats
           </Link>
           <Link to={`/u/${user}`} className="btn btn-ghost">
-            Dashboard
+            Today
           </Link>
         </div>
       </div>

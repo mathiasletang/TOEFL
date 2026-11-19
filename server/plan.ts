@@ -1,5 +1,5 @@
 /**
- * Daily plan for the Dashboard: today's blocks with their estimated duration and correction step,
+ * Daily plan for the Today page: today's blocks with their estimated duration and correction step,
  * launch targets, done flags, streak, next checkpoint, the real weekly mix and shadowing sessions.
  */
 import type { DB } from "./db";
@@ -177,7 +177,14 @@ export function weekActual(db: DB, userId: string, date: string) {
 export function dailyPlan(db: DB, userId: string, date = localDate()) {
   const u = db.prepare("SELECT target_band, exam_date FROM users WHERE id = ?").get(userId) as { target_band: number; exam_date: string | null };
   const done = doneOn(db, userId, date);
-  const base = { date, exam_date: u.exam_date, target_band: u.target_band, streak: planStreak(db, userId, date), week: weekActual(db, userId, date) };
+  const base = {
+    date,
+    exam_date: u.exam_date,
+    target_band: u.target_band,
+    streak: planStreak(db, userId, date),
+    week: weekActual(db, userId, date),
+    week_days: planWeekDays(db, userId, date),
+  };
   if (!u.exam_date) return { ...base, status: "no_exam_date" as const, days_left: null, phase: null, blocks: [], checkpoint: null };
   const daysLeft = daysBetween(date, u.exam_date);
   const phase = phaseFor(daysLeft, PLAN.phases);
@@ -215,6 +222,45 @@ export function dailyPlan(db: DB, userId: string, date = localDate()) {
     optional: rot.optional ? block(db, userId, "optional", rot.optional, date, done) : null,
     checkpoint: nextCheckpoint(daysLeft, u.exam_date, PLAN.checkpoints),
     base_done: BASE_BLOCKS.every((b) => done.has(b)),
+    road: planRoad(db, userId, date, u.exam_date),
+  };
+}
+
+/** Days on which every base block was done, between two dates (inclusive). */
+export function baseDoneDates(db: DB, userId: string, from: string, to: string): string[] {
+  const rows = db
+    .prepare("SELECT date FROM plan_checks WHERE user_id = ? AND block IN (?, ?, ?) AND date >= ? AND date <= ? GROUP BY date HAVING COUNT(*) = ? ORDER BY date")
+    .all(userId, ...BASE_BLOCKS, from, to, BASE_BLOCKS.length) as Array<{ date: string }>;
+  return rows.map((r) => r.date);
+}
+
+/**
+ * The road from the start of the plan to the exam: the plan starts with the first phase that has a
+ * fixed length (or earlier if the profile was already training), never after today.
+ * Phases and checkpoints are converted to calendar dates; `done` lists the days with the full base.
+ */
+/** The current week (Monday to Sunday) with the days on which the full base was done. */
+export function planWeekDays(db: DB, userId: string, today: string) {
+  const start = addDays(today, -((new Date(`${today}T12:00:00`).getDay() + 6) % 7));
+  return { start, today, done: baseDoneDates(db, userId, start, today) };
+}
+
+export function planRoad(db: DB, userId: string, today: string, examDate: string) {
+  const first = PLAN.phases.reduce((m, p) => Math.max(m, p.from_days ?? p.to_days), 0);
+  const activity = db
+    .prepare("SELECT MIN(d) d FROM (SELECT MIN(date) d FROM plan_checks WHERE user_id = ? UNION ALL SELECT MIN(substr(submitted_at, 1, 10)) FROM attempts WHERE user_id = ?)")
+    .get(userId, userId) as { d: string | null };
+  const start = [addDays(examDate, -first), today, activity.d].filter((d): d is string => !!d).sort()[0]!;
+  const end = addDays(examDate, -1);
+  return {
+    start,
+    exam_date: examDate,
+    done: baseDoneDates(db, userId, start, today),
+    phases: PLAN.phases
+      .map((p) => ({ id: p.id, label: p.label, from: p.from_days == null ? start : addDays(examDate, -p.from_days), to: addDays(examDate, -p.to_days) }))
+      .map((p) => ({ ...p, from: p.from < start ? start : p.from, to: p.to > end ? end : p.to }))
+      .filter((p) => p.from <= p.to),
+    checkpoints: PLAN.checkpoints.map((c) => ({ date: addDays(examDate, -c.days_before), label: c.label, days_before: c.days_before })).filter((c) => c.date >= start),
   };
 }
 
