@@ -27,7 +27,8 @@ interface Session {
 }
 
 /** Daily shadowing: short segments from listening scripts, never repeated within the no-repeat window. */
-export function Shadowing({ user }: { user: string }) {
+/** `onFinished` (session mode): no page header; the session ticks the block and moves on. */
+export function Shadowing({ user, onFinished }: { user: string; onFinished?: () => void }) {
   const { data, error, loading } = useApi<Session>(`/api/users/${user}/shadowing`);
   const { navigate } = useRouter();
   const [plays, setPlays] = useState<Record<string, number>>({});
@@ -57,13 +58,14 @@ export function Shadowing({ user }: { user: string }) {
     }
   };
   const finish = async () => {
+    if (onFinished) return onFinished();
     await api.put(`/api/users/${user}/plan/checks`, { date: data.date, block: "shadowing", done: true });
     navigate(`/u/${user}`);
   };
 
   return (
     <div className="mx-auto max-w-3xl">
-      <PageTitle
+      {!onFinished && <PageTitle
         title="Shadowing"
         sub={`${data.minutes} minutes · ${data.segments.length} segments from conversations and academic talks · none repeats within ${data.no_repeat_days} days`}
         right={
@@ -71,7 +73,7 @@ export function Shadowing({ user }: { user: string }) {
             Today
           </Link>
         }
-      />
+      />}
       <Notice>{data.instruction}</Notice>
       {data.audio === "browser" && <p className="mt-2 text-xs text-dim">Audio: browser speech synthesis (no TTS key configured) — a fallback, not ETS-like audio.</p>}
       {data.repeats > 0 && (
@@ -103,7 +105,7 @@ export function Shadowing({ user }: { user: string }) {
       </ol>
       <div className="mt-4 flex justify-end">
         <button className="btn btn-primary" onClick={finish}>
-          Mark shadowing as done
+          {onFinished ? "Done — continue" : "Mark shadowing as done"}
         </button>
       </div>
     </div>

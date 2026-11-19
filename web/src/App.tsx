@@ -89,7 +89,8 @@ function Routes() {
   }
   let m: Record<string, string> | null;
   if ((m = match("/u/:user", path))) return <Shell user={user}><Today user={user} /></Shell>;
-  if ((m = match("/u/:user/session", path))) return <Shell user={user}><Session user={user} /></Shell>;
+  // Session mode is full screen: no Shell, no navigation.
+  if ((m = match("/u/:user/session", path))) return <Session user={user} />;
   if ((m = match("/u/:user/practice", path))) return <Shell user={user}><Practice user={user} /></Shell>;
   if ((m = match("/u/:user/practice/:task", path))) return <Shell user={user}><PracticeTask user={user} task={m.task!} /></Shell>;
   if ((m = match("/u/:user/drill/:ex", path))) return <Shell user={user} wide><Drill user={user} exerciseId={m.ex!} /></Shell>;

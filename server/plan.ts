@@ -76,13 +76,24 @@ function launchFor(db: DB, userId: string, task: string, mode: "strict" | "pract
   return id ? { kind: "drill", exercise_id: id, mode, origin: t.kind === "focus" ? "focus" : null } : null;
 }
 
-/** Drill attempts of this task made today (simulations excluded); null for focus and simulations. */
+/**
+ * What was done today toward this block: drill attempts of the task (simulations excluded), drills
+ * started from Focus weaknesses, or simulations of the scope completed. Session mode resumes from it.
+ */
 function progressToday(db: DB, userId: string, task: string, date: string): number | null {
   const t = parseTask(task);
-  if (t?.kind !== "task") return null;
-  const r = db
-    .prepare("SELECT COUNT(*) n FROM attempts WHERE user_id = ? AND task_type = ? AND simulation_id IS NULL AND submitted_at >= ? AND submitted_at < ?")
-    .get(userId, t.taskType, dayStartIso(date), dayStartIso(addDays(date, 1))) as { n: number };
+  if (!t) return null;
+  const from = dayStartIso(date);
+  const to = dayStartIso(addDays(date, 1));
+  const r = (
+    t.kind === "task"
+      ? db.prepare("SELECT COUNT(*) n FROM attempts WHERE user_id = ? AND task_type = ? AND simulation_id IS NULL AND submitted_at >= ? AND submitted_at < ?").get(userId, t.taskType, from, to)
+      : t.kind === "focus"
+        ? db
+            .prepare("SELECT COUNT(*) n FROM attempts a JOIN sessions s ON s.id = a.session_id WHERE a.user_id = ? AND s.origin = 'focus' AND a.submitted_at >= ? AND a.submitted_at < ?")
+            .get(userId, from, to)
+        : db.prepare("SELECT COUNT(*) n FROM simulations WHERE user_id = ? AND scope = ? AND status = 'completed' AND completed_at >= ? AND completed_at < ?").get(userId, t.scope, from, to)
+  ) as { n: number };
   return r.n;
 }
 

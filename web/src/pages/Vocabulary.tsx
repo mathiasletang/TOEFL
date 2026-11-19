@@ -421,7 +421,8 @@ function dueText(c: CardView): string {
   return `Next review in ${d} day${d === 1 ? "" : "s"}.`;
 }
 
-export function VocabSession({ user }: { user: string }) {
+/** `onFinished` (session mode): no page header, and a Continue button once nothing is left for today. */
+export function VocabSession({ user, onFinished }: { user: string; onFinished?: () => void }) {
   const meta = useMeta();
   const cfg = useConfig();
   const [cur, setCur] = useState<NextCard | null>(null);
@@ -502,15 +503,21 @@ export function VocabSession({ user }: { user: string }) {
   const summary = result?.summary ?? cur?.summary ?? null;
   return (
     <div>
-      <PageTitle
-        title="Vocabulary"
-        sub="Due reviews first, then today's new words. Spacing is an internal SM-2-style schedule."
-        right={summary && <div className="text-xs text-dim">{summary.due} due · {summary.new_left} new left · {summary.reviewed_today} reviewed today</div>}
-      />
-      <VocabNav user={user} active="session" live={summary} />
+      {onFinished ? (
+        summary && <div className="mb-4 text-center text-xs font-bold text-dim">{summary.due} due · {summary.new_left} new left · {summary.reviewed_today} reviewed today</div>
+      ) : (
+        <>
+          <PageTitle
+            title="Vocabulary"
+            sub="Due reviews first, then today's new words. Spacing is an internal SM-2-style schedule."
+            right={summary && <div className="text-xs text-dim">{summary.due} due · {summary.new_left} new left · {summary.reviewed_today} reviewed today</div>}
+          />
+          <VocabNav user={user} active="session" live={summary} />
+        </>
+      )}
       {error != null && <ErrorBox error={error} onRetry={load} />}
       {!cur && !error && <Spinner />}
-      {cur && !cur.card && <SessionEnd user={user} summary={cur.summary} done={done} right={right} onRecheck={load} />}
+      {cur && !cur.card && <SessionEnd user={user} summary={cur.summary} done={done} right={right} onRecheck={load} onFinished={onFinished} />}
       {cur?.card && q && (
         <div className="mx-auto max-w-2xl">
           <div className="card p-6">
@@ -650,7 +657,7 @@ export function VocabSession({ user }: { user: string }) {
   );
 }
 
-function SessionEnd({ user, summary, done, right, onRecheck }: { user: string; summary: Summary; done: number; right: number; onRecheck: () => void }) {
+function SessionEnd({ user, summary, done, right, onRecheck, onFinished }: { user: string; summary: Summary; done: number; right: number; onRecheck: () => void; onFinished?: () => void }) {
   const soon = summary.next_due_at && Date.parse(summary.next_due_at) - Date.now() < 3600000 ? summary.next_due_at : null;
   return (
     <div className="mx-auto max-w-2xl space-y-4">
@@ -668,14 +675,20 @@ function SessionEnd({ user, summary, done, right, onRecheck }: { user: string; s
             </button>
           </p>
         )}
-        <div className="mt-4 flex gap-2">
-          <Link to={`/u/${user}/vocab/stats`} className="btn">
-            See stats
-          </Link>
-          <Link to={`/u/${user}`} className="btn btn-ghost">
-            Today
-          </Link>
-        </div>
+        {onFinished ? (
+          <button className="btn btn-primary mt-4" onClick={onFinished}>
+            Continue
+          </button>
+        ) : (
+          <div className="mt-4 flex gap-2">
+            <Link to={`/u/${user}/vocab/stats`} className="btn">
+              See stats
+            </Link>
+            <Link to={`/u/${user}`} className="btn btn-ghost">
+              Today
+            </Link>
+          </div>
+        )}
       </div>
       {summary.reviewed_today > 0 && <Challenge user={user} />}
     </div>
