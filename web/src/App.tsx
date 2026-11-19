@@ -14,6 +14,9 @@ import { Shadowing } from "./pages/Shadowing";
 import { applyTheme, readTheme } from "./lib/theme";
 import { IconSwap } from "./components/icons";
 import { ThemeToggle } from "./components/ThemeToggle";
+import { useApi } from "./lib/useApi";
+import { Notice } from "./components/ui";
+import { API_VERSION } from "../../shared/apiVersion";
 import { VocabBank, VocabEntryPage, VocabSession, VocabStats, VocabTriage } from "./pages/Vocabulary";
 
 const USERS = ["Virgile", "Mathias"];
@@ -60,7 +63,27 @@ function Shell({ user, children, wide }: { user: string; children: ReactNode; wi
           </div>
         </div>
       </header>
-      <main className={`mx-auto px-4 py-8 ${wide ? "max-w-7xl" : "max-w-6xl"}`}>{children}</main>
+      <main className={`mx-auto px-4 py-8 ${wide ? "max-w-7xl" : "max-w-6xl"}`}>
+        <ServerVersionNotice />
+        {children}
+      </main>
+    </div>
+  );
+}
+
+/**
+ * The page and the API come from the same `npm start`, but an older server process left running on the
+ * same port keeps answering with its old API. Say so instead of letting new pages break.
+ */
+function ServerVersionNotice() {
+  const { data } = useApi<{ api_version?: number }>("/api/health");
+  if (!data || data.api_version === API_VERSION) return null;
+  return (
+    <div className="mb-6">
+      <Notice tone="warn">
+        The server answering this page is older than the page itself (API {data.api_version ?? 1}, page expects {API_VERSION}): an old process is probably still running on the same port. Stop
+        it (close its terminal, or end the Node.js process), then run <code>npm start</code> again. Some cards may stay empty until then.
+      </Notice>
     </div>
   );
 }

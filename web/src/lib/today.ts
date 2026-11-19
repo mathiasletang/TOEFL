@@ -52,7 +52,8 @@ export interface Plan {
   optional?: PlanBlock | null;
   checkpoint: { days_before: number; label: string; task: string; date: string; in_days: number } | null;
   base_done?: boolean;
-  week_days: { start: string; today: string; done: string[] };
+  /** Absent from servers older than the Today page: cards must cope. */
+  week_days?: { start: string; today: string; done: string[] };
   road?: {
     start: string;
     exam_date: string;
@@ -85,7 +86,7 @@ export const dayLabel = (d: string, opts: Intl.DateTimeFormatOptions) => new Dat
 
 /** Steps of the day: the base blocks, then the bonus round (unlocked once the base is done). */
 export function sessionSteps(p: Plan) {
-  const base = p.blocks;
+  const base = p.blocks ?? [];
   const bonus = p.optional ?? null;
   const baseDone = base.length > 0 && base.every((b) => b.done);
   const current = base.find((b) => !b.done) ?? (bonus && !bonus.done ? bonus : null);

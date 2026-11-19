@@ -10,6 +10,7 @@ import { syncContent, readContent, getExercise, listExercises, type LoadedConten
 import { syncVocab, readVocab, type LoadedVocab } from "./vocab";
 import { countVocab } from "../shared/vocab";
 import { isValidBand, overallBand } from "../shared/bands";
+import { API_VERSION } from "../shared/apiVersion";
 import { registerVocabRoutes } from "./vocabRoutes";
 import { dailyPlan, setPlanCheck, shadowingSession, shadowPool } from "./plan";
 import { PLAN_BLOCKS, isIsoDate, localDate } from "../shared/plan";
@@ -125,6 +126,7 @@ export async function buildApp(opts: AppOptions = {}): Promise<{ app: FastifyIns
   // ------------------------------------------------------------- system
   app.get("/api/health", async () => ({
     ok: true,
+    api_version: API_VERSION,
     exercises: content.exercises.length,
     errors: content.errors.length + content.fileErrors.length,
     vocab_entries: vocab.entries.length,
