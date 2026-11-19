@@ -355,8 +355,8 @@ const FRENCH_HINT = /[a-zàâçéèêëîïôûùüÿœ]/i;
 export interface VocabValidationOptions {
   disciplineCategories?: string[];
   transparencyThreshold?: number;
-  /** Entries tagged with `batch` need a sub-theme from `themes` and the interview, discussion and usage fields. */
-  productive?: { batch: string; themes: string[] };
+  /** Entries tagged with a batch name need one sub-theme of that batch, an allowed tier and the interview, discussion and usage fields. */
+  productive?: Record<string, { tiers: string[]; themes: string[] }>;
 }
 
 export function validateVocab(raw: Array<{ data: unknown; file?: string; category?: VocabCategory }>, opts: VocabValidationOptions = {}): VocabReport {
@@ -413,10 +413,12 @@ export function validateVocab(raw: Array<{ data: unknown; file?: string; categor
     if (e.word_family.some((f) => f.form.toLowerCase() === e.headword.toLowerCase() && f.pos === e.pos)) err("word family repeats the headword itself");
 
     // Productive batch: sub-theme tag, an Interview answer, an Academic Discussion sentence and a usage note.
-    if (opts.productive && e.tags.includes(opts.productive.batch)) {
-      const themes = e.tags.filter((t) => opts.productive!.themes.includes(t));
-      if (themes.length !== 1) err(`batch entries need exactly one sub-theme tag (${opts.productive.themes.join(", ")})`);
-      if (e.tier !== "mastery") err("batch entries belong to the mastery tier");
+    const batches = Object.entries(opts.productive ?? {}).filter(([name]) => e.tags.includes(name));
+    if (batches.length > 1) err("an entry belongs to one productive batch only");
+    for (const [name, batch] of batches) {
+      const themes = e.tags.filter((t) => batch.themes.includes(t));
+      if (themes.length !== 1) err(`${name} entries need exactly one sub-theme tag (${batch.themes.join(", ")})`);
+      if (!batch.tiers.includes(e.tier)) err(`${name} entries belong to the ${batch.tiers.join(" or ")} tier`);
       for (const [name, ex] of [["interview", e.example_interview], ["discussion", e.example_discussion]] as const) {
         if (!ex) err(`batch entries need example_${name}`);
         else {

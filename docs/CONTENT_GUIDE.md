@@ -167,11 +167,11 @@ All entries are original. Do not copy dictionary definitions or import external 
 | `false_friend_fr` | Optional, required in `false_friends_fr`: `{ "trap": "librairie", "correct": "une librairie = a bookstore" }` |
 | `spelling_trap` | Optional, required in `spelling_traps`: a short note on the point to watch |
 | `tags` | Optional labels, e.g. `["c2_productive_1", "hedging_stance"]` |
-| `example_interview` | Required in the productive batch: an answer as it could be said in Take an Interview, using the entry |
-| `example_discussion` | Required in the productive batch: a sentence as it could be written in an Academic Discussion post, using the entry |
-| `usage_note` | Required in the productive batch: register, and the typical mistake of a French speaker when there is one |
+| `example_interview` | Required in a productive batch: an answer as it could be said in Take an Interview, using the entry |
+| `example_discussion` | Required in a productive batch: a sentence as it could be written in an Academic Discussion post, using the entry |
+| `usage_note` | Required in a productive batch: register, and the typical mistake of a French speaker when there is one |
 
-**Productive batch.** Entries tagged with the batch name in `internal.vocabulary.productive` (`c2_productive_1`) are Mastery / C2. Each needs exactly one sub-theme tag: `argument_verbs`, `hedging_stance`, `concession_contrast`, `emphasis`, `precise_collocations` or `spoken_markers`. Each also needs the three fields above.
+**Productive batches.** Each batch is declared in `internal.vocabulary.productive.batches` with its allowed tiers and its sub-themes. `c2_productive_1` is Mastery / C2, with one of `argument_verbs`, `hedging_stance`, `concession_contrast`, `emphasis`, `precise_collocations`, `spoken_markers`. `c2_productive_2` is Extended or Mastery, with one of `reporting_verbs`, `evaluative_adjectives`, `cause_effect`, `trends_quantity`, `phrasal_verbs`, `campus_idioms`, `email_register`, `speech_connectors`. An entry belongs to one batch only, carries exactly one sub-theme tag of that batch, and needs the three fields above. Write formulas in full in the examples ("I would", not "I'd"): contractions are not expanded when the validator looks for the entry.
 
 - All four examples must differ: the interview and discussion examples must not repeat the academic or spoken one. A test checks the word overlap.
 - Write expressions in full in the examples ("it is fair to say that", not "it's fair to say that"). The matcher does not expand contractions.

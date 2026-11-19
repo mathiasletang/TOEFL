@@ -622,7 +622,7 @@
         "extended": { "label": "Extended (C1)", "cefr": ["B2", "C1"], "note": "C1-level vocabulary by discipline and function; common discipline words that are really B2 are kept here and labelled B2." },
         "mastery": { "label": "Mastery (C2)", "cefr": ["C2"], "note": "C2-level vocabulary: nuance, precision and formal register." }
       },
-      "targets": { "tier": { "core": 400, "extended": 467, "mastery": 462 }, "cefr_share": { "B2": 0.24, "C1": 0.41, "C2": 0.35 }, "share_tolerance": 0.05 },
+      "targets": { "tier": { "core": 400, "extended": 582, "mastery": 547 }, "cefr_share": { "B2": 0.22, "C1": 0.43, "C2": 0.36 }, "share_tolerance": 0.05 },
       "discipline_categories": ["biology", "ecology", "geology", "astronomy", "psychology", "sociology", "anthropology", "economics", "history", "art_history", "linguistics", "environmental_science", "technology"],
       "transparency": {
         "$comment": "transparent_fr = best string similarity (0-1) between a headword and one of its French translations, after accents, articles and regular spelling correspondences are removed. Only single words count as transparent; false friends never do. A transparent discipline term cannot be C2.",
@@ -654,9 +654,21 @@
         ]
       },
       "productive": {
-        "$comment": "First batch of productive C2 entries (mastery tier). Each needs one sub-theme tag, an Interview answer, an Academic Discussion sentence and a usage note. Counts are the planned size of each sub-theme.",
-        "batch": "c2_productive_1",
-        "themes": { "argument_verbs": 60, "hedging_stance": 40, "concession_contrast": 35, "emphasis": 30, "precise_collocations": 80, "spoken_markers": 55 }
+        "$comment": "Batches of productive vocabulary. Each entry of a batch needs exactly one sub-theme tag, an Interview answer, an Academic Discussion sentence and a usage note; `tiers` lists the tiers a batch may use. Counts are the planned size of each sub-theme.",
+        "batches": {
+          "c2_productive_1": {
+            "tiers": ["mastery"],
+            "themes": { "argument_verbs": 60, "hedging_stance": 40, "concession_contrast": 35, "emphasis": 30, "precise_collocations": 80, "spoken_markers": 55 }
+          },
+          "c2_productive_2": {
+            "tiers": ["extended", "mastery"],
+            "themes": { "reporting_verbs": 25, "evaluative_adjectives": 25, "cause_effect": 25, "trends_quantity": 25, "phrasal_verbs": 25, "campus_idioms": 25, "email_register": 25, "speech_connectors": 25 }
+          }
+        },
+        "next_batch": {
+          "$comment": "Size of the next batch from the useful stock (entries neither known nor learned that the introduction order serves): below 400 → 400, 400 to 600 → 300, above → 200. Categories with the highest share of words sorted as 'to learn' in triage get more entries.",
+          "rules": [{ "below": 400, "size": 400 }, { "below": 600, "size": 300 }, { "below": null, "size": 200 }]
+        }
       },
       "harvest": {
         "$comment": "When questions are missed in an academic passage or a listening set, up to this many discipline terms of that text enter the deck (non-transparent and higher levels first). This is the only automatic way discipline terms enter for a 6.0 target.",

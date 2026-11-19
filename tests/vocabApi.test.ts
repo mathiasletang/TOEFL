@@ -75,10 +75,10 @@ afterAll(async () => {
 describe("vocabulary bank routes", () => {
   it("lists the bank with filters, search and per-user status", async () => {
     const all = (await get(`/api/users/${A}/vocab/entries`)).json();
-    expect(all.total).toBe(1329);
+    expect(all.total).toBe(1529);
     const cognates = (await get(`/api/users/${A}/vocab/entries?transparent=1`)).json();
     const others = (await get(`/api/users/${A}/vocab/entries?transparent=0`)).json();
-    expect(cognates.total + others.total).toBe(1329);
+    expect(cognates.total + others.total).toBe(1529);
     expect(cognates.entries.every((e: { transparent: boolean; transparent_fr: number }) => e.transparent && e.transparent_fr >= CONFIG.internal.vocabulary.transparency.threshold)).toBe(true);
     expect(others.entries.some((e: { transparent: boolean }) => e.transparent)).toBe(false);
     const core = (await get(`/api/users/${A}/vocab/entries?tier=core`)).json();
@@ -251,8 +251,8 @@ describe("daily session", () => {
     const s = (await get(`/api/users/${A}/vocab/stats`)).json();
     expect(s.by_tier.core.total).toBe(400);
     expect(s.by_tier.core.learning + s.by_tier.core.mature).toBe(3);
-    expect(s.by_status.total).toBe(1329);
-    expect(s.by_status.new).toBe(1326);
+    expect(s.by_status.total).toBe(1529);
+    expect(s.by_status.new).toBe(1526);
     expect(s.by_status.known).toBe(0);
     expect(s.window_days).toBe(30);
     expect(s.retention.reviews).toBeGreaterThan(10);

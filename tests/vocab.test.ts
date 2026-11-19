@@ -91,7 +91,7 @@ describe("vocabulary bank (content/vocab)", () => {
   it("matches the internal targets for tiers and CEFR shares", () => {
     const T = CONFIG.internal.vocabulary.targets;
     expect(counts.total).toBe(T.tier.core + T.tier.extended + T.tier.mastery);
-    expect(counts.total).toBe(1329);
+    expect(counts.total).toBe(1529);
     expect(counts.by_tier).toMatchObject(T.tier);
     for (const [level, share] of Object.entries(T.cefr_share)) expect(Math.abs((counts.by_cefr[level] ?? 0) / counts.total - share)).toBeLessThanOrEqual(T.share_tolerance);
     expect(CONFIG.internal.vocabulary.tiers.core.note).toMatch(/Not an official list/);
@@ -109,14 +109,14 @@ describe("vocabulary bank (content/vocab)", () => {
     const db = openDb(":memory:");
     syncVocab(db, v);
     const n = () => (db.prepare("SELECT COUNT(*) c FROM vocab_entries WHERE active = 1").get() as { c: number }).c;
-    expect(n()).toBe(1329);
+    expect(n()).toBe(1529);
     expect(listVocab(db, { tier: "core" })).toHaveLength(400);
     expect((db.prepare("SELECT transparent_fr t FROM vocab_entries WHERE id = 'v_acad_analyze'").get() as { t: number }).t).toBe(1);
     expect(getVocabEntry(db, "v_acad_analyze")?.translation_fr).toBe("analyser");
     syncVocab(db, { ...v, entries: v.entries.slice(1) });
-    expect(n()).toBe(1328);
+    expect(n()).toBe(1528);
     syncVocab(db, v);
-    expect(n()).toBe(1329);
+    expect(n()).toBe(1529);
     db.close();
   });
 });
@@ -173,7 +173,7 @@ describe("recalibration for French speakers", () => {
 
 describe("first productive C2 batch", () => {
   const v = readVocab();
-  const P = CONFIG.internal.vocabulary.productive;
+  const P = { batch: "c2_productive_1", ...CONFIG.internal.vocabulary.productive.batches.c2_productive_1! };
   const batch = v.entries.filter((e) => e.tags.includes(P.batch));
   const head = (h: string) => v.entries.find((e) => e.headword === h)!;
 
@@ -211,12 +211,67 @@ describe("first productive C2 batch", () => {
 
   it("rejects a batch entry without its extra fields, and duplicates through inflected forms", () => {
     const base = { ...head("rebut") };
-    const opts = { productive: { batch: P.batch, themes: Object.keys(P.themes) } };
+    const opts = { productive: { [P.batch]: { tiers: P.tiers, themes: Object.keys(P.themes) } } };
     const missing = { ...base, example_interview: undefined, usage_note: undefined };
     expect(validateVocab([{ data: missing }], opts).errors.map((e) => e.message).join("\n")).toMatch(/example_interview[\s\S]*usage_note/);
     const twoThemes = { ...base, tags: [P.batch, "emphasis", "argument_verbs"] };
     expect(validateVocab([{ data: twoThemes }], opts).errors.map((e) => e.message).join("\n")).toMatch(/exactly one sub-theme/);
     const inflected = { ...base, id: "v_acad_rebuts", headword: "rebuts", tags: [], example_academic: "The second paper rebuts the first one point by point.", example_spoken: "She rebuts every criticism calmly." };
     expect(validateVocab([{ data: base }, { data: inflected }]).errors.map((e) => e.message).join("\n")).toMatch(/"rebuts" is an inflected form of "rebut"/);
+  });
+});
+
+describe("second productive C2 batch", () => {
+  const v = readVocab();
+  const P = { batch: "c2_productive_2", ...CONFIG.internal.vocabulary.productive.batches.c2_productive_2! };
+  const batch = v.entries.filter((e) => e.tags.includes(P.batch));
+  const head = (h: string) => v.entries.find((e) => e.headword === h)!;
+  const words = (t: string) => new Set(t.toLowerCase().match(/[a-z']+/g) ?? []);
+  const overlap = (a: string, b: string) => {
+    const A = words(a);
+    const B = words(b);
+    return [...A].filter((w) => B.has(w)).length / new Set([...A, ...B]).size;
+  };
+
+  it("has 200 entries, 25 per sub-theme, none shared with the first batch", () => {
+    expect(batch).toHaveLength(200);
+    expect(Object.values(P.themes).reduce((a, b) => a + b, 0)).toBe(200);
+    for (const [theme, n] of Object.entries(P.themes)) expect(batch.filter((e) => e.tags.includes(theme)).length, theme).toBe(n);
+    expect(batch.filter((e) => e.tags.includes("c2_productive_1"))).toEqual([]);
+  });
+
+  it("stays in the Extended and Mastery tiers, with both task examples, a usage note and no transparent word", () => {
+    for (const e of batch) {
+      expect(P.tiers, e.id).toContain(e.tier);
+      expect(e.example_interview && exampleUsesEntry(e.example_interview, e), e.id).toBeTruthy();
+      expect(e.example_discussion && exampleUsesEntry(e.example_discussion, e), e.id).toBeTruthy();
+      expect(e.usage_note?.length, e.id).toBeGreaterThan(20);
+      expect(isTransparent(e, CONFIG.internal.vocabulary.transparency.threshold), e.id).toBe(false);
+    }
+    expect(batch.filter((e) => e.tier === "mastery").length).toBeGreaterThanOrEqual(80);
+    expect(head("the ball is in your court").tags).toContain("campus_idioms");
+    expect(head("I wish to draw your attention to").function).toBe("email_complaint");
+    expect(head("there are two reasons for this").function).toBe("speech_structuring");
+  });
+
+  it("uses four genuinely different examples for each entry", () => {
+    for (const e of batch) {
+      const ex = [e.example_academic, e.example_spoken, e.example_interview!, e.example_discussion!];
+      for (let i = 0; i < ex.length; i++) for (let k = i + 1; k < ex.length; k++) expect(overlap(ex[i]!, ex[k]!), `${e.id} examples ${i}/${k}`).toBeLessThan(0.6);
+    }
+  });
+
+  it("rejects an entry tagged for both batches, or outside the batch tiers", () => {
+    const base = { ...head("plummet") };
+    const opts = {
+      productive: Object.fromEntries(
+        Object.entries(CONFIG.internal.vocabulary.productive.batches).map(([k, b]) => [k, { tiers: b.tiers, themes: Object.keys(b.themes) }]),
+      ),
+    };
+    expect(validateVocab([{ data: base }], opts).errors).toEqual([]);
+    const both = { ...base, tags: ["c2_productive_1", "argument_verbs", P.batch, "trends_quantity"] };
+    expect(validateVocab([{ data: both }], opts).errors.map((e) => e.message).join("\n")).toMatch(/one productive batch only/);
+    const core = { ...base, tier: "core", cefr: "B2" };
+    expect(validateVocab([{ data: core }], opts).errors.map((e) => e.message).join("\n")).toMatch(/c2_productive_2 entries belong to the extended or mastery tier/);
   });
 });

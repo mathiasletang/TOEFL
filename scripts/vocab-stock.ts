@@ -12,6 +12,7 @@ import { openDb, USERS } from "../server/db";
 import { syncVocab, readVocab } from "../server/vocab";
 import { bankFor, introductionOrder } from "../server/vocabDeck";
 import { VOCAB_CATEGORIES, VOCAB_CATEGORY_LABEL, VOCAB_TIERS } from "../shared/vocab";
+import { CONFIG } from "../shared/config";
 
 const args = process.argv.slice(2);
 const opt = (name: string) => {
@@ -61,5 +62,23 @@ for (const userId of users) {
   }
   console.log(`  ${"TOTAL".padEnd(42)}${VOCAB_TIERS.map((t) => pad(totals[t]!, 10)).join("")}${pad(total, 8)}${pad(served, 8)}`);
   console.log(`  known (triage): ${known} · learned or in review: ${learned} · "served" = in the introduction order for this target (discipline terms excluded at 6.0, harvested from errors only)`);
+
+  // Next productive batch: size from the useful stock, weighting from triage gaps and failing cards.
+  const rules = CONFIG.internal.vocabulary.productive.next_batch.rules;
+  const size = rules.find((r) => r.below == null || served < r.below)!.size;
+  const triaged = db
+    .prepare(
+      `SELECT v.category, SUM(c.triage = 'known') known, SUM(c.triage = 'learn') learn, SUM(c.lapses >= ?) failing
+       FROM vocab_cards c JOIN vocab_entries v ON v.id = c.entry_id WHERE c.user_id = ? GROUP BY v.category`,
+    )
+    .all(CONFIG.internal.vocabulary.srs.leech_lapses, userId) as Array<{ category: string; known: number; learn: number; failing: number }>;
+  console.log(`\n  Next productive batch: ${size} entries (useful stock ${served}; rule: ${rules.map((r) => (r.below == null ? `else ${r.size}` : `< ${r.below} → ${r.size}`)).join(", ")})`);
+  const sorted = triaged.filter((t) => t.known + t.learn > 0).map((t) => ({ ...t, gap: t.learn / (t.known + t.learn) })).sort((a, b) => b.gap - a.gap || b.failing - a.failing);
+  if (!sorted.length) console.log("  No triage yet: split the batch evenly across sub-themes, or triage first to weight it.");
+  else {
+    console.log(`  ${"category".padEnd(42)}${pad("known", 8)}${pad("learn", 8)}${pad("gap", 8)}${pad("failing", 9)}`);
+    for (const t of sorted) console.log(`  ${(VOCAB_CATEGORY_LABEL[t.category as keyof typeof VOCAB_CATEGORY_LABEL] ?? t.category).padEnd(42)}${pad(t.known, 8)}${pad(t.learn, 8)}${pad(Math.round(t.gap * 100) + "%", 8)}${pad(t.failing, 9)}`);
+    console.log("  gap = share of triaged words marked 'to learn'; weight the next batch toward the top rows.");
+  }
 }
 db.close();
