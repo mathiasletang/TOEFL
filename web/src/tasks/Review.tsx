@@ -10,6 +10,7 @@ import type { Exercise } from "../../../shared/schema";
 import type { ScoreResult, ItemResult } from "../../../shared/scoring";
 import type { AlignOp } from "../../../shared/align";
 import type { CtwDerivation } from "../../../shared/ctw";
+import { IconCheck, IconX } from "../components/icons";
 
 export interface ReviewData {
   attempt: {
@@ -46,20 +47,20 @@ function ScoreHeader({ d }: { d: ReviewData }) {
         <div className="label">{productive ? "Task score (0–5 rubric)" : "Score"}</div>
         <div className="text-2xl font-semibold tabular-nums">
           {a.raw_score == null ? "—" : `${+a.raw_score.toFixed(2)} / ${a.max_score}`}
-          {a.accuracy != null && <span className="ml-2 text-base font-normal text-zinc-500">{pct(a.accuracy)}</span>}
+          {a.accuracy != null && <span className="ml-2 text-base font-normal text-dim">{pct(a.accuracy)}</span>}
         </div>
       </div>
       <div>
         <div className="label">Time</div>
-        <div className="text-sm tabular-nums text-zinc-700">
+        <div className="text-sm tabular-nums text-muted">
           {Math.round(a.elapsed_ms / 1000)} s{a.time_limit_ms ? ` / ${Math.round(a.time_limit_ms / 1000)} s` : ""}
-          {a.timed_out && <span className="ml-2 chip border-amber-200 bg-amber-50 text-amber-800">auto-submitted</span>}
-          {a.timing_violation && <span className="ml-2 chip border-red-200 bg-red-50 text-red-700">late submission</span>}
+          {a.timed_out && <span className="ml-2 chip border-ring bg-pill text-text">auto-submitted</span>}
+          {a.timing_violation && <span className="ml-2 chip border-bad/40 bg-bad-soft text-bad">late submission</span>}
         </div>
       </div>
       <div>
         <div className="label">Mode</div>
-        <div className="text-sm text-zinc-700">{a.simulation_id ? "simulation" : a.mode}</div>
+        <div className="text-sm text-muted">{a.simulation_id ? "simulation" : a.mode}</div>
       </div>
       {a.error_tags.length > 0 && (
         <div className="min-w-0 flex-1">
@@ -73,7 +74,7 @@ function ScoreHeader({ d }: { d: ReviewData }) {
           </div>
         </div>
       )}
-      {a.pending && <div className="w-full text-xs text-amber-700">Part of this response is not scored yet (needs AI evaluation, a transcript or a self-rating).</div>}
+      {a.pending && <div className="w-full text-xs text-text">Part of this response is not scored yet (needs AI evaluation, a transcript or a self-rating).</div>}
     </div>
   );
 }
@@ -89,20 +90,20 @@ function CtwReview({ d }: { d: ReviewData }) {
           if (s.type === "text") return <span key={k}>{s.text}</span>;
           const it = items[s.index]!;
           return it.correct ? (
-            <span key={k} className="rounded bg-green-50 px-0.5 text-green-800">
+            <span key={k} className="rounded-lg bg-ok-soft px-0.5 text-ok">
               {s.full}
             </span>
           ) : (
             <span key={k} className="whitespace-nowrap">
-              <span className="rounded bg-red-50 px-0.5 text-red-700 line-through decoration-red-300">{it.response || `${s.visible}…`}</span>{" "}
-              <span className="rounded bg-green-50 px-0.5 font-semibold text-green-800">{s.full}</span>
+              <span className="rounded-lg bg-bad-soft px-0.5 text-bad line-through decoration-bad">{it.response || `${s.visible}…`}</span>{" "}
+              <span className="rounded-lg bg-ok-soft px-0.5 font-semibold text-ok">{s.full}</span>
             </span>
           );
         })}
       </div>
       <table className="w-full text-sm">
         <thead>
-          <tr className="text-left text-xs text-zinc-500">
+          <tr className="text-left text-xs text-dim">
             <th className="py-1">#</th>
             <th>Your word</th>
             <th>Correct</th>
@@ -112,18 +113,20 @@ function CtwReview({ d }: { d: ReviewData }) {
         </thead>
         <tbody>
           {items.map((it, i) => (
-            <tr key={i} className="border-t border-zinc-100">
-              <td className="py-1.5 text-zinc-400">{i + 1}</td>
-              <td className={it.correct ? "text-green-700" : "text-red-700"}>{it.response}</td>
+            <tr key={i} className="border-t border-line">
+              <td className="py-1.5 text-dim">{i + 1}</td>
+              <td className={`font-semibold ${it.correct ? "text-ok" : "text-bad"}`}>
+                <span className="inline-flex items-center gap-1">{it.correct ? <IconCheck size={14} title="correct" /> : <IconX size={14} title="incorrect" />}{it.response}</span>
+              </td>
               <td>{it.expected}</td>
-              <td className="text-zinc-600">{it.errorTag ? tagLabel(it.errorTag) : "—"}</td>
-              <td className="text-right tabular-nums text-zinc-500">{it.elapsedMs ? `${(it.elapsedMs / 1000).toFixed(1)} s` : "—"}</td>
+              <td className="text-muted">{it.errorTag ? tagLabel(it.errorTag) : "—"}</td>
+              <td className="text-right tabular-nums text-dim">{it.elapsedMs ? `${(it.elapsedMs / 1000).toFixed(1)} s` : "—"}</td>
             </tr>
           ))}
         </tbody>
       </table>
       {timed.length > 0 && (
-        <p className="text-xs text-zinc-500">
+        <p className="text-xs text-dim">
           Mean {(timed.reduce((a, i) => a + (i.elapsedMs ?? 0), 0) / timed.length / 1000).toFixed(1)} s per gap (focus time). Strategy target ≤ 13 s: grammar first, then meaning, then spelling.
         </p>
       )}
@@ -150,7 +153,7 @@ function McqSetReview({ d }: { d: ReviewData }) {
           </div>
         )}
         {ex.task_type === "read_in_daily_life" && (
-          <div className="card p-5 text-[14.5px] leading-relaxed text-zinc-800">
+          <div className="card p-6 text-[14.5px] leading-relaxed text-text">
             {ex.stimulus.title && <h3 className="mb-2 font-semibold">{ex.stimulus.title}</h3>}
             {ex.stimulus.body && <p className="whitespace-pre-line">{ex.stimulus.body}</p>}
             {ex.stimulus.messages?.map((m, i) => (
@@ -164,7 +167,7 @@ function McqSetReview({ d }: { d: ReviewData }) {
                   {[ex.stimulus.table.columns, ...ex.stimulus.table.rows].map((r, i) => (
                     <tr key={i} className={i === 0 ? "font-semibold" : ""}>
                       {r.map((c, j) => (
-                        <td key={j} className="border-b border-zinc-100 py-1 pr-2">
+                        <td key={j} className="border-b border-line py-1 pr-2">
                           {c}
                         </td>
                       ))}
@@ -177,12 +180,12 @@ function McqSetReview({ d }: { d: ReviewData }) {
           </div>
         )}
         {tr.length > 0 && (
-          <div className="card p-5">
+          <div className="card p-6">
             <div className="label mb-2">Transcript</div>
-            <div className="space-y-1.5 text-[14px] leading-relaxed text-zinc-800">
+            <div className="space-y-1.5 text-[14px] leading-relaxed text-text">
               {tr.map((s, i) => (
                 <p key={i}>
-                  {tr.length > 1 && <b className="text-zinc-500">{s.speaker}: </b>}
+                  {tr.length > 1 && <b className="text-dim">{s.speaker}: </b>}
                   {s.text}
                 </p>
               ))}
@@ -204,7 +207,7 @@ function ChoiceReview({ d }: { d: ReviewData }) {
   const a = ((d.attempt.response as { answer?: number | null }) ?? {}).answer ?? null;
   return (
     <div className="mx-auto max-w-2xl space-y-4">
-      <div className="card p-4">
+      <div className="card p-5">
         <div className="label mb-1">You heard</div>
         <p className="text-[15px]">“{ex.audio[0]!.text}”</p>
       </div>
@@ -219,18 +222,18 @@ function BuildReview({ d }: { d: ReviewData }) {
   return (
     <div className="mx-auto max-w-2xl space-y-4">
       <div className="card space-y-3 p-5">
-        <p className="text-sm text-zinc-500">A: {ex.context}</p>
+        <p className="text-sm text-dim">A: {ex.context}</p>
         <div>
           <div className="label">Your sentence</div>
-          <p className={`text-[16px] ${it.correct ? "text-green-700" : "text-red-700"}`}>{it.response}</p>
+          <p className={`flex items-center gap-1.5 text-[16px] font-semibold ${it.correct ? "text-ok" : "text-bad"}`}>{it.correct ? <IconCheck title="correct" /> : <IconX title="incorrect" />}{it.response}</p>
         </div>
         {!it.correct && (
           <div>
             <div className="label">Correct</div>
-            <p className="text-[16px] text-green-800">{ex.full_response}</p>
+            <p className="text-[16px] text-ok">{ex.full_response}</p>
           </div>
         )}
-        {ex.distractors.length > 0 && <p className="text-xs text-zinc-500">Unused distractor: {ex.distractors.map((x) => `“${x}”`).join(", ")}</p>}
+        {ex.distractors.length > 0 && <p className="text-xs text-dim">Unused distractor: {ex.distractors.map((x) => `“${x}”`).join(", ")}</p>}
       </div>
       <Notice>
         <span className="chip mr-2">{tagLabel(ex.pattern)}</span>
@@ -248,14 +251,14 @@ function Diff({ ops }: { ops: AlignOp[] }) {
           <span key={i}>{o.ref}</span>
         ) : o.op === "sub" ? (
           <span key={i} title={`said “${o.hyp}”`}>
-            <span className="text-red-600 line-through">{o.hyp}</span> <span className="rounded bg-amber-100 px-0.5">{o.ref}</span>
+            <span className="text-bad line-through">{o.hyp}</span> <span className="rounded-lg bg-pill px-0.5">{o.ref}</span>
           </span>
         ) : o.op === "del" ? (
-          <span key={i} className="rounded bg-red-100 px-0.5 text-red-800" title="missing">
+          <span key={i} className="rounded-lg bg-bad-soft px-0.5 text-bad" title="missing">
             {o.ref}
           </span>
         ) : (
-          <span key={i} className="text-zinc-400" title="extra word">
+          <span key={i} className="text-dim" title="extra word">
             +{o.hyp}
           </span>
         ),
@@ -270,12 +273,12 @@ function SelfRate({ items, onSubmit }: { items: string[]; onSubmit: (r: Record<s
   return (
     <div className="card space-y-3 p-4">
       <div className="text-sm font-medium">Self-rating (no transcript available)</div>
-      <p className="text-xs text-zinc-500">Listen to your recording, compare with the reference, and rate with the ETS descriptors: 5 exact; 4 minor changes, meaning intact; 3 essentials kept with inaccuracies; 2 fragmentary; 1 very little; 0 nothing usable. Self-ratings are labelled as such in your statistics.</p>
+      <p className="text-xs text-dim">Listen to your recording, compare with the reference, and rate with the ETS descriptors: 5 exact; 4 minor changes, meaning intact; 3 essentials kept with inaccuracies; 2 fragmentary; 1 very little; 0 nothing usable. Self-ratings are labelled as such in your statistics.</p>
       {items.map((k) => (
         <div key={k} className="flex items-center gap-2 text-sm">
-          <span className="w-20 text-zinc-500">{k}</span>
+          <span className="w-20 text-dim">{k}</span>
           {[0, 1, 2, 3, 4, 5].map((n) => (
-            <button key={n} className={`h-7 w-7 rounded border text-xs ${r[k] === n ? "border-accent bg-accent text-white" : "border-zinc-300"}`} onClick={() => setR({ ...r, [k]: n })}>
+            <button key={n} className={`h-11 w-11 rounded-full border text-sm font-bold ${r[k] === n ? "border-accent bg-accent text-on-accent" : "border-ring"}`} onClick={() => setR({ ...r, [k]: n })}>
               {n}
             </button>
           ))}
@@ -319,11 +322,11 @@ function RepeatReview({ d, reload }: { d: ReviewData; reload: (r: ReviewData) =>
               </span>
               <span className="text-sm font-semibold tabular-nums">{it.score == null ? "unscored" : `${it.score}/5`}</span>
             </div>
-            <p className="text-[15px] text-zinc-900">{ref.text}</p>
+            <p className="text-[15px] text-text">{ref.text}</p>
             {det.metrics ? (
               <>
                 <Diff ops={det.metrics.ops} />
-                <div className="flex flex-wrap gap-3 text-xs text-zinc-500">
+                <div className="flex flex-wrap gap-3 text-xs text-dim">
                   <span>WER {pct(det.metrics.wer)}</span>
                   <span>CER {pct(det.metrics.cer)}</span>
                   <span>content words {pct(det.metrics.contentRecall)}</span>
@@ -333,7 +336,7 @@ function RepeatReview({ d, reload }: { d: ReviewData; reload: (r: ReviewData) =>
                 </div>
               </>
             ) : (
-              <p className="text-xs text-zinc-500">{det.source === "self_rating" ? "Self-rated." : det.interrupted ? "Interrupted (page reload) — not recorded." : rec?.stt_error ? `Transcription failed: ${rec.stt_error}` : "No transcript."}</p>
+              <p className="text-xs text-dim">{det.source === "self_rating" ? "Self-rated." : det.interrupted ? "Interrupted (page reload) — not recorded." : rec?.stt_error ? `Transcription failed: ${rec.stt_error}` : "No transcript."}</p>
             )}
             {rec && <audio controls preload="none" src={`/api/recordings/${rec.id}/audio`} className="h-8 w-full" />}
           </div>
@@ -351,7 +354,7 @@ function Criteria({ scores }: { scores: Record<string, number | null> }) {
     <div className="grid grid-cols-2 gap-x-6 gap-y-1.5 sm:grid-cols-3">
       {Object.entries(scores).map(([k, v]) => (
         <div key={k} className="flex items-center justify-between gap-2 text-[13px]">
-          <span className="text-zinc-600">{k.replace(/_/g, " ")}</span>
+          <span className="text-muted">{k.replace(/_/g, " ")}</span>
           <span className="font-semibold tabular-nums">{v == null ? "n/a" : `${v}/5`}</span>
         </div>
       ))}
@@ -384,22 +387,22 @@ function EvaluationCard({ ev, title }: { ev: ReviewData["evaluations"][number]; 
     <div className="card space-y-4 p-5">
       <div className="flex flex-wrap items-baseline justify-between gap-2">
         <div className="text-sm font-semibold">{title ?? "AI estimate"}</div>
-        <div className="text-xs text-zinc-500">
+        <div className="text-xs text-dim">
           TOEFL-aligned estimator · {ev.model} · confidence {pct(r.confidence_0_1)} · not an ETS score
         </div>
       </div>
       <div className="flex items-center gap-4">
         <div className="text-3xl font-semibold tabular-nums">{r.rubric_score_0_5}/5</div>
-        <div className="text-xs text-zinc-500">task-level rubric (0–5), not a 1–6 section band</div>
+        <div className="text-xs text-dim">task-level rubric (0–5), not a 1–6 section band</div>
       </div>
       <Criteria scores={r.criterion_scores} />
-      <div className="rounded-md border border-accent/30 bg-accent-soft p-3 text-[14px] text-zinc-900">
-        <div className="label mb-1 text-accent">Highest-impact fix</div>
+      <div className="rounded-btn border border-ring bg-pill p-3 text-[14px] text-text">
+        <div className="label mb-1 text-text">Highest-impact fix</div>
         {r.highest_impact_fix}
       </div>
       {!!r.missing_requirements?.length && (
         <div>
-          <div className="label mb-1 text-red-700">Missed requirements</div>
+          <div className="label mb-1 text-bad">Missed requirements</div>
           <ul className="list-disc pl-5 text-[14px]">{r.missing_requirements.map((m) => <li key={m}>{m}</li>)}</ul>
         </div>
       )}
@@ -421,13 +424,13 @@ function EvaluationCard({ ev, title }: { ev: ReviewData["evaluations"][number]; 
           <table className="w-full text-[13.5px]">
             <tbody>
               {r.errors.map((e, i) => (
-                <tr key={i} className="border-t border-zinc-100 align-top">
-                  <td className="py-1.5 pr-2 text-red-700 line-through decoration-red-300">{e.span}</td>
-                  <td className="py-1.5 pr-2 font-medium text-green-800">{e.correction}</td>
+                <tr key={i} className="border-t border-line align-top">
+                  <td className="py-1.5 pr-2 text-bad line-through decoration-bad">{e.span}</td>
+                  <td className="py-1.5 pr-2 font-medium text-ok">{e.correction}</td>
                   <td className="py-1.5 pr-2">
                     <span className="chip">{tagLabel(e.category)}</span>
                   </td>
-                  <td className="py-1.5 text-zinc-600">{e.explanation}</td>
+                  <td className="py-1.5 text-muted">{e.explanation}</td>
                 </tr>
               ))}
             </tbody>
@@ -435,10 +438,10 @@ function EvaluationCard({ ev, title }: { ev: ReviewData["evaluations"][number]; 
         </div>
       )}
       {(r.target_rewrite || r.target_model_answer) && (
-        <details className="rounded-md border border-zinc-200 p-3" open>
+        <details className="rounded-btn border border-line p-3" open>
           <summary className="cursor-pointer text-sm font-medium">Improved model response (your target level)</summary>
-          <p className="mt-2 whitespace-pre-line text-[14.5px] leading-relaxed text-zinc-800">{r.target_rewrite ?? r.target_model_answer}</p>
-          {!!r.rewrite_notes?.length && <ul className="mt-2 list-disc pl-5 text-xs text-zinc-600">{r.rewrite_notes.map((n) => <li key={n}>{n}</li>)}</ul>}
+          <p className="mt-2 whitespace-pre-line text-[14.5px] leading-relaxed text-text">{r.target_rewrite ?? r.target_model_answer}</p>
+          {!!r.rewrite_notes?.length && <ul className="mt-2 list-disc pl-5 text-xs text-muted">{r.rewrite_notes.map((n) => <li key={n}>{n}</li>)}</ul>}
         </details>
       )}
     </div>
@@ -489,7 +492,7 @@ function AiStatus({ ae, hasOk }: { ae: ReturnType<typeof useAutoEvaluate>; hasOk
           {hasOk ? "Re-evaluate" : "Evaluate with AI"}
         </button>
       )}
-      {ae.message && <span className="text-xs text-amber-700">{ae.message}</span>}
+      {ae.message && <span className="text-xs text-text">{ae.message}</span>}
     </div>
   );
 }
@@ -502,19 +505,19 @@ function WritingReview({ d, reload }: { d: ReviewData; reload: (r: ReviewData) =
   return (
     <div className="grid gap-6 lg:grid-cols-2">
       <div className="space-y-4">
-        <div className="card p-5">
+        <div className="card p-6">
           <div className="label mb-2">Your response</div>
-          <p className="whitespace-pre-line text-[14.5px] leading-relaxed">{text || <i className="text-zinc-400">(empty)</i>}</p>
+          <p className="whitespace-pre-line text-[14.5px] leading-relaxed">{text || <i className="text-dim">(empty)</i>}</p>
         </div>
         {ex.task_type === "write_an_email" && (
-          <div className="card p-5">
+          <div className="card p-6">
             <div className="label mb-1">Requirements</div>
             <ul className="list-disc pl-5 text-[14px]">{ex.requirements.map((r) => <li key={r}>{r}</li>)}</ul>
           </div>
         )}
-        <details className="card p-5">
+        <details className="card p-6">
           <summary className="cursor-pointer text-sm font-medium">{ex.exemplar_label}</summary>
-          <p className="mt-2 whitespace-pre-line text-[14px] leading-relaxed text-zinc-700">{ex.exemplar}</p>
+          <p className="mt-2 whitespace-pre-line text-[14px] leading-relaxed text-muted">{ex.exemplar}</p>
         </details>
       </div>
       <div className="space-y-4">
@@ -548,13 +551,13 @@ function InterviewReview({ d, reload }: { d: ReviewData; reload: (r: ReviewData)
               <p className="text-[15px] font-medium">{q.prompt}</p>
               {rec ? (
                 <>
-                  <p className="text-[14px] text-zinc-700">
-                    {rec.transcript ? `“${rec.transcript}”` : <i className="text-zinc-400">{rec.stt_error ? `Transcription failed: ${rec.stt_error}` : "No transcript"}</i>}
+                  <p className="text-[14px] text-muted">
+                    {rec.transcript ? `“${rec.transcript}”` : <i className="text-dim">{rec.stt_error ? `Transcription failed: ${rec.stt_error}` : "No transcript"}</i>}
                   </p>
                   <audio controls preload="none" src={`/api/recordings/${rec.id}/audio`} className="h-8 w-full" />
                 </>
               ) : (
-                <p className="text-xs text-zinc-400">Not recorded.</p>
+                <p className="text-xs text-dim">Not recorded.</p>
               )}
             </div>
             {ev && <EvaluationCard ev={ev} title={`Question ${q.index}`} />}

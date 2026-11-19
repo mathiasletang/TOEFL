@@ -42,7 +42,7 @@ export function CompleteTheWords({ ex, value, onChange, ctx }: TaskProps<"comple
 
   return (
     <div>
-      <p className="mb-4 text-sm text-zinc-500">Fill in the missing letters in the paragraph. {ctx.strict ? "" : "Typing the last letter moves to the next word."}</p>
+      <p className="mb-4 text-sm text-dim">Fill in the missing letters in the paragraph. {ctx.strict ? "" : "Typing the last letter moves to the next word."}</p>
       <div className="reading card p-6">
         {ex.segments.map((s, k) =>
           s.type === "text" ? (
@@ -82,7 +82,7 @@ export function CompleteTheWords({ ex, value, onChange, ctx }: TaskProps<"comple
           ),
         )}
       </div>
-      <p className="mt-2 text-xs text-zinc-400">
+      <p className="mt-2 text-xs text-dim">
         {v.gaps.filter(Boolean).length}/{gapCount} words attempted · each box shows exactly how many letters are missing
       </p>
     </div>

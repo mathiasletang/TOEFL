@@ -35,7 +35,7 @@ export function Focus({ user }: { user: string }) {
         <div className="card p-6">
           <div className="label mb-1">Next targeted exercise</div>
           <div className="text-lg font-semibold">{f.data.task_type ? TASK_LABEL[f.data.task_type] : ""}</div>
-          <p className="mt-1 text-sm text-zinc-600">{f.data.reason}</p>
+          <p className="mt-1 text-sm text-muted">{f.data.reason}</p>
           <div className="mt-4 flex gap-2">
             <Link to={`/u/${user}/drill/${f.data.exercise_id}?mode=${mode}&from=focus`} className="btn btn-primary">
               Start
@@ -48,14 +48,14 @@ export function Focus({ user }: { user: string }) {
       ) : (
         <Notice>{f.data?.reason ?? "No recommendation yet."}</Notice>
       )}
-      <div className="card p-5">
+      <div className="card p-6">
         <div className="label mb-3">Error profile — last 30 days</div>
         {!prog.data?.weaknesses.length ? (
-          <p className="text-sm text-zinc-500">No errors recorded yet.</p>
+          <p className="text-sm text-dim">No errors recorded yet.</p>
         ) : (
           <table className="w-full text-[13.5px]">
             <thead>
-              <tr className="text-left text-xs text-zinc-500">
+              <tr className="text-left text-xs text-dim">
                 <th className="py-1">Pattern</th>
                 <th>Rate</th>
                 <th className="w-32" />
@@ -66,17 +66,17 @@ export function Focus({ user }: { user: string }) {
             </thead>
             <tbody>
               {prog.data.weaknesses.map((w) => (
-                <tr key={w.tag} className="border-t border-zinc-100">
+                <tr key={w.tag} className="border-t border-line">
                   <td className="py-1.5 font-medium">{w.label}</td>
                   <td className="tabular-nums">{pct(w.rate)}</td>
                   <td>
                     <Bar value={w.rate} tone={w.rate > 0.4 ? "bad" : "warn"} />
                   </td>
-                  <td className="tabular-nums text-zinc-600">
+                  <td className="tabular-nums text-muted">
                     {w.errors}/{w.opportunities}
                   </td>
-                  <td className="text-xs text-zinc-500">{[...w.task_types.map((t) => TASK_LABEL[t]), ...(w.sources ?? []).map((x) => (x === "vocabulary" ? "Vocabulary reviews" : x))].join(", ")}</td>
-                  <td className="text-xs text-zinc-500">{ago(w.last_seen)}</td>
+                  <td className="text-xs text-dim">{[...w.task_types.map((t) => TASK_LABEL[t]), ...(w.sources ?? []).map((x) => (x === "vocabulary" ? "Vocabulary reviews" : x))].join(", ")}</td>
+                  <td className="text-xs text-dim">{ago(w.last_seen)}</td>
                 </tr>
               ))}
             </tbody>

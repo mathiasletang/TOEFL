@@ -1,6 +1,7 @@
 import { useState, type ReactNode } from "react";
 import { McqQuestion } from "../components/Mcq";
 import type { TaskProps, PublicOf } from "./types";
+import { IconArrowLeft, IconArrowRight } from "../components/icons";
 
 export type McqValue = { answers: (number | null)[]; questionMs?: number[]; _q?: number };
 
@@ -32,7 +33,7 @@ function QuestionTabs({ n, q, answers, go, locked }: { n: number; q: number; ans
           aria-selected={i === q}
           disabled={locked}
           onClick={() => go(i)}
-          className={`h-7 min-w-7 rounded border px-2 text-xs font-semibold ${i === q ? "border-zinc-900 bg-zinc-900 text-white" : answers[i] != null ? "border-zinc-300 bg-zinc-100 text-zinc-700" : "border-zinc-200 text-zinc-400"}`}
+          className={`h-11 min-w-11 rounded-full border px-2 text-xs font-extrabold ${i === q ? "border-accent bg-accent text-on-accent" : answers[i] != null ? "border-ring bg-pill text-muted" : "border-line text-dim"}`}
         >
           {i + 1}
         </button>
@@ -43,29 +44,29 @@ function QuestionTabs({ n, q, answers, go, locked }: { n: number; q: number; ans
 
 function DailyStimulus({ s }: { s: PublicOf<"read_in_daily_life">["stimulus"] }) {
   const header: ReactNode = s.meta.length ? (
-    <div className="mb-3 space-y-0.5 border-b border-zinc-100 pb-3 text-[13px]">
+    <div className="mb-3 space-y-0.5 border-b border-line pb-3 text-[13px]">
       {s.meta.map((m) => (
         <div key={m.label}>
-          <span className="inline-block w-16 text-zinc-400">{m.label}</span>
-          <span className="text-zinc-800">{m.value}</span>
+          <span className="inline-block w-16 text-dim">{m.label}</span>
+          <span className="text-text">{m.value}</span>
         </div>
       ))}
     </div>
   ) : null;
   return (
-    <div className={`card p-5 ${s.format === "notice" || s.format === "advertisement" ? "border-zinc-300 bg-[#fffdf7]" : ""}`}>
+    <div className={`card p-6 ${s.format === "notice" || s.format === "advertisement" ? "border-dashed border-ring bg-bg" : ""}`}>
       <div className="label mb-2">{s.format.replace(/_/g, " ")}</div>
-      {s.title && <h3 className="mb-3 text-[15px] font-semibold text-zinc-900">{s.title}</h3>}
+      {s.title && <h3 className="mb-3 text-[15px] font-semibold text-text">{s.title}</h3>}
       {header}
-      {s.body && <div className="whitespace-pre-line text-[15px] leading-relaxed text-zinc-800">{s.body}</div>}
+      {s.body && <div className="whitespace-pre-line text-[15px] leading-relaxed text-text">{s.body}</div>}
       {s.messages && (
         <div className="space-y-2">
           {s.messages.map((m, i) => (
-            <div key={i} className="rounded-lg bg-zinc-50 px-3 py-2">
-              <div className="mb-0.5 text-[11px] text-zinc-500">
-                <b className="text-zinc-700">{m.sender}</b> {m.time && <span>· {m.time}</span>}
+            <div key={i} className="rounded-tile bg-pill px-3 py-2">
+              <div className="mb-0.5 text-[11px] text-dim">
+                <b className="text-muted">{m.sender}</b> {m.time && <span>· {m.time}</span>}
               </div>
-              <div className="text-[14.5px] text-zinc-800">{m.text}</div>
+              <div className="text-[14.5px] text-text">{m.text}</div>
             </div>
           ))}
         </div>
@@ -76,7 +77,7 @@ function DailyStimulus({ s }: { s: PublicOf<"read_in_daily_life">["stimulus"] })
             <thead>
               <tr>
                 {s.table.columns.map((c) => (
-                  <th key={c} className="border-b border-zinc-300 px-2 py-1.5 text-left font-semibold text-zinc-700">
+                  <th key={c} className="border-b border-ring px-2 py-1.5 text-left font-semibold text-muted">
                     {c}
                   </th>
                 ))}
@@ -86,7 +87,7 @@ function DailyStimulus({ s }: { s: PublicOf<"read_in_daily_life">["stimulus"] })
               {s.table.rows.map((r, i) => (
                 <tr key={i}>
                   {r.map((c, j) => (
-                    <td key={j} className="border-b border-zinc-100 px-2 py-1.5 text-zinc-800">
+                    <td key={j} className="border-b border-line px-2 py-1.5 text-text">
                       {c}
                     </td>
                   ))}
@@ -96,7 +97,7 @@ function DailyStimulus({ s }: { s: PublicOf<"read_in_daily_life">["stimulus"] })
           </table>
         </div>
       )}
-      {s.footer && <p className="mt-3 text-[13px] italic text-zinc-600">{s.footer}</p>}
+      {s.footer && <p className="mt-3 text-[13px] italic text-muted">{s.footer}</p>}
     </div>
   );
 }
@@ -111,10 +112,10 @@ export function ReadInDailyLife({ ex, value, onChange, ctx }: TaskProps<"read_in
         <McqQuestion q={ex.questions[q]!} value={v.answers[q]} onChange={answer} disabled={ctx.locked} number={q + 1} total={ex.questions.length} />
         <div className="mt-4 flex justify-between">
           <button className="btn" disabled={q === 0 || ctx.locked} onClick={() => go(q - 1)}>
-            ← Previous
+            <IconArrowLeft size={16} /> Previous
           </button>
           <button className="btn" disabled={q === ex.questions.length - 1 || ctx.locked} onClick={() => go(q + 1)}>
-            Next →
+            Next <IconArrowRight size={16} />
           </button>
         </div>
       </div>
@@ -157,10 +158,10 @@ export function ReadAcademicPassage({ ex, value, onChange, ctx }: TaskProps<"rea
         <McqQuestion q={cur} value={v.answers[q]} onChange={answer} disabled={ctx.locked} number={q + 1} total={ex.questions.length} />
         <div className="mt-4 flex justify-between">
           <button className="btn" disabled={q === 0 || ctx.locked} onClick={() => go(q - 1)}>
-            ← Previous
+            <IconArrowLeft size={16} /> Previous
           </button>
           <button className="btn" disabled={q === ex.questions.length - 1 || ctx.locked} onClick={() => go(q + 1)}>
-            Next →
+            Next <IconArrowRight size={16} />
           </button>
         </div>
       </div>

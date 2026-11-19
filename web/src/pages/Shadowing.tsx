@@ -4,6 +4,7 @@ import { useApi } from "../lib/useApi";
 import { Link, useRouter } from "../lib/router";
 import { speakText, type Playback } from "../lib/audio";
 import { ErrorBox, Notice, PageTitle, Spinner } from "../components/ui";
+import { IconPlay } from "../components/icons";
 
 interface Segment {
   id: string;
@@ -72,26 +73,26 @@ export function Shadowing({ user }: { user: string }) {
         }
       />
       <Notice>{data.instruction}</Notice>
-      {data.audio === "browser" && <p className="mt-2 text-xs text-zinc-500">Audio: browser speech synthesis (no TTS key configured) — a fallback, not ETS-like audio.</p>}
+      {data.audio === "browser" && <p className="mt-2 text-xs text-dim">Audio: browser speech synthesis (no TTS key configured) — a fallback, not ETS-like audio.</p>}
       {data.repeats > 0 && (
-        <p className="mt-2 text-xs text-amber-700">
+        <p className="mt-2 text-xs text-text">
           The pool ({data.pool} segments) is too small for {data.no_repeat_days} days without repetition: {data.repeats} segment(s) seen recently are reused today.
         </p>
       )}
-      {audioError && <p className="mt-2 text-sm text-red-700">{audioError}</p>}
+      {audioError && <p className="mt-2 text-sm text-bad">{audioError}</p>}
       <ol className="mt-4 space-y-2">
         {data.segments.map((s, i) => (
           <li key={s.id} className="card flex items-start gap-3 p-3">
-            <span className="mt-1 w-5 text-right text-xs tabular-nums text-zinc-400">{i + 1}</span>
+            <span className="mt-1 w-5 text-right text-xs tabular-nums text-dim">{i + 1}</span>
             <div className="min-w-0 flex-1">
               <p className={`reading text-[16px] ${hidden[s.id] ? "select-none blur-sm" : ""}`}>{s.text}</p>
-              <div className="mt-1 text-xs text-zinc-400">
+              <div className="mt-1 text-xs text-dim">
                 {s.source} · {s.words} words · played {plays[s.id] ?? 0}×
               </div>
             </div>
             <div className="flex shrink-0 gap-1">
               <button className="btn py-1 text-xs" onClick={() => play(s)} disabled={playing === s.id}>
-                {playing === s.id ? "Playing…" : "▶ Play"}
+                {playing === s.id ? "Playing…" : <><IconPlay size={15} /> Play</>}
               </button>
               <button className="btn btn-ghost py-1 text-xs" onClick={() => setHidden((h) => ({ ...h, [s.id]: !h[s.id] }))} aria-pressed={!!hidden[s.id]}>
                 {hidden[s.id] ? "Show text" : "Hide text"}

@@ -187,6 +187,10 @@ The Progress page adds:
 
 ---
 
+### Appearance
+
+Black and white theme with a light and a dark mode. The switch sits in the header and in Settings; light is the default, and the choice is remembered per profile in this browser (applied before the first render, so there is no white flash). Design tokens (colours, radii) live in `web/src/styles.css`; green and red are used only for corrections, always with an icon or a word.
+
 ## 3. Optional providers (`.env`)
 
 Nothing below is required. Without it, every objective task works fully, and productive answers are saved but never given an invented score.

@@ -7,6 +7,7 @@ import { ReviewView, type ReviewData } from "../tasks/Review";
 import { TASK_LABEL, type TaskType } from "../../../shared/schema";
 import { useMode } from "./Practice";
 import { WordPicker } from "../components/WordPicker";
+import { IconArrowRight } from "../components/icons";
 
 export function ReviewPage({ user, attemptId }: { user: string; attemptId: string }) {
   const { data, error, loading, setData } = useApi<ReviewData>(`/api/attempts/${attemptId}`);
@@ -28,13 +29,13 @@ export function ReviewPage({ user, attemptId }: { user: string; attemptId: strin
   const t = data.exercise.task_type as TaskType;
   return (
     <div className="space-y-5">
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-zinc-200 pb-3">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-line pb-3">
         <div>
           <h1 className="text-lg font-semibold">Review · {TASK_LABEL[t]}</h1>
-          <div className="text-xs text-zinc-400">{data.exercise.id}</div>
+          <div className="text-xs text-dim">{data.exercise.id}</div>
         </div>
         <div className="flex flex-wrap gap-2">
-          <button className={`btn ${picking ? "border-accent text-accent" : ""}`} aria-pressed={picking} onClick={() => setPicking(!picking)} title="Click any word of the correction to add it to your vocabulary deck">
+          <button className={`btn ${picking ? "border-accent text-text" : ""}`} aria-pressed={picking} onClick={() => setPicking(!picking)} title="Click any word of the correction to add it to your vocabulary deck">
             {picking ? "Adding words: on" : "Add words to vocabulary"}
           </button>
           {data.attempt.simulation_id ? (
@@ -45,7 +46,7 @@ export function ReviewPage({ user, attemptId }: { user: string; attemptId: strin
             <>
               {next.same && (
                 <button className="btn btn-primary" onClick={() => navigate(`/u/${user}/drill/${next.same}?mode=${mode}`)}>
-                  Next {TASK_LABEL[t]} →
+                  Next {TASK_LABEL[t]} <IconArrowRight size={16} />
                 </button>
               )}
               {next.focus?.exercise_id && next.focus.exercise_id !== next.same && (

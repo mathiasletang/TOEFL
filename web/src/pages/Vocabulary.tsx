@@ -9,6 +9,7 @@ import { pct } from "../lib/format";
 import { useConfig } from "../lib/config";
 import type { VocabEntry } from "../../../shared/vocab";
 import type { Format } from "../../../shared/vocabSrs";
+import { IconArrowLeft, IconCheck, IconDot, IconSpeaker, IconX } from "../components/icons";
 
 // ---------------------------------------------------------------- shared bits
 
@@ -47,7 +48,7 @@ interface CardView {
 }
 
 const TIER_LABEL = (meta: Meta | null, tier: string) => (tier === "personal" ? "Personal" : (meta?.tiers[tier]?.label ?? tier));
-const STATUS_CLS: Record<string, string> = { new: "text-zinc-500", known: "border-sky-200 bg-sky-50 text-sky-800", learning: "border-amber-200 bg-amber-50 text-amber-800", mature: "border-green-200 bg-green-50 text-green-800" };
+const STATUS_CLS: Record<string, string> = { new: "text-dim", known: "border-ring bg-pill text-text", learning: "border-ring bg-pill text-text", mature: "border-ok/40 bg-ok-soft text-ok" };
 const ORIGIN_LABEL: Record<string, string> = { scheduled: "Daily introduction", manual: "Added by you", harvest_ctw: "Missed in Complete the Words", harvest_question: "Missed vocabulary question" };
 
 function useMeta() {
@@ -64,14 +65,14 @@ function VocabNav({ user, active, live }: { user: string; active: "bank" | "tria
     ["stats", "Stats", `/u/${user}/vocab/stats`],
   ] as const;
   return (
-    <div className="mb-5 flex gap-1 border-b border-zinc-200">
+    <nav className="mb-6 flex flex-wrap gap-1" aria-label="Vocabulary">
       {tabs.map(([key, label, to]) => (
-        <Link key={key} to={to} className={`-mb-px border-b-2 px-3 py-2 text-sm ${active === key ? "border-zinc-900 font-medium text-zinc-900" : "border-transparent text-zinc-500 hover:text-zinc-900"}`}>
+        <Link key={key} to={to} aria-current={active === key ? "page" : undefined} className={`tab ${active === key ? "tab-active" : ""}`}>
           {label}
-          {key === "session" && summary && summary.due + summary.new_left > 0 && <span className="ml-1.5 rounded-full bg-accent px-1.5 py-0.5 text-[10px] font-semibold text-white">{summary.due + summary.new_left}</span>}
+          {key === "session" && summary && summary.due + summary.new_left > 0 && <span className="ml-1.5 rounded-full bg-accent px-1.5 py-0.5 text-[10px] font-semibold text-on-accent">{summary.due + summary.new_left}</span>}
         </Link>
       ))}
-    </div>
+    </nav>
   );
 }
 
@@ -92,9 +93,9 @@ function SpeakButton({ text, url, label = "Listen" }: { text: string; url?: stri
   return (
     <>
       <button className="btn btn-ghost px-2 py-0.5 text-xs" onClick={play} disabled={busy} aria-label={`${label}: ${text}`}>
-        {busy ? "…" : "🔊"} {label}
+        {busy ? <span className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-ring border-t-text" aria-hidden /> : <IconSpeaker size={16} />} {label}
       </button>
-      {error && <span className="text-xs text-red-700">{error}</span>}
+      {error && <span className="text-xs text-bad">{error}</span>}
     </>
   );
 }
@@ -106,7 +107,7 @@ function EntryCard({ entry, audio, compact }: { entry: VocabEntry; audio?: strin
     <div className="space-y-3 text-sm">
       <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
         <span className="text-xl font-semibold">{entry.headword}</span>
-        <span className="font-mono text-[13px] text-zinc-500">{entry.ipa}</span>
+        <span className="font-mono text-[13px] text-dim">{entry.ipa}</span>
         <SpeakButton text={entry.headword} url={url("headword")} />
       </div>
       <div className="flex flex-wrap gap-1.5">
@@ -116,7 +117,7 @@ function EntryCard({ entry, audio, compact }: { entry: VocabEntry; audio?: strin
         {entry.kind !== "word" && <span className="chip">{entry.kind.replace(/_/g, " ")}</span>}
       </div>
       <p>{entry.definition}</p>
-      <p className="text-zinc-600">
+      <p className="text-muted">
         <span className="label mr-2">French</span>
         {entry.translation_fr}
       </p>
@@ -216,7 +217,7 @@ export function VocabBank({ user }: { user: string }) {
       <VocabNav user={user} active="bank" />
       <div className="mb-3 flex flex-wrap gap-1">
         {tiers.map((t) => (
-          <button key={t || "all"} className={`btn py-1.5 text-[13px] ${tier === t ? "border-zinc-900 bg-zinc-900 text-white hover:bg-zinc-800" : ""}`} onClick={() => setTier(t)} title={t && t !== "personal" ? meta?.tiers[t]?.note : undefined}>
+          <button key={t || "all"} className={`btn py-1.5 text-[13px] ${tier === t ? "border-accent bg-accent text-on-accent hover:opacity-90" : ""}`} onClick={() => setTier(t)} title={t && t !== "personal" ? meta?.tiers[t]?.note : undefined}>
             {t ? TIER_LABEL(meta, t) : "All"}
           </button>
         ))}
@@ -251,30 +252,30 @@ export function VocabBank({ user }: { user: string }) {
           <option value="1">French cognates only</option>
           <option value="0">No French cognates</option>
         </select>
-        {data && <span className="text-xs text-zinc-500">{data.total} entries</span>}
+        {data && <span className="text-xs text-dim">{data.total} entries</span>}
       </div>
       {error ? <ErrorBox error={error} /> : loading && !data ? <Spinner /> : null}
-      {data && data.entries.length === 0 && <p className="text-sm text-zinc-500">{tier === "personal" ? "No personal cards yet. Words you miss or click on correction screens appear here when they are not in the bank." : "No entry matches these filters."}</p>}
+      {data && data.entries.length === 0 && <p className="text-sm text-dim">{tier === "personal" ? "No personal cards yet. Words you miss or click on correction screens appear here when they are not in the bank." : "No entry matches these filters."}</p>}
       {data && data.entries.length > 0 && (
-        <div className="card divide-y divide-zinc-100">
+        <div className="card divide-y divide-line">
           {data.entries.slice(0, shown).map((e) => (
             <div key={e.id} className="flex items-center gap-3 px-4 py-2">
               <div className="min-w-0 flex-1">
-                <Link to={`/u/${user}/vocab/entry/${e.id}`} className="font-medium text-zinc-900 hover:text-accent hover:underline">
+                <Link to={`/u/${user}/vocab/entry/${e.id}`} className="font-medium text-text underline-offset-4 hover:underline">
                   {e.headword}
                 </Link>
-                {e.pos && <span className="ml-2 text-xs text-zinc-400">{e.pos}</span>}
-                <div className="truncate text-[13px] text-zinc-500">{e.translation_fr ? `${e.translation_fr} — ${e.definition}` : (e.definition ?? "Personal card")}</div>
+                {e.pos && <span className="ml-2 text-xs text-dim">{e.pos}</span>}
+                <div className="truncate text-[13px] text-dim">{e.translation_fr ? `${e.translation_fr} — ${e.definition}` : (e.definition ?? "Personal card")}</div>
               </div>
               {e.transparent && (
-                <span className="chip border-zinc-200 text-zinc-400" title={`Transparent for French speakers (similarity ${e.transparent_fr?.toFixed(2)}): introduced last`}>
+                <span className="chip border-line text-dim" title={`Transparent for French speakers (similarity ${e.transparent_fr?.toFixed(2)}): introduced last`}>
                   ≈ FR
                 </span>
               )}
               {e.cefr && <span className="chip">{e.cefr}</span>}
               <span className={`chip ${STATUS_CLS[e.status]}`}>{e.due ? "due" : e.status}</span>
               {e.in_deck ? (
-                <span className="w-20 text-right text-xs text-zinc-400">in deck</span>
+                <span className="w-20 text-right text-xs text-dim">in deck</span>
               ) : (
                 <button className="btn w-20 py-1 text-xs" onClick={() => add(e)} title="Study this word next, before the scheduled introductions">
                   + Add
@@ -315,12 +316,12 @@ export function VocabEntryPage({ user, entryId }: { user: string; entryId: strin
   return (
     <div className="space-y-5">
       <div className="text-sm">
-        <Link to={`/u/${user}/vocab`} className="text-zinc-500 hover:text-zinc-900">
-          ← Vocabulary bank
+        <Link to={`/u/${user}/vocab`} className="inline-flex min-h-11 items-center gap-1.5 font-bold text-dim hover:text-text">
+          <IconArrowLeft size={16} /> Vocabulary bank
         </Link>
       </div>
       <div className="grid gap-5 lg:grid-cols-[1fr_300px]">
-        <div className="card p-5">
+        <div className="card p-6">
           {data.entry ? (
             <>
               <div className="mb-3 flex flex-wrap gap-1.5">
@@ -336,7 +337,7 @@ export function VocabEntryPage({ user, entryId }: { user: string; entryId: strin
                 <SpeakButton text={data.personal!.headword} />
               </div>
               <span className="chip">Personal card — not in the bank</span>
-              {data.personal!.source_sentence ? <p className="reading text-[15px]">{data.personal!.source_sentence}</p> : <p className="text-zinc-500">No source sentence was saved with this word.</p>}
+              {data.personal!.source_sentence ? <p className="reading text-[15px]">{data.personal!.source_sentence}</p> : <p className="text-dim">No source sentence was saved with this word.</p>}
             </div>
           )}
         </div>
@@ -346,16 +347,16 @@ export function VocabEntryPage({ user, entryId }: { user: string; entryId: strin
             {c ? (
               <>
                 <div>
-                  <span className={`chip ${STATUS_CLS[c.status]}`}>{c.status}</span> <span className="text-zinc-500">{ORIGIN_LABEL[c.origin] ?? c.origin}</span>
+                  <span className={`chip ${STATUS_CLS[c.status]}`}>{c.status}</span> <span className="text-dim">{ORIGIN_LABEL[c.origin] ?? c.origin}</span>
                 </div>
-                <div className="text-zinc-600">
+                <div className="text-muted">
                   {c.review_count} review{c.review_count === 1 ? "" : "s"} · {c.lapses} lapse{c.lapses === 1 ? "" : "s"} · interval {c.interval_days} d
                 </div>
-                <div className="text-zinc-600">{c.review_count === 0 ? "Waiting in your queue." : c.due ? "Due now." : `Next review ${c.due_at ? new Date(c.due_at).toLocaleDateString() : "—"}.`}</div>
+                <div className="text-muted">{c.review_count === 0 ? "Waiting in your queue." : c.due ? "Due now." : `Next review ${c.due_at ? new Date(c.due_at).toLocaleDateString() : "—"}.`}</div>
               </>
             ) : (
               <>
-                <p className="text-zinc-500">Not studied yet. It will be introduced in order, or you can add it now.</p>
+                <p className="text-dim">Not studied yet. It will be introduced in order, or you can add it now.</p>
                 <button className="btn btn-primary py-1.5 text-xs" onClick={add}>
                   + Add to my deck
                 </button>
@@ -368,20 +369,20 @@ export function VocabEntryPage({ user, entryId }: { user: string; entryId: strin
           <div className="card space-y-2 p-4 text-[13px]">
             <div className="label">In the exercise bank</div>
             {data.exercises.length === 0 ? (
-              <p className="text-zinc-500">This word does not appear in any exercise yet.</p>
+              <p className="text-dim">This word does not appear in any exercise yet.</p>
             ) : (
               <ul className="space-y-1.5">
                 {data.exercises.map((x) => (
                   <li key={x.id}>
-                    <Link to={`/u/${user}/drill/${x.id}?mode=practice`} className="text-accent hover:underline">
+                    <Link to={`/u/${user}/drill/${x.id}?mode=practice`} className="text-text hover:underline">
                       {x.title}
                     </Link>
-                    <div className="text-xs text-zinc-400">{x.task_label}</div>
+                    <div className="text-xs text-dim">{x.task_label}</div>
                   </li>
                 ))}
               </ul>
             )}
-            <p className="text-xs text-zinc-400">Found automatically by matching word forms in the exercise texts.</p>
+            <p className="text-xs text-dim">Found automatically by matching word forms in the exercise texts.</p>
           </div>
         </div>
       </div>
@@ -504,7 +505,7 @@ export function VocabSession({ user }: { user: string }) {
       <PageTitle
         title="Vocabulary"
         sub="Due reviews first, then today's new words. Spacing is an internal SM-2-style schedule."
-        right={summary && <div className="text-xs text-zinc-500">{summary.due} due · {summary.new_left} new left · {summary.reviewed_today} reviewed today</div>}
+        right={summary && <div className="text-xs text-dim">{summary.due} due · {summary.new_left} new left · {summary.reviewed_today} reviewed today</div>}
       />
       <VocabNav user={user} active="session" live={summary} />
       {error != null && <ErrorBox error={error} onRetry={load} />}
@@ -514,22 +515,22 @@ export function VocabSession({ user }: { user: string }) {
         <div className="mx-auto max-w-2xl">
           <div className="card p-6">
             <div className="mb-4 flex flex-wrap items-center gap-2 text-xs">
-              <span className={`chip ${cur.card.phase === "new" ? "border-blue-200 bg-blue-50 text-blue-800" : cur.card.phase === "verify" ? "border-sky-200 bg-sky-50 text-sky-800" : ""}`}>
+              <span className={`chip ${cur.card.phase === "new" ? "border-ring bg-pill text-text" : cur.card.phase === "verify" ? "border-ring bg-pill text-text" : ""}`}>
                 {cur.card.phase === "new" ? "New word" : cur.card.phase === "verify" ? "Check: a word you marked as known" : "Review"}
               </span>
               <span className="chip">{meta?.formats[q.format] ?? q.format}</span>
               <span className="chip">{TIER_LABEL(meta, cur.card.tier)}{cur.card.cefr ? ` · ${cur.card.cefr}` : ""}</span>
-              {cur.card.origin.startsWith("harvest") && <span className="chip border-amber-200 bg-amber-50 text-amber-800">{ORIGIN_LABEL[cur.card.origin]}</span>}
+              {cur.card.origin.startsWith("harvest") && <span className="chip border-ring bg-pill text-text">{ORIGIN_LABEL[cur.card.origin]}</span>}
             </div>
-            <p className="mb-3 text-sm text-zinc-500">{q.instruction}</p>
+            <p className="mb-3 text-sm text-dim">{q.instruction}</p>
             {q.format === "dictation" ? (
               <button className="btn mb-4" onClick={play}>
-                🔊 Play again
+                <IconSpeaker size={16} /> Play again
               </button>
             ) : (
               <div className={`mb-2 ${q.prompt.length > 60 ? "reading" : "text-2xl font-semibold"}`}>{q.prompt}</div>
             )}
-            {q.detail && <div className="mb-4 text-sm text-zinc-500">{q.detail}</div>}
+            {q.detail && <div className="mb-4 text-sm text-dim">{q.detail}</div>}
 
             {q.input === "choice" && (
               <div className="mt-4 space-y-2">
@@ -541,10 +542,20 @@ export function VocabSession({ user }: { user: string }) {
                       key={i}
                       disabled={!!result || busy}
                       onClick={() => submit({ choice: i })}
-                      className={`flex w-full items-start gap-3 rounded-md border px-3 py-2.5 text-left text-sm disabled:cursor-default ${isAnswer ? "border-green-300 bg-green-50" : picked ? "border-red-300 bg-red-50" : "border-zinc-200 hover:border-zinc-400"}`}
+                      className={`flex min-h-11 w-full items-start gap-3 rounded-btn border px-4 py-3 text-left text-sm text-text disabled:cursor-default ${isAnswer ? "border-ok bg-ok-soft" : picked ? "border-bad bg-bad-soft" : "border-line bg-bg hover:border-ring hover:bg-pill"}`}
                     >
                       <Kbd>{i + 1}</Kbd>
-                      <span>{o}</span>
+                      <span className="min-w-0 flex-1">{o}</span>
+                      {isAnswer && (
+                        <span className="flex items-center gap-1 text-[12px] font-extrabold text-ok">
+                          <IconCheck size={15} /> answer
+                        </span>
+                      )}
+                      {picked && !isAnswer && (
+                        <span className="flex items-center gap-1 text-[12px] font-extrabold text-bad">
+                          <IconX size={15} /> your choice
+                        </span>
+                      )}
                     </button>
                   );
                 })}
@@ -585,7 +596,7 @@ export function VocabSession({ user }: { user: string }) {
               </button>
             )}
             {q.input === "typed" && !result && (
-              <button className="mt-2 text-xs text-zinc-400 hover:text-zinc-700" onClick={() => submit({ text: "" })} disabled={busy}>
+              <button className="mt-2 text-xs text-dim hover:text-text" onClick={() => submit({ text: "" })} disabled={busy}>
                 I don't know
               </button>
             )}
@@ -594,7 +605,7 @@ export function VocabSession({ user }: { user: string }) {
           {result && (
             <div className="card mt-4 p-6">
               <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
-                <div className={`text-sm font-semibold ${result.correct ? "text-green-700" : "text-red-700"}`}>
+                <div className={`text-sm font-semibold ${result.correct ? "text-ok" : "text-bad"}`}>
                   {result.verification === "passed"
                     ? "Confirmed — this word stays out of your deck"
                     : result.verification === "failed"
@@ -606,7 +617,7 @@ export function VocabSession({ user }: { user: string }) {
                           : result.near_miss
                             ? "Almost — check the spelling"
                             : "Not quite"}
-                  {!result.correct && result.error_label && <span className="ml-2 font-normal text-zinc-500">({result.error_label})</span>}
+                  {!result.correct && result.error_label && <span className="ml-2 font-normal text-dim">({result.error_label})</span>}
                 </div>
                 <button ref={nextRef} className="btn btn-primary" onClick={load} disabled={busy}>
                   Next <Kbd>Enter</Kbd>
@@ -616,13 +627,13 @@ export function VocabSession({ user }: { user: string }) {
                 <p className="mb-3 text-sm">
                   {result.given ? (
                     <>
-                      You answered <span className={`text-red-700 ${q.input === "typed" ? "font-mono" : ""}`}>{result.given}</span>.{" "}
+                      You answered <span className={`text-bad ${q.input === "typed" ? "font-mono" : ""}`}>{result.given}</span>.{" "}
                     </>
                   ) : null}
                   Expected: <span className={`font-semibold ${q.input === "typed" ? "font-mono" : ""}`}>{result.expected}</span>
                 </p>
               )}
-              <p className="mb-4 text-xs text-zinc-500">{dueText(result.card)}</p>
+              <p className="mb-4 text-xs text-dim">{dueText(result.card)}</p>
               {result.entry ? (
                 <EntryCard entry={result.entry} audio={cfg?.providers.tts.configured ? "tts" : "browser"} compact />
               ) : (
@@ -645,14 +656,14 @@ function SessionEnd({ user, summary, done, right, onRecheck }: { user: string; s
     <div className="mx-auto max-w-2xl space-y-4">
       <div className="card p-6">
         <div className="text-lg font-semibold">{summary.reviewed_today > 0 ? "Session complete" : "Nothing to review right now"}</div>
-        <p className="mt-1 text-sm text-zinc-600">
+        <p className="mt-1 text-sm text-muted">
           {done > 0 && `${right}/${done} correct in this sitting. `}
           {summary.reviewed_today} review{summary.reviewed_today === 1 ? "" : "s"} today · {summary.introduced_today} new word{summary.introduced_today === 1 ? "" : "s"} introduced (limit {summary.new_per_day}, adjustable in Settings).
         </p>
         {soon && (
-          <p className="mt-2 text-sm text-zinc-600">
+          <p className="mt-2 text-sm text-muted">
             A missed card comes back at {new Date(soon).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}.{" "}
-            <button className="text-accent underline" onClick={onRecheck}>
+            <button className="font-bold text-text underline underline-offset-4" onClick={onRecheck}>
               Check again
             </button>
           </p>
@@ -780,7 +791,7 @@ function Challenge({ user }: { user: string }) {
   return (
     <div className="card p-6">
       <div className="label mb-1">Production challenge</div>
-      <p className="text-sm text-zinc-600">
+      <p className="text-sm text-muted">
         Use {data.words.length === 1 ? "this word" : `these ${data.words.length} words`} from today's reviews in a {data.seconds}-second spoken answer or in two written sentences.
       </p>
       <ul className="my-3 space-y-1 text-sm">
@@ -788,9 +799,14 @@ function Challenge({ user }: { user: string }) {
           const r = result?.words.find((x) => x.card_id === w.card_id);
           return (
             <li key={w.card_id} className="flex items-baseline gap-2">
-              {result && <span className={r?.present ? "text-green-700" : r?.present === false ? "text-red-700" : "text-zinc-400"}>{r?.present ? "✓" : r?.present === false ? "✗" : "?"}</span>}
+              {result && (
+                <span className={`flex items-center gap-1 self-center text-[11px] font-bold ${r?.present ? "text-ok" : r?.present === false ? "text-bad" : "text-dim"}`}>
+                  {r?.present ? <IconCheck size={15} /> : r?.present === false ? <IconX size={15} /> : <IconDot size={15} />}
+                  {r?.present ? "used" : r?.present === false ? "missing" : "unchecked"}
+                </span>
+              )}
               <span className="font-semibold">{w.headword}</span>
-              {w.definition && <span className="text-zinc-500">— {w.definition}</span>}
+              {w.definition && <span className="text-dim">— {w.definition}</span>}
             </li>
           );
         })}
@@ -799,7 +815,7 @@ function Challenge({ user }: { user: string }) {
         <>
           <div className="mb-3 flex gap-1">
             {(["written", "spoken"] as const).map((m) => (
-              <button key={m} className={`btn py-1 text-xs ${mode === m ? "border-zinc-900 bg-zinc-900 text-white hover:bg-zinc-800" : ""}`} onClick={() => setMode(m)} disabled={!!rec || !!busy}>
+              <button key={m} className={`btn py-1 text-xs ${mode === m ? "border-accent bg-accent text-on-accent hover:opacity-90" : ""}`} onClick={() => setMode(m)} disabled={!!rec || !!busy}>
                 {m === "written" ? "Write two sentences" : `Speak for ${data.seconds} s`}
               </button>
             ))}
@@ -816,10 +832,10 @@ function Challenge({ user }: { user: string }) {
           ) : (
             <>
               {!canVerifySpeech && <Notice tone="warn">No speech-to-text is available (server or browser): the words cannot be verified automatically, so you will self-evaluate.</Notice>}
-              {!data.stt_configured && canVerifySpeech && <p className="mb-2 text-xs text-zinc-500">Transcript from this browser's speech recognition — approximate.</p>}
+              {!data.stt_configured && canVerifySpeech && <p className="mb-2 text-xs text-dim">Transcript from this browser's speech recognition — approximate.</p>}
               {rec ? (
                 <button className="btn btn-danger mt-2" onClick={stop}>
-                  ● Recording… {left} s — stop
+                  <IconDot filled size={14} /> Recording… {left} s — stop
                 </button>
               ) : (
                 <button className="btn btn-primary mt-2" onClick={start} disabled={!!busy}>
@@ -830,7 +846,7 @@ function Challenge({ user }: { user: string }) {
           )}
         </>
       )}
-      {err && <p className="mt-2 text-sm text-red-700">{err}</p>}
+      {err && <p className="mt-2 text-sm text-bad">{err}</p>}
       {result && (
         <div className="mt-3 space-y-3 text-sm">
           {result.text ? (
@@ -842,18 +858,18 @@ function Challenge({ user }: { user: string }) {
             <Notice tone="warn">No transcript was produced, so the words could not be verified. Rate yourself below.</Notice>
           )}
           {result.text && (
-            <p className="text-zinc-600">
+            <p className="text-muted">
               {result.words.filter((w) => w.present).length}/{result.words.length} target words found{result.mode === "spoken" ? " in the transcript" : ""} (inflected forms count).
             </p>
           )}
           {result.feedback ? (
-            <div className="space-y-2 rounded-md border border-zinc-200 bg-zinc-50 p-3">
+            <div className="space-y-2 rounded-btn border border-line bg-pill p-3">
               <div className="label">AI feedback — training comment, not a score</div>
               {result.feedback.words.map((w) => (
                 <div key={w.headword}>
                   <span className="font-semibold">{w.headword}</span>{" "}
-                  <span className={w.used && w.meaning_correct && w.natural ? "text-green-700" : "text-amber-700"}>{!w.used ? "not used" : !w.meaning_correct ? "meaning off" : !w.natural ? "unnatural use" : "good"}</span>
-                  <span className="text-zinc-600"> — {w.comment}</span>
+                  <span className={w.used && w.meaning_correct && w.natural ? "text-ok" : "text-text"}>{!w.used ? "not used" : !w.meaning_correct ? "meaning off" : !w.natural ? "unnatural use" : "good"}</span>
+                  <span className="text-muted"> — {w.comment}</span>
                 </div>
               ))}
               <p>{result.feedback.overall_comment}</p>
@@ -864,15 +880,15 @@ function Challenge({ user }: { user: string }) {
             </div>
           ) : (
             <div className="space-y-2">
-              {result.feedback_error ? <Notice tone="warn">AI feedback failed ({result.feedback_error}). Nothing was invented — rate yourself instead.</Notice> : !result.ai_configured ? <p className="text-xs text-zinc-500">AI feedback is not configured (ANTHROPIC_API_KEY). Self-evaluation:</p> : null}
+              {result.feedback_error ? <Notice tone="warn">AI feedback failed ({result.feedback_error}). Nothing was invented — rate yourself instead.</Notice> : !result.ai_configured ? <p className="text-xs text-dim">AI feedback is not configured (ANTHROPIC_API_KEY). Self-evaluation:</p> : null}
               <div className="flex flex-wrap items-center gap-2">
-                <span className="text-zinc-600">How naturally did you use the words?</span>
+                <span className="text-muted">How naturally did you use the words?</span>
                 {[1, 2, 3, 4, 5].map((n) => (
-                  <button key={n} className={`btn px-2.5 py-1 text-xs ${result.self_rating === n ? "border-zinc-900 bg-zinc-900 text-white hover:bg-zinc-800" : ""}`} onClick={() => rate(n)}>
+                  <button key={n} className={`btn px-2.5 py-1 text-xs ${result.self_rating === n ? "border-accent bg-accent text-on-accent hover:opacity-90" : ""}`} onClick={() => rate(n)}>
                     {n}
                   </button>
                 ))}
-                <span className="text-xs text-zinc-400">1 = forced · 5 = natural</span>
+                <span className="text-xs text-dim">1 = forced · 5 = natural</span>
               </div>
             </div>
           )}
@@ -899,10 +915,10 @@ interface Stats {
 
 function Stat({ label, value, sub }: { label: string; value: ReactNode; sub?: ReactNode }) {
   return (
-    <div className="card p-5">
+    <div className="card p-6">
       <div className="label">{label}</div>
       <div className="mt-1 text-3xl font-semibold tabular-nums">{value}</div>
-      {sub && <div className="text-xs text-zinc-500">{sub}</div>}
+      {sub && <div className="text-xs text-dim">{sub}</div>}
     </div>
   );
 }
@@ -928,11 +944,11 @@ export function VocabStats({ user }: { user: string }) {
               sub={data.retention.reviews ? `${data.retention.correct}/${data.retention.reviews} reviews correct (first exposures excluded)` : "no reviews yet"}
             />
           </div>
-          <div className="card p-5">
+          <div className="card p-6">
             <div className="label mb-3">Words by state and tier</div>
             <table className="w-full text-sm">
               <thead>
-                <tr className="text-left text-xs text-zinc-500">
+                <tr className="text-left text-xs text-dim">
                   <th className="pb-2 font-medium">Tier (internal)</th>
                   <th className="font-medium">New</th>
                   <th className="font-medium">Known</th>
@@ -945,7 +961,7 @@ export function VocabStats({ user }: { user: string }) {
                 {Object.entries(data.by_tier)
                   .filter(([tier, t]) => tier !== "personal" || t.total > 0)
                   .map(([tier, t]) => (
-                    <tr key={tier} className="border-t border-zinc-100">
+                    <tr key={tier} className="border-t border-line">
                       <td className="py-2 font-medium">{TIER_LABEL(meta, tier)}</td>
                       <td className="tabular-nums">{t.new}</td>
                       <td className="tabular-nums">{t.known}</td>
@@ -954,7 +970,7 @@ export function VocabStats({ user }: { user: string }) {
                       <td>
                         <div className="flex items-center gap-2">
                           <Bar value={t.learning + t.mature} max={Math.max(1, t.total)} tone="ok" />
-                          <span className="w-16 text-right text-xs tabular-nums text-zinc-500">
+                          <span className="w-16 text-right text-xs tabular-nums text-dim">
                             {t.learning + t.mature}/{t.total}
                           </span>
                         </div>
@@ -965,36 +981,36 @@ export function VocabStats({ user }: { user: string }) {
             </table>
           </div>
           <div className="grid gap-4 md:grid-cols-2">
-            <div className="card p-5">
+            <div className="card p-6">
               <div className="label mb-3">Reviews per day · last {data.window_days} days</div>
               {data.reviews_by_day.length === 0 ? (
-                <p className="text-sm text-zinc-500">No reviews yet.</p>
+                <p className="text-sm text-dim">No reviews yet.</p>
               ) : (
                 <div className="flex h-28 items-end gap-1" role="img" aria-label="Reviews per day">
                   {data.reviews_by_day.map((d) => (
                     <div key={d.date} className="flex h-full min-w-[6px] max-w-[28px] flex-1 flex-col justify-end" title={`${d.date}: ${d.correct}/${d.reviews} correct`}>
-                      <div className="bg-red-300" style={{ height: `${((d.reviews - d.correct) / max) * 100}%` }} />
-                      <div className="bg-zinc-700" style={{ height: `${(d.correct / max) * 100}%` }} />
+                      <div className="rounded-t-sm border border-b-0 border-bad bg-bad-soft" style={{ height: `${((d.reviews - d.correct) / max) * 100}%` }} />
+                      <div className="bg-accent" style={{ height: `${(d.correct / max) * 100}%` }} />
                     </div>
                   ))}
                 </div>
               )}
-              <p className="mt-3 text-xs text-zinc-500">
-                Dark = correct, red = missed. Production formats: {pct(data.production_share)} of reviews after first exposure (internal floor {pct(meta?.production_share_min ?? 0.6)}). {data.challenges} production challenge{data.challenges === 1 ? "" : "s"}.
+              <p className="mt-3 text-xs text-dim">
+                Filled = correct, outlined red = missed. Production formats: {pct(data.production_share)} of reviews after first exposure (internal floor {pct(meta?.production_share_min ?? 0.6)}). {data.challenges} production challenge{data.challenges === 1 ? "" : "s"}.
               </p>
             </div>
-            <div className="card p-5">
+            <div className="card p-6">
               <div className="label mb-3">Words that keep failing</div>
               {data.failing.length === 0 ? (
-                <p className="text-sm text-zinc-500">None. A word appears here after {data.leech_threshold} lapses, or {data.leech_threshold} misses in {data.window_days} days.</p>
+                <p className="text-sm text-dim">None. A word appears here after {data.leech_threshold} lapses, or {data.leech_threshold} misses in {data.window_days} days.</p>
               ) : (
                 <ul className="space-y-1.5 text-sm">
                   {data.failing.map((f) => (
                     <li key={f.card_id} className="flex items-baseline justify-between gap-3">
-                      <Link to={`/u/${user}/vocab/entry/${f.entry_id ?? f.card_id}`} className="font-medium hover:text-accent hover:underline">
+                      <Link to={`/u/${user}/vocab/entry/${f.entry_id ?? f.card_id}`} className="font-medium hover:text-text hover:underline">
                         {f.headword}
                       </Link>
-                      <span className="text-xs text-zinc-500">
+                      <span className="text-xs text-dim">
                         {f.lapses} lapse{f.lapses === 1 ? "" : "s"} · {f.recent_fails} recent miss{f.recent_fails === 1 ? "" : "es"}
                         {f.last_error_label ? ` · ${f.last_error_label}` : ""}
                       </span>
@@ -1004,7 +1020,7 @@ export function VocabStats({ user }: { user: string }) {
               )}
             </div>
           </div>
-          <p className="text-xs text-zinc-400">
+          <p className="text-xs text-dim">
             {data.summary.next_due_at ? `Next card due ${new Date(data.summary.next_due_at).toLocaleString()}. ` : ""}
             {meta?.note}
           </p>
@@ -1112,7 +1128,7 @@ export function VocabTriage({ user }: { user: string }) {
       {loading && !data && <Spinner />}
       {data && (
         <div className="mx-auto max-w-2xl">
-          <div className="mb-1 flex items-center justify-between text-xs text-zinc-500">
+          <div className="mb-1 flex items-center justify-between text-xs text-dim">
             <span>
               {data.done} / {data.total} sorted
             </span>
@@ -1121,7 +1137,7 @@ export function VocabTriage({ user }: { user: string }) {
           <div className="mb-3">
             <Bar value={data.done} max={Math.max(1, data.total)} tone="ok" />
           </div>
-          <div className="mb-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-zinc-500">
+          <div className="mb-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-dim">
             <span>{data.remaining} left to triage</span>
             <span>{data.known} known</span>
             <span>{data.learn} to learn</span>
@@ -1137,15 +1153,15 @@ export function VocabTriage({ user }: { user: string }) {
                 {cur.transparent && <span className="chip" title={`Similarity with the French translation: ${cur.transparent_fr?.toFixed(2)}`}>≈ French cognate</span>}
               </div>
               <div className="text-3xl font-semibold">{cur.headword}</div>
-              <div className="mt-1 text-sm text-zinc-500">{cur.pos}</div>
+              <div className="mt-1 text-sm text-dim">{cur.pos}</div>
               <p className="reading mt-4 text-[15px]">{cur.example}</p>
               {reveal ? (
-                <div className="mt-4 rounded-md bg-zinc-50 p-3 text-sm">
+                <div className="mt-4 rounded-btn bg-pill p-3 text-sm">
                   <div>{cur.definition}</div>
-                  <div className="mt-1 text-zinc-500">FR : {cur.translation_fr}</div>
+                  <div className="mt-1 text-dim">FR : {cur.translation_fr}</div>
                 </div>
               ) : (
-                <button className="mt-4 text-xs text-zinc-500 underline" onClick={() => setReveal(true)}>
+                <button className="btn btn-ghost mt-4 text-xs text-dim" onClick={() => setReveal(true)}>
                   Show meaning <Kbd>Space</Kbd>
                 </button>
               )}
@@ -1158,12 +1174,12 @@ export function VocabTriage({ user }: { user: string }) {
                   No — learn it <Kbd>K</Kbd>
                 </button>
               </div>
-              <p className="mt-3 text-xs text-zinc-400">
+              <p className="mt-3 text-xs text-dim">
                 Not “do I understand it?”: understanding is not enough. <button className="underline" onClick={undo} disabled={!history.length || busy}>Undo last</button> <Kbd>U</Kbd>
               </p>
             </div>
           )}
-          {note && <p className="mt-3 text-sm text-zinc-600">{note}</p>}
+          {note && <p className="mt-3 text-sm text-muted">{note}</p>}
         </div>
       )}
     </div>

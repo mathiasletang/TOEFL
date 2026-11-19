@@ -69,7 +69,7 @@ export function WordPicker({ user, exerciseId, enabled, children }: { user: stri
       {enabled && picked && (
         <div
           data-word-popup
-          className="fixed z-30 w-72 cursor-default rounded-lg border border-zinc-300 bg-white p-3 text-[13px] shadow-lg"
+          className="fixed z-30 w-72 cursor-default rounded-tile border border-ring bg-bg p-3 text-[13px] shadow-lg"
           style={{ left: Math.max(8, Math.min(picked.x - 20, window.innerWidth - 300)), top: Math.min(picked.y + 14, window.innerHeight - 150) }}
         >
           {message ? (
@@ -82,7 +82,7 @@ export function WordPicker({ user, exerciseId, enabled, children }: { user: stri
           ) : (
             <>
               <div className="font-semibold">{picked.word}</div>
-              {picked.sentence && <div className="mt-1 line-clamp-3 text-xs text-zinc-500">{picked.sentence}</div>}
+              {picked.sentence && <div className="mt-1 line-clamp-3 text-xs text-dim">{picked.sentence}</div>}
               <div className="mt-2 flex gap-2">
                 <button className="btn btn-primary py-1 text-xs" onClick={add}>
                   Add to my vocabulary

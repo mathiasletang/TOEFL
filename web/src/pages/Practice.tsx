@@ -28,14 +28,14 @@ export function useMode(): [Mode, (m: Mode) => void] {
 export function ModeToggle({ mode, setMode }: { mode: Mode; setMode: (m: Mode) => void }) {
   return (
     <div className="flex items-center gap-3">
-      <div className="inline-flex rounded-md border border-zinc-300 p-0.5 text-[13px]" role="radiogroup" aria-label="Mode">
+      <div className="inline-flex gap-1 rounded-full border border-line bg-bg p-1" role="radiogroup" aria-label="Mode">
         {(["strict", "practice"] as const).map((m) => (
-          <button key={m} role="radio" aria-checked={mode === m} onClick={() => setMode(m)} className={`rounded px-3 py-1 ${mode === m ? "bg-zinc-900 text-white" : "text-zinc-600"}`}>
+          <button key={m} role="radio" aria-checked={mode === m} onClick={() => setMode(m)} className={`tab ${mode === m ? "tab-active" : ""}`}>
             {m === "strict" ? "Strict" : "Practice"}
           </button>
         ))}
       </div>
-      <span className="hidden text-xs text-zinc-500 md:inline">
+      <span className="hidden text-xs text-dim md:inline">
         {mode === "strict" ? "Hard timer, auto-submit, audio once, no answers until submitted." : "Soft timer, replay allowed, no auto-submit."}
       </span>
     </div>
@@ -68,19 +68,19 @@ export function Practice({ user }: { user: string }) {
       <div className="grid gap-5 md:grid-cols-2">
         {SECTION_ORDER.map((s) => (
           <div key={s} className="card">
-            <div className="border-b border-zinc-100 px-4 py-2.5 text-sm font-semibold">{SECTION_LABEL[s]}</div>
-            <div className="divide-y divide-zinc-100">
+            <div className="border-b border-line px-4 py-2.5 text-sm font-semibold">{SECTION_LABEL[s]}</div>
+            <div className="divide-y divide-line">
               {TASK_ORDER.filter((t) => TASK_SECTION[t] === s).map((t) => {
                 const m = metric.get(t);
                 const row = tasks.data?.find((x) => x.task_type === t);
                 return (
                   <div key={t} className="flex items-center gap-3 px-4 py-3">
                     <div className="min-w-0 flex-1">
-                      <Link to={`/u/${user}/practice/${t}`} className="text-[14px] font-medium text-zinc-900 hover:underline">
+                      <Link to={`/u/${user}/practice/${t}`} className="text-[14px] font-medium text-text hover:underline">
                         {TASK_LABEL[t]}
                       </Link>
-                      <div className="text-xs text-zinc-500">{TASK_HINT[t]}</div>
-                      <div className="text-[11px] text-zinc-400">
+                      <div className="text-xs text-dim">{TASK_HINT[t]}</div>
+                      <div className="text-[11px] text-dim">
                         {row?.count ?? 0} exercises · {m?.attempts ? `${m.attempts} done · recent ${pct(m.recent_accuracy)} · ${ago(m.last_practiced)}` : "not practised yet"}
                       </div>
                     </div>
@@ -147,18 +147,18 @@ export function PracticeTask({ user, task }: { user: string; task: string }) {
         }
         right={<ModeToggle mode={mode} setMode={setMode} />}
       />
-      <div className="card divide-y divide-zinc-100">
+      <div className="card divide-y divide-line">
         {data?.map((e) => (
           <div key={e.id} className="flex items-center gap-3 px-4 py-3">
             <div className="min-w-0 flex-1">
-              <div className="truncate text-[14px] font-medium capitalize text-zinc-900">{e.title}</div>
-              <div className="text-xs text-zinc-500">
+              <div className="truncate text-[14px] font-medium capitalize text-text">{e.title}</div>
+              <div className="text-xs text-dim">
                 <span className="chip mr-2">{e.difficulty}</span>
                 {e.items} item{e.items > 1 ? "s" : ""}
                 {e.drill_seconds ? ` · ${Math.floor(e.drill_seconds / 60)}:${String(e.drill_seconds % 60).padStart(2, "0")} training limit` : ""} · {e.id}
               </div>
             </div>
-            <div className="w-36 text-right text-xs text-zinc-500">{e.attempts ? `${e.attempts}× · best ${pct(e.best)} · ${ago(e.last)}` : "new"}</div>
+            <div className="w-36 text-right text-xs text-dim">{e.attempts ? `${e.attempts}× · best ${pct(e.best)} · ${ago(e.last)}` : "new"}</div>
             <Link to={`/u/${user}/drill/${e.id}?mode=${mode}`} className="btn">
               {e.attempts ? "Retry" : "Start"}
             </Link>

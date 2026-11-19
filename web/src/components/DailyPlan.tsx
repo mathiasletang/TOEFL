@@ -90,7 +90,7 @@ export function DailyPlan({ user }: { user: string }) {
       <div className="card flex flex-wrap items-center justify-between gap-3 p-5">
         <div>
           <div className="label">Today's plan</div>
-          <p className="mt-1 text-sm text-zinc-600">
+          <p className="mt-1 text-sm text-muted">
             {data.status === "no_exam_date"
               ? "Set your exam date to get a daily plan built backwards from it."
               : data.status === "exam_day"
@@ -113,15 +113,17 @@ export function DailyPlan({ user }: { user: string }) {
     return (
       <li key={b.id} className="py-2.5">
         <div className="flex flex-wrap items-center gap-3">
-          <input type="checkbox" className="h-4 w-4 accent-zinc-900" checked={b.done} disabled={busy != null} onChange={() => toggle(b)} aria-label={`Mark “${b.label}” as done`} />
-          <div className={`min-w-0 flex-1 ${b.done ? "text-zinc-400 line-through" : ""}`}>
+          <label className="-m-2.5 flex h-11 w-11 shrink-0 cursor-pointer items-center justify-center rounded-full hover:bg-pill">
+            <input type="checkbox" className="h-5 w-5 cursor-pointer" checked={b.done} disabled={busy != null} onChange={() => toggle(b)} aria-label={`Mark “${b.label}” as done`} />
+          </label>
+          <div className={`min-w-0 flex-1 ${b.done ? "text-dim line-through" : ""}`}>
             <div className="text-sm font-medium">
               {b.label}
-              {b.items != null && !sim && <span className="font-normal text-zinc-500"> · {b.items} {b.items === 1 ? "exercise" : "exercises"}</span>}
-              {b.mode && <span className={`chip ml-2 ${b.mode === "strict" ? "border-red-200 bg-red-50 text-red-800" : ""}`}>{b.mode}</span>}
-              {b.minutes?.total != null && <span className="ml-2 text-xs font-normal text-zinc-500">≈ {b.minutes.total} min</span>}
+              {b.items != null && !sim && <span className="font-normal text-dim"> · {b.items} {b.items === 1 ? "exercise" : "exercises"}</span>}
+              {b.mode && <span className={`chip ml-2 ${b.mode === "strict" ? "border-accent bg-accent text-on-accent" : ""}`}>{b.mode}</span>}
+              {b.minutes?.total != null && <span className="ml-2 text-xs font-normal text-dim">≈ {b.minutes.total} min</span>}
             </div>
-            <div className="text-xs text-zinc-500">
+            <div className="text-xs text-dim">
               {b.detail}
               {b.progress != null && b.items != null && `${b.progress}/${b.items} done today`}
             </div>
@@ -131,7 +133,7 @@ export function DailyPlan({ user }: { user: string }) {
               {button}
             </button>
           )}
-          {!b.launch && <span className="text-xs text-zinc-400">no exercise available</span>}
+          {!b.launch && <span className="text-xs text-dim">no exercise available</span>}
         </div>
         {b.diagnostic && (
           <div className="ml-7 mt-2">
@@ -141,21 +143,21 @@ export function DailyPlan({ user }: { user: string }) {
           </div>
         )}
         {b.correction && (
-          <ol className="ml-7 mt-2 space-y-1 border-l-2 border-zinc-200 pl-3 text-xs text-zinc-600">
+          <ol className="ml-7 mt-2 space-y-1 border-l-2 border-line pl-3 text-xs text-muted">
             <li>
-              <span className="font-medium text-zinc-800">1. Exercises</span> — ≈ {b.minutes?.work ?? "?"} min
+              <span className="font-medium text-text">1. Exercises</span> — ≈ {b.minutes?.work ?? "?"} min
             </li>
             <li>
-              <span className="font-medium text-zinc-800">
+              <span className="font-medium text-text">
                 2. {b.correction.label}
               </span>{" "}
               — {b.correction.minutes} min. {b.correction.instruction}{" "}
               {b.correction.review_path ? (
-                <Link to={`/u/${user}/${b.correction.review_path}`} className="text-accent underline">
+                <Link to={`/u/${user}/${b.correction.review_path}`} className="font-bold text-text underline underline-offset-4">
                   Open today's correction
                 </Link>
               ) : (
-                <span className="text-zinc-400">(the link appears after your first exercise)</span>
+                <span className="text-dim">(the link appears after your first exercise)</span>
               )}
             </li>
           </ol>
@@ -166,42 +168,42 @@ export function DailyPlan({ user }: { user: string }) {
 
   const cp = data.checkpoint;
   return (
-    <div className="card p-5">
+    <div className="card p-6">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
           <div className="label">Today's plan · {fmtDate(data.date)}</div>
           <div className="mt-1 flex flex-wrap items-baseline gap-x-3">
             <span className="text-lg font-semibold">{data.phase!.label}</span>
-            <span className="text-sm text-zinc-600">
+            <span className="text-sm text-muted">
               J-{data.days_left} · exam {fmtDate(data.exam_date!)}
             </span>
           </div>
-          <div className="text-xs text-zinc-500">{data.phase!.goal}</div>
+          <div className="text-xs text-dim">{data.phase!.goal}</div>
         </div>
         <div className="text-right">
           <div className="text-2xl font-semibold tabular-nums">{data.streak}</div>
-          <div className="text-xs text-zinc-500">day{data.streak === 1 ? "" : "s"} in a row</div>
+          <div className="text-xs text-dim">day{data.streak === 1 ? "" : "s"} in a row</div>
         </div>
       </div>
       <div className="mt-4 grid gap-5 md:grid-cols-[1fr_300px]">
         <div>
-          <div className="label">Daily base {data.base_done && <span className="ml-1 normal-case text-green-700">· done</span>}</div>
-          <ul className="divide-y divide-zinc-100">{data.blocks.map((b) => row(b, b.id === "main"))}</ul>
+          <div className="label">Daily base {data.base_done && <span className="ml-1 normal-case text-ok">· done</span>}</div>
+          <ul className="divide-y divide-line">{data.blocks.map((b) => row(b, b.id === "main"))}</ul>
           {data.optional && (
             <>
               <div className="label mt-3">Optional</div>
               <ul>{row(data.optional, false)}</ul>
             </>
           )}
-          {launchError && <p className="mt-2 text-sm text-red-700">{launchError}</p>}
+          {launchError && <p className="mt-2 text-sm text-bad">{launchError}</p>}
         </div>
         <div className="space-y-3">
-          <div className="rounded-md border border-zinc-200 bg-zinc-50 p-3 text-[13px]">
+          <div className="rounded-btn border border-line bg-pill p-3 text-[13px]">
             <div className="label">Next checkpoint</div>
             {cp ? (
               <>
                 <div className="mt-1 font-medium">{cp.label}</div>
-                <div className="text-zinc-600">
+                <div className="text-muted">
                   {cp.in_days === 0 ? "Today" : `In ${cp.in_days} day${cp.in_days === 1 ? "" : "s"}`} · {fmtDate(cp.date)} (J-{cp.days_before})
                 </div>
                 {cp.in_days === 0 && (
@@ -211,11 +213,11 @@ export function DailyPlan({ user }: { user: string }) {
                 )}
               </>
             ) : (
-              <div className="mt-1 text-zinc-500">No checkpoint left before the exam.</div>
+              <div className="mt-1 text-dim">No checkpoint left before the exam.</div>
             )}
           </div>
           <WeekMix week={data.week} />
-          <p className="text-xs text-zinc-400">Internal training schedule (config → internal.plan), not an ETS recommendation.</p>
+          <p className="text-xs text-dim">Internal training schedule (config → internal.plan), not an ETS recommendation.</p>
         </div>
       </div>
     </div>
@@ -225,13 +227,13 @@ export function DailyPlan({ user }: { user: string }) {
 /** Real share of practice time over the last 7 days, compared with the plan's weekly targets. */
 function WeekMix({ week }: { week: Week }) {
   return (
-    <div className="rounded-md border border-zinc-200 p-3 text-[13px]">
+    <div className="rounded-btn border border-line p-3 text-[13px]">
       <div className="label">Last 7 days vs plan</div>
       {week.total_minutes === 0 ? (
-        <p className="mt-1 text-zinc-500">No practice recorded since {fmtDate(week.from)}.</p>
+        <p className="mt-1 text-dim">No practice recorded since {fmtDate(week.from)}.</p>
       ) : (
         <>
-          <div className="mt-1 text-xs text-zinc-500">{week.total_minutes} min of exercises since {fmtDate(week.from)}</div>
+          <div className="mt-1 text-xs text-dim">{week.total_minutes} min of exercises since {fmtDate(week.from)}</div>
           <ul className="mt-2 space-y-2">
             {week.categories.map((c) => {
               const off = c.share != null && Math.abs(c.share - c.target) > week.tolerance;
@@ -239,20 +241,21 @@ function WeekMix({ week }: { week: Week }) {
                 <li key={c.id}>
                   <div className="flex justify-between gap-2">
                     <span>{c.label}</span>
-                    <span className={`tabular-nums ${off ? "font-medium text-amber-700" : "text-zinc-600"}`}>
-                      {pct(c.share)} <span className="text-zinc-400">/ {pct(c.target)}</span>
+                    <span className={`whitespace-nowrap tabular-nums ${off ? "font-extrabold text-text" : "text-muted"}`}>
+                      {off && <span className="mr-1 text-[11px] uppercase tracking-wide">off target ·</span>}
+                      {pct(c.share)} <span className="text-dim">/ {pct(c.target)}</span>
                     </span>
                   </div>
-                  <div className="relative mt-1 h-1.5 rounded-full bg-zinc-100" aria-hidden>
-                    <div className={`h-full rounded-full ${off ? "bg-amber-500" : "bg-zinc-700"}`} style={{ width: `${Math.min(100, (c.share ?? 0) * 100)}%` }} />
-                    <div className="absolute -top-0.5 h-2.5 w-0.5 bg-accent" style={{ left: `${c.target * 100}%` }} title={`Target ${pct(c.target)}`} />
+                  <div className="relative mt-1.5 h-2 rounded-full bg-line" aria-hidden>
+                    <div className={`h-full rounded-full ${off ? "bg-muted" : "bg-accent"}`} style={{ width: `${Math.min(100, (c.share ?? 0) * 100)}%` }} />
+                    <div className="absolute -top-1 h-4 w-1 rounded-full border border-bg bg-text" style={{ left: `${c.target * 100}%` }} title={`Target ${pct(c.target)}`} />
                   </div>
                 </li>
               );
             })}
           </ul>
-          <p className="mt-2 text-xs text-zinc-400">
-            Reading {week.by_section.reading} min · Listening {week.by_section.listening} min. Drills opened from Focus weaknesses count as focus. The blue mark is the target.
+          <p className="mt-2 text-xs text-dim">
+            Reading {week.by_section.reading} min · Listening {week.by_section.listening} min. Drills opened from Focus weaknesses count as focus. The tall mark is the target.
           </p>
         </>
       )}

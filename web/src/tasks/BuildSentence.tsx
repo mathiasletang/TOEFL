@@ -31,17 +31,17 @@ export function BuildSentence({ ex, value, onChange, ctx }: TaskProps<"build_a_s
   let k = 0;
   return (
     <div className="mx-auto max-w-3xl space-y-6">
-      <p className="text-sm text-zinc-500">Make an appropriate sentence. Click the words in order (or drag them into the boxes). Click a placed word to remove it.{ex.chunks.length > slots ? " One word or phrase will not be used." : ""}</p>
+      <p className="text-sm text-dim">Make an appropriate sentence. Click the words in order (or drag them into the boxes). Click a placed word to remove it.{ex.chunks.length > slots ? " One word or phrase will not be used." : ""}</p>
       <div className="card space-y-5 p-6">
         <div className="flex gap-3">
-          <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-zinc-200 text-xs font-semibold text-zinc-600">A</span>
-          <p className="rounded-lg bg-zinc-100 px-3 py-2 text-[15px] text-zinc-800">{ex.context}</p>
+          <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-line text-xs font-semibold text-muted">A</span>
+          <p className="rounded-tile bg-pill px-3 py-2 text-[15px] text-text">{ex.context}</p>
         </div>
         <div className="flex gap-3">
-          <span className="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-accent text-xs font-semibold text-white">B</span>
+          <span className="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-accent text-xs font-semibold text-on-accent">B</span>
           <div className="flex flex-wrap items-center gap-x-1.5 gap-y-2 text-[15px]">
             {ex.frame.map((f, fi) => {
-              if (f !== null) return <span key={fi} className="text-zinc-800">{f}</span>;
+              if (f !== null) return <span key={fi} className="text-text">{f}</span>;
               const i = k++;
               const c = order[i];
               return (
@@ -56,7 +56,7 @@ export function BuildSentence({ ex, value, onChange, ctx }: TaskProps<"build_a_s
                     if (drag) place(drag.chunk, i);
                     setDrag(null);
                   }}
-                  className={`min-h-9 min-w-16 rounded-md border px-2.5 py-1 ${c ? "border-zinc-400 bg-white font-medium text-zinc-900 shadow-sm" : "border-dashed border-zinc-300 bg-zinc-50 text-zinc-300"}`}
+                  className={`min-h-11 min-w-16 rounded-btn border px-3 py-1.5 ${c ? "border-ring bg-bg font-medium text-text shadow-sm" : "border-dashed border-ring bg-pill text-locked"}`}
                 >
                   {c ?? " "}
                 </button>
@@ -66,7 +66,7 @@ export function BuildSentence({ ex, value, onChange, ctx }: TaskProps<"build_a_s
         </div>
       </div>
       <div
-        className="flex min-h-14 flex-wrap justify-center gap-2 rounded-lg border border-zinc-200 bg-white p-3"
+        className="flex min-h-14 flex-wrap justify-center gap-2 rounded-tile border border-line bg-bg p-3"
         onDragOver={(e) => e.preventDefault()}
         onDrop={() => {
           if (drag?.from === "slot" && drag.slot != null) remove(drag.slot);
@@ -74,7 +74,7 @@ export function BuildSentence({ ex, value, onChange, ctx }: TaskProps<"build_a_s
         }}
         aria-label="Available words"
       >
-        {bank.length === 0 && <span className="self-center text-xs text-zinc-400">All words placed</span>}
+        {bank.length === 0 && <span className="self-center text-xs text-dim">All words placed</span>}
         {bank.map((c) => (
           <button
             key={c}
@@ -82,7 +82,7 @@ export function BuildSentence({ ex, value, onChange, ctx }: TaskProps<"build_a_s
             onDragStart={() => setDrag({ from: "bank", chunk: c })}
             onClick={() => place(c)}
             disabled={ctx.locked}
-            className="rounded-md border border-zinc-300 bg-zinc-50 px-3 py-1.5 text-[15px] font-medium text-zinc-800 hover:border-accent hover:bg-accent-soft"
+            className="min-h-11 rounded-btn border border-ring bg-pill px-3.5 py-1.5 text-[15px] font-bold text-text hover:border-accent"
           >
             {c}
           </button>

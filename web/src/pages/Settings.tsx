@@ -3,8 +3,10 @@ import { api } from "../lib/api";
 import { useApi } from "../lib/useApi";
 import { useConfig } from "../lib/config";
 import { Spinner, PageTitle, Notice } from "../components/ui";
+import { ThemeToggle } from "../components/ThemeToggle";
 import { cefrForBand, minimumSumFor } from "../../../shared/bands";
 import { browserRecognitionSupported, recordingSupported } from "../lib/recorder";
+import { IconCheck, IconDot } from "../components/icons";
 
 interface U {
   id: string;
@@ -37,21 +39,28 @@ export function Settings({ user }: { user: string }) {
   };
   const provider = (ok: boolean, label: string, detail: string) => (
     <div className="flex items-start gap-2 text-[13px]">
-      <span className={ok ? "text-green-700" : "text-zinc-400"}>{ok ? "●" : "○"}</span>
+      <span className={`mt-0.5 ${ok ? "text-ok" : "text-dim"}`}>{ok ? <IconCheck size={16} title="available" /> : <IconDot size={16} title="not available" />}</span>
       <div>
         <div className="font-medium">{label}</div>
-        <div className="text-xs text-zinc-500">{detail}</div>
+        <div className="text-xs text-dim">{detail}</div>
       </div>
     </div>
   );
   return (
     <div className="space-y-5">
       <PageTitle title="Settings" sub={`Profile: ${user}`} />
+      <div className="card flex flex-wrap items-center justify-between gap-4 p-6">
+        <div>
+          <div className="label">Appearance</div>
+          <p className="mt-1 text-sm text-muted">Light or dark theme, remembered for this profile on this browser.</p>
+        </div>
+        <ThemeToggle user={user} withLabel />
+      </div>
       <div className="card space-y-4 p-5">
         <div className="label">Goal</div>
         <div className="flex flex-wrap items-end gap-4">
           <label className="text-sm">
-            <div className="mb-1 text-xs text-zinc-500">Target overall band</div>
+            <div className="mb-1 text-xs text-dim">Target overall band</div>
             <select className="input" value={target ?? 6} onChange={(e) => setTarget(Number(e.target.value))}>
               {cfg.target_options.map((t) => (
                 <option key={t} value={t}>
@@ -61,11 +70,11 @@ export function Settings({ user }: { user: string }) {
             </select>
           </label>
           <label className="text-sm">
-            <div className="mb-1 text-xs text-zinc-500">Exam date</div>
+            <div className="mb-1 text-xs text-dim">Exam date</div>
             <input type="date" className="input" value={date} onChange={(e) => setDate(e.target.value)} />
           </label>
           <label className="text-sm">
-            <div className="mb-1 text-xs text-zinc-500">New vocabulary words per day</div>
+            <div className="mb-1 text-xs text-dim">New vocabulary words per day</div>
             <select className="input" value={newPerDay ?? 20} onChange={(e) => setNewPerDay(Number(e.target.value))}>
               {[...new Set([...(meta.data?.new_per_day_options ?? [20]), newPerDay ?? 20])]
                 .sort((a, b) => a - b)
@@ -80,10 +89,10 @@ export function Settings({ user }: { user: string }) {
           <button className="btn btn-primary" onClick={save}>
             Save
           </button>
-          {saved && <span className="text-xs text-green-700">{saved}</span>}
+          {saved && <span className="text-xs text-ok">{saved}</span>}
         </div>
         {target != null && (
-          <p className="text-xs text-zinc-500">
+          <p className="text-xs text-dim">
             Band {target.toFixed(1)} needs a mean of the four section bands ≥ {(target - 0.25).toFixed(2)} (sum ≥ {minimumSumFor(target).toFixed(1)}), because ETS rounds the mean to the nearest half band (5.25 → 5.5; 5.125 → 5.0).
             {target === 6 && " For 6.0 that means e.g. 6.0 / 6.0 / 6.0 / 5.0 or 6.0 / 6.0 / 5.5 / 5.5 — at most one half-band below 6 in two sections."}
           </p>
@@ -102,14 +111,14 @@ export function Settings({ user }: { user: string }) {
           {cfg.content.exercises} validated exercises · {cfg.content.invalid} rejected · {cfg.content.warnings} warnings
         </p>
         {cfg.content.file_errors.length > 0 && <Notice tone="warn">{cfg.content.file_errors.join(" · ")}</Notice>}
-        <p className="text-xs text-zinc-500">Add exercises by dropping JSON files into content/exercises/ and restarting; run npm run validate:content first.</p>
+        <p className="text-xs text-dim">Add exercises by dropping JSON files into content/exercises/ and restarting; run npm run validate:content first.</p>
       </div>
       <div className="card space-y-1 p-5 text-[13px]">
         <div className="label">Routing (adaptive simulator)</div>
         <p>
           Internal training threshold: {(cfg.routing.training_threshold * 100).toFixed(0)}% of Module 1 correct ({cfg.routing.model}).
         </p>
-        <p className="text-xs text-amber-800">{cfg.routing.ui_warning}</p>
+        <p className="text-xs text-text">{cfg.routing.ui_warning}</p>
       </div>
     </div>
   );
