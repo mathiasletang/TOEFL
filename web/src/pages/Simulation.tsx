@@ -171,7 +171,8 @@ const RULES: Record<string, string> = {
   interview: "Interview: 4 questions, recording starts immediately after each question, 45 seconds each.",
 };
 
-export function SimulationRunner({ user, simId }: { user: string; simId: string }) {
+/** `onCompleted` / `onAbandoned` (session mode): report the end instead of opening the results / launcher page. The timer stays visible. */
+export function SimulationRunner({ user, simId, onCompleted, onAbandoned }: { user: string; simId: string; onCompleted?: () => void; onAbandoned?: () => void }) {
   const { navigate } = useRouter();
   const [cur, setCur] = useState<Current | null>(null);
   const [error, setError] = useState<unknown>(null);
@@ -186,7 +187,8 @@ export function SimulationRunner({ user, simId }: { user: string; simId: string 
   const apply = useCallback(
     (v: Current) => {
       if (v.simulation.status !== "active") {
-        navigate(`/u/${user}/sim/${simId}/results`, true);
+        if (onCompleted) onCompleted();
+        else navigate(`/u/${user}/sim/${simId}/results`, true);
         return;
       }
       setOffset(clockOffset(v.server_now));
@@ -196,7 +198,7 @@ export function SimulationRunner({ user, simId }: { user: string; simId: string 
       submitting.current = false;
       setBusy(false);
     },
-    [navigate, user, simId],
+    [navigate, user, simId, onCompleted],
   );
 
   useEffect(() => {
@@ -301,7 +303,8 @@ export function SimulationRunner({ user, simId }: { user: string; simId: string 
               onClick={async () => {
                 if (!window.confirm("Abandon this simulation? Answers already submitted are kept.")) return;
                 await api.post(`/api/simulations/${simId}/abandon`);
-                navigate(`/u/${user}/simulate`);
+                if (onAbandoned) onAbandoned();
+                else navigate(`/u/${user}/simulate`);
               }}
             >
               Abandon

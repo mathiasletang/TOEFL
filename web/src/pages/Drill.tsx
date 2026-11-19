@@ -15,11 +15,21 @@ interface SessionView {
   server_now: string;
 }
 
-export function Drill({ user, exerciseId }: { user: string; exerciseId: string }) {
+/** Used by the session mode: the drill reports its submission instead of opening the review page. */
+export interface EmbeddedDrill {
+  mode: "strict" | "practice";
+  origin: "focus" | null;
+  /** Practice blocks hide the clock in session mode; strict ones keep it, as in the test. */
+  hideClock: boolean;
+  onSubmitted: (review: ReviewData) => void;
+}
+
+export function Drill({ user, exerciseId, embedded }: { user: string; exerciseId: string; embedded?: EmbeddedDrill }) {
   const { search, navigate } = useRouter();
-  const mode = (search.get("mode") === "practice" ? "practice" : "strict") as "strict" | "practice";
+  const mode = embedded?.mode ?? ((search.get("mode") === "practice" ? "practice" : "strict") as "strict" | "practice");
   // Drills opened from Focus weaknesses are marked so the weekly mix can count them as focus work.
-  const origin = search.get("from") === "focus" ? "focus" : null;
+  const origin = embedded ? embedded.origin : search.get("from") === "focus" ? "focus" : null;
+  const onSubmitted = embedded?.onSubmitted;
   const [view, setView] = useState<SessionView | null>(null);
   const [error, setError] = useState<unknown>(null);
   const [response, setResponse] = useState<unknown>(undefined);
@@ -38,7 +48,8 @@ export function Drill({ user, exerciseId }: { user: string; exerciseId: string }
         const act = await api.get<{ active: (SessionView & { expired_attempt_id?: undefined }) | { expired_attempt_id: string } | null }>(`/api/users/${user}/active-session`);
         if (cancelled) return;
         if (act.active && "expired_attempt_id" in act.active && act.active.expired_attempt_id) {
-          navigate(`/u/${user}/review/${act.active.expired_attempt_id}?expired=1`, true);
+          if (onSubmitted) onSubmitted(await api.get<ReviewData>(`/api/attempts/${act.active.expired_attempt_id}`));
+          else navigate(`/u/${user}/review/${act.active.expired_attempt_id}?expired=1`, true);
           return;
         }
         let v: SessionView;
@@ -55,7 +66,7 @@ export function Drill({ user, exerciseId }: { user: string; exerciseId: string }
     return () => {
       cancelled = true;
     };
-  }, [user, exerciseId, mode, origin, navigate]);
+  }, [user, exerciseId, mode, origin, navigate, onSubmitted]);
 
   const elapsed = useCallback(() => (view ? Date.now() + offset - Date.parse(view.session.started_at) : 0), [view, offset]);
 
@@ -75,14 +86,15 @@ export function Drill({ user, exerciseId }: { user: string; exerciseId: string }
       setSubmitting(true);
       try {
         const r = await api.post<ReviewData>(`/api/sessions/${view.session.id}/submit`, { response: cleanResponse(respRef.current ?? null), elapsedMs: Math.max(0, elapsed()), timedOut });
-        navigate(`/u/${user}/review/${r.attempt.id}`, true);
+        if (onSubmitted) onSubmitted(r);
+        else navigate(`/u/${user}/review/${r.attempt.id}`, true);
       } catch (e) {
         submitted.current = false;
         setSubmitting(false);
         setError(e);
       }
     },
-    [view, elapsed, navigate, user],
+    [view, elapsed, navigate, user, onSubmitted],
   );
 
   const onExpire = useCallback(() => {
@@ -119,6 +131,7 @@ export function Drill({ user, exerciseId }: { user: string; exerciseId: string }
         </div>
         <div className="flex items-center gap-3">
           {view.session.time_limit_ms != null &&
+            !embedded?.hideClock &&
             (view.session.deadline_at ? (
               <TimerBadge remaining={timer.remaining} total={view.session.time_limit_ms} label={strict ? "" : "soft"} />
             ) : (
@@ -129,16 +142,14 @@ export function Drill({ user, exerciseId }: { user: string; exerciseId: string }
               {submitting ? "Submitting…" : "Submit"}
             </button>
           )}
-          <Link
-            to={`/u/${user}/practice/${ex.task_type}`}
-            className="btn btn-ghost text-dim"
-            title="Leave without submitting"
-          >
-            Leave
-          </Link>
+          {!embedded && (
+            <Link to={`/u/${user}/practice/${ex.task_type}`} className="btn btn-ghost text-dim" title="Leave without submitting">
+              Leave
+            </Link>
+          )}
         </div>
       </div>
-      {overtime && !strict && <Notice tone="warn">Time is up (practice mode — no auto-submit). In the real test your answer would have been submitted now.</Notice>}
+      {overtime && !strict && !embedded?.hideClock && <Notice tone="warn">Time is up (practice mode — no auto-submit). In the real test your answer would have been submitted now.</Notice>}
       <TaskView ex={ex} value={response} onChange={setResponse} ctx={{ userId: user, sessionId: view.session.id, strict, locked, onAudioDone, onComplete: () => void submit(false) }} />
       {submitting && <Spinner label="Scoring…" />}
     </div>

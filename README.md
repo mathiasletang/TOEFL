@@ -173,12 +173,22 @@ Everything is configured in `config/toefl-2026.json` → `internal.plan`: phases
 The Today page (`/u/:user`) shows, from top to bottom:
 
 - the date, the phase and the number of days to the exam;
-- **Today's session:** the day's steps as a numbered list (current step filled, next steps outlined, done steps checked; click a step's marker to mark it done), the bonus round in dashed outline, a segmented progress bar and **Start session**, which opens `/u/:user/session` and walks through the steps one at a time. "Clock hidden" marks a block in practice mode;
+- **Today's session:** the day's steps as a numbered list (current step filled, next steps outlined, done steps checked; click a step's marker to mark it done), the bonus round in dashed outline, a segmented progress bar and **Start session**, which opens the session mode (below). "Clock hidden" marks a block in practice mode;
 - a ring with the steps done today, and the streak with the seven days of the week;
 - **Unlock your projected band:** a tile per section. A section without enough data shows "?.?", a padlock and how many scored items (Reading, Listening: 10) or scored responses (Writing: 5, Speaking: 7) are still needed; otherwise its projected band and range. The internal training estimate note stays under the tiles;
 - **The road to the exam:** one dot per day from the start of the plan (the first fixed-length phase, or your first activity if earlier) to the exam, with the phases below in proportion to their length;
 - **Word of the moment:** the next new word of your introduction order. "I'd use it already" marks it as known, as in the Triage; "Add to my deck" adds it;
 - **Before anything else**, while there is neither a completed full simulation nor an official score: start a full simulation, or enter the four section bands of an official ETS test.
+
+**Session mode** (`/u/:user/session`) chains the day's plan full screen, with no navigation: only a thin bar with the progress of each step and a discreet **Exit**.
+
+- Order: vocabulary reviews, shadowing, the main block; the bonus round is offered at the end. Each step uses the existing screens (vocabulary session, shadowing, drills with their correction, simulations).
+- Between two steps, **Up next** presents the next one and starts it by itself after 5 seconds; **Start now** and **Pause** are there too.
+- Clock: hidden in practice-mode blocks; visible in strict blocks and simulations, as in the test.
+- Each finished step ticks its block in the plan. A drill block is finished when its number of exercises is done today; "Mark step done" in the bar ticks a step earlier (not a simulation).
+- Leaving keeps everything: ticks, today's attempts and open drills or simulations are on the server, and the browser remembers the open screen, so the session resumes in place.
+- End screen: today's dot lights up on the road to the exam, the streak is updated, then **Bonus round** or **Done for today**.
+- Animations are short and switched off when the system asks for reduced motion.
 
 Official ETS scores are stored in the database (`official_scores`, migration 008) and shown on Progress as an anchor next to the current internal projection. The overall band is the mean of the four sections rounded to the nearest half band. The app does not verify them.
 

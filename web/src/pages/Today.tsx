@@ -364,7 +364,8 @@ function Unlock({ projection }: { projection: ProjectionView }) {
 
 // ---------------------------------------------------------------- 5. road to the exam
 
-function Road({ plan, road }: { plan: Plan; road: NonNullable<Plan["road"]> }) {
+/** `celebrate` (session end screen): today's dot lights up. */
+export function Road({ plan, road, celebrate }: { plan: Plan; road: NonNullable<Plan["road"]>; celebrate?: boolean }) {
   const n = daysFrom(road.start, road.exam_date) + 1;
   const days = Array.from({ length: n }, (_, i) => addDays(road.start, i));
   const done = new Set(road.done);
@@ -374,7 +375,7 @@ function Road({ plan, road }: { plan: Plan; road: NonNullable<Plan["road"]> }) {
   const doneCount = days.filter((d) => done.has(d)).length;
   const dot = (d: string) => {
     if (d === road.exam_date) return { cls: "h-4 w-4 bg-accent ring-2 ring-accent ring-offset-2 ring-offset-card", state: "exam day" };
-    if (done.has(d)) return { cls: `h-3.5 w-3.5 bg-accent ${d === today ? "ring-4 ring-ring" : ""}`, state: "base done" };
+    if (done.has(d)) return { cls: `h-3.5 w-3.5 bg-accent ${d === today ? `ring-4 ring-ring ${celebrate ? "motion-safe:animate-light" : ""}` : ""}`, state: "base done" };
     if (d === today) return { cls: "h-4 w-4 border-[3px] border-accent ring-4 ring-ring", state: "today" };
     if (checkpoints.has(d)) return { cls: "h-3.5 w-3.5 border-2 border-dashed border-text", state: `checkpoint: ${checkpoints.get(d)}` };
     if (d < today) return { cls: "h-3 w-3 bg-line", state: "missed" };
