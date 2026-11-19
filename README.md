@@ -270,6 +270,6 @@ docs/                       PRD (source), PRD audit, content guide, implementati
 
 - **No sound in listening tasks:** without a TTS key the browser voice is used. Check the system volume and that the browser has English voices. The audio panel shows which source is in use.
 - **Microphone blocked:** allow it for `127.0.0.1` in the browser's site settings. Recording needs `localhost`/`127.0.0.1` or HTTPS.
-- **"Port in use":** set `PORT=…` in `.env`.
+- **"Port … is already in use" / blank cards after an update:** another trainer server is usually still running, often an older version, which keeps answering with its old API while the browser loads the new page (the page then shows "The server answering this page is older than the page itself"). Stop that process (close its terminal or press Ctrl+C in it; on Windows, end the Node.js process in Task Manager), then run `npm start` again. To run two servers on purpose, set `PORT=…` in `.env`.
 - **Dictation is silent:** it uses the same audio path as listening tasks. Without a TTS key and without an English browser voice, dictation cards are skipped automatically.
 - **Reset a profile:** stop the server and delete `data/toefl.db` (this erases both profiles).

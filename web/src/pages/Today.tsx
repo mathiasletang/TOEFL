@@ -7,6 +7,7 @@ import { Spinner, ErrorBox, Notice, ConfidenceTag } from "../components/ui";
 import { IconCheck, IconLock, IconPlus } from "../components/icons";
 import { inflectionsOf } from "../../../shared/vocab";
 import { OfficialScoreForm } from "../components/OfficialScoreForm";
+import { SectionBoundary } from "../components/SectionBoundary";
 import { addDays, dayLabel, daysFrom, launchBlock, sessionSteps, setStepDone, type OfficialScore, type Plan, type PlanBlock, type ProjectionView } from "../lib/today";
 
 interface DashboardData {
@@ -26,16 +27,17 @@ export function Today({ user }: { user: string }) {
   const plan = useApi<Plan>(`/api/users/${user}/plan`);
   const dash = useApi<DashboardData>(`/api/users/${user}/dashboard`);
   const official = useApi<{ scores: OfficialScore[] }>(`/api/users/${user}/official-scores`);
-  if (plan.error) return <ErrorBox error={plan.error} onRetry={plan.reload} />;
-  if (!plan.data) return <Spinner />;
   const p = plan.data;
   const d = dash.data;
   const activeDrill = d?.active_drill && "session" in d.active_drill ? d.active_drill.session : null;
-  const noDiagnostic = d != null && official.data != null && !d.last_full_simulation && official.data.scores.length === 0;
+  const noDiagnostic = d != null && official.data != null && !d.last_full_simulation && (official.data.scores ?? []).length === 0;
+  const active = p?.status === "active";
 
   return (
     <div className="space-y-6">
-      <Header user={user} plan={p} />
+      <SectionBoundary name="Header" onRetry={plan.reload}>
+        {plan.error ? <ErrorBox error={plan.error} onRetry={plan.reload} /> : p ? <Header user={user} plan={p} /> : <Spinner />}
+      </SectionBoundary>
 
       {d && (d.active_simulation || activeDrill) && (
         <Notice tone="warn">
@@ -58,23 +60,69 @@ export function Today({ user }: { user: string }) {
         </Notice>
       )}
 
-      <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_320px]">
-        <SessionCard user={user} plan={p} onPlan={plan.setData} />
-        <div className="grid content-start gap-5 sm:grid-cols-2 lg:grid-cols-1">
-          <StepsRing plan={p} />
-          <StreakCard plan={p} />
+      {p && (
+        <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_320px]">
+          <SectionBoundary name="Today's session" onRetry={plan.reload}>
+            {active ? <SessionCard user={user} plan={p} onPlan={plan.setData} /> : <ExamDateCard user={user} plan={p} />}
+          </SectionBoundary>
+          <div className="grid content-start gap-5 sm:grid-cols-2 lg:grid-cols-1">
+            {active && (
+              <SectionBoundary name="Steps today" onRetry={plan.reload}>
+                <StepsRing plan={p} />
+              </SectionBoundary>
+            )}
+            <SectionBoundary name="Streak" onRetry={plan.reload}>
+              <StreakCard plan={p} />
+            </SectionBoundary>
+          </div>
         </div>
-      </div>
+      )}
 
-      {dash.error ? <ErrorBox error={dash.error} onRetry={dash.reload} /> : d ? <Unlock projection={d.projection} /> : <Spinner />}
+      <SectionBoundary name="Projected bands" onRetry={dash.reload}>
+        {dash.error ? <ErrorBox error={dash.error} onRetry={dash.reload} /> : d ? <Unlock projection={d.projection} /> : <Spinner />}
+      </SectionBoundary>
 
-      {p.road && <Road plan={p} road={p.road} />}
+      {p?.road && (
+        <SectionBoundary name="The road to the exam" onRetry={plan.reload}>
+          <Road plan={p} road={p.road} />
+        </SectionBoundary>
+      )}
 
       <div className={`grid gap-5 ${noDiagnostic ? "lg:grid-cols-2" : ""}`}>
-        <WordOfTheMoment user={user} />
-        {noDiagnostic && <BeforeAnything user={user} onSaved={official.reload} />}
+        <SectionBoundary name="Word of the moment">
+          <WordOfTheMoment user={user} />
+        </SectionBoundary>
+        {noDiagnostic && (
+          <SectionBoundary name="Before anything else" onRetry={official.reload}>
+            <BeforeAnything user={user} onSaved={official.reload} />
+          </SectionBoundary>
+        )}
       </div>
     </div>
+  );
+}
+
+/** Instead of the plan when there is no (future) exam date. */
+function ExamDateCard({ user, plan }: { user: string; plan: Plan }) {
+  const title = plan.status === "exam_day" ? "Exam day" : plan.status === "past" ? "Set your next exam date" : "Set your exam date";
+  const text =
+    plan.status === "exam_day"
+      ? "No training today — good luck. Set the next date afterwards if you plan another sitting."
+      : plan.status === "past"
+        ? `Your exam date (${plan.exam_date}) has passed. The daily session, the steps and the road to the exam are built backwards from the next one.`
+        : "The daily session, the steps and the road to the exam are built backwards from your exam date.";
+  return (
+    <section className="card p-6 sm:p-8" aria-labelledby="examdate-title">
+      <h2 id="examdate-title" className="text-xl font-black">
+        {title}
+      </h2>
+      <p className="mt-2 text-sm text-muted">{text}</p>
+      {plan.status !== "exam_day" && (
+        <Link to={`/u/${user}/settings`} className="btn btn-primary mt-5 h-14 w-full rounded-[20px] text-base sm:w-auto sm:px-8">
+          Set your exam date in Settings
+        </Link>
+      )}
+    </section>
   );
 }
 
@@ -250,7 +298,7 @@ function StepsRing({ plan }: { plan: Plan }) {
     <section className="card flex items-center gap-5 p-6" aria-label={`${done} of ${n} steps done today`}>
       <svg width="108" height="108" viewBox="0 0 108 108" aria-hidden className="shrink-0 -rotate-90">
         <circle cx="54" cy="54" r={r} fill="none" strokeWidth="10" className="stroke-line" />
-        <circle cx="54" cy="54" r={r} fill="none" strokeWidth="10" strokeLinecap="round" className="stroke-accent" strokeDasharray={`${(done / n) * c} ${c}`} />
+        {done > 0 && <circle cx="54" cy="54" r={r} fill="none" strokeWidth="10" strokeLinecap="round" className="stroke-accent" strokeDasharray={`${(done / n) * c} ${c}`} />}
       </svg>
       <div>
         <div className="text-3xl font-black tabular-nums">
@@ -265,12 +313,24 @@ function StepsRing({ plan }: { plan: Plan }) {
 
 function StreakCard({ plan }: { plan: Plan }) {
   const w = plan.week_days;
-  const done = new Set(w.done);
+  if (!w)
+    return (
+      <section className="card p-6" aria-labelledby="streak-title">
+        <div className="flex items-baseline gap-2">
+          <span className="text-4xl font-black tabular-nums">{plan.streak ?? 0}</span>
+          <span id="streak-title" className="text-sm font-bold text-dim">
+            {plan.streak === 1 ? "day" : "days"} in a row
+          </span>
+        </div>
+        <p className="mt-3 text-xs text-dim">The days of this week are not available from the server yet.</p>
+      </section>
+    );
+  const done = new Set(w.done ?? []);
   const days = Array.from({ length: 7 }, (_, i) => addDays(w.start, i));
   return (
     <section className="card p-6" aria-labelledby="streak-title">
       <div className="flex items-baseline gap-2">
-        <span className="text-4xl font-black tabular-nums">{plan.streak}</span>
+        <span className="text-4xl font-black tabular-nums">{plan.streak ?? 0}</span>
         <span id="streak-title" className="text-sm font-bold text-dim">
           {plan.streak === 1 ? "day" : "days"} in a row
         </span>
@@ -302,7 +362,14 @@ function StreakCard({ plan }: { plan: Plan }) {
 
 // ---------------------------------------------------------------- 4. projected bands
 
-function Unlock({ projection }: { projection: ProjectionView }) {
+function Unlock({ projection }: { projection: ProjectionView | undefined }) {
+  if (!projection?.sections)
+    return (
+      <section className="card p-6 sm:p-8">
+        <h2 className="text-xl font-black">Unlock your projected band</h2>
+        <p className="mt-2 text-sm text-muted">No projection is available from the server yet.</p>
+      </section>
+    );
   const unlocked = SECTION_ORDER.filter((s) => projection.sections[s]?.band != null).length;
   return (
     <section className="card p-6 sm:p-8" aria-labelledby="unlock-title">
@@ -322,7 +389,15 @@ function Unlock({ projection }: { projection: ProjectionView }) {
       </div>
       <div className="mt-5 grid grid-cols-2 gap-3 lg:grid-cols-4">
         {SECTION_ORDER.map((s) => {
-          const e = projection.sections[s]!;
+          const e = projection.sections[s];
+          if (!e)
+            return (
+              <div key={s} className="tile p-5">
+                <span className="label">{SECTION_LABEL[s]}</span>
+                <div className="mt-2 text-3xl font-black text-dim">—</div>
+                <p className="mt-2 text-xs text-muted">No data for this section.</p>
+              </div>
+            );
           const locked = e.band == null;
           const min = e.min_n ?? 0;
           const unit = s === "reading" || s === "listening" ? "scored item" : "scored response";
