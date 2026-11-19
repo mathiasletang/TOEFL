@@ -108,21 +108,21 @@ export function Drill({ user, exerciseId }: { user: string; exerciseId: string }
 
   return (
     <div className="space-y-5">
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-zinc-200 pb-3">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-line pb-3">
         <div>
           <div className="flex items-center gap-2">
             <h1 className="text-lg font-semibold">{TASK_LABEL[ex.task_type]}</h1>
-            <span className={`chip ${strict ? "border-zinc-800 bg-zinc-900 text-white" : ""}`}>{strict ? "strict" : "practice"}</span>
+            <span className={`chip ${strict ? "border-accent bg-accent text-on-accent" : ""}`}>{strict ? "strict" : "practice"}</span>
             <span className="chip">{ex.difficulty}</span>
           </div>
-          <div className="text-xs text-zinc-400">{ex.id}</div>
+          <div className="text-xs text-dim">{ex.id}</div>
         </div>
         <div className="flex items-center gap-3">
           {view.session.time_limit_ms != null &&
             (view.session.deadline_at ? (
               <TimerBadge remaining={timer.remaining} total={view.session.time_limit_ms} label={strict ? "" : "soft"} />
             ) : (
-              <span className="text-xs text-zinc-400">Timer starts after the audio</span>
+              <span className="text-xs text-dim">Timer starts after the audio</span>
             ))}
           {!speaking && (
             <button className="btn btn-primary" disabled={submitting} onClick={() => void submit(false)}>
@@ -131,7 +131,7 @@ export function Drill({ user, exerciseId }: { user: string; exerciseId: string }
           )}
           <Link
             to={`/u/${user}/practice/${ex.task_type}`}
-            className="btn btn-ghost text-zinc-500"
+            className="btn btn-ghost text-dim"
             title="Leave without submitting"
           >
             Leave

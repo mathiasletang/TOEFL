@@ -9,6 +9,7 @@ import { Spinner, ErrorBox, TimerBadge, Notice, PageTitle, ConfidenceTag } from 
 import { TaskView, cleanResponse, isSpeaking } from "../tasks";
 import { TASK_LABEL } from "../../../shared/schema";
 import type { PublicExercise } from "../../../shared/publicView";
+import { IconArrowLeft, IconArrowRight, IconClock } from "../components/icons";
 
 type Scope = "full" | "reading" | "listening" | "writing" | "speaking";
 
@@ -65,9 +66,9 @@ export function SimulationLauncher({ user }: { user: string }) {
             <div className="label mb-2">Scope</div>
             <div className="grid gap-2 sm:grid-cols-2">
               {SCOPES.map((o) => (
-                <button key={o.id} onClick={() => setScope(o.id)} className={`rounded-md border p-3 text-left ${scope === o.id ? "border-zinc-900 bg-zinc-50" : "border-zinc-200 hover:border-zinc-400"}`}>
+                <button key={o.id} onClick={() => setScope(o.id)} className={`rounded-btn border p-3 text-left ${scope === o.id ? "border-accent bg-pill" : "border-line hover:border-text"}`}>
                   <div className="text-sm font-medium">{o.label}</div>
-                  <div className="text-xs text-zinc-500">{o.desc}</div>
+                  <div className="text-xs text-dim">{o.desc}</div>
                 </button>
               ))}
             </div>
@@ -76,12 +77,12 @@ export function SimulationLauncher({ user }: { user: string }) {
             <div className="label mb-2">Length</div>
             <div className="flex gap-2">
               {(["full", "short"] as const).map((l) => (
-                <button key={l} onClick={() => setLength(l)} className={`rounded-md border px-3 py-2 text-sm ${length === l ? "border-zinc-900 bg-zinc-50 font-medium" : "border-zinc-200"}`}>
+                <button key={l} onClick={() => setLength(l)} className={`min-h-11 rounded-full border px-4 py-2 text-sm font-bold ${length === l ? "border-accent bg-pill text-text" : "border-line text-dim hover:text-text"}`} aria-pressed={length === l}>
                   {l === "full" ? "Official format" : "Short (internal)"}
                 </button>
               ))}
             </div>
-            <p className="mt-2 text-xs text-zinc-500">
+            <p className="mt-2 text-xs text-dim">
               {length === "full"
                 ? "Module composition and timing follow the published ETS blueprint (e.g. Reading Module 1 = 10 Complete the Words + 5 Daily Life + 5 Academic)."
                 : "A reduced composition for a 15–25 minute session. Not an official-format test."}
@@ -94,7 +95,7 @@ export function SimulationLauncher({ user }: { user: string }) {
                 <input type="range" min={0.5} max={0.95} step={0.05} value={thr} onChange={(e) => setThreshold(Number(e.target.value))} className="w-48" aria-label="Routing threshold" />
                 <span className="font-mono text-sm">{pct(thr)}</span>
               </div>
-              <p className="mt-1 text-xs text-amber-800">{cfg?.routing.ui_warning ?? "Internal training threshold. ETS does not publish its routing cut-off."} Module 1 accuracy ≥ this value routes to the harder Module 2.</p>
+              <p className="mt-1 text-xs text-text">{cfg?.routing.ui_warning ?? "Internal training threshold. ETS does not publish its routing cut-off."} Module 1 accuracy ≥ this value routes to the harder Module 2.</p>
             </div>
           )}
           {error != null && <ErrorBox error={error} />}
@@ -102,30 +103,30 @@ export function SimulationLauncher({ user }: { user: string }) {
             <button className="btn btn-primary" disabled={busy || !!active || (s != null && s.forms === 0)} onClick={start}>
               {busy ? "Preparing…" : "Start simulation"}
             </button>
-            {s && <span className="text-xs text-zinc-500">{s.forms === 0 ? `Not enough content: ${s.blocker}` : `Content bank supports ${s.forms} distinct form(s) of this type.`}</span>}
+            {s && <span className="text-xs text-dim">{s.forms === 0 ? `Not enough content: ${s.blocker}` : `Content bank supports ${s.forms} distinct form(s) of this type.`}</span>}
           </div>
         </div>
-        <div className="card p-5">
+        <div className="card p-6">
           <div className="label mb-2">History</div>
           {!history.data?.length ? (
-            <p className="text-sm text-zinc-500">No simulations yet.</p>
+            <p className="text-sm text-dim">No simulations yet.</p>
           ) : (
-            <div className="divide-y divide-zinc-100">
+            <div className="divide-y divide-line">
               {history.data.slice(0, 12).map((h) => (
                 <div key={h.id} className="flex items-center justify-between py-2 text-[13px]">
                   <span>
-                    {h.scope} <span className="text-zinc-400">({h.length})</span>
+                    {h.scope} <span className="text-dim">({h.length})</span>
                   </span>
                   {h.status === "completed" ? (
-                    <Link to={`/u/${user}/sim/${h.id}/results`} className="text-accent underline">
+                    <Link to={`/u/${user}/sim/${h.id}/results`} className="font-bold text-text underline underline-offset-4">
                       results
                     </Link>
                   ) : h.status === "active" ? (
-                    <Link to={`/u/${user}/sim/${h.id}`} className="text-amber-700 underline">
+                    <Link to={`/u/${user}/sim/${h.id}`} className="font-bold text-text underline underline-offset-4">
                       resume
                     </Link>
                   ) : (
-                    <span className="text-xs text-zinc-400">{h.status}</span>
+                    <span className="text-xs text-dim">{h.status}</span>
                   )}
                 </div>
               ))}
@@ -251,10 +252,10 @@ export function SimulationRunner({ user, simId }: { user: string; simId: string 
   const steps = cur.simulation.steps;
 
   const header = (
-    <div className="flex flex-wrap items-center justify-between gap-3 border-b border-zinc-200 pb-3">
+    <div className="flex flex-wrap items-center justify-between gap-3 border-b border-line pb-3">
       <div className="flex flex-wrap items-center gap-1.5">
         {steps.map((s) => (
-          <span key={s.index} className={`rounded px-2 py-0.5 text-[11px] ${s.index === step.index ? "bg-zinc-900 text-white" : s.status === "submitted" ? "bg-zinc-200 text-zinc-600" : "bg-zinc-100 text-zinc-400"}`}>
+          <span key={s.index} className={`rounded-lg px-2 py-0.5 text-[11px] ${s.index === step.index ? "bg-accent text-on-accent" : s.status === "submitted" ? "bg-line text-muted" : "bg-pill text-dim"}`}>
             {SECTION_LABEL[s.section]} · {s.label}
           </span>
         ))}
@@ -271,16 +272,16 @@ export function SimulationRunner({ user, simId }: { user: string; simId: string 
         <div className="card mx-auto max-w-xl space-y-4 p-8 text-center">
           <div className="label">{SECTION_LABEL[step.section]}</div>
           <h2 className="text-2xl font-semibold">{step.label}</h2>
-          <p className="text-sm text-zinc-600">
+          <p className="text-sm text-muted">
             {step.minutes != null ? `${step.minutes} minutes · ` : ""}
             {RULES[step.stage] ||
               (back
                 ? "You may return to earlier questions within this module, but not to a previous module."
                 : "You cannot return to earlier questions. Each audio plays once.")}
           </p>
-          {step.stage === "router" && <p className="text-xs text-zinc-500">Your Module 1 performance selects your Module 2. {cur.simulation.router.warning}</p>}
+          {step.stage === "router" && <p className="text-xs text-dim">Your Module 1 performance selects your Module 2. {cur.simulation.router.warning}</p>}
           {cur.simulation.notices.map((n) => (
-            <p key={n} className="text-xs text-amber-800">
+            <p key={n} className="text-xs text-text">
               {n}
             </p>
           ))}
@@ -321,7 +322,7 @@ export function SimulationRunner({ user, simId }: { user: string; simId: string 
   return (
     <div className="space-y-5">
       {header}
-      <div className="flex items-center justify-between text-xs text-zinc-500">
+      <div className="flex items-center justify-between text-xs text-dim">
         <span>
           {TASK_LABEL[ex.task_type]} · {pos + 1} of {exercises.length}
         </span>
@@ -344,9 +345,9 @@ export function SimulationRunner({ user, simId }: { user: string; simId: string 
         }}
       />
       {!speaking && (
-        <div className="flex items-center justify-between border-t border-zinc-200 pt-4">
+        <div className="flex items-center justify-between border-t border-line pt-4">
           <button className="btn" disabled={!step.allowBack || pos === 0 || locked} onClick={() => go(pos - 1)}>
-            ← Back
+            <IconArrowLeft size={16} /> Back
           </button>
           {isLast ? (
             <button
@@ -360,7 +361,7 @@ export function SimulationRunner({ user, simId }: { user: string; simId: string 
             </button>
           ) : (
             <button className="btn btn-primary" disabled={locked} onClick={() => go(pos + 1)}>
-              Next →
+              Next <IconArrowRight size={16} />
             </button>
           )}
         </div>
@@ -407,11 +408,11 @@ export function SimulationResults({ user, simId }: { user: string; simId: string
     <div className="space-y-5">
       <PageTitle title={`Simulation results — ${data.simulation.scope} (${data.simulation.length === "full" ? "official format" : "short"})`} sub={r?.disclaimer} />
       {r?.overall && (
-        <div className="card p-5">
+        <div className="card p-6">
           <div className="label">Internal projected overall</div>
           <div className="mt-1 flex items-baseline gap-3">
             <span className="text-4xl font-semibold tabular-nums">{band(r.overall.band)}</span>
-            {r.overall.range && <span className="text-sm text-zinc-500">range {band(r.overall.range[0])}–{band(r.overall.range[1])}</span>}
+            {r.overall.range && <span className="text-sm text-dim">range {band(r.overall.range[0])}–{band(r.overall.range[1])}</span>}
             <ConfidenceTag c={r.overall.confidence} />
           </div>
         </div>
@@ -420,16 +421,16 @@ export function SimulationResults({ user, simId }: { user: string; simId: string
         {Object.entries(r?.sections ?? {}).map(([s, e]) => {
           const route = data.simulation.steps.find((x) => x.section === s && x.route)?.route;
           return (
-            <div key={s} className="card p-5">
+            <div key={s} className="card p-6">
               <div className="label">{SECTION_LABEL[s]}</div>
               <div className="mt-1 flex items-baseline gap-2">
                 <span className="text-2xl font-semibold tabular-nums">{band(e.band)}</span>
-                {e.range && <span className="text-xs text-zinc-500">{band(e.range[0])}–{band(e.range[1])}</span>}
+                {e.range && <span className="text-xs text-dim">{band(e.range[0])}–{band(e.range[1])}</span>}
                 <ConfidenceTag c={e.confidence} />
               </div>
-              <p className="mt-1 text-xs text-zinc-500">{e.evidence}</p>
+              <p className="mt-1 text-xs text-dim">{e.evidence}</p>
               {route && (
-                <p className="mt-2 text-xs text-zinc-600">
+                <p className="mt-2 text-xs text-muted">
                   Module 1: {route.correct}/{route.total} ({pct(route.proportion)}) → Module 2 <b>{route.route}</b> · internal threshold {pct(route.threshold)} (not an ETS value)
                 </p>
               )}
@@ -449,16 +450,20 @@ export function SimulationResults({ user, simId }: { user: string; simId: string
           )}
         </Notice>
       )}
-      <div className="card divide-y divide-zinc-100">
+      <div className="card divide-y divide-line">
         {data.attempts.map((a) => (
           <div key={a.id} className="flex items-center gap-3 px-4 py-2 text-[13px]">
-            <span className="w-40 text-zinc-500">{a.module_stage?.replace(":", " · ")}</span>
+            <span className="w-40 text-dim">{a.module_stage?.replace(":", " · ")}</span>
             <span className="flex-1">{TASK_LABEL[a.task_type as keyof typeof TASK_LABEL]}</span>
             <span className="w-28 text-right tabular-nums">
               {a.raw_score == null ? "pending" : `${+a.raw_score.toFixed(2)}/${a.max_score}`}
-              {a.timed_out ? " ⏱" : ""}
+              {a.timed_out && (
+                <span className="ml-1 inline-flex items-center gap-0.5 align-middle text-[11px] font-bold text-dim">
+                  <IconClock size={14} /> timed out
+                </span>
+              )}
             </span>
-            <Link to={`/u/${user}/review/${a.id}`} className="text-accent underline">
+            <Link to={`/u/${user}/review/${a.id}`} className="font-bold text-text underline underline-offset-4">
               review
             </Link>
           </div>

@@ -1,4 +1,4 @@
-import { useEffect, type ReactNode } from "react";
+import { useEffect, useLayoutEffect, type ReactNode } from "react";
 import { RouterProvider, useRouter, match, Link } from "./lib/router";
 import { UserSelect } from "./pages/UserSelect";
 import { Dashboard } from "./pages/Dashboard";
@@ -10,9 +10,13 @@ import { SimulationLauncher, SimulationRunner, SimulationResults } from "./pages
 import { Progress } from "./pages/Progress";
 import { Settings } from "./pages/Settings";
 import { Shadowing } from "./pages/Shadowing";
+import { applyTheme, readTheme } from "./lib/theme";
+import { IconSwap } from "./components/icons";
+import { ThemeToggle } from "./components/ThemeToggle";
 import { VocabBank, VocabEntryPage, VocabSession, VocabStats, VocabTriage } from "./pages/Vocabulary";
 
 const USERS = ["Virgile", "Mathias"];
+
 
 function Shell({ user, children, wide }: { user: string; children: ReactNode; wide?: boolean }) {
   const { path, navigate } = useRouter();
@@ -28,31 +32,34 @@ function Shell({ user, children, wide }: { user: string; children: ReactNode; wi
   const other = USERS.find((u) => u !== user)!;
   return (
     <div className="min-h-screen">
-      <header className="sticky top-0 z-20 border-b border-zinc-200 bg-white/95 backdrop-blur">
-        <div className="mx-auto flex h-12 max-w-6xl items-center gap-6 px-4">
-          <Link to={`/u/${user}`} className="flex items-center gap-2 text-sm font-semibold tracking-tight">
-            <span className="rounded bg-zinc-900 px-1.5 py-0.5 text-[11px] font-bold text-white">TOEFL</span>
-            <span className="hidden sm:inline">2026 Trainer</span>
+      <header className="sticky top-0 z-20 border-b border-line bg-bg/95 backdrop-blur">
+        <div className="mx-auto flex min-h-16 max-w-6xl items-center gap-5 px-4">
+          <Link to={`/u/${user}`} className="flex min-h-11 items-center gap-2.5 rounded-btn text-[15px] font-black tracking-tight" aria-label="TOEFL 2026 Trainer, dashboard">
+            <span className="flex h-9 w-9 items-center justify-center rounded-[12px] bg-accent text-lg font-black text-on-accent" aria-hidden>
+              T
+            </span>
+            <span className="hidden lg:inline">TOEFL 2026</span>
           </Link>
-          <nav className="flex min-w-0 flex-1 gap-1 overflow-x-auto" aria-label="Main">
+          <nav className="flex min-w-0 flex-1 gap-1 overflow-x-auto py-2" aria-label="Main">
             {nav.map(([label, to]) => {
               const active = to === `/u/${user}` ? path === to : path.startsWith(to);
               return (
-                <Link key={to} to={to} className={`whitespace-nowrap rounded-md px-2.5 py-1.5 text-[13px] ${active ? "bg-zinc-100 font-medium text-zinc-900" : "text-zinc-500 hover:text-zinc-900"}`}>
+                <Link key={to} to={to} aria-current={active ? "page" : undefined} className={`tab ${active ? "tab-active" : ""}`}>
                   {label}
                 </Link>
               );
             })}
           </nav>
           <div className="flex items-center gap-2 text-[13px]">
-            <span className="font-medium text-zinc-900">{user}</span>
-            <button className="btn btn-ghost px-2 py-1 text-[12px] text-zinc-500" title={`Switch to ${other}`} onClick={() => navigate(`/u/${other}`)}>
-              ⇄ {other}
+            <span className="hidden font-extrabold text-text sm:inline">{user}</span>
+            <button className="btn btn-ghost text-[13px] text-dim" title={`Switch to ${other}`} onClick={() => navigate(`/u/${other}`)}>
+              <IconSwap size={16} /> {other}
             </button>
+            <ThemeToggle user={user} />
           </div>
         </div>
       </header>
-      <main className={`mx-auto px-4 py-6 ${wide ? "max-w-7xl" : "max-w-6xl"}`}>{children}</main>
+      <main className={`mx-auto px-4 py-8 ${wide ? "max-w-7xl" : "max-w-6xl"}`}>{children}</main>
     </div>
   );
 }
@@ -61,6 +68,10 @@ function Routes() {
   const { path, navigate } = useRouter();
   const userMatch = path.match(/^\/u\/([^/]+)/);
   const user = userMatch ? decodeURIComponent(userMatch[1]!) : null;
+  // Each profile has its own theme: apply it when the profile changes, before paint.
+  useLayoutEffect(() => {
+    applyTheme(readTheme(user && USERS.includes(user) ? user : null));
+  }, [user]);
   useEffect(() => {
     if (user && USERS.includes(user)) {
       try {
@@ -95,7 +106,7 @@ function Routes() {
   if ((m = match("/u/:user/settings", path))) return <Shell user={user}><Settings user={user} /></Shell>;
   return (
     <Shell user={user}>
-      <p className="text-sm text-zinc-500">
+      <p className="text-sm text-dim">
         Page not found. <Link to={`/u/${user}`} className="text-accent underline">Dashboard</Link>
       </p>
     </Shell>

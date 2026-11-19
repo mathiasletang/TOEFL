@@ -192,16 +192,16 @@ function RecordingPanel({ stage, remaining, seconds, label, onStop, allowStop }:
   return (
     <div className="card flex flex-col items-center gap-4 p-8 text-center">
       <div className="label">{label}</div>
-      {stage === "listening" && <div className="text-lg font-medium text-zinc-800">Listen…</div>}
-      {stage === "gap" && <div className="text-lg font-medium text-zinc-500">Get ready</div>}
+      {stage === "listening" && <div className="text-lg font-medium text-text">Listen…</div>}
+      {stage === "gap" && <div className="text-lg font-medium text-dim">Get ready</div>}
       {stage === "recording" && (
         <>
-          <div className="flex items-center gap-2 text-lg font-semibold text-red-700">
-            <span className="h-3 w-3 animate-pulse rounded-full bg-red-600" /> Recording
+          <div className="flex items-center gap-2 text-lg font-semibold text-bad">
+            <span className="h-3 w-3 animate-pulse rounded-full bg-bad" /> Recording
           </div>
           <div className="font-mono text-4xl font-semibold tabular-nums">{formatClock(remaining)}</div>
-          <div className="h-1.5 w-64 overflow-hidden rounded-full bg-zinc-200">
-            <div className="h-full bg-red-600" style={{ width: `${((remaining ?? 0) / (seconds * 1000)) * 100}%` }} />
+          <div className="h-1.5 w-64 overflow-hidden rounded-full bg-line">
+            <div className="h-full bg-bad" style={{ width: `${((remaining ?? 0) / (seconds * 1000)) * 100}%` }} />
           </div>
           {allowStop && (
             <button className="btn" onClick={onStop}>
@@ -220,18 +220,18 @@ export function ListenAndRepeat({ ex, value, onChange, ctx }: TaskProps<"listen_
   const cur = items[Math.min(r.cursor, items.length - 1)]!;
   return (
     <div className="mx-auto max-w-2xl space-y-5">
-      <div className="card p-5">
+      <div className="card p-6">
         <div className="label mb-1">Scenario</div>
-        <p className="text-[15px] text-zinc-800">{ex.scenario}</p>
+        <p className="text-[15px] text-text">{ex.scenario}</p>
       </div>
       <div className="flex justify-center gap-1.5" aria-label="Progress">
         {items.map((it, i) => (
-          <span key={it.index} className={`h-1.5 w-8 rounded-full ${i < r.cursor ? "bg-zinc-800" : i === r.cursor && r.stage !== "intro" ? "bg-accent" : "bg-zinc-200"}`} />
+          <span key={it.index} className={`h-1.5 w-8 rounded-full ${i < r.cursor ? "bg-accent" : i === r.cursor && r.stage !== "intro" ? "bg-accent" : "bg-line"}`} />
         ))}
       </div>
       {r.stage === "intro" && (
         <div className="card space-y-3 p-6 text-center">
-          <p className="text-sm text-zinc-600">
+          <p className="text-sm text-muted">
             You will hear {items.length} sentences, one at a time, <b>once each</b>. Recording starts automatically after each sentence. Repeat it exactly. Response windows: {items.map((i) => i.seconds).join(", ")} s. No preparation time.
           </p>
           <button className="btn btn-primary" onClick={r.begin}>
@@ -256,13 +256,13 @@ export function TakeAnInterview({ ex, value, onChange, ctx }: TaskProps<"take_an
   const qText = ex.audio.find((a) => a.key === cur.key)?.text;
   return (
     <div className="mx-auto max-w-2xl space-y-5">
-      <div className="card p-5">
+      <div className="card p-6">
         <div className="label mb-1">Interview</div>
-        <p className="text-[15px] text-zinc-800">{ex.scenario}</p>
+        <p className="text-[15px] text-text">{ex.scenario}</p>
       </div>
       {r.stage === "intro" && (
         <div className="card space-y-3 p-6 text-center">
-          <p className="text-sm text-zinc-600">
+          <p className="text-sm text-muted">
             The interviewer asks {items.length} questions. Recording starts <b>immediately</b> after each question; you have {ex.response_seconds} seconds per answer. No preparation time.
           </p>
           <button className="btn btn-primary" onClick={r.begin}>

@@ -3,6 +3,7 @@ import { McqQuestion } from "../components/Mcq";
 import { playScript, getManifest, AUDIO_MODE_LABEL, type Playback, type Manifest } from "../lib/audio";
 import type { AudioScript } from "../../../shared/publicView";
 import type { TaskProps, TaskCtx } from "./types";
+import { IconArrowLeft, IconArrowRight, IconPlay, IconReplay } from "../components/icons";
 
 type Phase = "ready" | "playing" | "done" | "error";
 
@@ -49,11 +50,11 @@ export function useStimulus(exId: string, script: AudioScript, ctx: TaskCtx, pla
 export function AudioPanel({ s, total, context }: { s: ReturnType<typeof useStimulus>; total: number; context?: string }) {
   return (
     <div className="card flex items-center gap-4 p-4">
-      <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full ${s.phase === "playing" ? "bg-accent text-white" : "bg-zinc-100 text-zinc-600"}`} aria-hidden>
+      <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full ${s.phase === "playing" ? "bg-accent text-on-accent" : "bg-pill text-muted"}`} aria-hidden>
         {s.phase === "playing" ? (
           <span className="flex h-4 items-end gap-0.5">
             {[0, 1, 2, 3].map((i) => (
-              <span key={i} className="w-1 animate-pulse bg-white" style={{ height: `${6 + ((i * 5) % 10)}px`, animationDelay: `${i * 120}ms` }} />
+              <span key={i} className="w-1 animate-pulse rounded-full bg-current" style={{ height: `${6 + ((i * 5) % 10)}px`, animationDelay: `${i * 120}ms` }} />
             ))}
           </span>
         ) : (
@@ -63,18 +64,18 @@ export function AudioPanel({ s, total, context }: { s: ReturnType<typeof useStim
         )}
       </div>
       <div className="min-w-0 flex-1">
-        {context && <div className="text-[14px] text-zinc-800">{context}</div>}
-        <div className="text-xs text-zinc-500">
+        {context && <div className="text-[14px] text-text">{context}</div>}
+        <div className="text-xs text-dim">
           {s.phase === "ready" && "Press Play when you are ready. The audio plays once in strict mode."}
           {s.phase === "playing" && `Playing${total > 1 ? ` · part ${s.seg + 1}/${total}` : ""}…`}
           {s.phase === "done" && "Audio finished."}
-          {s.phase === "error" && <span className="text-red-700">Audio unavailable: {s.error}</span>}
+          {s.phase === "error" && <span className="text-bad">Audio unavailable: {s.error}</span>}
         </div>
-        {s.mode && <div className="mt-0.5 text-[11px] text-zinc-400">{AUDIO_MODE_LABEL[s.mode]}</div>}
+        {s.mode && <div className="mt-0.5 text-[11px] text-dim">{AUDIO_MODE_LABEL[s.mode]}</div>}
       </div>
       {(s.phase === "ready" || s.canReplay) && (
         <button className="btn" onClick={s.play}>
-          {s.phase === "ready" ? "▶ Play" : "↻ Replay (practice)"}
+          {s.phase === "ready" ? <><IconPlay size={15} /> Play</> : <><IconReplay size={15} /> Replay (practice)</>}
         </button>
       )}
     </div>
@@ -95,7 +96,7 @@ export function ListenChooseResponse({ ex, value, onChange, ctx }: TaskProps<"li
       {show ? (
         <McqQuestion q={{ id: "q1", stem: "Choose the best response.", options: ex.options }} value={v.answer} onChange={(i) => onChange({ ...v, answer: i })} disabled={ctx.locked} />
       ) : (
-        <p className="text-center text-sm text-zinc-400">The responses appear after the audio.</p>
+        <p className="text-center text-sm text-dim">The responses appear after the audio.</p>
       )}
     </div>
   );
@@ -115,7 +116,7 @@ export function ListeningSet({ ex, value, onChange, ctx }: TaskProps<"conversati
     <div className="mx-auto max-w-2xl space-y-5">
       <AudioPanel s={s} total={ex.audio.length} context={`${ex.context}${"title" in ex && ex.title ? ` — ${ex.title}` : ""}`} />
       {show ? (
-        <div className="card p-5">
+        <div className="card p-6">
           <McqQuestion
             q={ex.questions[q]!}
             value={v.answers[q]}
@@ -130,21 +131,21 @@ export function ListeningSet({ ex, value, onChange, ctx }: TaskProps<"conversati
           />
           <div className="mt-4 flex justify-between">
             {ctx.strict ? (
-              <span className="text-xs text-zinc-400">Listening: no return to previous questions.</span>
+              <span className="text-xs text-dim">Listening: no return to previous questions.</span>
             ) : (
               <button className="btn" disabled={q === 0} onClick={() => onChange({ ...v, _q: q - 1 })}>
-                ← Previous
+                <IconArrowLeft size={16} /> Previous
               </button>
             )}
             {q < n - 1 && (
               <button className="btn" disabled={ctx.locked} onClick={() => onChange({ ...v, _q: q + 1 })}>
-                Next question →
+                Next question <IconArrowRight size={16} />
               </button>
             )}
           </div>
         </div>
       ) : (
-        <p className="text-center text-sm text-zinc-400">Questions appear after the audio. The transcript is never shown during the attempt.</p>
+        <p className="text-center text-sm text-dim">Questions appear after the audio. The transcript is never shown during the attempt.</p>
       )}
     </div>
   );

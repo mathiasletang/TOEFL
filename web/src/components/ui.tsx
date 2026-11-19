@@ -1,10 +1,11 @@
 import type { ReactNode } from "react";
 import { formatClock } from "../lib/timer";
+import { IconAlert, IconCheck, IconInfo } from "./icons";
 
 export function Spinner({ label = "Loading…" }: { label?: string }) {
   return (
-    <div className="flex items-center gap-2 py-8 text-sm text-zinc-500" role="status">
-      <span className="h-3 w-3 animate-spin rounded-full border-2 border-zinc-300 border-t-zinc-700" />
+    <div className="flex items-center gap-2 py-8 text-sm text-dim" role="status">
+      <span className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-ring border-t-text" />
       {label}
     </div>
   );
@@ -13,10 +14,11 @@ export function Spinner({ label = "Loading…" }: { label?: string }) {
 export function ErrorBox({ error, onRetry }: { error: unknown; onRetry?: () => void }) {
   const msg = error instanceof Error ? error.message : String(error);
   return (
-    <div className="rounded-md border border-red-200 bg-red-50 p-3 text-sm text-red-800" role="alert">
-      {msg}
+    <div className="flex flex-wrap items-center gap-2 rounded-tile border border-bad/40 bg-bad-soft px-4 py-3 text-sm font-semibold text-bad" role="alert">
+      <IconAlert />
+      <span className="min-w-0 flex-1">{msg}</span>
       {onRetry && (
-        <button className="btn ml-3 py-1" onClick={onRetry}>
+        <button className="btn" onClick={onRetry}>
           Retry
         </button>
       )}
@@ -25,9 +27,15 @@ export function ErrorBox({ error, onRetry }: { error: unknown; onRetry?: () => v
 }
 
 export function Notice({ tone = "info", children }: { tone?: "info" | "warn" | "ok"; children: ReactNode }) {
-  const cls =
-    tone === "warn" ? "border-amber-200 bg-amber-50 text-amber-900" : tone === "ok" ? "border-green-200 bg-green-50 text-green-900" : "border-zinc-200 bg-zinc-50 text-zinc-700";
-  return <div className={`rounded-md border px-3 py-2 text-[13px] leading-relaxed ${cls}`}>{children}</div>;
+  // Black and white: a warning is told apart by its icon, its weight and a stronger border; "ok" is green with a check.
+  const cls = tone === "warn" ? "border-ring bg-pill text-text font-semibold" : tone === "ok" ? "border-ok/40 bg-ok-soft text-ok font-semibold" : "border-line bg-pill text-muted";
+  const Icon = tone === "warn" ? IconAlert : tone === "ok" ? IconCheck : IconInfo;
+  return (
+    <div className={`flex gap-2.5 rounded-tile border px-4 py-3 text-[13px] leading-relaxed ${cls}`}>
+      <Icon size={16} className="mt-0.5 shrink-0" />
+      <div className="min-w-0 flex-1">{children}</div>
+    </div>
+  );
 }
 
 export function TimerBadge({ remaining, total, label }: { remaining: number | null; total?: number | null; label?: string }) {
@@ -36,12 +44,13 @@ export function TimerBadge({ remaining, total, label }: { remaining: number | nu
   return (
     <div className="flex items-center gap-3" aria-live="off">
       {label && <span className="label">{label}</span>}
-      <div className={`min-w-[64px] rounded-md px-2 py-1 text-center font-mono text-lg font-semibold tabular-nums ${low ? "bg-red-50 text-red-700" : "bg-zinc-100 text-zinc-800"}`} role="timer">
+      <div className={`flex min-w-[72px] items-center justify-center gap-1.5 rounded-full px-3 py-1 text-center text-lg font-extrabold tabular-nums ${low ? "bg-bad-soft text-bad" : "bg-pill text-text"}`} role="timer">
+        {low && <IconAlert size={15} title="Less than 30 seconds left" />}
         {formatClock(remaining)}
       </div>
       {frac != null && (
-        <div className="hidden h-1.5 w-28 overflow-hidden rounded-full bg-zinc-200 sm:block">
-          <div className={`h-full ${low ? "bg-red-500" : "bg-zinc-700"}`} style={{ width: `${frac * 100}%` }} />
+        <div className="hidden h-1.5 w-28 overflow-hidden rounded-full bg-line sm:block">
+          <div className={`h-full rounded-full ${low ? "bg-bad" : "bg-accent"}`} style={{ width: `${frac * 100}%` }} />
         </div>
       )}
     </div>
@@ -49,15 +58,16 @@ export function TimerBadge({ remaining, total, label }: { remaining: number | nu
 }
 
 export function ConfidenceTag({ c }: { c: string }) {
-  const map: Record<string, string> = { insufficient: "text-zinc-400", low: "text-amber-700", medium: "text-zinc-600" };
-  return <span className={`text-[11px] font-medium ${map[c] ?? ""}`}>{c === "insufficient" ? "not enough data" : `${c} confidence`}</span>;
+  const map: Record<string, string> = { insufficient: "text-dim", low: "text-text", medium: "text-muted" };
+  return <span className={`text-[11px] font-bold ${map[c] ?? ""}`}>{c === "insufficient" ? "not enough data" : `${c} confidence`}</span>;
 }
 
 export function Bar({ value, max = 1, tone = "dark" }: { value: number | null; max?: number; tone?: "dark" | "ok" | "warn" | "bad" }) {
-  const color = { dark: "bg-zinc-700", ok: "bg-green-600", warn: "bg-amber-500", bad: "bg-red-500" }[tone];
+  // The value is always printed next to the bar; the tone only reinforces it.
+  const color = { dark: "bg-accent", ok: "bg-ok", warn: "bg-muted", bad: "bg-bad" }[tone];
   return (
-    <div className="h-1.5 w-full overflow-hidden rounded-full bg-zinc-100">
-      {value != null && <div className={`h-full ${color}`} style={{ width: `${Math.max(0, Math.min(1, value / max)) * 100}%` }} />}
+    <div className="h-2 w-full overflow-hidden rounded-full bg-line">
+      {value != null && <div className={`h-full rounded-full ${color}`} style={{ width: `${Math.max(0, Math.min(1, value / max)) * 100}%` }} />}
     </div>
   );
 }
@@ -68,10 +78,10 @@ export function Kbd({ children }: { children: ReactNode }) {
 
 export function PageTitle({ title, sub, right }: { title: string; sub?: ReactNode; right?: ReactNode }) {
   return (
-    <div className="mb-5 flex flex-wrap items-end justify-between gap-3">
+    <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
       <div>
-        <h1 className="text-xl font-semibold tracking-tight text-zinc-900">{title}</h1>
-        {sub && <div className="mt-1 text-sm text-zinc-500">{sub}</div>}
+        <h1 className="text-2xl font-black tracking-tight text-text">{title}</h1>
+        {sub && <div className="mt-1 text-sm text-dim">{sub}</div>}
       </div>
       {right}
     </div>
